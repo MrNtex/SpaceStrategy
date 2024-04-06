@@ -8,19 +8,15 @@ public class PlanetInfo : MonoBehaviour
 
 
     private Orbiting orbiting;
+
+
+    [SerializeField]
+    private Vector3 offset;
+
+    [SerializeField]
     private Transform target;
 
-    [SerializeField]
-    private Vector3 focusOffset = new Vector3(0, 1, 0);
-    // Every time we focus on a planet, we will move the camera to the position of the planet plus the focusOffset and minus the normalized vector from the target to the planet times 20
-    private float focusDistance = 50f;
-
-    [SerializeField]
-    private float planetWeight = .8f;
-    // The weight of the planet in the solar system. The higher the weight, the more the camera will focus on this planet
-
-
-    private Camera mainCamera;
+    private GameObject cameraPlacement;
     private void Awake()
     {
         if (planetName == "")
@@ -31,31 +27,37 @@ public class PlanetInfo : MonoBehaviour
         if (orbiting != null)
         {
             target = orbiting.target;
+
         }
 
-        mainCamera = Camera.main;
         
     }
-    private void Update()
+    private void Start()
     {
-        if (Input.GetKeyDown(KeyCode.J))
+        if (target == null)
         {
-            if (planetName != "Jupiter") return;
-            Focus();
+            Debug.LogError("Planet " + planetName + " has no target");
         }
-        
+        else if(cameraPlacement == null)
+        {
+            cameraPlacement = new GameObject("CameraPlacement");
+            cameraPlacement.transform.SetParent(transform);
+            cameraPlacement.transform.localPosition = offset;
+        }
     }
-    public void Focus()
+
+    public FocusData Focus()
     {
-        if (target == null) return;
-        Vector3 dir = (target.position - transform.position).normalized;
-        Vector3 pos = transform.position + focusOffset - dir * focusDistance;
-        mainCamera.transform.position = pos;
+        FocusData focusData = new FocusData();
+        if (target == null) return focusData;
+        
+        focusData.Position = cameraPlacement.transform.localPosition;
 
-        Vector3 targetLookAt = Vector3.Lerp((target.position - mainCamera.transform.position).normalized, (transform.position - mainCamera.transform.position).normalized, planetWeight);
+        focusData.Rotation = Quaternion.LookRotation((transform.position - cameraPlacement.transform.position).normalized);
 
-        mainCamera.transform.rotation = Quaternion.LookRotation(targetLookAt, Vector3.up);
+        focusData.Parent = transform;
 
-        mainCamera.transform.parent = transform;
+        return focusData;
     }
+
 }

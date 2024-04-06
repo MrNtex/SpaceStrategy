@@ -25,26 +25,39 @@ public class CameraControler : MonoBehaviour
         if (Input.GetKey(KeyCode.W))
         {
             transform.position += transform.forward * panSpeed * Time.deltaTime;
+            MoveCamera(transform.forward);
         }
         if (Input.GetKey(KeyCode.S))
         {
-            transform.position -= transform.forward * panSpeed * Time.deltaTime;
+            MoveCamera(-transform.forward);
         }
         if (Input.GetKey(KeyCode.D))
         {
-            transform.position += transform.right * panSpeed * Time.deltaTime;
+            MoveCamera(transform.right);
         }
         if (Input.GetKey(KeyCode.A))
         {
-            transform.position -= transform.right * panSpeed * Time.deltaTime;
+            MoveCamera(-transform.right);
         }
-
-        if(Input.GetMouseButton(2))
+        Vector3 mouseScroll = Input.mouseScrollDelta;
+        if (mouseScroll.y != 0)
+        {
+            MoveCamera(mouseScroll.y * 8 * transform.forward, false);
+        }
+        if (Input.GetMouseButton(2))
         {
             transform.Rotate(Vector3.up * rotationSpeed * Input.GetAxis("Mouse X"));
             transform.Rotate(Vector3.right * rotationSpeed * -Input.GetAxis("Mouse Y"));
 
             transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, 0);
+        }
+    }
+    void MoveCamera(Vector3 dir, bool breakFromParent = true)
+    {
+        transform.position += dir * panSpeed * Time.deltaTime;
+        if(transform.parent != null && breakFromParent)
+        {
+            transform.SetParent(null);
         }
     }
 }
