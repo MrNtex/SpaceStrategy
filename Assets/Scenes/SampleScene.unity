@@ -1081,6 +1081,7 @@ GameObject:
   - component: {fileID: 330585544}
   - component: {fileID: 330585547}
   - component: {fileID: 330585548}
+  - component: {fileID: 330585549}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1155,13 +1156,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.07580276, y: 0.897265, z: -0.4003911, w: 0.16987182}
-  m_LocalPosition: {x: -599.81946, y: 1362.4865, z: 1062.5184}
+  m_LocalRotation: {x: -0, y: 0.9907612, z: -0, w: -0.13561825}
+  m_LocalPosition: {x: 0, y: 0, z: 1631.8201}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 8.316, y: -143.846, z: 1.452}
+  m_LocalEulerAnglesHint: {x: 0, y: 195.589, z: 0}
 --- !u!114 &330585547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1225,6 +1226,44 @@ MonoBehaviour:
   minY: 20
   maxY: 120
   rotationSpeed: 20
+--- !u!114 &330585549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330585543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47460aacd48349143bce64c36172fcbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  planet: {fileID: 515440455}
+  focusTime: 20
+  focusCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: -0.009132385
+      value: 0.99749756
+      inSlope: 0.012743284
+      outSlope: 0.012743284
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.18967848
+    - serializedVersion: 3
+      time: 1
+      value: 0.0051002502
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &356142570
 GameObject:
   m_ObjectHideFlags: 0
@@ -1464,6 +1503,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planetName: 
+  offset: {x: 0, y: 0, z: 0}
+  target: {fileID: 0}
 --- !u!1 &361212639
 GameObject:
   m_ObjectHideFlags: 0
@@ -1906,6 +1947,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planetName: Io
+  offset: {x: 0, y: 0, z: 0}
+  target: {fileID: 0}
 --- !u!1 &462690845
 GameObject:
   m_ObjectHideFlags: 0
@@ -2041,6 +2084,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planetName: Ganymede
+  offset: {x: 0, y: 0, z: 0}
+  target: {fileID: 0}
 --- !u!1 &462992310
 GameObject:
   m_ObjectHideFlags: 0
@@ -2161,6 +2206,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planetName: Sun
+  offset: {x: 0, y: 0, z: 0}
+  target: {fileID: 0}
 --- !u!1 &473745706
 GameObject:
   m_ObjectHideFlags: 0
@@ -2592,6 +2639,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planetName: Jupiter
+  offset: {x: 0, y: 7.8548307, z: 11.624336}
+  target: {fileID: 462992311}
 --- !u!1 &564395469
 GameObject:
   m_ObjectHideFlags: 0
@@ -2830,6 +2879,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planetName: 
+  offset: {x: 0, y: 0, z: 0}
+  target: {fileID: 0}
 --- !u!1 &579289018
 GameObject:
   m_ObjectHideFlags: 0
@@ -3257,6 +3308,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planetName: 
+  offset: {x: 0, y: 0, z: 0}
+  target: {fileID: 0}
 --- !u!1 &623051809
 GameObject:
   m_ObjectHideFlags: 0
@@ -3770,6 +3823,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planetName: Europa
+  offset: {x: 0, y: 0, z: 0}
+  target: {fileID: 0}
 --- !u!1 &711369440
 GameObject:
   m_ObjectHideFlags: 0
@@ -4198,6 +4253,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planetName: Uranus
+  offset: {x: 0, y: 0, z: 0}
+  target: {fileID: 0}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -4382,6 +4439,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planetName: 
+  offset: {x: 0, y: 0, z: 0}
+  target: {fileID: 0}
 --- !u!1 &933488668
 GameObject:
   m_ObjectHideFlags: 0
@@ -4706,6 +4765,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planetName: Calisto
+  offset: {x: 0, y: 0, z: 0}
+  target: {fileID: 0}
 --- !u!1 &1138087767
 GameObject:
   m_ObjectHideFlags: 0
@@ -4945,6 +5006,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planetName: Saturn
+  offset: {x: 0, y: 0, z: 0}
+  target: {fileID: 0}
 --- !u!1 &1175094280
 GameObject:
   m_ObjectHideFlags: 0
@@ -5269,6 +5332,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planetName: Titan
+  offset: {x: 0, y: 0, z: 0}
+  target: {fileID: 0}
 --- !u!1 &1333688739
 GameObject:
   m_ObjectHideFlags: 0
@@ -5404,6 +5469,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planetName: 
+  offset: {x: 0, y: 0, z: 0}
+  target: {fileID: 0}
 --- !u!1 &1376634461
 GameObject:
   m_ObjectHideFlags: 0
@@ -5643,6 +5710,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planetName: Neptune
+  offset: {x: 0, y: 0, z: 0}
+  target: {fileID: 0}
 --- !u!1 &1522920145
 GameObject:
   m_ObjectHideFlags: 0
@@ -6376,6 +6445,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planetName: 
+  offset: {x: 0, y: 0, z: 0}
+  target: {fileID: 0}
 --- !u!1 &1953583892
 GameObject:
   m_ObjectHideFlags: 0
@@ -6803,6 +6874,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planetName: 
+  offset: {x: 0, y: 0, z: 0}
+  target: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -11,50 +11,79 @@ public class CameraFocus : MonoBehaviour
     private bool isFocusing = false;
 
     private float startTime;
-    FocusData focusData;
-    private FocusData focusDataStart;
+
+    private GameObject oldPos;
+    private Transform focus;
+    private PlanetInfo planetInfo;
 
     [SerializeField]
     private AnimationCurve focusCurve;
+
+    private CameraControler cameraControler;
+    private void Start()
+    {
+        oldPos = new GameObject("OldPos");
+        cameraControler = GetComponent<CameraControler>();
+    }
     private void Update()
     {
+
+        // <summary>
+        // Focusing on the planet with a smooth transition
+        // </summary>
         if (isFocusing) {    
             float t = (Time.time - startTime) / focusTime;
             if (t >= 1)
             {
                 isFocusing = false;
-                transform.rotation = focusData.Rotation;
-                transform.SetParent(focusData.Parent);
-                transform.localPosition = focusData.Position;
+                transform.rotation = focus.rotation;
+                transform.SetParent(focus.parent);
+                transform.position = focus.position;
             }
             else
             {
-                transform.position = Vector3.Lerp(focusData.Position, focusData.Parent.position + focusDataStart.Position, focusCurve.Evaluate(t));
-                transform.rotation = Quaternion.Slerp(focusData.Rotation, focusDataStart.Rotation, focusCurve.Evaluate(t));
+                transform.position = Vector3.Lerp(focus.position, oldPos.transform.position, focusCurve.Evaluate(t));
+                transform.rotation = Quaternion.Slerp(focus.rotation, oldPos.transform.rotation, focusCurve.Evaluate(t));
             }
         }
-        if (Input.GetKeyDown(KeyCode.J))
-        {
-            focusData = planet.Focus();
 
-            startTime = Time.time;
-            isFocusing = true;
+
+
+        if(Input.GetMouseButton(0))
+        {
+            RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out hit))
+            {
+                if (hit.transform.GetComponent<PlanetInfo>())
+                {
+                    planet = hit.transform.GetComponent<PlanetInfo>();
+                    FocusOn(planet);
+                }
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            if(planet.target == null)
+            {
+                cameraControler.ResetToDefault();
+                return;
+            }
+
+            planet = planet.target.gameObject.GetComponent<PlanetInfo>();
+            FocusOn(planet);
         }
 
     }
-}
-
-public struct FocusData
-{
-    public Vector3 Position;
-    public Quaternion Rotation;
-
-    public Transform Parent;
-
-    public FocusData(Vector3 position, Quaternion rotation, Transform parent)
+    private void FocusOn(PlanetInfo planet)
     {
-        Position = position;
-        Rotation = rotation;
-        Parent = parent;
+        Debug.Log("Focusing on " + planet.planetName);
+        oldPos.transform.position = transform.position;
+        oldPos.transform.rotation = transform.rotation;
+
+        focus = planet.Focus();
+        startTime = Time.time;
+        isFocusing = true;
     }
 }

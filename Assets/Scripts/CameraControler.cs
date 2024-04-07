@@ -14,9 +14,14 @@ public class CameraControler : MonoBehaviour
 
     public float rotationSpeed = 20f;
     // Start is called before the first frame update
+
+    private Vector3 initialPosition;
+    private Quaternion initialRotation;
+
     void Start()
     {
-            
+        initialPosition = transform.position;
+        initialRotation = transform.rotation;
     }
 
     // Update is called once per frame
@@ -51,6 +56,7 @@ public class CameraControler : MonoBehaviour
 
             transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, 0);
         }
+
     }
     void MoveCamera(Vector3 dir, bool breakFromParent = true)
     {
@@ -59,5 +65,12 @@ public class CameraControler : MonoBehaviour
         {
             transform.SetParent(null);
         }
+    }
+
+    public void ResetToDefault()
+    {
+        transform.SetParent(null);
+        transform.position = initialPosition;
+        transform.rotation = initialRotation;
     }
 }
