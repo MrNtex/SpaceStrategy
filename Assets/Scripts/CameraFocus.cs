@@ -7,14 +7,15 @@ public class CameraFocus : MonoBehaviour
     [SerializeField]
     private PlanetFocusHelper planet;
 
+    public GameObject focusedObject;
+
     public float focusTime;
     private bool isFocusing = false;
 
     private float startTime;
 
     private GameObject oldPos;
-    private Transform focus;
-    private PlanetFocusHelper planetInfo;
+    private Transform cameraFocus;
 
     [SerializeField]
     private AnimationCurve focusCurve;
@@ -26,6 +27,9 @@ public class CameraFocus : MonoBehaviour
 
     public delegate void OnLeftClick();
     public OnLeftClick onLeftClick;
+
+    private GameObject focusObject;
+
     private void Start()
     {
         oldPos = new GameObject("OldPos");
@@ -33,6 +37,8 @@ public class CameraFocus : MonoBehaviour
 
         initialPosition = transform.position;
         initialRotation = transform.rotation;
+
+        
     }
     
     private void Update()
@@ -41,43 +47,57 @@ public class CameraFocus : MonoBehaviour
         // <summary>
         // Focusing on the planet with a smooth transition
         // </summary>
-        if (isFocusing) {    
+        if (isFocusing)
+        {
             float t = (Time.time - startTime) / focusTime;
             if (t >= 1)
             {
                 isFocusing = false;
-                transform.rotation = focus.rotation;
-                if(focus.parent != null)
-                    transform.SetParent(focus.parent);
-                transform.position = focus.position;
+                transform.rotation = cameraFocus.rotation;
+                if (cameraFocus.parent != null)
+                {
+                    transform.SetParent(cameraFocus.parent);
+                    focusedObject = cameraFocus.parent.gameObject;
+                }
+                    
+                transform.position = cameraFocus.position;
             }
             else
             {
-                transform.position = Vector3.Lerp(focus.position, oldPos.transform.position, focusCurve.Evaluate(t));
-                transform.rotation = Quaternion.Slerp(focus.rotation, oldPos.transform.rotation, focusCurve.Evaluate(t));
+                transform.position = Vector3.Lerp(cameraFocus.position, oldPos.transform.position, focusCurve.Evaluate(t));
+                transform.rotation = Quaternion.Slerp(cameraFocus.rotation, oldPos.transform.rotation, focusCurve.Evaluate(t));
             }
         }
 
+        FocusChange();
 
+    }
 
-        if(Input.GetMouseButtonDown(0))
+    private void FocusChange()
+    {
+        
+
+        if (Input.GetMouseButtonDown(0))
         {
+            onLeftClick?.Invoke(); // This helps clicking on the smaller planets
+
+
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit))
             {
-                if (hit.transform.GetComponent<PlanetFocusHelper>())
+                if (hit.transform != planet && hit.transform.GetComponent<PlanetFocusHelper>())
                 {
                     planet = hit.transform.GetComponent<PlanetFocusHelper>();
                     FocusOn(planet);
                 }
             }
-            onLeftClick?.Invoke();
+
         }
 
         if (Input.GetKeyDown(KeyCode.F))
         {
-            if(planet.target == null)
+            if (planet.target == null)
             {
                 FocusOn(initialPosition, initialRotation);
                 return;
@@ -86,14 +106,18 @@ public class CameraFocus : MonoBehaviour
             planet = planet.target.gameObject.GetComponent<PlanetFocusHelper>();
             FocusOn(planet);
         }
-
     }
+
     private void FocusOn(PlanetFocusHelper planet)
     {
+        if(planet.gameObject == focusedObject)
+        {
+            return;
+        }
         oldPos.transform.position = transform.position;
         oldPos.transform.rotation = transform.rotation;
 
-        focus = planet.Focus();
+        cameraFocus = planet.Focus();
         startTime = Time.time;
         isFocusing = true;
     }
@@ -102,8 +126,8 @@ public class CameraFocus : MonoBehaviour
         oldPos.transform.position = transform.position;
         oldPos.transform.rotation = transform.rotation;
 
-        focus.position = pos;
-        focus.rotation = rot;
+        cameraFocus.position = pos;
+        cameraFocus.rotation = rot;
         startTime = Time.time;
         isFocusing = true;
     }

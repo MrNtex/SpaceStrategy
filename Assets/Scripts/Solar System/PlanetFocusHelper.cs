@@ -21,16 +21,25 @@ public class PlanetFocusHelper : MonoBehaviour
     private readonly Vector2 defaultOffset = new Vector2(11.62f, 7.85f);
 
     private const float angleDistanceRatio = 0.004f;
-
+    [SerializeField]
     private Billboard billboard;
 
     public float minDistance = 3000;
 
-    public const float hitboxMultiplier = 1.5f;
+    private float hitboxMultiplier = 0.025f;
+
+    private GameObject cameraMain;
+    private SphereCollider myCollider;
+
+    private Material defaultMaterial;
+    [SerializeField]
+    private Material highlightMaterial;
     private void Awake()
     {
+        cameraMain = Camera.main.gameObject;
+
         orbiting = GetComponent<Orbiting>();
-        //billboard.minDistance = minDistance;
+        billboard.minDistance = minDistance;
         if (orbiting != null)
         {
             target = orbiting.target;
@@ -54,6 +63,9 @@ public class PlanetFocusHelper : MonoBehaviour
     }
     private void Start()
     {
+        myCollider = GetComponent<SphereCollider>();
+        hitboxMultiplier /= transform.localScale.x;
+
         if(cameraPlacement == null)
         {
             cameraPlacement = new GameObject("CameraPlacement");
@@ -71,14 +83,18 @@ public class PlanetFocusHelper : MonoBehaviour
             }
             
         }
+
+        defaultMaterial = gameObject.GetComponent<MeshRenderer>().material;
     }
     private void OnEnable()
     {
-        Camera.main.GetComponent<CameraFocus>().onLeftClick += RecalculateColliders;
+        cameraMain.GetComponent<CameraFocus>().onLeftClick += RecalculateColliders;
     }
     public void RecalculateColliders()
     {
-        Debug.Log("Recalculating colliders for: " + gameObject.name);
+        float dist = Vector3.Distance(cameraMain.transform.position, transform.position);
+        
+        myCollider.radius = Mathf.Clamp(dist * hitboxMultiplier, 0.5f, 6);
     }
     public Transform Focus()
     {

@@ -12,9 +12,16 @@ public class CameraControler : MonoBehaviour
     public float maxY = 120f;
 
     public float rotationSpeed = 20f;
-    // Start is called before the first frame update
-
     
+
+    private CameraFocus cameraFocus;
+
+    private void Start()
+    {
+        cameraFocus = GetComponent<CameraFocus>();
+    }
+
+
 
     // Update is called once per frame
     void Update()
@@ -60,6 +67,7 @@ public class CameraControler : MonoBehaviour
         if(transform.parent != null && breakFromParent)
         {
             transform.SetParent(null);
+            cameraFocus.focusedObject = null;
         }
     }
 }

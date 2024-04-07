@@ -8,11 +8,14 @@ public class Billboard : MonoBehaviour
     public float minDistance = 3000; // Overriden by the PlanetFocusHelper
 
     private Transform target; // Your planet's transform
-    public float distanceFromTarget = 1f; // Distance from the target to place the text
+    const float distanceFromTarget = 75; // Distance from the target to place the text
     public float YOffset = 1f; // Height from the target to place the text
-    public float maxFontSize = 540f; // Maximum font size
+    public float maxFontSize = 0.1f; // Maximum font size
     public Camera mainCamera;
+    [SerializeField]
+    private GameObject button;
 
+    [SerializeField]
     private TMP_Text text;
 
     void Start()
@@ -26,7 +29,7 @@ public class Billboard : MonoBehaviour
         {
             mainCamera = Camera.main;
         }
-        text = GetComponent<TMP_Text>();
+        
 
         BodyInfo bodyInfo = target.GetComponent<BodyInfo>();
         if (bodyInfo != null)
@@ -44,12 +47,12 @@ public class Billboard : MonoBehaviour
 
         if (distance > minDistance)
         {
-            text.enabled = false;
+            gameObject.SetActive(false);
             return;
         }
         else
         {
-            text.enabled = true;
+            gameObject.SetActive(true);
         }
 
         directionToCamera.Normalize();
@@ -58,12 +61,21 @@ public class Billboard : MonoBehaviour
         Vector3 rightOfTarget = Vector3.Cross(directionToCamera, transform.up);
 
 
-        transform.position = target.position + rightOfTarget * distanceFromTarget;
+        
+
+        // Legacy code for changing the font size based on distance
+        //float fontSize = Mathf.Clamp(distance / 4, 1, maxFontSize);
+        //text.fontSize = fontSize;
+        float scaleMlt = Mathf.Clamp(distance / 8000, 0.016f, 0.08f);
+        transform.localScale = Vector3.one * scaleMlt;
+        float t = 1-scaleMlt / 0.08f;
+        transform.position = target.position + rightOfTarget * Mathf.Lerp(distanceFromTarget, 2.636f, t);
         transform.position = new Vector3(transform.position.x, transform.position.y + YOffset, transform.position.z);
         transform.LookAt(transform.position - directionToCamera);
-
-        
-        float fontSize = Mathf.Clamp(distance / 4, 1, maxFontSize);
-        text.fontSize = fontSize;
+    }
+    public void Underline(bool start)
+    {
+        if(start) text.fontStyle = FontStyles.Underline;
+        else text.fontStyle = FontStyles.Normal;
     }
 }
