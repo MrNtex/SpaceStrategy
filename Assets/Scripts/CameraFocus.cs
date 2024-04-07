@@ -20,11 +20,18 @@ public class CameraFocus : MonoBehaviour
     private AnimationCurve focusCurve;
 
     private CameraControler cameraControler;
+
+    private Vector3 initialPosition;
+    private Quaternion initialRotation;
     private void Start()
     {
         oldPos = new GameObject("OldPos");
         cameraControler = GetComponent<CameraControler>();
+
+        initialPosition = transform.position;
+        initialRotation = transform.rotation;
     }
+    
     private void Update()
     {
 
@@ -37,7 +44,8 @@ public class CameraFocus : MonoBehaviour
             {
                 isFocusing = false;
                 transform.rotation = focus.rotation;
-                transform.SetParent(focus.parent);
+                if(focus.parent != null)
+                    transform.SetParent(focus.parent);
                 transform.position = focus.position;
             }
             else
@@ -67,7 +75,7 @@ public class CameraFocus : MonoBehaviour
         {
             if(planet.target == null)
             {
-                cameraControler.ResetToDefault();
+                FocusOn(initialPosition, initialRotation);
                 return;
             }
 
@@ -78,11 +86,20 @@ public class CameraFocus : MonoBehaviour
     }
     private void FocusOn(PlanetInfo planet)
     {
-        Debug.Log("Focusing on " + planet.planetName);
         oldPos.transform.position = transform.position;
         oldPos.transform.rotation = transform.rotation;
 
         focus = planet.Focus();
+        startTime = Time.time;
+        isFocusing = true;
+    }
+    private void FocusOn(Vector3 pos, Quaternion rot)
+    {
+        oldPos.transform.position = transform.position;
+        oldPos.transform.rotation = transform.rotation;
+
+        focus.position = pos;
+        focus.rotation = rot;
         startTime = Time.time;
         isFocusing = true;
     }

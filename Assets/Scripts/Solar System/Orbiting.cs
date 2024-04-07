@@ -6,13 +6,20 @@ public class Orbiting : MonoBehaviour
 {
     public Transform target;
 
-    public const float speed = 100.0f;
+    public const float speed = 1000.0f;
     private float actualSpeed;
 
     private LineRenderer lineRenderer;
 
     [SerializeField]
-    private float multipler = 1.0f;
+    [Range(-1.0f, 1.0f)]
+    private float multiplier = 1.0f;
+
+    public float elapsedSeconds = 0;
+
+    [SerializeField]
+    private DateManager dateManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +43,19 @@ public class Orbiting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.RotateAround(target.position, Vector3.up, actualSpeed * Time.deltaTime * multipler);
+        transform.RotateAround(target.position, Vector3.up, actualSpeed * Time.deltaTime * multiplier);
+
+        if(dateManager != null)
+        {
+            // Update elapsed time
+            elapsedSeconds += Time.deltaTime;
+
+            // Assuming 360 degrees rotation equals one year (365 days)
+            // Calculate elapsed days based on rotation speed and multiplier
+            float elapsedDays = elapsedSeconds / (360f / (actualSpeed * multiplier)) * 365f;
+
+            dateManager.UpdateDate((int)elapsedDays);
+        }
+        
     }
 }

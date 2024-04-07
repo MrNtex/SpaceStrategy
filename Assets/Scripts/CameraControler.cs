@@ -4,50 +4,46 @@ using UnityEngine;
 
 public class CameraControler : MonoBehaviour
 {
-    public float panSpeed = 20f;
+    public float panSpeed = 2000f;
     public float panBorderThickness = 10f;
     public Vector2 panLimit;
 
-    public float scrollSpeed = 20f;
     public float minY = 20f;
     public float maxY = 120f;
 
     public float rotationSpeed = 20f;
     // Start is called before the first frame update
 
-    private Vector3 initialPosition;
-    private Quaternion initialRotation;
-
-    void Start()
-    {
-        initialPosition = transform.position;
-        initialRotation = transform.rotation;
-    }
+    
 
     // Update is called once per frame
     void Update()
     {
+        float shiftMultiplier = 1;
+        if(Input.GetKey(KeyCode.LeftShift))
+        {
+            shiftMultiplier = 2;
+        }
         if (Input.GetKey(KeyCode.W))
         {
-            transform.position += transform.forward * panSpeed * Time.deltaTime;
-            MoveCamera(transform.forward);
+            MoveCamera(transform.forward, shiftMultiplier);
         }
         if (Input.GetKey(KeyCode.S))
         {
-            MoveCamera(-transform.forward);
+            MoveCamera(-transform.forward, shiftMultiplier);
         }
         if (Input.GetKey(KeyCode.D))
         {
-            MoveCamera(transform.right);
+            MoveCamera(transform.right, shiftMultiplier);
         }
         if (Input.GetKey(KeyCode.A))
         {
-            MoveCamera(-transform.right);
+            MoveCamera(-transform.right, shiftMultiplier);
         }
         Vector3 mouseScroll = Input.mouseScrollDelta;
         if (mouseScroll.y != 0)
         {
-            MoveCamera(mouseScroll.y * 8 * transform.forward, false);
+            MoveCamera(mouseScroll.y * 8 * transform.forward, 1, false);
         }
         if (Input.GetMouseButton(2))
         {
@@ -58,19 +54,12 @@ public class CameraControler : MonoBehaviour
         }
 
     }
-    void MoveCamera(Vector3 dir, bool breakFromParent = true)
+    void MoveCamera(Vector3 dir, float shiftMultiplier = 1, bool breakFromParent = true)
     {
-        transform.position += dir * panSpeed * Time.deltaTime;
+        transform.position += dir * panSpeed * Time.deltaTime * shiftMultiplier;
         if(transform.parent != null && breakFromParent)
         {
             transform.SetParent(null);
         }
-    }
-
-    public void ResetToDefault()
-    {
-        transform.SetParent(null);
-        transform.position = initialPosition;
-        transform.rotation = initialRotation;
     }
 }
