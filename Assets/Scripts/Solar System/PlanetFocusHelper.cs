@@ -2,17 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum BodyType
+public class PlanetFocusHelper : MonoBehaviour
 {
-    Sun,
-    Planet,
-    Moon
-}
-public class PlanetInfo : MonoBehaviour
-{
-    public string planetName;
-    public BodyType bodyType;
-
 
     private Orbiting orbiting;
 
@@ -30,13 +21,16 @@ public class PlanetInfo : MonoBehaviour
     private readonly Vector2 defaultOffset = new Vector2(11.62f, 7.85f);
 
     private const float angleDistanceRatio = 0.004f;
+
+    private Billboard billboard;
+
+    public float minDistance = 3000;
+
+    public const float hitboxMultiplier = 1.5f;
     private void Awake()
     {
-        if (planetName == "")
-        {
-            planetName = gameObject.name;
-        }
         orbiting = GetComponent<Orbiting>();
+        //billboard.minDistance = minDistance;
         if (orbiting != null)
         {
             target = orbiting.target;
@@ -78,7 +72,14 @@ public class PlanetInfo : MonoBehaviour
             
         }
     }
-
+    private void OnEnable()
+    {
+        Camera.main.GetComponent<CameraFocus>().onLeftClick += RecalculateColliders;
+    }
+    public void RecalculateColliders()
+    {
+        Debug.Log("Recalculating colliders for: " + gameObject.name);
+    }
     public Transform Focus()
     {
         return cameraPlacement.transform;

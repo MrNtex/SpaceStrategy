@@ -20,6 +20,6 @@ public class DateManager : MonoBehaviour
     {
         currentDate = startDate.AddDays(elapsedDays);
 
-        dateText.text = currentDate.ToString("yyyy-MM-dd");
+        dateText.text = currentDate.ToString("dd-MM-yyyy");
     }
 }

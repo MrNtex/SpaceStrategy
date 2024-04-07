@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Billboard : MonoBehaviour
 {
-    public float minDistance = 3000;
+    public float minDistance = 3000; // Overriden by the PlanetFocusHelper
 
     private Transform target; // Your planet's transform
     public float distanceFromTarget = 1f; // Distance from the target to place the text
@@ -28,10 +28,10 @@ public class Billboard : MonoBehaviour
         }
         text = GetComponent<TMP_Text>();
 
-        PlanetInfo planetInfo = target.GetComponent<PlanetInfo>();
-        if (planetInfo != null)
+        BodyInfo bodyInfo = target.GetComponent<BodyInfo>();
+        if (bodyInfo != null)
         {
-            text.text = planetInfo.planetName;
+            text.text = bodyInfo.bodyName;
         }
     }
     void LateUpdate()

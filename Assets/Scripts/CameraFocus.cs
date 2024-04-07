@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraFocus : MonoBehaviour
 {
     [SerializeField]
-    private PlanetInfo planet;
+    private PlanetFocusHelper planet;
 
     public float focusTime;
     private bool isFocusing = false;
@@ -14,7 +14,7 @@ public class CameraFocus : MonoBehaviour
 
     private GameObject oldPos;
     private Transform focus;
-    private PlanetInfo planetInfo;
+    private PlanetFocusHelper planetInfo;
 
     [SerializeField]
     private AnimationCurve focusCurve;
@@ -23,6 +23,9 @@ public class CameraFocus : MonoBehaviour
 
     private Vector3 initialPosition;
     private Quaternion initialRotation;
+
+    public delegate void OnLeftClick();
+    public OnLeftClick onLeftClick;
     private void Start()
     {
         oldPos = new GameObject("OldPos");
@@ -57,18 +60,19 @@ public class CameraFocus : MonoBehaviour
 
 
 
-        if(Input.GetMouseButton(0))
+        if(Input.GetMouseButtonDown(0))
         {
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit))
             {
-                if (hit.transform.GetComponent<PlanetInfo>())
+                if (hit.transform.GetComponent<PlanetFocusHelper>())
                 {
-                    planet = hit.transform.GetComponent<PlanetInfo>();
+                    planet = hit.transform.GetComponent<PlanetFocusHelper>();
                     FocusOn(planet);
                 }
             }
+            onLeftClick?.Invoke();
         }
 
         if (Input.GetKeyDown(KeyCode.F))
@@ -79,12 +83,12 @@ public class CameraFocus : MonoBehaviour
                 return;
             }
 
-            planet = planet.target.gameObject.GetComponent<PlanetInfo>();
+            planet = planet.target.gameObject.GetComponent<PlanetFocusHelper>();
             FocusOn(planet);
         }
 
     }
-    private void FocusOn(PlanetInfo planet)
+    private void FocusOn(PlanetFocusHelper planet)
     {
         oldPos.transform.position = transform.position;
         oldPos.transform.rotation = transform.rotation;

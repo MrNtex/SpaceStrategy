@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class BodyInfo : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public string bodyName;
 
-    // Update is called once per frame
-    void Update()
+    private void Awake()
     {
-        
+        if(bodyName == "") bodyName = gameObject.name;
     }
 }
