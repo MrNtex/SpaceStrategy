@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Billboard : MonoBehaviour
 {
-    public float minDistance = 3000; // Overriden by the PlanetFocusHelper
+    private float minDistance; // Overriden by the PlanetFocusHelper
 
     private Transform target; // Your planet's transform
     const float distanceFromTarget = 75; // Distance from the target to place the text
@@ -17,6 +17,8 @@ public class Billboard : MonoBehaviour
 
     [SerializeField]
     private TMP_Text text;
+
+    Vector3 inverseParentScale;
 
     void Start()
     {
@@ -36,6 +38,26 @@ public class Billboard : MonoBehaviour
         {
             text.text = bodyInfo.bodyName;
         }
+
+        // Inverse the parents scale to keep the text size consistent (it has to be cumulative because of moons)
+        Vector3 cumulativeScale = CalculateCumulativeParentScale(transform);
+        inverseParentScale = new Vector3(1 / cumulativeScale.x, 1 / cumulativeScale.y, 1 / cumulativeScale.z);
+
+        PlanetFocusHelper planetFocusHelper = target.GetComponent<PlanetFocusHelper>();
+        minDistance = planetFocusHelper.minDistance;
+    }
+    Vector3 CalculateCumulativeParentScale(Transform currentTransform)
+    {
+        Vector3 totalScale = Vector3.one; // Start with no scale
+
+        while (currentTransform.parent != null) // Traverse up the hierarchy
+        {
+            // Multiply the current total scale by this parent's scale
+            totalScale = Vector3.Scale(totalScale, currentTransform.parent.localScale);
+            currentTransform = currentTransform.parent; // Move up the hierarchy
+        }
+
+        return totalScale;
     }
     void LateUpdate()
     {
@@ -61,24 +83,23 @@ public class Billboard : MonoBehaviour
         Vector3 rightOfTarget = Vector3.Cross(directionToCamera, transform.up);
 
 
-        const float JupiterScaleBasedSize = 13f; // Jupiter's scale as a base for size calculation
-        const float DistanceScaleFactor = 10000f;
-        const float MinScaleMultiplier = 0.016f;
-        const float MaxScaleMultiplier = 0.08f;
+        
+        const float DistanceScaleFactor = 600f;
+        const float MinScaleMultiplier = 0.1f;
+        const float MaxScaleMultiplier = 1;
         const float TargetLerpDistance = 2.636f; // Specific distance for Lerp
 
         // SCALE
-        // Calculating size scalar based on the parent's scale to adjust for Jupiter's scale
-        float sizeScalar = JupiterScaleBasedSize / transform.parent.localScale.x;
-
+        
         // Clamping the scale multiplier between min and max values, then adjusting it based on the size scalar
-        float scaleMultiplier = Mathf.Clamp(distance / DistanceScaleFactor, MinScaleMultiplier, MaxScaleMultiplier) * sizeScalar;
 
-        transform.localScale = Vector3.one * scaleMultiplier;
+        float scaleMultiplier = Mathf.Clamp(distance / DistanceScaleFactor, MinScaleMultiplier, MaxScaleMultiplier);
+
+        transform.localScale = inverseParentScale * scaleMultiplier;
 
         // POSITION
         // Adjusting position based on target's right side, distance from target, and the interpolation factor
-        float t = 1 - scaleMultiplier / (MaxScaleMultiplier * sizeScalar);
+        float t = 1 - scaleMultiplier / (MaxScaleMultiplier);
         transform.position = target.position + rightOfTarget * Mathf.Lerp(distanceFromTarget, TargetLerpDistance, t);
 
         transform.position += new Vector3(0, YOffset, 0);
