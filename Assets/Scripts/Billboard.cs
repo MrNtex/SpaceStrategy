@@ -62,7 +62,7 @@ public class Billboard : MonoBehaviour
 
         return totalScale;
     }
-    void LateUpdate()
+    void FixedUpdate()
     {
         if (target == null || mainCamera == null) return;
 

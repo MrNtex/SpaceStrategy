@@ -10,6 +10,8 @@ public class DateManager : MonoBehaviour
     public DateTime currentDate;
     public DateTime startDate = new DateTime(2224, 4, 7);
 
+    public static float timeScale = 1;
+
     [SerializeField]
     private TMP_Text dateText;
     private void Start()

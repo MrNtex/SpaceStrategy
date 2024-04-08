@@ -41,9 +41,10 @@ public class Orbiting : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        transform.RotateAround(target.position, Vector3.up, actualSpeed * Time.deltaTime * multiplier);
+        float speed = actualSpeed * multiplier * DateManager.timeScale;
+        transform.RotateAround(target.position, Vector3.up, speed * Time.deltaTime);
 
         if(dateManager != null)
         {
@@ -52,7 +53,7 @@ public class Orbiting : MonoBehaviour
 
             // Assuming 360 degrees rotation equals one year (365 days)
             // Calculate elapsed days based on rotation speed and multiplier
-            float elapsedDays = elapsedSeconds / (360f / (actualSpeed * multiplier)) * 365f;
+            float elapsedDays = elapsedSeconds / (360f / speed) * 365f;
 
             dateManager.UpdateDate((int)elapsedDays);
         }
