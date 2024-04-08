@@ -61,17 +61,28 @@ public class Billboard : MonoBehaviour
         Vector3 rightOfTarget = Vector3.Cross(directionToCamera, transform.up);
 
 
+        const float JupiterScaleBasedSize = 13f; // Jupiter's scale as a base for size calculation
+        const float DistanceScaleFactor = 10000f;
+        const float MinScaleMultiplier = 0.016f;
+        const float MaxScaleMultiplier = 0.08f;
+        const float TargetLerpDistance = 2.636f; // Specific distance for Lerp
 
+        // SCALE
+        // Calculating size scalar based on the parent's scale to adjust for Jupiter's scale
+        float sizeScalar = JupiterScaleBasedSize / transform.parent.localScale.x;
 
-        // Legacy code for changing the font size based on distance
-        //float fontSize = Mathf.Clamp(distance / 4, 1, maxFontSize);
-        //text.fontSize = fontSize;
-        float sizeScalar = 13 / transform.parent.localScale.x; // 13 because it was based on the jupiter's scale
-        float scaleMlt = Mathf.Clamp(distance / 8000, 0.016f, 0.08f) * sizeScalar;
-        transform.localScale = Vector3.one * scaleMlt;
-        float t = 1-scaleMlt / (0.08f* sizeScalar);
-        transform.position = target.position + rightOfTarget * Mathf.Lerp(distanceFromTarget, 2.636f, t);
-        transform.position = new Vector3(transform.position.x, transform.position.y + YOffset, transform.position.z);
+        // Clamping the scale multiplier between min and max values, then adjusting it based on the size scalar
+        float scaleMultiplier = Mathf.Clamp(distance / DistanceScaleFactor, MinScaleMultiplier, MaxScaleMultiplier) * sizeScalar;
+
+        transform.localScale = Vector3.one * scaleMultiplier;
+
+        // POSITION
+        // Adjusting position based on target's right side, distance from target, and the interpolation factor
+        float t = 1 - scaleMultiplier / (MaxScaleMultiplier * sizeScalar);
+        transform.position = target.position + rightOfTarget * Mathf.Lerp(distanceFromTarget, TargetLerpDistance, t);
+
+        transform.position += new Vector3(0, YOffset, 0);
+
         transform.LookAt(transform.position - directionToCamera);
     }
     public void Underline(bool start)
