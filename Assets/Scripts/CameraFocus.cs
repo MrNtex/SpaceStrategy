@@ -108,7 +108,7 @@ public class CameraFocus : MonoBehaviour
         }
     }
 
-    private void FocusOn(PlanetFocusHelper planet)
+    public void FocusOn(PlanetFocusHelper planet)
     {
         if(planet.gameObject == focusedObject)
         {

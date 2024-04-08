@@ -7,22 +7,8 @@ public class PlanetButton : MonoBehaviour
     public Vector3 offset; // Offset from the object's position
     public Canvas canvas; // Reference to the Canvas
 
-    void Update()
+    void Start()
     {
-        if (objectToFollow != null)
-        {
-            Vector2 screenPosition = RectTransformUtility.WorldToScreenPoint(Camera.main, objectToFollow.position + offset);
-
-            // Check the canvas render mode
-            if (canvas.renderMode == RenderMode.ScreenSpaceOverlay)
-            {
-                transform.position = screenPosition;
-            }
-            else if (canvas.renderMode == RenderMode.ScreenSpaceCamera)
-            {
-                RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.transform as RectTransform, screenPosition, canvas.worldCamera, out Vector2 localPoint);
-                transform.localPosition = localPoint;
-            }
-        }
+        
     }
 }

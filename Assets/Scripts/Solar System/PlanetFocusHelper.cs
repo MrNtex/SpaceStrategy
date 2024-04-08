@@ -93,8 +93,12 @@ public class PlanetFocusHelper : MonoBehaviour
         
         myCollider.radius = Mathf.Clamp(dist * hitboxMultiplier, 0.5f, 6);
     }
-    public Transform Focus()
+    public Transform Focus(bool force = false)
     {
+        if(!force && Vector3.Distance(cameraMain.transform.position, transform.position) > minDistance && transform.parent != null)
+        {
+            return transform.parent.GetComponent<PlanetFocusHelper>().cameraPlacement.transform;
+        }
         return cameraPlacement.transform;
     }
 
