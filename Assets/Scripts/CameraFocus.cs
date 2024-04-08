@@ -28,7 +28,7 @@ public class CameraFocus : MonoBehaviour
     public delegate void OnLeftClick();
     public OnLeftClick onLeftClick;
 
-    private GameObject focusObject;
+    private GameObject dummyFocus;
 
     private void Start()
     {
@@ -38,7 +38,10 @@ public class CameraFocus : MonoBehaviour
         initialPosition = transform.position;
         initialRotation = transform.rotation;
 
-        
+        if(dummyFocus == null)
+        {
+            dummyFocus = new GameObject("DummyFocus");
+        }
     }
     
     private void Update()
@@ -126,6 +129,7 @@ public class CameraFocus : MonoBehaviour
         oldPos.transform.position = transform.position;
         oldPos.transform.rotation = transform.rotation;
 
+        cameraFocus = dummyFocus.transform;
         cameraFocus.position = pos;
         cameraFocus.rotation = rot;
         startTime = Time.time;

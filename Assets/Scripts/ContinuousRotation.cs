@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ContinuousRotation : MonoBehaviour
 {
-    void Update()
+    void FixedUpdate()
     {
         transform.Rotate(Vector3.forward * Time.deltaTime * DateManager.timeScale);
     }

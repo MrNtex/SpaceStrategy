@@ -21,6 +21,9 @@ public class Billboard : MonoBehaviour
 
     Vector3 inverseParentScale;
 
+    [SerializeField]
+    private List<Color> textColors;
+
     void Start()
     {
         target = transform.parent;
@@ -48,6 +51,8 @@ public class Billboard : MonoBehaviour
         minDistance = planetFocusHelper.minDistance;
 
         button.GetComponent<Button>().onClick.AddListener(() => bodyInfo.ButtonClicked());
+
+        text.color = textColors[(int)bodyInfo.bodyType];
     }
     Vector3 CalculateCumulativeParentScale(Transform currentTransform)
     {
