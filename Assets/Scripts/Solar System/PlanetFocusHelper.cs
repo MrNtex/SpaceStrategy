@@ -21,8 +21,6 @@ public class PlanetFocusHelper : MonoBehaviour
     private readonly Vector2 defaultOffset = new Vector2(11.62f, 7.85f);
 
     private const float angleDistanceRatio = 0.004f;
-    [SerializeField]
-    private Billboard billboard;
 
     public float minDistance = 3000;
 
@@ -39,7 +37,6 @@ public class PlanetFocusHelper : MonoBehaviour
         cameraMain = Camera.main.gameObject;
 
         orbiting = GetComponent<Orbiting>();
-        billboard.minDistance = minDistance;
         if (orbiting != null)
         {
             target = orbiting.target;

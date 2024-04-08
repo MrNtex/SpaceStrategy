@@ -47,12 +47,12 @@ public class Billboard : MonoBehaviour
 
         if (distance > minDistance)
         {
-            gameObject.SetActive(false);
+            button.SetActive(false);
             return;
         }
         else
         {
-            gameObject.SetActive(true);
+            button.SetActive(true);
         }
 
         directionToCamera.Normalize();
@@ -61,14 +61,15 @@ public class Billboard : MonoBehaviour
         Vector3 rightOfTarget = Vector3.Cross(directionToCamera, transform.up);
 
 
-        
+
 
         // Legacy code for changing the font size based on distance
         //float fontSize = Mathf.Clamp(distance / 4, 1, maxFontSize);
         //text.fontSize = fontSize;
-        float scaleMlt = Mathf.Clamp(distance / 8000, 0.016f, 0.08f);
+        float sizeScalar = 13 / transform.parent.localScale.x; // 13 because it was based on the jupiter's scale
+        float scaleMlt = Mathf.Clamp(distance / 8000, 0.016f, 0.08f) * sizeScalar;
         transform.localScale = Vector3.one * scaleMlt;
-        float t = 1-scaleMlt / 0.08f;
+        float t = 1-scaleMlt / (0.08f* sizeScalar);
         transform.position = target.position + rightOfTarget * Mathf.Lerp(distanceFromTarget, 2.636f, t);
         transform.position = new Vector3(transform.position.x, transform.position.y + YOffset, transform.position.z);
         transform.LookAt(transform.position - directionToCamera);
