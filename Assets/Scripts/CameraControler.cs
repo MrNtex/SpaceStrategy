@@ -67,7 +67,7 @@ public class CameraControler : MonoBehaviour
         if(transform.parent != null && breakFromParent)
         {
             transform.SetParent(null);
-            cameraFocus.focusedObject = null;
+            cameraFocus.planet = null;
         }
     }
 }

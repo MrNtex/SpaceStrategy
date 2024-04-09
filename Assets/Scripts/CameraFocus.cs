@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class CameraFocus : MonoBehaviour
 {
-    [SerializeField]
-    private PlanetFocusHelper planet;
+    public PlanetFocusHelper planet;
 
-    public GameObject focusedObject;
 
     public float focusTime;
     private bool isFocusing = false;
@@ -60,7 +58,6 @@ public class CameraFocus : MonoBehaviour
                 if (cameraFocus.parent != null)
                 {
                     transform.SetParent(cameraFocus.parent);
-                    focusedObject = cameraFocus.parent.gameObject;
                 }
                     
                 transform.position = cameraFocus.position;
@@ -78,7 +75,7 @@ public class CameraFocus : MonoBehaviour
 
     private void FocusChange()
     {
-        
+        PlanetFocusHelper dest = null;
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -91,14 +88,14 @@ public class CameraFocus : MonoBehaviour
             {
                 if (hit.transform != planet && hit.transform.GetComponent<PlanetFocusHelper>())
                 {
-                    planet = hit.transform.GetComponent<PlanetFocusHelper>();
-                    FocusOn(planet);
+                    dest = hit.transform.GetComponent<PlanetFocusHelper>();
+                    FocusOn(dest);
                 }
             }
 
         }
 
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F) && planet != null)
         {
             if (planet.target == null)
             {
@@ -106,17 +103,18 @@ public class CameraFocus : MonoBehaviour
                 return;
             }
 
-            planet = planet.target.gameObject.GetComponent<PlanetFocusHelper>();
-            FocusOn(planet);
+            dest = planet.target.gameObject.GetComponent<PlanetFocusHelper>();
+            FocusOn(dest);
         }
     }
 
     public void FocusOn(PlanetFocusHelper planet)
     {
-        if(planet.gameObject == focusedObject)
+        if(this.planet == planet)
         {
             return;
         }
+        this.planet = planet;
         oldPos.transform.position = transform.position;
         oldPos.transform.rotation = transform.rotation;
 
@@ -126,6 +124,8 @@ public class CameraFocus : MonoBehaviour
     }
     private void FocusOn(Vector3 pos, Quaternion rot)
     {
+        planet = null;
+
         oldPos.transform.position = transform.position;
         oldPos.transform.rotation = transform.rotation;
 
