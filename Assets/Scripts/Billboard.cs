@@ -36,7 +36,6 @@ public class Billboard : MonoBehaviour
             mainCamera = Camera.main;
         }
         
-
         BodyInfo bodyInfo = target.GetComponent<BodyInfo>();
         if (bodyInfo != null)
         {

@@ -26,6 +26,7 @@ public class DateManager : MonoBehaviour
     private void Start()
     {
         currentDate = startDate;
+        UpdateTimeScale(1);
     }
     public void UpdateDate(int elapsedDays)
     {
