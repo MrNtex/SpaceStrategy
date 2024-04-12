@@ -23,6 +23,7 @@ public class BodyInfo : MonoBehaviour
     private PlanetFocusHelper planetFocusHelper;
     private CameraFocus cameraFocus;
     public Orbiting orbiting;
+    public BodyStatus bodyStatus;
 
     [SerializeField]
     private bool useCustomColor = false;
@@ -33,6 +34,7 @@ public class BodyInfo : MonoBehaviour
     public PlanetType planetType;
 
     public Sprite icon;
+
     private void Awake()
     {
         if(bodyName == "") bodyName = gameObject.name;
@@ -47,6 +49,7 @@ public class BodyInfo : MonoBehaviour
         {
             gameObject.GetComponent<Renderer>().material.color = color;
         }
+        bodyStatus = GetComponent<BodyStatus>();
     }
     public void ButtonClicked()
     {
