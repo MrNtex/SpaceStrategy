@@ -10,12 +10,19 @@ public enum BodyType
     Moon,
     DwarfPlanet
 }
+public enum PlanetType
+{
+    Terrestrial,
+    GasGiant,
+    IceGiant
+}
 public class BodyInfo : MonoBehaviour
 {
     public string bodyName;
 
     private PlanetFocusHelper planetFocusHelper;
     private CameraFocus cameraFocus;
+    public Orbiting orbiting;
 
     [SerializeField]
     private bool useCustomColor = false;
@@ -23,6 +30,7 @@ public class BodyInfo : MonoBehaviour
     private Color color;
 
     public BodyType bodyType;
+    public PlanetType planetType;
 
     public Sprite icon;
     private void Awake()
@@ -31,6 +39,7 @@ public class BodyInfo : MonoBehaviour
 
         planetFocusHelper = GetComponent<PlanetFocusHelper>();
         cameraFocus = Camera.main.GetComponent<CameraFocus>();
+        orbiting = GetComponent<Orbiting>();
     }
     private void Start()
     {
