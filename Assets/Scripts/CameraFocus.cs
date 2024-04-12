@@ -28,6 +28,9 @@ public class CameraFocus : MonoBehaviour
 
     private GameObject dummyFocus;
 
+    [SerializeField]
+    private BodyInfoUI bodyInfoUI;
+
     private void Start()
     {
         oldPos = new GameObject("OldPos");
@@ -92,6 +95,10 @@ public class CameraFocus : MonoBehaviour
                     FocusOn(dest);
                 }
             }
+            else
+            {
+                bodyInfoUI.SetBody(null);
+            }
 
         }
 
@@ -121,6 +128,8 @@ public class CameraFocus : MonoBehaviour
         cameraFocus = planet.Focus();
         startTime = Time.time;
         isFocusing = true;
+
+        bodyInfoUI.SetBody(planet.bodyInfo);
     }
     private void FocusOn(Vector3 pos, Quaternion rot)
     {
@@ -134,5 +143,7 @@ public class CameraFocus : MonoBehaviour
         cameraFocus.rotation = rot;
         startTime = Time.time;
         isFocusing = true;
+
+        bodyInfoUI.SetBody(null);
     }
 }

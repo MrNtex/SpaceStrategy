@@ -23,6 +23,8 @@ public class BodyInfo : MonoBehaviour
     private Color color;
 
     public BodyType bodyType;
+
+    public Sprite icon;
     private void Awake()
     {
         if(bodyName == "") bodyName = gameObject.name;

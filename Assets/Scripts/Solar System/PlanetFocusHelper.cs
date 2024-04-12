@@ -6,7 +6,7 @@ public class PlanetFocusHelper : MonoBehaviour
 {
 
     private Orbiting orbiting;
-
+    public BodyInfo bodyInfo;
 
     [SerializeField]
     private Vector3 offset;
@@ -32,6 +32,8 @@ public class PlanetFocusHelper : MonoBehaviour
     private Material defaultMaterial;
     [SerializeField]
     private Material highlightMaterial;
+
+    
     private void Awake()
     {
         cameraMain = Camera.main.gameObject;
@@ -82,6 +84,8 @@ public class PlanetFocusHelper : MonoBehaviour
         }
 
         defaultMaterial = gameObject.GetComponent<MeshRenderer>().material;
+
+        bodyInfo = GetComponent<BodyInfo>();
     }
     private void OnEnable()
     {
