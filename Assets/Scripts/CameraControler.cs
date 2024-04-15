@@ -31,22 +31,10 @@ public class CameraControler : MonoBehaviour
         {
             shiftMultiplier = 2;
         }
-        if (Input.GetKey(KeyCode.W))
-        {
-            MoveCamera(transform.forward, shiftMultiplier);
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            MoveCamera(-transform.forward, shiftMultiplier);
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            MoveCamera(transform.right, shiftMultiplier);
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            MoveCamera(-transform.right, shiftMultiplier);
-        }
+
+        Vector3 input = transform.forward * Input.GetAxis("Vertical") + transform.right * Input.GetAxis("Horizontal");
+        MoveCamera(input, shiftMultiplier);
+
         Vector3 mouseScroll = Input.mouseScrollDelta;
         if (mouseScroll.y != 0)
         {
