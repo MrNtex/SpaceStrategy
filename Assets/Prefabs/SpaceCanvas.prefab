@@ -433,7 +433,7 @@ GameObject:
   - component: {fileID: 3014962113850940503}
   - component: {fileID: 1750755258066375234}
   - component: {fileID: 1051012312772930944}
-  - component: {fileID: 188515029156302072}
+  - component: {fileID: -7230641836769466321}
   m_Layer: 5
   m_Name: SpaceCanvas
   m_TagString: Untagged
@@ -506,7 +506,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &1051012312772930944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -524,7 +524,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &188515029156302072
+--- !u!114 &-7230641836769466321
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -533,17 +533,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 4111502106275216512}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a85da9d2ac66e14fb8908f2597f9aff, type: 3}
+  m_Script: {fileID: 11500000, guid: c58ac8fd2469bd94b911164eaaab5705, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   YOffset: 1
-  maxFontSize: 500
+  maxFontSize: 0.1
   mainCamera: {fileID: 0}
   button: {fileID: 3605941113051186170}
   text: {fileID: 5306756763476050457}
   textColors:
   - {r: 1, g: 1, b: 1, a: 1}
-  - {r: 1, g: 0.80939066, b: 0.43867922, a: 1}
-  - {r: 1, g: 0.7559374, b: 0.28773582, a: 1}
-  - {r: 0.6509434, g: 0.6509434, b: 0.6509434, a: 1}
-  - {r: 0.6509434, g: 0.6509434, b: 0.6509434, a: 1}
+  - {r: 1, g: 0.8768147, b: 0.6462264, a: 1}
+  - {r: 1, g: 0.7073151, b: 0.2971698, a: 1}
+  - {r: 0.7169812, g: 0.7169812, b: 0.7169812, a: 1}
+  - {r: 0.7176471, g: 0.7176471, b: 0.7176471, a: 1}

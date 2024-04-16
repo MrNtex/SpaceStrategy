@@ -3,28 +3,24 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-
 public class Billboard : MonoBehaviour
 {
-    private float minDistance; // Overriden by the PlanetFocusHelper
+    protected float minDistance; // Overriden by the PlanetFocusHelper
 
-    private Transform target; // Your planet's transform
+    protected Transform target; // Your planet's transform
     const float distanceFromTarget = 75; // Distance from the target to place the text
     public float YOffset = 1f; // Height from the target to place the text
     public float maxFontSize = 0.1f; // Maximum font size
     public Camera mainCamera;
     [SerializeField]
-    private GameObject button;
+    protected GameObject button;
 
     [SerializeField]
-    private TMP_Text text;
+    protected TMP_Text text;
 
-    Vector3 inverseParentScale;
+    protected Vector3 inverseParentScale;
 
-    [SerializeField]
-    private List<Color> textColors;
-
-    void Start()
+    protected virtual void Start()
     {
         target = transform.parent;
         if (target == null)
@@ -35,24 +31,16 @@ public class Billboard : MonoBehaviour
         {
             mainCamera = Camera.main;
         }
-        
-        BodyInfo bodyInfo = target.GetComponent<BodyInfo>();
-        if (bodyInfo != null)
-        {
-            text.text = bodyInfo.bodyName;
-        }
 
-        // Inverse the parents scale to keep the text size consistent (it has to be cumulative because of moons)
+
         Vector3 cumulativeScale = CalculateCumulativeParentScale(transform);
+        // Inverse the parents scale to keep the text size consistent (it has to be cumulative because of moons)
+
         inverseParentScale = new Vector3(1 / cumulativeScale.x, 1 / cumulativeScale.y, 1 / cumulativeScale.z);
-
-        PlanetFocusHelper planetFocusHelper = target.GetComponent<PlanetFocusHelper>();
-        minDistance = planetFocusHelper.minDistance;
-
-        button.GetComponent<Button>().onClick.AddListener(() => bodyInfo.ButtonClicked());
-
-        text.color = textColors[(int)bodyInfo.bodyType];
     }
+
+    
+
     Vector3 CalculateCumulativeParentScale(Transform currentTransform)
     {
         Vector3 totalScale = Vector3.one; // Start with no scale
@@ -66,7 +54,7 @@ public class Billboard : MonoBehaviour
 
         return totalScale;
     }
-    void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
         if (target == null || mainCamera == null) return;
 
@@ -112,10 +100,5 @@ public class Billboard : MonoBehaviour
         transform.position += new Vector3(0, YOffset, 0);
 
         transform.LookAt(transform.position - directionToCamera);
-    }
-    public void Underline(bool start)
-    {
-        if(start) text.fontStyle = FontStyles.Underline;
-        else text.fontStyle = FontStyles.Normal;
     }
 }
