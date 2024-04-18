@@ -119,13 +119,14 @@ public class CameraFocus : MonoBehaviour
     {
         if(this.planet == planet)
         {
+            bodyInfoUI.SetBody(planet.bodyInfo);
             return;
         }
-        this.planet = planet;
+        this.planet = planet.Focus();
         oldPos.transform.position = transform.position;
         oldPos.transform.rotation = transform.rotation;
 
-        cameraFocus = planet.Focus();
+        cameraFocus = planet.cameraPlacement;
         startTime = Time.time;
         isFocusing = true;
 

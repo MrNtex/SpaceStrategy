@@ -16,7 +16,7 @@ public class PlanetFocusHelper : MonoBehaviour
     [SerializeField]
     public Transform target;
 
-    private GameObject cameraPlacement;
+    public Transform cameraPlacement;
 
     private readonly Vector2 defaultOffset = new Vector2(11.62f, 7.85f);
 
@@ -67,18 +67,18 @@ public class PlanetFocusHelper : MonoBehaviour
 
         if(cameraPlacement == null)
         {
-            cameraPlacement = new GameObject("CameraPlacement");
-            cameraPlacement.transform.SetParent(transform);
-            cameraPlacement.transform.localPosition = offset;
+            cameraPlacement = new GameObject("CameraPlacement").transform;
+            cameraPlacement.SetParent(transform);
+            cameraPlacement.localPosition = offset;
             if (target == null)
             {
-                cameraPlacement.transform.LookAt(transform);
+                cameraPlacement.LookAt(transform);
             }
             else
             {
-                Quaternion rotation = Quaternion.LookRotation(transform.position - cameraPlacement.transform.position);
+                Quaternion rotation = Quaternion.LookRotation(transform.position - cameraPlacement.position);
                 rotation = Quaternion.Euler(rotation.eulerAngles.x - Vector3.Distance(transform.position, target.position) * angleDistanceRatio, rotation.eulerAngles.y, 0);
-                cameraPlacement.transform.rotation = rotation;
+                cameraPlacement.rotation = rotation;
             }
             
         }
@@ -97,13 +97,13 @@ public class PlanetFocusHelper : MonoBehaviour
         
         myCollider.radius = Mathf.Clamp(dist * hitboxMultiplier, 0.5f, 6);
     }
-    public Transform Focus(bool force = false)
+    public PlanetFocusHelper Focus(bool force = false)
     {
         if(!force && Vector3.Distance(cameraMain.transform.position, transform.position) > minDistance && transform.parent != null)
         {
-            return transform.parent.GetComponent<PlanetFocusHelper>().cameraPlacement.transform;
+            return transform.parent.GetComponent<PlanetFocusHelper>();
         }
-        return cameraPlacement.transform;
+        return this;
     }
 
 }

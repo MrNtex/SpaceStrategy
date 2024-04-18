@@ -28,9 +28,9 @@ public class DateManager : MonoBehaviour
         currentDate = startDate;
         UpdateTimeScale(1);
     }
-    public void UpdateDate(int elapsedDays)
+    public void UpdateDate(float days)
     {
-        currentDate = startDate.AddDays(elapsedDays);
+        currentDate = currentDate.AddDays(days);
 
         dateText.text = currentDate.ToString("dd-MM-yyyy");
     }

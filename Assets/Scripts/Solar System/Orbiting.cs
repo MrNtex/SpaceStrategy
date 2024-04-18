@@ -15,14 +15,16 @@ public class Orbiting : MonoBehaviour
     [Range(-1.0f, 1.0f)]
     private float multiplier = 1.0f;
 
-    public float elapsedSeconds = 0;
 
     [SerializeField]
     private DateManager dateManager;
 
+    private Vector2 lastPosition;
+
     // Start is called before the first frame update
     void Start()
     {
+        lastPosition = transform.position;
         actualSpeed = speed/Vector3.Distance(transform.position, target.position);
 
         // Circle around the target
@@ -48,14 +50,16 @@ public class Orbiting : MonoBehaviour
 
         if(dateManager != null)
         {
-            // Update elapsed time
-            elapsedSeconds += Time.deltaTime;
+            float elapsedDays = Vector2.Angle((Vector2)target.position - lastPosition, (Vector2)target.position - (Vector2)transform.position) / 365;
 
-            // Assuming 360 degrees rotation equals one year (365 days)
-            // Calculate elapsed days based on rotation speed and multiplier
-            float elapsedDays = elapsedSeconds / (360f / speed) * 365f;
+            Debug.Log(elapsedDays);
 
-            dateManager.UpdateDate((int)elapsedDays);
+            if(elapsedDays >= 1)
+            {
+                dateManager.UpdateDate(elapsedDays);
+                lastPosition = transform.position;
+            }
+           
         }
         
     }

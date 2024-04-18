@@ -33,7 +33,10 @@ public class CameraControler : MonoBehaviour
         }
 
         Vector3 input = transform.forward * Input.GetAxis("Vertical") + transform.right * Input.GetAxis("Horizontal");
-        MoveCamera(input, shiftMultiplier);
+        if(input != Vector3.zero)
+        {
+            MoveCamera(input, shiftMultiplier);
+        }
 
         Vector3 mouseScroll = Input.mouseScrollDelta;
         if (mouseScroll.y != 0)
