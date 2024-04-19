@@ -6566,7 +6566,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 462992311}
   multiplier: 1
-  elapsedSeconds: 0
   dateManager: {fileID: 330585550}
 --- !u!135 &356142572
 SphereCollider:
@@ -6774,6 +6773,7 @@ MonoBehaviour:
   bodyInfo: {fileID: 0}
   offset: {x: 0, y: 7.8548307, z: 11.624336}
   target: {fileID: 0}
+  cameraPlacement: {fileID: 0}
   minDistance: 6000
   highlightMaterial: {fileID: 2100000, guid: db38e5f88c030404c9ec2faa38fbcbd5, type: 2}
 --- !u!114 &356142578
@@ -7882,7 +7882,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 515440453}
   multiplier: 1
-  elapsedSeconds: 0
   dateManager: {fileID: 0}
 --- !u!135 &443832774
 SphereCollider:
@@ -7970,6 +7969,7 @@ MonoBehaviour:
   bodyInfo: {fileID: 0}
   offset: {x: 0, y: 0, z: 0}
   target: {fileID: 0}
+  cameraPlacement: {fileID: 0}
   minDistance: 400
   highlightMaterial: {fileID: 2100000, guid: db38e5f88c030404c9ec2faa38fbcbd5, type: 2}
 --- !u!114 &443832778
@@ -8417,7 +8417,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 515440453}
   multiplier: 1
-  elapsedSeconds: 0
   dateManager: {fileID: 0}
 --- !u!135 &462690848
 SphereCollider:
@@ -8505,6 +8504,7 @@ MonoBehaviour:
   bodyInfo: {fileID: 0}
   offset: {x: 0, y: 0, z: 0}
   target: {fileID: 0}
+  cameraPlacement: {fileID: 0}
   minDistance: 400
   highlightMaterial: {fileID: 2100000, guid: db38e5f88c030404c9ec2faa38fbcbd5, type: 2}
 --- !u!114 &462690852
@@ -8668,6 +8668,7 @@ MonoBehaviour:
   bodyInfo: {fileID: 0}
   offset: {x: 0, y: 0, z: 0}
   target: {fileID: 0}
+  cameraPlacement: {fileID: 0}
   minDistance: 3000
   highlightMaterial: {fileID: 2100000, guid: db38e5f88c030404c9ec2faa38fbcbd5, type: 2}
 --- !u!114 &462992316
@@ -9064,7 +9065,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 462992311}
   multiplier: 1
-  elapsedSeconds: 0
   dateManager: {fileID: 0}
 --- !u!135 &515440450
 SphereCollider:
@@ -9274,6 +9274,7 @@ MonoBehaviour:
   bodyInfo: {fileID: 0}
   offset: {x: 0, y: 7.854831, z: 11.624336}
   target: {fileID: 462992311}
+  cameraPlacement: {fileID: 0}
   minDistance: 3000
   highlightMaterial: {fileID: 2100000, guid: db38e5f88c030404c9ec2faa38fbcbd5, type: 2}
 --- !u!114 &515440456
@@ -9630,7 +9631,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 462992311}
   multiplier: 1
-  elapsedSeconds: 0
   dateManager: {fileID: 0}
 --- !u!135 &564395471
 SphereCollider:
@@ -9836,6 +9836,7 @@ MonoBehaviour:
   bodyInfo: {fileID: 0}
   offset: {x: 0, y: 7.8548307, z: 11.624336}
   target: {fileID: 0}
+  cameraPlacement: {fileID: 0}
   minDistance: 3000
   highlightMaterial: {fileID: 2100000, guid: db38e5f88c030404c9ec2faa38fbcbd5, type: 2}
 --- !u!114 &564395477
@@ -9913,7 +9914,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 462992311}
   multiplier: 1
-  elapsedSeconds: 0
   dateManager: {fileID: 0}
 --- !u!135 &582741478
 SphereCollider:
@@ -10120,6 +10120,7 @@ MonoBehaviour:
   bodyInfo: {fileID: 0}
   offset: {x: 0, y: 7.8548307, z: 11.624336}
   target: {fileID: 0}
+  cameraPlacement: {fileID: 0}
   minDistance: 3000
   highlightMaterial: {fileID: 2100000, guid: db38e5f88c030404c9ec2faa38fbcbd5, type: 2}
 --- !u!114 &582741484
@@ -10583,7 +10584,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 515440453}
   multiplier: 1
-  elapsedSeconds: 0
   dateManager: {fileID: 0}
 --- !u!135 &651233524
 SphereCollider:
@@ -10671,6 +10671,7 @@ MonoBehaviour:
   bodyInfo: {fileID: 0}
   offset: {x: 0, y: 0, z: 0}
   target: {fileID: 0}
+  cameraPlacement: {fileID: 0}
   minDistance: 400
   highlightMaterial: {fileID: 2100000, guid: db38e5f88c030404c9ec2faa38fbcbd5, type: 2}
 --- !u!114 &651233528
@@ -10760,7 +10761,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 462992311}
   multiplier: 1
-  elapsedSeconds: 0
   dateManager: {fileID: 0}
 --- !u!135 &828426957
 SphereCollider:
@@ -10967,6 +10967,7 @@ MonoBehaviour:
   bodyInfo: {fileID: 0}
   offset: {x: 0, y: 7.8548307, z: 11.624336}
   target: {fileID: 0}
+  cameraPlacement: {fileID: 0}
   minDistance: 2500
   highlightMaterial: {fileID: 2100000, guid: db38e5f88c030404c9ec2faa38fbcbd5, type: 2}
 --- !u!114 &828426963
@@ -11126,6 +11127,7 @@ MonoBehaviour:
   bodyInfo: {fileID: 0}
   offset: {x: 0, y: 7.8548307, z: 11.624336}
   target: {fileID: 0}
+  cameraPlacement: {fileID: 0}
   minDistance: 3000
   highlightMaterial: {fileID: 2100000, guid: db38e5f88c030404c9ec2faa38fbcbd5, type: 2}
 --- !u!120 &860914091
@@ -11244,7 +11246,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 462992311}
   multiplier: 1
-  elapsedSeconds: 0
   dateManager: {fileID: 0}
 --- !u!135 &860914093
 SphereCollider:
@@ -11403,7 +11404,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1376634466}
   multiplier: 1
-  elapsedSeconds: 0
   dateManager: {fileID: 0}
 --- !u!135 &867471414
 SphereCollider:
@@ -11491,6 +11491,7 @@ MonoBehaviour:
   bodyInfo: {fileID: 0}
   offset: {x: 0, y: 0, z: 0}
   target: {fileID: 0}
+  cameraPlacement: {fileID: 0}
   minDistance: 400
   highlightMaterial: {fileID: 2100000, guid: db38e5f88c030404c9ec2faa38fbcbd5, type: 2}
 --- !u!114 &867471418
@@ -11653,7 +11654,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 515440453}
   multiplier: 1
-  elapsedSeconds: 0
   dateManager: {fileID: 0}
 --- !u!135 &951593551
 SphereCollider:
@@ -11741,6 +11741,7 @@ MonoBehaviour:
   bodyInfo: {fileID: 0}
   offset: {x: 0, y: 0, z: 0}
   target: {fileID: 0}
+  cameraPlacement: {fileID: 0}
   minDistance: 400
   highlightMaterial: {fileID: 2100000, guid: db38e5f88c030404c9ec2faa38fbcbd5, type: 2}
 --- !u!114 &951593555
@@ -12082,7 +12083,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 462992311}
   multiplier: 1
-  elapsedSeconds: 0
   dateManager: {fileID: 0}
 --- !u!135 &1138087769
 SphereCollider:
@@ -12290,6 +12290,7 @@ MonoBehaviour:
   bodyInfo: {fileID: 0}
   offset: {x: 0, y: 7.8548307, z: 11.624336}
   target: {fileID: 0}
+  cameraPlacement: {fileID: 0}
   minDistance: 3000
   highlightMaterial: {fileID: 2100000, guid: db38e5f88c030404c9ec2faa38fbcbd5, type: 2}
 --- !u!114 &1138087775
@@ -12382,7 +12383,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1138087772}
   multiplier: 1
-  elapsedSeconds: 0
   dateManager: {fileID: 0}
 --- !u!135 &1186634151
 SphereCollider:
@@ -12470,6 +12470,7 @@ MonoBehaviour:
   bodyInfo: {fileID: 0}
   offset: {x: 0, y: 0, z: 0}
   target: {fileID: 0}
+  cameraPlacement: {fileID: 0}
   minDistance: 400
   highlightMaterial: {fileID: 2100000, guid: db38e5f88c030404c9ec2faa38fbcbd5, type: 2}
 --- !u!114 &1186634155
@@ -12778,7 +12779,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1264452442
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13391,7 +13392,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 828426960}
   multiplier: 1
-  elapsedSeconds: 0
   dateManager: {fileID: 0}
 --- !u!135 &1333688742
 SphereCollider:
@@ -13479,6 +13479,7 @@ MonoBehaviour:
   bodyInfo: {fileID: 0}
   offset: {x: 0, y: 0, z: 0}
   target: {fileID: 0}
+  cameraPlacement: {fileID: 0}
   minDistance: 400
   highlightMaterial: {fileID: 2100000, guid: db38e5f88c030404c9ec2faa38fbcbd5, type: 2}
 --- !u!114 &1333688746
@@ -13842,7 +13843,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 462992311}
   multiplier: 1
-  elapsedSeconds: 0
   dateManager: {fileID: 0}
 --- !u!135 &1376634463
 SphereCollider:
@@ -14049,6 +14049,7 @@ MonoBehaviour:
   bodyInfo: {fileID: 0}
   offset: {x: 0, y: 7.8548307, z: 11.624336}
   target: {fileID: 0}
+  cameraPlacement: {fileID: 0}
   minDistance: 2500
   highlightMaterial: {fileID: 2100000, guid: db38e5f88c030404c9ec2faa38fbcbd5, type: 2}
 --- !u!114 &1376634469
@@ -15265,52 +15266,52 @@ PrefabInstance:
     - target: {fileID: 1027835857599388753, guid: c6ab3bd338f660e45879ac1f4ea1edc4,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1027835857599388753, guid: c6ab3bd338f660e45879ac1f4ea1edc4,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1027835857599388753, guid: c6ab3bd338f660e45879ac1f4ea1edc4,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 90.83
       objectReference: {fileID: 0}
     - target: {fileID: 1027835857599388753, guid: c6ab3bd338f660e45879ac1f4ea1edc4,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 90.83
       objectReference: {fileID: 0}
     - target: {fileID: 1027835857599388753, guid: c6ab3bd338f660e45879ac1f4ea1edc4,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -15
       objectReference: {fileID: 0}
     - target: {fileID: 2050997355364960385, guid: c6ab3bd338f660e45879ac1f4ea1edc4,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2050997355364960385, guid: c6ab3bd338f660e45879ac1f4ea1edc4,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2050997355364960385, guid: c6ab3bd338f660e45879ac1f4ea1edc4,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2050997355364960385, guid: c6ab3bd338f660e45879ac1f4ea1edc4,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 100.83
       objectReference: {fileID: 0}
     - target: {fileID: 2050997355364960385, guid: c6ab3bd338f660e45879ac1f4ea1edc4,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -15
       objectReference: {fileID: 0}
     - target: {fileID: 4111502106275216512, guid: c6ab3bd338f660e45879ac1f4ea1edc4,
         type: 3}
@@ -15320,7 +15321,7 @@ PrefabInstance:
     - target: {fileID: 4286612076276619683, guid: c6ab3bd338f660e45879ac1f4ea1edc4,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 100.83
       objectReference: {fileID: 0}
     - target: {fileID: 7692068427078058106, guid: c6ab3bd338f660e45879ac1f4ea1edc4,
         type: 3}
@@ -16119,7 +16120,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 356142575}
   multiplier: 1
-  elapsedSeconds: 0
   dateManager: {fileID: 0}
 --- !u!135 &1792061399
 SphereCollider:
@@ -16207,6 +16207,7 @@ MonoBehaviour:
   bodyInfo: {fileID: 0}
   offset: {x: 0, y: 0, z: 0}
   target: {fileID: 0}
+  cameraPlacement: {fileID: 0}
   minDistance: 400
   highlightMaterial: {fileID: 2100000, guid: db38e5f88c030404c9ec2faa38fbcbd5, type: 2}
 --- !u!114 &1792061403
@@ -17324,7 +17325,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 462992311}
   multiplier: 1
-  elapsedSeconds: 0
   dateManager: {fileID: 0}
 --- !u!135 &2016960375
 SphereCollider:
@@ -17530,6 +17530,7 @@ MonoBehaviour:
   bodyInfo: {fileID: 0}
   offset: {x: 0, y: 7.8548307, z: 11.624336}
   target: {fileID: 0}
+  cameraPlacement: {fileID: 0}
   minDistance: 3000
   highlightMaterial: {fileID: 2100000, guid: db38e5f88c030404c9ec2faa38fbcbd5, type: 2}
 --- !u!114 &2016960381
@@ -17628,6 +17629,7 @@ MonoBehaviour:
   bodyInfo: {fileID: 0}
   offset: {x: 0, y: 7.8548307, z: 11.624336}
   target: {fileID: 0}
+  cameraPlacement: {fileID: 0}
   minDistance: 1500
   highlightMaterial: {fileID: 2100000, guid: db38e5f88c030404c9ec2faa38fbcbd5, type: 2}
 --- !u!120 &2047691598
@@ -17746,7 +17748,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 462992311}
   multiplier: 1
-  elapsedSeconds: 0
   dateManager: {fileID: 0}
 --- !u!135 &2047691600
 SphereCollider:

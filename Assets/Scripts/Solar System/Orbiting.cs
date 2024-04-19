@@ -19,12 +19,13 @@ public class Orbiting : MonoBehaviour
     [SerializeField]
     private DateManager dateManager;
 
-    private Vector2 lastPosition;
+    private Vector3 lastPosition;
 
     // Start is called before the first frame update
     void Start()
     {
-        lastPosition = transform.position;
+        lastPosition = target.position - transform.localPosition;
+        
         actualSpeed = speed/Vector3.Distance(transform.position, target.position);
 
         // Circle around the target
@@ -50,16 +51,14 @@ public class Orbiting : MonoBehaviour
 
         if(dateManager != null)
         {
-            float elapsedDays = Vector2.Angle((Vector2)target.position - lastPosition, (Vector2)target.position - (Vector2)transform.position) / 365;
+            float elapsedDays = Vector3.Angle(target.position - transform.localPosition, lastPosition) * 1.0145f;
 
-            Debug.Log(elapsedDays);
-
-            if(elapsedDays >= 1)
+            if (elapsedDays >= 1)
             {
                 dateManager.UpdateDate(elapsedDays);
-                lastPosition = transform.position;
+                lastPosition = target.position - transform.localPosition;
             }
-           
+
         }
         
     }
