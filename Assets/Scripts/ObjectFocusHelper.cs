@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlanetFocusHelper : MonoBehaviour
+public class ObjectFocusHelper : MonoBehaviour
 {
 
     private Orbiting orbiting;
-    public BodyInfo bodyInfo;
+    public ObjectInfo objectInfo;
 
     [SerializeField]
     private Vector3 offset;
@@ -85,7 +85,7 @@ public class PlanetFocusHelper : MonoBehaviour
 
         defaultMaterial = gameObject.GetComponent<MeshRenderer>().material;
 
-        bodyInfo = GetComponent<BodyInfo>();
+        objectInfo = GetComponent<ObjectInfo>();
     }
     private void OnEnable()
     {
@@ -97,11 +97,11 @@ public class PlanetFocusHelper : MonoBehaviour
         
         myCollider.radius = Mathf.Clamp(dist * hitboxMultiplier, 0.5f, 6);
     }
-    public PlanetFocusHelper Focus(bool force = false)
+    public ObjectFocusHelper Focus(bool force = false)
     {
         if(!force && Vector3.Distance(cameraMain.transform.position, transform.position) > minDistance && transform.parent != null)
         {
-            return transform.parent.GetComponent<PlanetFocusHelper>();
+            return transform.parent.GetComponent<ObjectFocusHelper>();
         }
         return this;
     }

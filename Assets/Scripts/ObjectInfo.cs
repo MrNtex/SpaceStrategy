@@ -16,13 +16,12 @@ public enum PlanetType
     GasGiant,
     IceGiant
 }
-public class BodyInfo : MonoBehaviour
+public class ObjectInfo : MonoBehaviour
 {
-    public string bodyName;
+    public string objectName;
 
-    private PlanetFocusHelper planetFocusHelper;
+    protected ObjectFocusHelper objectFocusHelper;
     private CameraFocus cameraFocus;
-    public Orbiting orbiting;
     public BodyStatus bodyStatus;
 
     [SerializeField]
@@ -30,29 +29,34 @@ public class BodyInfo : MonoBehaviour
     [SerializeField]
     private Color color;
 
+    public Orbiting orbiting;
+
     public BodyType bodyType;
     public PlanetType planetType;
 
     public Sprite icon;
 
+    
     private void Awake()
     {
-        if(bodyName == "") bodyName = gameObject.name;
+        if(objectName == "") objectName = gameObject.name;
 
-        planetFocusHelper = GetComponent<PlanetFocusHelper>();
+        objectFocusHelper = GetComponent<ObjectFocusHelper>();
         cameraFocus = Camera.main.GetComponent<CameraFocus>();
-        orbiting = GetComponent<Orbiting>();
+        
     }
+    
     private void Start()
     {
-        if(useCustomColor)
+        if (useCustomColor)
         {
             gameObject.GetComponent<Renderer>().material.color = color;
         }
         bodyStatus = GetComponent<BodyStatus>();
+        orbiting = GetComponent<Orbiting>();
     }
     public void ButtonClicked()
     {
-        cameraFocus.FocusOn(planetFocusHelper);
+        cameraFocus.FocusOn(objectFocusHelper);
     }
 }

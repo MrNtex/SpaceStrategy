@@ -16,12 +16,12 @@ public class CelestailBilboard : Billboard
     }
     private void SetupCelestailBody()
     {
-        BodyInfo bodyInfo = target.GetComponent<BodyInfo>();
+        ObjectInfo bodyInfo = target.GetComponent<ObjectInfo>();
         if (bodyInfo != null)
         {
-            base.text.text = bodyInfo.bodyName;
+            base.text.text = bodyInfo.objectName;
         }
-        PlanetFocusHelper planetFocusHelper = target.GetComponent<PlanetFocusHelper>();
+        ObjectFocusHelper planetFocusHelper = target.GetComponent<ObjectFocusHelper>();
         minDistance = planetFocusHelper.minDistance;
 
         button.GetComponent<Button>().onClick.AddListener(() => bodyInfo.ButtonClicked());

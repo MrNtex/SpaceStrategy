@@ -62,7 +62,7 @@ public class Billboard : MonoBehaviour
 
         float distance = directionToCamera.magnitude;
 
-        if (distance > minDistance)
+        if (distance > minDistance && minDistance != -1)
         {
             button.SetActive(false);
             return;

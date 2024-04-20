@@ -17,22 +17,22 @@ public class BodyInfoUI : MonoBehaviour
 
     [SerializeField]
     private Color gray;
-    public void SetBody(BodyInfo body)
+    public void SetBody(ObjectInfo obj)
     {
-        if (body == null) // Used to hide the UI
+        if (obj == null) // Used to hide the UI
         {
             panel.SetActive(false);
             return;
         }
 
-        bodyName.text = body.bodyName;
-        if (body.icon != null)
+        bodyName.text = obj.objectName;
+        if (obj.icon != null)
         {
-            bodyIcon.sprite = body.icon;
+            bodyIcon.sprite = obj.icon;
         }
         else
         {
-            switch (body.bodyType)
+            switch (obj.bodyType)
             {
                 case BodyType.Moon:
                     bodyIcon.sprite = SpriteManager.instance.moon;
@@ -42,13 +42,13 @@ public class BodyInfoUI : MonoBehaviour
             }
         }
 
-        SetDescription(body);
-        SetStatus(body.bodyStatus);
+        SetDescription(obj);
+        SetStatus(obj.bodyStatus);
 
         panel.SetActive(true);
     }
 
-    private void SetDescription(BodyInfo body)
+    private void SetDescription(ObjectInfo body)
     {
         switch (body.bodyType)
         {

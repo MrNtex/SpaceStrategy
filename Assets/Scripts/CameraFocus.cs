@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraFocus : MonoBehaviour
 {
-    public PlanetFocusHelper planet;
+    public ObjectFocusHelper planet;
 
 
     public float focusTime;
@@ -78,7 +78,7 @@ public class CameraFocus : MonoBehaviour
 
     private void FocusChange()
     {
-        PlanetFocusHelper dest = null;
+        ObjectFocusHelper dest = null;
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -89,9 +89,9 @@ public class CameraFocus : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit))
             {
-                if (hit.transform != planet && hit.transform.GetComponent<PlanetFocusHelper>())
+                if (hit.transform != planet && hit.transform.GetComponent<ObjectFocusHelper>())
                 {
-                    dest = hit.transform.GetComponent<PlanetFocusHelper>();
+                    dest = hit.transform.GetComponent<ObjectFocusHelper>();
                     FocusOn(dest);
                 }
             }
@@ -110,27 +110,27 @@ public class CameraFocus : MonoBehaviour
                 return;
             }
 
-            dest = planet.target.gameObject.GetComponent<PlanetFocusHelper>();
+            dest = planet.target.gameObject.GetComponent<ObjectFocusHelper>();
             FocusOn(dest);
         }
     }
 
-    public void FocusOn(PlanetFocusHelper planet)
+    public void FocusOn(ObjectFocusHelper obj)
     {
-        if(this.planet == planet)
+        if(this.planet == obj)
         {
-            bodyInfoUI.SetBody(planet.bodyInfo);
+            bodyInfoUI.SetBody(obj.objectInfo);
             return;
         }
-        this.planet = planet.Focus();
+        this.planet = obj.Focus();
         oldPos.transform.position = transform.position;
         oldPos.transform.rotation = transform.rotation;
 
-        cameraFocus = planet.cameraPlacement;
+        cameraFocus = obj.cameraPlacement;
         startTime = Time.time;
         isFocusing = true;
 
-        bodyInfoUI.SetBody(planet.bodyInfo);
+        bodyInfoUI.SetBody(obj.objectInfo);
     }
     private void FocusOn(Vector3 pos, Quaternion rot)
     {
