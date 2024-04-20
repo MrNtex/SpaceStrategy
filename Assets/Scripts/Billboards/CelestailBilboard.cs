@@ -16,7 +16,7 @@ public class CelestailBilboard : Billboard
     private void SetupCelestailBody()
     {
         BodyInfo bodyInfo = target.GetComponent<BodyInfo>();
-        Debug.Log(bodyInfo);
+
         if (bodyInfo != null)
         {
             base.text.text = bodyInfo.objectName;

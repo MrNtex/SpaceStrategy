@@ -6544,7 +6544,7 @@ GameObject:
   - component: {fileID: 356142576}
   - component: {fileID: 356142577}
   - component: {fileID: 356142579}
-  - component: {fileID: 356142578}
+  - component: {fileID: 356142580}
   m_Layer: 0
   m_Name: Earth
   m_TagString: Untagged
@@ -6770,32 +6770,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3714d205ad29d7479b5590e49da5e85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bodyInfo: {fileID: 0}
+  objectInfo: {fileID: 0}
   offset: {x: 0, y: 7.8548307, z: 11.624336}
   target: {fileID: 0}
   cameraPlacement: {fileID: 0}
   minDistance: 6000
   highlightMaterial: {fileID: 2100000, guid: db38e5f88c030404c9ec2faa38fbcbd5, type: 2}
---- !u!114 &356142578
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 356142570}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8761ccada0f567c4495c81e3dc8574f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bodyName: 
-  orbiting: {fileID: 0}
-  bodyStatus: {fileID: 0}
-  useCustomColor: 1
-  color: {r: 0.39215687, g: 0.45490196, b: 0.7372549, a: 1}
-  bodyType: 0
-  planetType: 0
-  icon: {fileID: 21300000, guid: 6431e80df9a7b554c8b0e35bb2454c14, type: 3}
 --- !u!114 &356142579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6813,6 +6793,26 @@ MonoBehaviour:
   populationGrowthRate: 0
   populationGrowthRateModifier: 0
   status: 5
+--- !u!114 &356142580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 356142570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31eb0592c3496464fba10fde5f48138a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectName: 
+  bodyStatus: {fileID: 0}
+  useCustomColor: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
+  orbiting: {fileID: 0}
+  icon: {fileID: 0}
+  bodyType: 0
+  planetType: 0
 --- !u!1001 &357648203
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7843,8 +7843,8 @@ GameObject:
   - component: {fileID: 443832774}
   - component: {fileID: 443832773}
   - component: {fileID: 443832777}
-  - component: {fileID: 443832778}
   - component: {fileID: 443832779}
+  - component: {fileID: 443832780}
   m_Layer: 0
   m_Name: Io
   m_TagString: Untagged
@@ -7966,32 +7966,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3714d205ad29d7479b5590e49da5e85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bodyInfo: {fileID: 0}
+  objectInfo: {fileID: 0}
   offset: {x: 0, y: 0, z: 0}
   target: {fileID: 0}
   cameraPlacement: {fileID: 0}
   minDistance: 400
   highlightMaterial: {fileID: 2100000, guid: db38e5f88c030404c9ec2faa38fbcbd5, type: 2}
---- !u!114 &443832778
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 443832771}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8761ccada0f567c4495c81e3dc8574f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bodyName: 
-  orbiting: {fileID: 0}
-  bodyStatus: {fileID: 0}
-  useCustomColor: 1
-  color: {r: 0.78431374, g: 0.73333335, b: 0.3137255, a: 1}
-  bodyType: 3
-  planetType: 0
-  icon: {fileID: 0}
 --- !u!114 &443832779
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8009,6 +7989,26 @@ MonoBehaviour:
   populationGrowthRate: 0
   populationGrowthRateModifier: 0
   status: 5
+--- !u!114 &443832780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 443832771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31eb0592c3496464fba10fde5f48138a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectName: 
+  bodyStatus: {fileID: 0}
+  useCustomColor: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
+  orbiting: {fileID: 0}
+  icon: {fileID: 0}
+  bodyType: 3
+  planetType: 0
 --- !u!1001 &444287255
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8378,8 +8378,8 @@ GameObject:
   - component: {fileID: 462690848}
   - component: {fileID: 462690847}
   - component: {fileID: 462690851}
-  - component: {fileID: 462690852}
   - component: {fileID: 462690853}
+  - component: {fileID: 462690854}
   m_Layer: 0
   m_Name: Ganymede
   m_TagString: Untagged
@@ -8501,32 +8501,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3714d205ad29d7479b5590e49da5e85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bodyInfo: {fileID: 0}
+  objectInfo: {fileID: 0}
   offset: {x: 0, y: 0, z: 0}
   target: {fileID: 0}
   cameraPlacement: {fileID: 0}
   minDistance: 400
   highlightMaterial: {fileID: 2100000, guid: db38e5f88c030404c9ec2faa38fbcbd5, type: 2}
---- !u!114 &462690852
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 462690845}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8761ccada0f567c4495c81e3dc8574f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bodyName: 
-  orbiting: {fileID: 0}
-  bodyStatus: {fileID: 0}
-  useCustomColor: 1
-  color: {r: 0.42352942, g: 0.42352942, b: 0.42352942, a: 1}
-  bodyType: 3
-  planetType: 0
-  icon: {fileID: 0}
 --- !u!114 &462690853
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8544,6 +8524,26 @@ MonoBehaviour:
   populationGrowthRate: 0
   populationGrowthRateModifier: 0
   status: 5
+--- !u!114 &462690854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 462690845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31eb0592c3496464fba10fde5f48138a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectName: 
+  bodyStatus: {fileID: 0}
+  useCustomColor: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
+  orbiting: {fileID: 0}
+  icon: {fileID: 0}
+  bodyType: 3
+  planetType: 0
 --- !u!1 &462992310
 GameObject:
   m_ObjectHideFlags: 0
@@ -8665,7 +8665,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3714d205ad29d7479b5590e49da5e85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bodyInfo: {fileID: 0}
+  objectInfo: {fileID: 0}
   offset: {x: 0, y: 0, z: 0}
   target: {fileID: 0}
   cameraPlacement: {fileID: 0}
@@ -8680,17 +8680,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 462992310}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8761ccada0f567c4495c81e3dc8574f6, type: 3}
+  m_Script: {fileID: 11500000, guid: 31eb0592c3496464fba10fde5f48138a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bodyName: 
-  orbiting: {fileID: 0}
+  objectName: 
   bodyStatus: {fileID: 0}
   useCustomColor: 0
   color: {r: 0, g: 0, b: 0, a: 0}
-  bodyType: 2
+  orbiting: {fileID: 0}
+  icon: {fileID: 0}
+  bodyType: 0
   planetType: 0
-  icon: {fileID: 21300000, guid: 93b55552b309b5e4a890005b3196651f, type: 3}
 --- !u!1 &474107153
 GameObject:
   m_ObjectHideFlags: 0
@@ -9043,7 +9043,7 @@ GameObject:
   - component: {fileID: 515440454}
   - component: {fileID: 515440455}
   - component: {fileID: 515440457}
-  - component: {fileID: 515440456}
+  - component: {fileID: 515440458}
   m_Layer: 0
   m_Name: Jupiter
   m_TagString: Untagged
@@ -9271,32 +9271,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3714d205ad29d7479b5590e49da5e85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bodyInfo: {fileID: 0}
+  objectInfo: {fileID: 0}
   offset: {x: 0, y: 7.854831, z: 11.624336}
   target: {fileID: 462992311}
   cameraPlacement: {fileID: 0}
   minDistance: 3000
   highlightMaterial: {fileID: 2100000, guid: db38e5f88c030404c9ec2faa38fbcbd5, type: 2}
---- !u!114 &515440456
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 515440448}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8761ccada0f567c4495c81e3dc8574f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bodyName: 
-  orbiting: {fileID: 0}
-  bodyStatus: {fileID: 0}
-  useCustomColor: 1
-  color: {r: 0.9607843, g: 0.7254902, b: 0.43137255, a: 1}
-  bodyType: 0
-  planetType: 1
-  icon: {fileID: 21300000, guid: dc50c89f5f9aa6f418ba16bd1102006d, type: 3}
 --- !u!114 &515440457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9314,6 +9294,26 @@ MonoBehaviour:
   populationGrowthRate: 0
   populationGrowthRateModifier: 0
   status: 5
+--- !u!114 &515440458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 515440448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31eb0592c3496464fba10fde5f48138a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectName: 
+  bodyStatus: {fileID: 0}
+  useCustomColor: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
+  orbiting: {fileID: 0}
+  icon: {fileID: 0}
+  bodyType: 0
+  planetType: 0
 --- !u!1001 &533703823
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9609,7 +9609,7 @@ GameObject:
   - component: {fileID: 564395475}
   - component: {fileID: 564395476}
   - component: {fileID: 564395478}
-  - component: {fileID: 564395477}
+  - component: {fileID: 564395479}
   m_Layer: 0
   m_Name: Mercury
   m_TagString: Untagged
@@ -9833,32 +9833,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3714d205ad29d7479b5590e49da5e85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bodyInfo: {fileID: 0}
+  objectInfo: {fileID: 0}
   offset: {x: 0, y: 7.8548307, z: 11.624336}
   target: {fileID: 0}
   cameraPlacement: {fileID: 0}
   minDistance: 3000
   highlightMaterial: {fileID: 2100000, guid: db38e5f88c030404c9ec2faa38fbcbd5, type: 2}
---- !u!114 &564395477
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 564395469}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8761ccada0f567c4495c81e3dc8574f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bodyName: 
-  orbiting: {fileID: 0}
-  bodyStatus: {fileID: 0}
-  useCustomColor: 0
-  color: {r: 0.42352942, g: 0.42352942, b: 0.42352942, a: 1}
-  bodyType: 0
-  planetType: 0
-  icon: {fileID: 21300000, guid: 66fbc0996803e6c4ab7455291c523914, type: 3}
 --- !u!114 &564395478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9876,6 +9856,26 @@ MonoBehaviour:
   populationGrowthRate: 0
   populationGrowthRateModifier: 0
   status: 5
+--- !u!114 &564395479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 564395469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31eb0592c3496464fba10fde5f48138a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectName: 
+  bodyStatus: {fileID: 0}
+  useCustomColor: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
+  orbiting: {fileID: 0}
+  icon: {fileID: 0}
+  bodyType: 0
+  planetType: 0
 --- !u!1 &582741476
 GameObject:
   m_ObjectHideFlags: 0
@@ -9892,7 +9892,7 @@ GameObject:
   - component: {fileID: 582741482}
   - component: {fileID: 582741483}
   - component: {fileID: 582741485}
-  - component: {fileID: 582741484}
+  - component: {fileID: 582741486}
   m_Layer: 0
   m_Name: Mars
   m_TagString: Untagged
@@ -10117,32 +10117,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3714d205ad29d7479b5590e49da5e85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bodyInfo: {fileID: 0}
+  objectInfo: {fileID: 0}
   offset: {x: 0, y: 7.8548307, z: 11.624336}
   target: {fileID: 0}
   cameraPlacement: {fileID: 0}
   minDistance: 3000
   highlightMaterial: {fileID: 2100000, guid: db38e5f88c030404c9ec2faa38fbcbd5, type: 2}
---- !u!114 &582741484
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 582741476}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8761ccada0f567c4495c81e3dc8574f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bodyName: 
-  orbiting: {fileID: 0}
-  bodyStatus: {fileID: 0}
-  useCustomColor: 0
-  color: {r: 0, g: 0, b: 0, a: 0}
-  bodyType: 0
-  planetType: 0
-  icon: {fileID: 21300000, guid: bc6c7bfd41241d24486950f30e139020, type: 3}
 --- !u!114 &582741485
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10160,6 +10140,26 @@ MonoBehaviour:
   populationGrowthRate: 0
   populationGrowthRateModifier: 0
   status: 5
+--- !u!114 &582741486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 582741476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31eb0592c3496464fba10fde5f48138a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectName: 
+  bodyStatus: {fileID: 0}
+  useCustomColor: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
+  orbiting: {fileID: 0}
+  icon: {fileID: 0}
+  bodyType: 0
+  planetType: 0
 --- !u!1 &584995903
 GameObject:
   m_ObjectHideFlags: 0
@@ -10545,8 +10545,8 @@ GameObject:
   - component: {fileID: 651233524}
   - component: {fileID: 651233523}
   - component: {fileID: 651233527}
-  - component: {fileID: 651233528}
   - component: {fileID: 651233529}
+  - component: {fileID: 651233530}
   m_Layer: 0
   m_Name: Europa
   m_TagString: Untagged
@@ -10668,32 +10668,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3714d205ad29d7479b5590e49da5e85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bodyInfo: {fileID: 0}
+  objectInfo: {fileID: 0}
   offset: {x: 0, y: 0, z: 0}
   target: {fileID: 0}
   cameraPlacement: {fileID: 0}
   minDistance: 400
   highlightMaterial: {fileID: 2100000, guid: db38e5f88c030404c9ec2faa38fbcbd5, type: 2}
---- !u!114 &651233528
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 651233521}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8761ccada0f567c4495c81e3dc8574f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bodyName: 
-  orbiting: {fileID: 0}
-  bodyStatus: {fileID: 0}
-  useCustomColor: 1
-  color: {r: 0.9137255, g: 0.7137255, b: 0.49803922, a: 1}
-  bodyType: 3
-  planetType: 0
-  icon: {fileID: 0}
 --- !u!114 &651233529
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10711,6 +10691,26 @@ MonoBehaviour:
   populationGrowthRate: 0
   populationGrowthRateModifier: 0
   status: 5
+--- !u!114 &651233530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 651233521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31eb0592c3496464fba10fde5f48138a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectName: 
+  bodyStatus: {fileID: 0}
+  useCustomColor: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
+  orbiting: {fileID: 0}
+  icon: {fileID: 0}
+  bodyType: 3
+  planetType: 0
 --- !u!224 &708181922 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7692068427078058106, guid: c6ab3bd338f660e45879ac1f4ea1edc4,
@@ -10739,7 +10739,7 @@ GameObject:
   - component: {fileID: 828426961}
   - component: {fileID: 828426962}
   - component: {fileID: 828426964}
-  - component: {fileID: 828426963}
+  - component: {fileID: 828426965}
   m_Layer: 0
   m_Name: Uranus
   m_TagString: Untagged
@@ -10964,32 +10964,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3714d205ad29d7479b5590e49da5e85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bodyInfo: {fileID: 0}
+  objectInfo: {fileID: 0}
   offset: {x: 0, y: 7.8548307, z: 11.624336}
   target: {fileID: 0}
   cameraPlacement: {fileID: 0}
   minDistance: 2500
   highlightMaterial: {fileID: 2100000, guid: db38e5f88c030404c9ec2faa38fbcbd5, type: 2}
---- !u!114 &828426963
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 828426955}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8761ccada0f567c4495c81e3dc8574f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bodyName: 
-  orbiting: {fileID: 0}
-  bodyStatus: {fileID: 0}
-  useCustomColor: 1
-  color: {r: 0.43137255, g: 0.80784315, b: 0.9607843, a: 1}
-  bodyType: 0
-  planetType: 2
-  icon: {fileID: 21300000, guid: 357f818aa282bfb45b62dfb98d332b05, type: 3}
 --- !u!114 &828426964
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11007,6 +10987,26 @@ MonoBehaviour:
   populationGrowthRate: 0
   populationGrowthRateModifier: 0
   status: 5
+--- !u!114 &828426965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 828426955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31eb0592c3496464fba10fde5f48138a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectName: 
+  bodyStatus: {fileID: 0}
+  useCustomColor: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
+  orbiting: {fileID: 0}
+  icon: {fileID: 0}
+  bodyType: 0
+  planetType: 0
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -11068,6 +11068,189 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 954015971}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &848252917
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1264452443}
+    m_Modifications:
+    - target: {fileID: 1027835857599388753, guid: e15411735d06a2c49910aa327f2908a6,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1027835857599388753, guid: e15411735d06a2c49910aa327f2908a6,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1027835857599388753, guid: e15411735d06a2c49910aa327f2908a6,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1027835857599388753, guid: e15411735d06a2c49910aa327f2908a6,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1027835857599388753, guid: e15411735d06a2c49910aa327f2908a6,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1750755258066375234, guid: e15411735d06a2c49910aa327f2908a6,
+        type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2050997355364960385, guid: e15411735d06a2c49910aa327f2908a6,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2050997355364960385, guid: e15411735d06a2c49910aa327f2908a6,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2050997355364960385, guid: e15411735d06a2c49910aa327f2908a6,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2050997355364960385, guid: e15411735d06a2c49910aa327f2908a6,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2050997355364960385, guid: e15411735d06a2c49910aa327f2908a6,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4111502106275216512, guid: e15411735d06a2c49910aa327f2908a6,
+        type: 3}
+      propertyPath: m_Name
+      value: FleetCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 4286612076276619683, guid: e15411735d06a2c49910aa327f2908a6,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7358965263208286764, guid: e15411735d06a2c49910aa327f2908a6,
+        type: 3}
+      propertyPath: fleetName
+      value: Fleet 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7692068427078058106, guid: e15411735d06a2c49910aa327f2908a6,
+        type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7692068427078058106, guid: e15411735d06a2c49910aa327f2908a6,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7692068427078058106, guid: e15411735d06a2c49910aa327f2908a6,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7692068427078058106, guid: e15411735d06a2c49910aa327f2908a6,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7692068427078058106, guid: e15411735d06a2c49910aa327f2908a6,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7692068427078058106, guid: e15411735d06a2c49910aa327f2908a6,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7692068427078058106, guid: e15411735d06a2c49910aa327f2908a6,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7692068427078058106, guid: e15411735d06a2c49910aa327f2908a6,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7692068427078058106, guid: e15411735d06a2c49910aa327f2908a6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7692068427078058106, guid: e15411735d06a2c49910aa327f2908a6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7692068427078058106, guid: e15411735d06a2c49910aa327f2908a6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7692068427078058106, guid: e15411735d06a2c49910aa327f2908a6,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7692068427078058106, guid: e15411735d06a2c49910aa327f2908a6,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7692068427078058106, guid: e15411735d06a2c49910aa327f2908a6,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7692068427078058106, guid: e15411735d06a2c49910aa327f2908a6,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7692068427078058106, guid: e15411735d06a2c49910aa327f2908a6,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7692068427078058106, guid: e15411735d06a2c49910aa327f2908a6,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7692068427078058106, guid: e15411735d06a2c49910aa327f2908a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7692068427078058106, guid: e15411735d06a2c49910aa327f2908a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7692068427078058106, guid: e15411735d06a2c49910aa327f2908a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e15411735d06a2c49910aa327f2908a6, type: 3}
 --- !u!1 &860914088
 GameObject:
   m_ObjectHideFlags: 0
@@ -11084,7 +11267,7 @@ GameObject:
   - component: {fileID: 860914091}
   - component: {fileID: 860914090}
   - component: {fileID: 860914097}
-  - component: {fileID: 860914089}
+  - component: {fileID: 860914098}
   m_Layer: 0
   m_Name: Pluto
   m_TagString: Untagged
@@ -11092,26 +11275,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &860914089
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 860914088}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8761ccada0f567c4495c81e3dc8574f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bodyName: 
-  orbiting: {fileID: 0}
-  bodyStatus: {fileID: 0}
-  useCustomColor: 1
-  color: {r: 0.42352942, g: 0.42352942, b: 0.42352942, a: 1}
-  bodyType: 0
-  planetType: 0
-  icon: {fileID: 21300000, guid: a4ec4c5288bb6384890a56ecd211528f, type: 3}
 --- !u!114 &860914090
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11124,7 +11287,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3714d205ad29d7479b5590e49da5e85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bodyInfo: {fileID: 0}
+  objectInfo: {fileID: 0}
   offset: {x: 0, y: 7.8548307, z: 11.624336}
   target: {fileID: 0}
   cameraPlacement: {fileID: 0}
@@ -11351,6 +11514,26 @@ MonoBehaviour:
   populationGrowthRate: 0
   populationGrowthRateModifier: 0
   status: 5
+--- !u!114 &860914098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 860914088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31eb0592c3496464fba10fde5f48138a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectName: 
+  bodyStatus: {fileID: 0}
+  useCustomColor: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
+  orbiting: {fileID: 0}
+  icon: {fileID: 0}
+  bodyType: 0
+  planetType: 0
 --- !u!1 &867471411
 GameObject:
   m_ObjectHideFlags: 0
@@ -11365,8 +11548,8 @@ GameObject:
   - component: {fileID: 867471414}
   - component: {fileID: 867471413}
   - component: {fileID: 867471417}
-  - component: {fileID: 867471418}
   - component: {fileID: 867471419}
+  - component: {fileID: 867471420}
   m_Layer: 0
   m_Name: Triton
   m_TagString: Untagged
@@ -11488,32 +11671,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3714d205ad29d7479b5590e49da5e85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bodyInfo: {fileID: 0}
+  objectInfo: {fileID: 0}
   offset: {x: 0, y: 0, z: 0}
   target: {fileID: 0}
   cameraPlacement: {fileID: 0}
   minDistance: 400
   highlightMaterial: {fileID: 2100000, guid: db38e5f88c030404c9ec2faa38fbcbd5, type: 2}
---- !u!114 &867471418
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 867471411}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8761ccada0f567c4495c81e3dc8574f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bodyName: 
-  orbiting: {fileID: 0}
-  bodyStatus: {fileID: 0}
-  useCustomColor: 1
-  color: {r: 0.42352942, g: 0.42352942, b: 0.42352942, a: 1}
-  bodyType: 3
-  planetType: 0
-  icon: {fileID: 0}
 --- !u!114 &867471419
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11531,6 +11694,26 @@ MonoBehaviour:
   populationGrowthRate: 0
   populationGrowthRateModifier: 0
   status: 5
+--- !u!114 &867471420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 867471411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31eb0592c3496464fba10fde5f48138a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectName: 
+  bodyStatus: {fileID: 0}
+  useCustomColor: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
+  orbiting: {fileID: 0}
+  icon: {fileID: 0}
+  bodyType: 0
+  planetType: 0
 --- !u!224 &874463039 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7692068427078058106, guid: c6ab3bd338f660e45879ac1f4ea1edc4,
@@ -11601,6 +11784,12 @@ MonoBehaviour:
   specialized: {r: 0, g: 0.4946847, b: 1, a: 1}
   canBeSpecialized: {r: 0.4292453, g: 0.67620254, b: 1, a: 1}
   inhabitable: {r: 0.4433962, g: 0.4433962, b: 0.4433962, a: 1}
+  bodyColor:
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 1, g: 0.872802, b: 0.5235849, a: 1}
+  - {r: 1, g: 0.79777247, b: 0.3726415, a: 1}
+  - {r: 0.5849056, g: 0.5849056, b: 0.5849056, a: 1}
+  - {r: 0.58431375, g: 0.58431375, b: 0.58431375, a: 1}
 --- !u!1 &951593548
 GameObject:
   m_ObjectHideFlags: 0
@@ -11615,8 +11804,8 @@ GameObject:
   - component: {fileID: 951593551}
   - component: {fileID: 951593550}
   - component: {fileID: 951593554}
-  - component: {fileID: 951593555}
   - component: {fileID: 951593556}
+  - component: {fileID: 951593557}
   m_Layer: 0
   m_Name: Calisto
   m_TagString: Untagged
@@ -11738,32 +11927,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3714d205ad29d7479b5590e49da5e85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bodyInfo: {fileID: 0}
+  objectInfo: {fileID: 0}
   offset: {x: 0, y: 0, z: 0}
   target: {fileID: 0}
   cameraPlacement: {fileID: 0}
   minDistance: 400
   highlightMaterial: {fileID: 2100000, guid: db38e5f88c030404c9ec2faa38fbcbd5, type: 2}
---- !u!114 &951593555
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 951593548}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8761ccada0f567c4495c81e3dc8574f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bodyName: 
-  orbiting: {fileID: 0}
-  bodyStatus: {fileID: 0}
-  useCustomColor: 1
-  color: {r: 0.23529412, g: 0.2627451, b: 0.6509804, a: 1}
-  bodyType: 3
-  planetType: 0
-  icon: {fileID: 0}
 --- !u!114 &951593556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11781,6 +11950,26 @@ MonoBehaviour:
   populationGrowthRate: 0
   populationGrowthRateModifier: 0
   status: 5
+--- !u!114 &951593557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 951593548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31eb0592c3496464fba10fde5f48138a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectName: 
+  bodyStatus: {fileID: 0}
+  useCustomColor: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
+  orbiting: {fileID: 0}
+  icon: {fileID: 0}
+  bodyType: 3
+  planetType: 0
 --- !u!1001 &954015971
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12045,6 +12234,12 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 533703823}
   m_PrefabAsset: {fileID: 0}
+--- !u!224 &1050713691 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7692068427078058106, guid: e15411735d06a2c49910aa327f2908a6,
+    type: 3}
+  m_PrefabInstance: {fileID: 848252917}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1138087767
 GameObject:
   m_ObjectHideFlags: 0
@@ -12061,7 +12256,7 @@ GameObject:
   - component: {fileID: 1138087773}
   - component: {fileID: 1138087774}
   - component: {fileID: 1138087776}
-  - component: {fileID: 1138087775}
+  - component: {fileID: 1138087777}
   m_Layer: 0
   m_Name: Saturn
   m_TagString: Untagged
@@ -12287,32 +12482,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3714d205ad29d7479b5590e49da5e85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bodyInfo: {fileID: 0}
+  objectInfo: {fileID: 0}
   offset: {x: 0, y: 7.8548307, z: 11.624336}
   target: {fileID: 0}
   cameraPlacement: {fileID: 0}
   minDistance: 3000
   highlightMaterial: {fileID: 2100000, guid: db38e5f88c030404c9ec2faa38fbcbd5, type: 2}
---- !u!114 &1138087775
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1138087767}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8761ccada0f567c4495c81e3dc8574f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bodyName: 
-  orbiting: {fileID: 0}
-  bodyStatus: {fileID: 0}
-  useCustomColor: 1
-  color: {r: 0.9607843, g: 0.7254902, b: 0.43137255, a: 1}
-  bodyType: 0
-  planetType: 1
-  icon: {fileID: 21300000, guid: 9facf3569fd04894ea3c366a52294434, type: 3}
 --- !u!114 &1138087776
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12330,6 +12505,26 @@ MonoBehaviour:
   populationGrowthRate: 0
   populationGrowthRateModifier: 0
   status: 5
+--- !u!114 &1138087777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1138087767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31eb0592c3496464fba10fde5f48138a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectName: 
+  bodyStatus: {fileID: 0}
+  useCustomColor: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
+  orbiting: {fileID: 0}
+  icon: {fileID: 0}
+  bodyType: 0
+  planetType: 0
 --- !u!1 &1186634148
 GameObject:
   m_ObjectHideFlags: 0
@@ -12344,8 +12539,8 @@ GameObject:
   - component: {fileID: 1186634151}
   - component: {fileID: 1186634150}
   - component: {fileID: 1186634154}
-  - component: {fileID: 1186634155}
   - component: {fileID: 1186634156}
+  - component: {fileID: 1186634157}
   m_Layer: 0
   m_Name: Titan
   m_TagString: Untagged
@@ -12467,32 +12662,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3714d205ad29d7479b5590e49da5e85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bodyInfo: {fileID: 0}
+  objectInfo: {fileID: 0}
   offset: {x: 0, y: 0, z: 0}
   target: {fileID: 0}
   cameraPlacement: {fileID: 0}
   minDistance: 400
   highlightMaterial: {fileID: 2100000, guid: db38e5f88c030404c9ec2faa38fbcbd5, type: 2}
---- !u!114 &1186634155
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1186634148}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8761ccada0f567c4495c81e3dc8574f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bodyName: 
-  orbiting: {fileID: 0}
-  bodyStatus: {fileID: 0}
-  useCustomColor: 1
-  color: {r: 0.9137255, g: 0.7137255, b: 0.49803922, a: 1}
-  bodyType: 3
-  planetType: 0
-  icon: {fileID: 0}
 --- !u!114 &1186634156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12510,6 +12685,26 @@ MonoBehaviour:
   populationGrowthRate: 0
   populationGrowthRateModifier: 0
   status: 5
+--- !u!114 &1186634157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1186634148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31eb0592c3496464fba10fde5f48138a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectName: 
+  bodyStatus: {fileID: 0}
+  useCustomColor: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
+  orbiting: {fileID: 0}
+  icon: {fileID: 0}
+  bodyType: 0
+  planetType: 0
 --- !u!1001 &1230882443
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12779,7 +12974,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1264452442
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12794,6 +12989,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   capitan: {fileID: 0}
   ships: []
+  fleetName: sadsada
 --- !u!4 &1264452443
 Transform:
   m_ObjectHideFlags: 0
@@ -12810,7 +13006,7 @@ Transform:
   - {fileID: 1727358120}
   - {fileID: 1682560583}
   - {fileID: 421937661}
-  - {fileID: 1783898141}
+  - {fileID: 1050713691}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1279704079
@@ -13352,9 +13548,9 @@ GameObject:
   - component: {fileID: 1333688742}
   - component: {fileID: 1333688741}
   - component: {fileID: 1333688745}
-  - component: {fileID: 1333688746}
   - component: {fileID: 1333688748}
   - component: {fileID: 1333688747}
+  - component: {fileID: 1333688749}
   m_Layer: 0
   m_Name: Titania
   m_TagString: Untagged
@@ -13476,32 +13672,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3714d205ad29d7479b5590e49da5e85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bodyInfo: {fileID: 0}
+  objectInfo: {fileID: 0}
   offset: {x: 0, y: 0, z: 0}
   target: {fileID: 0}
   cameraPlacement: {fileID: 0}
   minDistance: 400
   highlightMaterial: {fileID: 2100000, guid: db38e5f88c030404c9ec2faa38fbcbd5, type: 2}
---- !u!114 &1333688746
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1333688739}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8761ccada0f567c4495c81e3dc8574f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bodyName: 
-  orbiting: {fileID: 0}
-  bodyStatus: {fileID: 0}
-  useCustomColor: 1
-  color: {r: 0.42352942, g: 0.42352942, b: 0.42352942, a: 1}
-  bodyType: 3
-  planetType: 0
-  icon: {fileID: 0}
 --- !u!114 &1333688747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13536,6 +13712,26 @@ MonoBehaviour:
   populationGrowthRate: 0
   populationGrowthRateModifier: 0
   status: 5
+--- !u!114 &1333688749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1333688739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31eb0592c3496464fba10fde5f48138a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectName: 
+  bodyStatus: {fileID: 0}
+  useCustomColor: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
+  orbiting: {fileID: 0}
+  icon: {fileID: 0}
+  bodyType: 0
+  planetType: 0
 --- !u!1001 &1341326966
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13820,8 +14016,8 @@ GameObject:
   - component: {fileID: 1376634467}
   - component: {fileID: 1376634468}
   - component: {fileID: 1376634471}
-  - component: {fileID: 1376634469}
   - component: {fileID: 1376634470}
+  - component: {fileID: 1376634472}
   m_Layer: 0
   m_Name: Neptune
   m_TagString: Untagged
@@ -14046,32 +14242,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3714d205ad29d7479b5590e49da5e85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bodyInfo: {fileID: 0}
+  objectInfo: {fileID: 0}
   offset: {x: 0, y: 7.8548307, z: 11.624336}
   target: {fileID: 0}
   cameraPlacement: {fileID: 0}
   minDistance: 2500
   highlightMaterial: {fileID: 2100000, guid: db38e5f88c030404c9ec2faa38fbcbd5, type: 2}
---- !u!114 &1376634469
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1376634461}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8761ccada0f567c4495c81e3dc8574f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bodyName: 
-  orbiting: {fileID: 0}
-  bodyStatus: {fileID: 0}
-  useCustomColor: 1
-  color: {r: 0.43137255, g: 0.80784315, b: 0.9607843, a: 1}
-  bodyType: 0
-  planetType: 2
-  icon: {fileID: 21300000, guid: 1413420a319cca344bf6b12a5cbeef52, type: 3}
 --- !u!114 &1376634470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14106,6 +14282,26 @@ MonoBehaviour:
   populationGrowthRate: 0
   populationGrowthRateModifier: 0
   status: 5
+--- !u!114 &1376634472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1376634461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31eb0592c3496464fba10fde5f48138a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectName: 
+  bodyStatus: {fileID: 0}
+  useCustomColor: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
+  orbiting: {fileID: 0}
+  icon: {fileID: 0}
+  bodyType: 0
+  planetType: 0
 --- !u!1 &1387110566
 GameObject:
   m_ObjectHideFlags: 0
@@ -15255,179 +15451,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1596579883}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &1673531286
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1264452443}
-    m_Modifications:
-    - target: {fileID: 1027835857599388753, guid: c6ab3bd338f660e45879ac1f4ea1edc4,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1027835857599388753, guid: c6ab3bd338f660e45879ac1f4ea1edc4,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1027835857599388753, guid: c6ab3bd338f660e45879ac1f4ea1edc4,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 90.83
-      objectReference: {fileID: 0}
-    - target: {fileID: 1027835857599388753, guid: c6ab3bd338f660e45879ac1f4ea1edc4,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 90.83
-      objectReference: {fileID: 0}
-    - target: {fileID: 1027835857599388753, guid: c6ab3bd338f660e45879ac1f4ea1edc4,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -15
-      objectReference: {fileID: 0}
-    - target: {fileID: 2050997355364960385, guid: c6ab3bd338f660e45879ac1f4ea1edc4,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2050997355364960385, guid: c6ab3bd338f660e45879ac1f4ea1edc4,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2050997355364960385, guid: c6ab3bd338f660e45879ac1f4ea1edc4,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2050997355364960385, guid: c6ab3bd338f660e45879ac1f4ea1edc4,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 100.83
-      objectReference: {fileID: 0}
-    - target: {fileID: 2050997355364960385, guid: c6ab3bd338f660e45879ac1f4ea1edc4,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -15
-      objectReference: {fileID: 0}
-    - target: {fileID: 4111502106275216512, guid: c6ab3bd338f660e45879ac1f4ea1edc4,
-        type: 3}
-      propertyPath: m_Name
-      value: SpaceCanvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 4286612076276619683, guid: c6ab3bd338f660e45879ac1f4ea1edc4,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 100.83
-      objectReference: {fileID: 0}
-    - target: {fileID: 7692068427078058106, guid: c6ab3bd338f660e45879ac1f4ea1edc4,
-        type: 3}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7692068427078058106, guid: c6ab3bd338f660e45879ac1f4ea1edc4,
-        type: 3}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7692068427078058106, guid: c6ab3bd338f660e45879ac1f4ea1edc4,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7692068427078058106, guid: c6ab3bd338f660e45879ac1f4ea1edc4,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7692068427078058106, guid: c6ab3bd338f660e45879ac1f4ea1edc4,
-        type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7692068427078058106, guid: c6ab3bd338f660e45879ac1f4ea1edc4,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7692068427078058106, guid: c6ab3bd338f660e45879ac1f4ea1edc4,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 7692068427078058106, guid: c6ab3bd338f660e45879ac1f4ea1edc4,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 7692068427078058106, guid: c6ab3bd338f660e45879ac1f4ea1edc4,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7692068427078058106, guid: c6ab3bd338f660e45879ac1f4ea1edc4,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7692068427078058106, guid: c6ab3bd338f660e45879ac1f4ea1edc4,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7692068427078058106, guid: c6ab3bd338f660e45879ac1f4ea1edc4,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7692068427078058106, guid: c6ab3bd338f660e45879ac1f4ea1edc4,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7692068427078058106, guid: c6ab3bd338f660e45879ac1f4ea1edc4,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7692068427078058106, guid: c6ab3bd338f660e45879ac1f4ea1edc4,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7692068427078058106, guid: c6ab3bd338f660e45879ac1f4ea1edc4,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7692068427078058106, guid: c6ab3bd338f660e45879ac1f4ea1edc4,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7692068427078058106, guid: c6ab3bd338f660e45879ac1f4ea1edc4,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7692068427078058106, guid: c6ab3bd338f660e45879ac1f4ea1edc4,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7692068427078058106, guid: c6ab3bd338f660e45879ac1f4ea1edc4,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: c6ab3bd338f660e45879ac1f4ea1edc4, type: 3}
 --- !u!1 &1680344355
 GameObject:
   m_ObjectHideFlags: 0
@@ -16061,12 +16084,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 357648203}
   m_PrefabAsset: {fileID: 0}
---- !u!224 &1783898141 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 7692068427078058106, guid: c6ab3bd338f660e45879ac1f4ea1edc4,
-    type: 3}
-  m_PrefabInstance: {fileID: 1673531286}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1792061395
 GameObject:
   m_ObjectHideFlags: 0
@@ -16081,8 +16098,8 @@ GameObject:
   - component: {fileID: 1792061399}
   - component: {fileID: 1792061398}
   - component: {fileID: 1792061402}
-  - component: {fileID: 1792061403}
   - component: {fileID: 1792061404}
+  - component: {fileID: 1792061405}
   m_Layer: 0
   m_Name: Moon
   m_TagString: Untagged
@@ -16204,32 +16221,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3714d205ad29d7479b5590e49da5e85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bodyInfo: {fileID: 0}
+  objectInfo: {fileID: 0}
   offset: {x: 0, y: 0, z: 0}
   target: {fileID: 0}
   cameraPlacement: {fileID: 0}
   minDistance: 400
   highlightMaterial: {fileID: 2100000, guid: db38e5f88c030404c9ec2faa38fbcbd5, type: 2}
---- !u!114 &1792061403
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1792061395}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8761ccada0f567c4495c81e3dc8574f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bodyName: 
-  orbiting: {fileID: 0}
-  bodyStatus: {fileID: 0}
-  useCustomColor: 1
-  color: {r: 0.42352942, g: 0.42352942, b: 0.42352942, a: 1}
-  bodyType: 3
-  planetType: 0
-  icon: {fileID: 21300000, guid: 83f6dc71a1a5a014890ab6197805dcd5, type: 3}
 --- !u!114 &1792061404
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16247,6 +16244,26 @@ MonoBehaviour:
   populationGrowthRate: 0
   populationGrowthRateModifier: 0
   status: 5
+--- !u!114 &1792061405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1792061395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31eb0592c3496464fba10fde5f48138a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectName: 
+  bodyStatus: {fileID: 0}
+  useCustomColor: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
+  orbiting: {fileID: 0}
+  icon: {fileID: 0}
+  bodyType: 0
+  planetType: 0
 --- !u!1 &1803584626
 GameObject:
   m_ObjectHideFlags: 0
@@ -17303,7 +17320,7 @@ GameObject:
   - component: {fileID: 2016960379}
   - component: {fileID: 2016960380}
   - component: {fileID: 2016960382}
-  - component: {fileID: 2016960381}
+  - component: {fileID: 2016960383}
   m_Layer: 0
   m_Name: Venus
   m_TagString: Untagged
@@ -17527,32 +17544,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3714d205ad29d7479b5590e49da5e85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bodyInfo: {fileID: 0}
+  objectInfo: {fileID: 0}
   offset: {x: 0, y: 7.8548307, z: 11.624336}
   target: {fileID: 0}
   cameraPlacement: {fileID: 0}
   minDistance: 3000
   highlightMaterial: {fileID: 2100000, guid: db38e5f88c030404c9ec2faa38fbcbd5, type: 2}
---- !u!114 &2016960381
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2016960373}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8761ccada0f567c4495c81e3dc8574f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bodyName: 
-  orbiting: {fileID: 0}
-  bodyStatus: {fileID: 0}
-  useCustomColor: 1
-  color: {r: 0.9607843, g: 0.7254902, b: 0.43137255, a: 1}
-  bodyType: 0
-  planetType: 0
-  icon: {fileID: 21300000, guid: 615abb42da9017c4ea9f861ba70d27fa, type: 3}
 --- !u!114 &2016960382
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17570,6 +17567,26 @@ MonoBehaviour:
   populationGrowthRate: 0
   populationGrowthRateModifier: 0
   status: 5
+--- !u!114 &2016960383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2016960373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31eb0592c3496464fba10fde5f48138a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectName: 
+  bodyStatus: {fileID: 0}
+  useCustomColor: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
+  orbiting: {fileID: 0}
+  icon: {fileID: 0}
+  bodyType: 0
+  planetType: 0
 --- !u!1 &2047691595
 GameObject:
   m_ObjectHideFlags: 0
@@ -17586,7 +17603,7 @@ GameObject:
   - component: {fileID: 2047691598}
   - component: {fileID: 2047691597}
   - component: {fileID: 2047691604}
-  - component: {fileID: 2047691596}
+  - component: {fileID: 2047691605}
   m_Layer: 0
   m_Name: Ceres
   m_TagString: Untagged
@@ -17594,26 +17611,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2047691596
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2047691595}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8761ccada0f567c4495c81e3dc8574f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bodyName: 
-  orbiting: {fileID: 0}
-  bodyStatus: {fileID: 0}
-  useCustomColor: 1
-  color: {r: 0.42352942, g: 0.42352942, b: 0.42352942, a: 1}
-  bodyType: 0
-  planetType: 0
-  icon: {fileID: 0}
 --- !u!114 &2047691597
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17626,7 +17623,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3714d205ad29d7479b5590e49da5e85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bodyInfo: {fileID: 0}
+  objectInfo: {fileID: 0}
   offset: {x: 0, y: 7.8548307, z: 11.624336}
   target: {fileID: 0}
   cameraPlacement: {fileID: 0}
@@ -17853,6 +17850,26 @@ MonoBehaviour:
   populationGrowthRate: 0
   populationGrowthRateModifier: 0
   status: 5
+--- !u!114 &2047691605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2047691595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31eb0592c3496464fba10fde5f48138a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectName: 
+  bodyStatus: {fileID: 0}
+  useCustomColor: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
+  orbiting: {fileID: 0}
+  icon: {fileID: 0}
+  bodyType: 0
+  planetType: 0
 --- !u!224 &2062387168 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7692068427078058106, guid: c6ab3bd338f660e45879ac1f4ea1edc4,
