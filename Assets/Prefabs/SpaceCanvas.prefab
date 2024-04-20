@@ -506,7 +506,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &1051012312772930944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -541,9 +541,3 @@ MonoBehaviour:
   mainCamera: {fileID: 0}
   button: {fileID: 3605941113051186170}
   text: {fileID: 5306756763476050457}
-  textColors:
-  - {r: 1, g: 1, b: 1, a: 1}
-  - {r: 1, g: 0.8768147, b: 0.6462264, a: 1}
-  - {r: 1, g: 0.7073151, b: 0.2971698, a: 1}
-  - {r: 0.7169812, g: 0.7169812, b: 0.7169812, a: 1}
-  - {r: 0.7176471, g: 0.7176471, b: 0.7176471, a: 1}

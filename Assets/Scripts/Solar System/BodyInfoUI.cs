@@ -32,61 +32,15 @@ public class BodyInfoUI : MonoBehaviour
         }
         else
         {
-            switch (obj.bodyType)
-            {
-                case BodyType.Moon:
-                    bodyIcon.sprite = SpriteManager.instance.moon;
-                    break;
-                default:
-                    break;
-            }
+            
         }
 
-        SetDescription(obj);
+        description.text = obj.GetDescrition();
         SetStatus(obj.bodyStatus);
 
         panel.SetActive(true);
     }
 
-    private void SetDescription(ObjectInfo body)
-    {
-        switch (body.bodyType)
-        {
-            case BodyType.Moon:
-                bodyIcon.color = Color.gray;
-                description.text = "Moon of " + body.orbiting.target.name;
-                break;
-            case BodyType.DwarfPlanet:
-                bodyIcon.color = Color.gray;
-                description.text = "Dwarf planet";
-                break;
-            case BodyType.Planet:
-                switch (body.planetType)
-                {
-                    case PlanetType.Terrestrial:
-                        description.text = "Terrestrial planet";
-                        break;
-                    case PlanetType.GasGiant:
-                        description.text = "Gas giant";
-                        break;
-                    case PlanetType.IceGiant:
-                        description.text = "Ice giant";
-                        break;
-                    default:
-                        break;
-                }
-                break;
-            case BodyType.Star:
-                description.text = "Star";
-                break;
-            case BodyType.Main:
-                description.text = "Main planet";
-                break;
-            default:
-                bodyIcon.color = Color.white;
-                break;
-        }
-    }
 
     private void SetStatus(BodyStatus body)
     {

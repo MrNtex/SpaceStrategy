@@ -2,20 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum BodyType
-{
-    Planet,
-    Main, // The planet that determines the time scale (Earth)
-    Star,
-    Moon,
-    DwarfPlanet
-}
-public enum PlanetType
-{
-    Terrestrial,
-    GasGiant,
-    IceGiant
-}
+
 public class ObjectInfo : MonoBehaviour
 {
     public string objectName;
@@ -31,8 +18,6 @@ public class ObjectInfo : MonoBehaviour
 
     public Orbiting orbiting;
 
-    public BodyType bodyType;
-    public PlanetType planetType;
 
     public Sprite icon;
 
@@ -58,5 +43,19 @@ public class ObjectInfo : MonoBehaviour
     public void ButtonClicked()
     {
         cameraFocus.FocusOn(objectFocusHelper);
+    }
+
+    public virtual string GetDescrition()
+    {
+        return "This should be overridden in the subclass";
+    }
+
+    public virtual Sprite GetIcon()
+    {
+        return SpriteManager.instance.moon;
+    }
+    public virtual Color GetColor()
+    {
+        return Color.white;
     }
 }

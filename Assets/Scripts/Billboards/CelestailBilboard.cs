@@ -6,8 +6,7 @@ using UnityEngine.UI;
 
 public class CelestailBilboard : Billboard
 {
-    [SerializeField]
-    private List<Color> textColors;
+    
 
     protected override void Start()
     {
@@ -16,7 +15,8 @@ public class CelestailBilboard : Billboard
     }
     private void SetupCelestailBody()
     {
-        ObjectInfo bodyInfo = target.GetComponent<ObjectInfo>();
+        BodyInfo bodyInfo = target.GetComponent<BodyInfo>();
+        Debug.Log(bodyInfo);
         if (bodyInfo != null)
         {
             base.text.text = bodyInfo.objectName;
@@ -26,6 +26,6 @@ public class CelestailBilboard : Billboard
 
         button.GetComponent<Button>().onClick.AddListener(() => bodyInfo.ButtonClicked());
 
-        text.color = textColors[(int)bodyInfo.bodyType];
+        text.color = bodyInfo.GetColor();
     }
 }

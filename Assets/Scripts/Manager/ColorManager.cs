@@ -5,7 +5,7 @@ using UnityEngine;
 public class ColorManager : MonoBehaviour
 {
     public static ColorManager instance;
-    void Start()
+    void Awake()
     {
         if (instance == null)
         {
@@ -26,4 +26,7 @@ public class ColorManager : MonoBehaviour
     public Color specialized;
     public Color canBeSpecialized;
     public Color inhabitable;
+
+    [Header("Body colors")]
+    public Color[] bodyColor;
 }
