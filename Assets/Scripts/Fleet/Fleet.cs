@@ -25,6 +25,7 @@ public class Fleet : ObjectInfo
     }
     public void Focus()
     {
+        objectFocusHelper.cameraPlacement.SetParent(capitan.transform);
         cameraFocus.FocusOn(objectFocusHelper);
     }
 }

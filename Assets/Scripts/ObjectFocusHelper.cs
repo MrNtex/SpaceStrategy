@@ -27,10 +27,6 @@ public class ObjectFocusHelper : MonoBehaviour
     private GameObject cameraMain;
     private SphereCollider myCollider;
 
-    private Material defaultMaterial;
-    [SerializeField]
-    private Material highlightMaterial;
-
     public bool useCollider = true;
 
     
@@ -83,8 +79,11 @@ public class ObjectFocusHelper : MonoBehaviour
             
         }
 
-
-        objectInfo = GetComponent<ObjectInfo>();
+        if(objectInfo == null)
+        {
+            objectInfo = GetComponent<ObjectInfo>();
+        }
+        
     }
     private void OnEnable()
     {
