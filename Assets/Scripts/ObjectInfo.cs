@@ -41,8 +41,10 @@ public class ObjectInfo : MonoBehaviour
         bodyStatus = GetComponent<BodyStatus>();
         orbiting = GetComponent<Orbiting>();
     }
-    public void ButtonClicked()
+    public virtual void ButtonClicked()
     {
+        FleetManager.instance.selectedFleet = null; // Override this in the Fleet class
+
         cameraFocus.FocusOn(objectFocusHelper);
     }
 

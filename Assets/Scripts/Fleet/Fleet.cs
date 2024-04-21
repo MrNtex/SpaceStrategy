@@ -25,18 +25,23 @@ public class Fleet : ObjectInfo
     {
         cameraFocus = Camera.main.GetComponent<CameraFocus>();
     }
-    public void Focus()
-    {
-        objectFocusHelper.cameraPlacement.SetParent(capitan.transform);
-        cameraFocus.FocusOn(objectFocusHelper);
-
-        FleetManager.instance.selectedFleet = this;
-    }
     public void SetDestination(Vector3 dest)
     {
         destination = dest;
 
         capitan.GetComponent<FlyPattern>().target = dest;
+    }
+    public override void ButtonClicked()
+    {
+        objectFocusHelper.cameraPlacement.SetParent(capitan.transform);
+        BodyInfoUI.instance.SetBody(this);
+
+        if (FleetManager.instance.selectedFleet == this)
+        {
+            cameraFocus.FocusOn(objectFocusHelper);
+        }
+
+        FleetManager.instance.selectedFleet = this;
     }
 }
 [System.Serializable]

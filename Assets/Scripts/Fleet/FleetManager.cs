@@ -23,11 +23,6 @@ public class FleetManager : MonoBehaviour
         if (selectedFleet != null)
             selectedFleet.SetDestination(dest);
     }
-
-    private void Update()
-    {
-        
-    }
 }
 public enum FleetFlyPatternType
 {

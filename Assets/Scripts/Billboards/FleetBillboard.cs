@@ -29,7 +29,7 @@ public class FleetBillboard : Billboard
         fleet = target.parent.GetComponent<Fleet>(); // UI is a child of the fleet capitan, while the fleet info is the parent
 
         text.text = fleet.fleetName;
-        button.GetComponent<Button>().onClick.AddListener(() => fleet.Focus());
+        button.GetComponent<Button>().onClick.AddListener(() => fleet.ButtonClicked());
         UpdateFleet();
     }
     public void UpdateFleet()

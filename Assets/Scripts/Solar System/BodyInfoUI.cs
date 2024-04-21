@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class BodyInfoUI : MonoBehaviour
 {
+    public static BodyInfoUI instance;
+
     [SerializeField]
     private GameObject panel;
 
@@ -17,6 +19,17 @@ public class BodyInfoUI : MonoBehaviour
 
     [SerializeField]
     private Color gray;
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(this);
+        }
+    }
     public void SetBody(ObjectInfo obj)
     {
         if (obj == null) // Used to hide the UI

@@ -80,7 +80,8 @@ public class CameraFocus : MonoBehaviour
     {
         ObjectFocusHelper dest = null;
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && UnityEngine.EventSystems.EventSystem.current != null &&
+            !UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
         {
             onLeftClick?.Invoke(); // This helps clicking on the smaller planets
 
@@ -97,6 +98,7 @@ public class CameraFocus : MonoBehaviour
 
                     dest = hit.transform.GetComponent<ObjectFocusHelper>();
                     FocusOn(dest);
+                    return;
                 }
             }
             else
@@ -108,7 +110,7 @@ public class CameraFocus : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F) && focusedObject != null)
         {
-            if (focusedObject.target == null)
+            if (focusedObject.target == null || focusedObject.target.gameObject.GetComponent<ObjectFocusHelper>() == null)
             {
                 FocusOn(initialPosition, initialRotation);
                 return;
@@ -126,6 +128,7 @@ public class CameraFocus : MonoBehaviour
             bodyInfoUI.SetBody(obj.objectInfo);
             return;
         }
+
         this.focusedObject = obj.Focus();
         oldPos.transform.position = transform.position;
         oldPos.transform.rotation = transform.rotation;
@@ -149,6 +152,5 @@ public class CameraFocus : MonoBehaviour
         startTime = Time.time;
         isFocusing = true;
 
-        bodyInfoUI.SetBody(null);
     }
 }
