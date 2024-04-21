@@ -89,7 +89,7 @@ public class CameraFocus : MonoBehaviour
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-            FleetManager.instance.selectedFleet = null;
+            FleetManager.instance.SetSelectedFleet(null);
 
             if (Physics.Raycast(ray, out hit))
             {

@@ -11,6 +11,8 @@ public class FleetManager : MonoBehaviour
 
     public Fleet selectedFleet;
 
+    public Color focused, normal;
+
     private void Awake()
     {
         instance = this;
@@ -22,6 +24,20 @@ public class FleetManager : MonoBehaviour
         Debug.Log("Updating target to: " + dest);
         if (selectedFleet != null)
             selectedFleet.SetDestination(dest);
+    }
+
+    public void SetSelectedFleet(Fleet fleet)
+    {
+        if(selectedFleet != null)
+        {
+            selectedFleet.path.startColor = normal;
+            selectedFleet.path.endColor = normal;
+        }
+        selectedFleet = fleet;
+        if(selectedFleet != null){
+            selectedFleet.path.startColor = focused;
+            selectedFleet.path.endColor = focused;
+        }
     }
 }
 public enum FleetFlyPatternType
