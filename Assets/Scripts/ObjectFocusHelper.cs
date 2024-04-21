@@ -12,8 +12,6 @@ public class ObjectFocusHelper : MonoBehaviour
     private Vector3 offset;
 
     
-
-    [SerializeField]
     public Transform target;
 
     public Transform cameraPlacement;
@@ -32,6 +30,8 @@ public class ObjectFocusHelper : MonoBehaviour
     private Material defaultMaterial;
     [SerializeField]
     private Material highlightMaterial;
+
+    public bool useCollider = true;
 
     
     private void Awake()
@@ -83,13 +83,12 @@ public class ObjectFocusHelper : MonoBehaviour
             
         }
 
-        defaultMaterial = gameObject.GetComponent<MeshRenderer>().material;
 
         objectInfo = GetComponent<ObjectInfo>();
     }
     private void OnEnable()
     {
-        cameraMain.GetComponent<CameraFocus>().onLeftClick += RecalculateColliders;
+        if(useCollider) cameraMain.GetComponent<CameraFocus>().onLeftClick += RecalculateColliders;
     }
     public void RecalculateColliders()
     {

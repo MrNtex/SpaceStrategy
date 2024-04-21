@@ -36,43 +36,11 @@ public class BodyInfoUI : MonoBehaviour
         }
 
         description.text = obj.GetDescrition();
-        SetStatus(obj.bodyStatus);
+        obj.SetStatus(ref status);
 
         panel.SetActive(true);
     }
 
 
-    private void SetStatus(BodyStatus body)
-    {
-        switch (body.status)
-        {
-            case BodyStatusType.Colonized:
-                status.text = "Colonized";
-                status.color = ColorManager.instance.colonized;
-                break;
-            case BodyStatusType.Colonizable:
-                status.text = "Colonizable";
-                status.color = ColorManager.instance.colonizable;
-                break;
-            case BodyStatusType.CanBeTerraformed:
-                status.text = "Can be terraformed";
-                status.color = ColorManager.instance.canBeTerraformed;
-                break;
-            case BodyStatusType.Specialized:
-                status.text = "Specialized";
-                status.color = ColorManager.instance.specialized;
-                break;
-            case BodyStatusType.CanBeSpecialized:
-                status.text = "Can be specialized";
-                status.color = ColorManager.instance.canBeSpecialized;
-                break;
-            case BodyStatusType.Inhabitable:
-                status.text = "Inhabitable";
-                status.color = ColorManager.instance.inhabitable;
-                break;
-            default:
-                status.text = "";
-                break;
-        }
-    }
+    
 }

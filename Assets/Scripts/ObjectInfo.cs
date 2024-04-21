@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 
@@ -49,7 +50,12 @@ public class ObjectInfo : MonoBehaviour
     {
         return "This should be overridden in the subclass";
     }
-
+    public virtual void SetStatus(ref TMP_Text text)
+    {
+        text.text = "";
+        text.color = Color.white;
+        return;
+    }
     public virtual Sprite GetIcon()
     {
         return SpriteManager.instance.moon;

@@ -9,7 +9,7 @@ public enum ShipType
     Battleship,
     Dreadnought
 }
-public class Fleet : MonoBehaviour
+public class Fleet : ObjectInfo
 {
     public GameObject capitan;
     public GameObject[] ships;
@@ -18,11 +18,14 @@ public class Fleet : MonoBehaviour
 
     public Ship[] composition;
 
-    
-    // Update is called once per frame
-    void Update()
+    private CameraFocus cameraFocus;
+    void Start()
     {
-        
+        cameraFocus = Camera.main.GetComponent<CameraFocus>();
+    }
+    public void Focus()
+    {
+        cameraFocus.FocusOn(objectFocusHelper);
     }
 }
 [System.Serializable]

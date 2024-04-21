@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using static BodyInfo;
@@ -73,5 +74,38 @@ public class BodyInfo : ObjectInfo
     public override Color GetColor()
     {
         return ColorManager.instance.bodyColor[(int)bodyType];
+    }
+    public override void SetStatus(ref TMP_Text status)
+    {
+        switch (bodyStatus.status)
+        {
+            case BodyStatusType.Colonized:
+                status.text = "Colonized";
+                status.color = ColorManager.instance.colonized;
+                break;
+            case BodyStatusType.Colonizable:
+                status.text = "Colonizable";
+                status.color = ColorManager.instance.colonizable;
+                break;
+            case BodyStatusType.CanBeTerraformed:
+                status.text = "Can be terraformed";
+                status.color = ColorManager.instance.canBeTerraformed;
+                break;
+            case BodyStatusType.Specialized:
+                status.text = "Specialized";
+                status.color = ColorManager.instance.specialized;
+                break;
+            case BodyStatusType.CanBeSpecialized:
+                status.text = "Can be specialized";
+                status.color = ColorManager.instance.canBeSpecialized;
+                break;
+            case BodyStatusType.Inhabitable:
+                status.text = "Inhabitable";
+                status.color = ColorManager.instance.inhabitable;
+                break;
+            default:
+                status.text = "";
+                break;
+        }
     }
 }

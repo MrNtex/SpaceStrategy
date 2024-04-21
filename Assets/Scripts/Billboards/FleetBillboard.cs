@@ -25,9 +25,10 @@ public class FleetBillboard : Billboard
     }
     private void SetupFleet()
     {
+
         fleet = target.GetComponent<Fleet>();
         text.text = fleet.fleetName;
-        button.GetComponent<Button>().onClick.AddListener(() => objectFocusHelper.Focus());
+        button.GetComponent<Button>().onClick.AddListener(() => fleet.Focus());
         UpdateFleet();
     }
     public void UpdateFleet()
