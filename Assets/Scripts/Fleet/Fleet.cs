@@ -19,6 +19,8 @@ public class Fleet : ObjectInfo
     public Ship[] composition;
 
     private CameraFocus cameraFocus;
+
+    private Vector3 destination;
     void Start()
     {
         cameraFocus = Camera.main.GetComponent<CameraFocus>();
@@ -27,6 +29,14 @@ public class Fleet : ObjectInfo
     {
         objectFocusHelper.cameraPlacement.SetParent(capitan.transform);
         cameraFocus.FocusOn(objectFocusHelper);
+
+        FleetManager.instance.selectedFleet = this;
+    }
+    public void SetDestination(Vector3 dest)
+    {
+        destination = dest;
+
+        capitan.GetComponent<FlyPattern>().target = dest;
     }
 }
 [System.Serializable]

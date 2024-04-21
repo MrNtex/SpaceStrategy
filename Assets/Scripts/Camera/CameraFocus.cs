@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraFocus : MonoBehaviour
 {
-    public ObjectFocusHelper planet;
+    public ObjectFocusHelper focusedObject;
 
 
     public float focusTime;
@@ -87,10 +87,14 @@ public class CameraFocus : MonoBehaviour
 
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+            FleetManager.instance.selectedFleet = null;
+
             if (Physics.Raycast(ray, out hit))
             {
-                if (hit.transform != planet && hit.transform.GetComponent<ObjectFocusHelper>())
+                if (hit.transform != focusedObject && hit.transform.GetComponent<ObjectFocusHelper>())
                 {
+
                     dest = hit.transform.GetComponent<ObjectFocusHelper>();
                     FocusOn(dest);
                 }
@@ -102,27 +106,27 @@ public class CameraFocus : MonoBehaviour
 
         }
 
-        if (Input.GetKeyDown(KeyCode.F) && planet != null)
+        if (Input.GetKeyDown(KeyCode.F) && focusedObject != null)
         {
-            if (planet.target == null)
+            if (focusedObject.target == null)
             {
                 FocusOn(initialPosition, initialRotation);
                 return;
             }
 
-            dest = planet.target.gameObject.GetComponent<ObjectFocusHelper>();
+            dest = focusedObject.target.gameObject.GetComponent<ObjectFocusHelper>();
             FocusOn(dest);
         }
     }
 
     public void FocusOn(ObjectFocusHelper obj)
     {
-        if(this.planet == obj)
+        if(this.focusedObject == obj)
         {
             bodyInfoUI.SetBody(obj.objectInfo);
             return;
         }
-        this.planet = obj.Focus();
+        this.focusedObject = obj.Focus();
         oldPos.transform.position = transform.position;
         oldPos.transform.rotation = transform.rotation;
 
@@ -134,7 +138,7 @@ public class CameraFocus : MonoBehaviour
     }
     private void FocusOn(Vector3 pos, Quaternion rot)
     {
-        planet = null;
+        focusedObject = null;
 
         oldPos.transform.position = transform.position;
         oldPos.transform.rotation = transform.rotation;

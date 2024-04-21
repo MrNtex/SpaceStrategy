@@ -543,7 +543,7 @@ MonoBehaviour:
   button: {fileID: 3605941113051186170}
   text: {fileID: 5306756763476050457}
   textColors: []
-  fleetIconsPlace: {fileID: 0}
+  fleetIcons: []
 --- !u!1 &4859360875576588241
 GameObject:
   m_ObjectHideFlags: 0

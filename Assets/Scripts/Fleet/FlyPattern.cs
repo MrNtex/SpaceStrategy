@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class FlyPattern : MonoBehaviour
 {
-    [SerializeField]
-    Vector3 target;
+    public Vector3 target;
     [SerializeField]
     Transform capitan;
 
@@ -18,7 +17,7 @@ public class FlyPattern : MonoBehaviour
     public float speed = 5.0f;
     void Update()
     {
-        if(capitan == null)
+        if(capitan == null || capitan == transform)
         {
             transform.position = Vector3.SmoothDamp(transform.position, target, ref velocity, smoothTime, speed, Time.deltaTime);
         }
