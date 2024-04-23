@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class FlyPattern : MonoBehaviour
 {
-    public Vector3 target;
+    public GameObject target;
+
+    public GameObject targetObject; // Object has priority over vector
+
     [SerializeField]
     Transform capitan;
 
@@ -17,13 +21,12 @@ public class FlyPattern : MonoBehaviour
     public float speed = 5.0f;
     void Update()
     {
-        if(capitan == null || capitan == transform)
+        if (capitan == transform)
         {
-            transform.position = Vector3.SmoothDamp(transform.position, target, ref velocity, smoothTime, speed * DateManager.timeScale, Time.deltaTime);
+            this.enabled = false;
         }
-        else
-        {
-            transform.position = Vector3.SmoothDamp(transform.position, capitan.position + myOffset, ref velocity, smoothTime, speed * DateManager.timeScale, Time.deltaTime);
-        }
+        Vector3 dest = capitan.position + myOffset;
+        transform.position = Vector3.SmoothDamp(transform.position, dest, ref velocity, smoothTime, speed * DateManager.timeScale, Time.deltaTime);
+
     }
 }

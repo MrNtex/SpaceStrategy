@@ -11,7 +11,7 @@ public enum ShipType
 }
 public class Fleet : ObjectInfo
 {
-    public GameObject capitan;
+
     public GameObject[] ships;
 
     public string fleetName;
@@ -20,21 +20,57 @@ public class Fleet : ObjectInfo
 
     private CameraFocus cameraFocus;
 
-    private Vector3 destination;
+    public GameObject destination;
+
 
     public LineRenderer path;
 
-    private FleetStatus status;
+    public FleetStatus status;
+
+
+    // Capitan
+    public GameObject capitan;
+
+    private Vector3 velocity = Vector3.zero;
+
+    public float smoothTime = 0.3F;
+
+    public float speed = 5.0f;
     void Start()
     {
         cameraFocus = Camera.main.GetComponent<CameraFocus>();
         path = GetComponent<LineRenderer>();
     }
-    public void SetDestination(Vector3 dest)
+    private void Update()
+    {
+        if (status == FleetStatus.Moving && destination != null)
+        {
+            if (destination.CompareTag("Point"))
+            {
+                FlyTowards(destination.transform.position);
+                return;
+            }
+
+            Vector3 near = destination.transform.position - capitan.transform.position;
+            near -= near.normalized;
+            near += capitan.transform.position;
+            FlyTowards(near);
+            
+        }
+    }
+    void FlyTowards(Vector3 dest)
+    {
+        if (Vector3.Distance(capitan.transform.position, dest) < .1f)
+        {
+            SetStatus(FleetStatus.Idle);
+            return;
+        }
+        capitan.transform.position = Vector3.SmoothDamp(capitan.transform.position, dest, ref velocity, smoothTime, speed * DateManager.timeScale, Time.deltaTime);
+        DrawPath(dest);
+    }
+    public void SetDestination(GameObject dest)
     {
         destination = dest;
-
-        capitan.GetComponent<FlyPattern>().target = dest;
 
         SetStatus(FleetStatus.Moving);
     }
@@ -54,13 +90,13 @@ public class Fleet : ObjectInfo
 
         FleetManager.instance.SetSelectedFleet(this);
     }
-    private void Update()
+    public void DrawPath(Vector3 dest)
     {
         if (status == FleetStatus.Moving)
         {
             path.positionCount = 2;
             path.SetPosition(0, capitan.transform.position);
-            path.SetPosition(1, destination);
+            path.SetPosition(1, dest);
         }
         else
         {

@@ -5,12 +5,23 @@ using UnityEngine;
 
 public class CameraRightClick : MonoBehaviour
 {
-    public delegate void OnRightClick(Vector3 dest);
+    public delegate void OnRightClick(GameObject dest);
     public OnRightClick onRightClick;
 
+    private GameObject target;
+
+    private void Start()
+    {
+        target = new GameObject();
+        target.name = "Target";
+        target.tag = "Point";
+    }
     // Update is called once per frame
     void Update()
     {
+        /// <sumary>
+        /// Path for fleets is CameraRightClick -> FleetManager -> Fleet (There capitan's course is set) -> FlyPattern (There the rest of the ships move)
+        /// </sumary>
         if (Input.GetMouseButtonDown(1)) 
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -18,7 +29,7 @@ public class CameraRightClick : MonoBehaviour
             
             if (Physics.Raycast(ray, out hit))
             {
-                Debug.Log("Ray hit: " + hit.transform.name);
+                onRightClick?.Invoke(hit.transform.gameObject); // Send the hit point to the event
             }
             else
             {
@@ -27,9 +38,9 @@ public class CameraRightClick : MonoBehaviour
                 if (groundPlane.Raycast(ray, out enter))
                 {
                     Vector3 hitPoint = ray.GetPoint(enter);
-                    
 
-                    onRightClick?.Invoke(hitPoint); // Send the hit point to the event
+                    target.transform.position = hitPoint;
+                    onRightClick?.Invoke(target); // Send the hit point to the event
 
                     // Optionally, check if the hit point is within a certain range or area
                 }

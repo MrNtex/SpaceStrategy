@@ -19,13 +19,11 @@ public class FleetManager : MonoBehaviour
 
         Camera.main.GetComponent<CameraRightClick>().onRightClick += UpdateTarget;
     }
-    void UpdateTarget(Vector3 dest)
+    void UpdateTarget(GameObject dest)
     {
-        Debug.Log("Updating target to: " + dest);
         if (selectedFleet != null)
             selectedFleet.SetDestination(dest);
     }
-
     public void SetSelectedFleet(Fleet fleet)
     {
         if(selectedFleet != null)
