@@ -19,11 +19,11 @@ public class FlyPattern : MonoBehaviour
     {
         if(capitan == null || capitan == transform)
         {
-            transform.position = Vector3.SmoothDamp(transform.position, target, ref velocity, smoothTime, speed, Time.deltaTime);
+            transform.position = Vector3.SmoothDamp(transform.position, target, ref velocity, smoothTime, speed * DateManager.timeScale, Time.deltaTime);
         }
         else
         {
-            transform.position = Vector3.SmoothDamp(transform.position, capitan.position + myOffset, ref velocity, smoothTime, speed, Time.deltaTime);
+            transform.position = Vector3.SmoothDamp(transform.position, capitan.position + myOffset, ref velocity, smoothTime, speed * DateManager.timeScale, Time.deltaTime);
         }
     }
 }
