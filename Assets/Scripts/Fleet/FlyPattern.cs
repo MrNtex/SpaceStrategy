@@ -26,7 +26,7 @@ public class FlyPattern : MonoBehaviour
             this.enabled = false;
         }
         Vector3 dest = capitan.position + myOffset;
-        transform.position = Vector3.SmoothDamp(transform.position, dest, ref velocity, smoothTime, speed * DateManager.timeScale, Time.deltaTime);
+        transform.position = Vector3.SmoothDamp(transform.position, dest, ref velocity, smoothTime, speed, Time.deltaTime * DateManager.timeScale);
 
     }
 }
