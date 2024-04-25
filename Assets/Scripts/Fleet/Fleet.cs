@@ -65,7 +65,7 @@ public class Fleet : ObjectInfo
             SetStatus(FleetStatus.Idle);
             return;
         }
-        capitan.transform.position = Vector3.SmoothDamp(capitan.transform.position, dest, ref velocity, smoothTime, speed * DateManager.timeScale, Time.deltaTime);
+        capitan.transform.position = Vector3.SmoothDamp(capitan.transform.position, dest, ref velocity, smoothTime, speed, Time.deltaTime * DateManager.timeScale);
         DrawPath(dest);
     }
     public void SetDestination(GameObject dest)

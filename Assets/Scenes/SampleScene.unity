@@ -7810,7 +7810,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7ee24d22ce88b64a85dcab29bdd831f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {x: 0, y: 0, z: 5}
+  target: {fileID: 0}
+  targetObject: {fileID: 0}
   capitan: {fileID: 1727358120}
   myOffset: {x: -1.5, y: 0, z: 0}
   smoothTime: 0.3
@@ -13257,7 +13258,6 @@ MonoBehaviour:
   color: {r: 0, g: 0, b: 0, a: 0}
   orbiting: {fileID: 0}
   icon: {fileID: 0}
-  capitan: {fileID: 1727358116}
   ships: []
   fleetName: sadsada
   composition:
@@ -13269,7 +13269,12 @@ MonoBehaviour:
     count: 2
   - type: 2
     count: 3
+  destination: {fileID: 0}
   path: {fileID: 0}
+  status: 0
+  capitan: {fileID: 1727358116}
+  smoothTime: 0.3
+  speed: 5
 --- !u!4 &1264452443
 Transform:
   m_ObjectHideFlags: 0
@@ -16038,7 +16043,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7ee24d22ce88b64a85dcab29bdd831f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {x: 0, y: 0, z: 0}
+  target: {fileID: 0}
+  targetObject: {fileID: 0}
   capitan: {fileID: 1727358120}
   myOffset: {x: 1.5, y: 0, z: 5}
   smoothTime: 0.3
@@ -16506,12 +16512,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1727358116}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a7ee24d22ce88b64a85dcab29bdd831f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {x: 0, y: 0, z: 0}
+  target: {fileID: 0}
+  targetObject: {fileID: 0}
   capitan: {fileID: 0}
   myOffset: {x: 0, y: 0, z: 0}
   smoothTime: 0.3
