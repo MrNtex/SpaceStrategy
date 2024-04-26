@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Animations;
 using UnityEngine.UI;
 public class Billboard : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class Billboard : MonoBehaviour
 
     protected Vector3 inverseParentScale;
 
+    private PositionConstraint positionConstraint;
     protected virtual void Start()
     {
         target = transform.parent;
@@ -37,6 +39,8 @@ public class Billboard : MonoBehaviour
         // Inverse the parents scale to keep the text size consistent (it has to be cumulative because of moons)
 
         inverseParentScale = new Vector3(1 / cumulativeScale.x, 1 / cumulativeScale.y, 1 / cumulativeScale.z);
+
+        positionConstraint = gameObject.GetComponent<PositionConstraint>();
     }
 
     
@@ -75,7 +79,7 @@ public class Billboard : MonoBehaviour
         directionToCamera.Normalize();
 
         // Calculate a position to the right of the target by using the cross product, which gives a perpendicular vector
-        Vector3 rightOfTarget = Vector3.Cross(directionToCamera, transform.up);
+        Vector3 rightOfTarget = Vector3.Cross(directionToCamera, target.up);
 
 
         
@@ -95,9 +99,19 @@ public class Billboard : MonoBehaviour
         // POSITION
         // Adjusting position based on target's right side, distance from target, and the interpolation factor
         float t = 1 - scaleMultiplier / (MaxScaleMultiplier);
-        transform.position = target.position + rightOfTarget * Mathf.Lerp(distanceFromTarget, TargetLerpDistance, t);
+        if (positionConstraint)
+        {
+            positionConstraint.translationOffset = rightOfTarget * Mathf.Lerp(distanceFromTarget, TargetLerpDistance, t);
+            positionConstraint.translationOffset += new Vector3(0, YOffset, 0);
+        }
+        else
+        {
+            
+            transform.position = target.position + rightOfTarget * Mathf.Lerp(distanceFromTarget, TargetLerpDistance, t);
 
-        transform.position += new Vector3(0, YOffset, 0);
+            transform.position += new Vector3(0, YOffset, 0);
+        }
+        
 
         transform.LookAt(transform.position - directionToCamera);
     }
