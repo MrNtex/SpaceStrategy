@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Animations;
 using UnityEngine.UI;
 
 public class FleetBillboard : Billboard
@@ -20,7 +21,9 @@ public class FleetBillboard : Billboard
     protected override void Start()
     {
         minDistance = -1;
+
         base.Start();
+
         SetupFleet();
     }
     private void SetupFleet()
@@ -31,6 +34,21 @@ public class FleetBillboard : Billboard
         text.text = fleet.fleetName;
         button.GetComponent<Button>().onClick.AddListener(() => fleet.ButtonClicked());
         UpdateFleet();
+
+        // KTO TAK SPIERDOLIL TE SOURCES !!!!
+
+        target = fleet.capitan.transform;
+
+        ConstraintSource source = new ConstraintSource();
+        source.sourceTransform = target;
+        source.weight = 1;
+
+        if(positionConstraint.sourceCount == 0)
+        {
+            positionConstraint.AddSource(source);
+            return;
+        }
+        positionConstraint.SetSource(0, source);
     }
     public void UpdateFleet()
     {

@@ -21,14 +21,25 @@ public class Billboard : MonoBehaviour
 
     protected Vector3 inverseParentScale;
 
-    private PositionConstraint positionConstraint;
+    protected PositionConstraint positionConstraint;
+
+
     protected virtual void Start()
     {
-        target = transform.parent;
-        if (target == null)
+        positionConstraint = gameObject.GetComponent<PositionConstraint>();
+        
+        if(target == null)
         {
-            Debug.LogError("Billboard script must be a child of the object it is supposed to follow");
+            if(transform.parent != null)
+            {
+                target = transform.parent;
+            }
+            else
+            {
+                Debug.LogError("Billboard: Target not found");
+            }
         }
+
         if (mainCamera == null)
         {
             mainCamera = Camera.main;
@@ -37,10 +48,7 @@ public class Billboard : MonoBehaviour
 
         Vector3 cumulativeScale = CalculateCumulativeParentScale(transform);
         // Inverse the parents scale to keep the text size consistent (it has to be cumulative because of moons)
-
         inverseParentScale = new Vector3(1 / cumulativeScale.x, 1 / cumulativeScale.y, 1 / cumulativeScale.z);
-
-        positionConstraint = gameObject.GetComponent<PositionConstraint>();
     }
 
     
@@ -79,7 +87,7 @@ public class Billboard : MonoBehaviour
         directionToCamera.Normalize();
 
         // Calculate a position to the right of the target by using the cross product, which gives a perpendicular vector
-        Vector3 rightOfTarget = Vector3.Cross(directionToCamera, target.up);
+        Vector3 rightOfTarget = Vector3.Cross(directionToCamera, Vector3.up);
 
 
         
@@ -106,12 +114,11 @@ public class Billboard : MonoBehaviour
         }
         else
         {
-            
             transform.position = target.position + rightOfTarget * Mathf.Lerp(distanceFromTarget, TargetLerpDistance, t);
 
             transform.position += new Vector3(0, YOffset, 0);
         }
-        
+
 
         transform.LookAt(transform.position - directionToCamera);
     }

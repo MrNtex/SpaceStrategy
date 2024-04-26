@@ -65,12 +65,18 @@ public class Fleet : ObjectInfo
             SetStatus(FleetStatus.Idle);
             return;
         }
-        capitan.transform.position = Vector3.SmoothDamp(capitan.transform.position, dest, ref velocity, smoothTime, speed, Time.deltaTime * DateManager.timeScale);
-
-        Vector3 direction = (dest - capitan.transform.position).normalized;
-        capitan.transform.rotation = Quaternion.Euler(90, 0, Mathf.Atan2(direction.z, direction.x) * Mathf.Rad2Deg - 90);
 
         DrawPath(dest);
+        capitan.transform.rotation = Quaternion.SlerpUnclamped(capitan.transform.rotation, Quaternion.LookRotation(dest - capitan.transform.position), Time.deltaTime * .55f);
+        Debug.Log(capitan.transform.forward);
+        if (Vector3.Distance(capitan.transform.position, dest) > 30f)
+        {
+            capitan.transform.position = Vector3.SmoothDamp(capitan.transform.position, capitan.transform.position + capitan.transform.forward * 20, ref velocity, smoothTime, speed, Time.deltaTime * DateManager.timeScale);
+            return;
+        }
+        capitan.transform.position = Vector3.SmoothDamp(capitan.transform.position, dest, ref velocity, smoothTime, speed, Time.deltaTime * DateManager.timeScale);
+        //capitan.transform.LookAt(dest);
+
     }
     public void SetDestination(GameObject dest)
     {
