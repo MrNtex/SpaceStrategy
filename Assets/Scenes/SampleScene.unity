@@ -13274,7 +13274,7 @@ MonoBehaviour:
   status: 0
   capitan: {fileID: 1727358116}
   smoothTime: 0.3
-  speed: 5
+  speed: 25
 --- !u!4 &1264452443
 Transform:
   m_ObjectHideFlags: 0

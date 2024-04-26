@@ -35,7 +35,7 @@ public class Fleet : ObjectInfo
 
     public float smoothTime = 0.3F;
 
-    public float speed = 5.0f;
+    public float speed = 15.0f;
     void Start()
     {
         cameraFocus = Camera.main.GetComponent<CameraFocus>();
@@ -66,6 +66,10 @@ public class Fleet : ObjectInfo
             return;
         }
         capitan.transform.position = Vector3.SmoothDamp(capitan.transform.position, dest, ref velocity, smoothTime, speed, Time.deltaTime * DateManager.timeScale);
+
+        Vector3 direction = (dest - capitan.transform.position).normalized;
+        capitan.transform.rotation = Quaternion.Euler(90, 0, Mathf.Atan2(direction.z, direction.x) * Mathf.Rad2Deg - 90);
+
         DrawPath(dest);
     }
     public void SetDestination(GameObject dest)

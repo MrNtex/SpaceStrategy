@@ -18,7 +18,17 @@ public class FlyPattern : MonoBehaviour
     public float smoothTime = 0.3F;
     private Vector3 velocity = Vector3.zero;
 
-    public float speed = 5.0f;
+    private Fleet fleet;
+
+    private void Start()
+    {
+        fleet = transform.parent.GetComponent<Fleet>();
+
+        if(fleet == null)
+        {
+            Debug.LogError("FlyPattern: Fleet not found");
+        }
+    }
     void Update()
     {
         if (capitan == transform)
@@ -26,7 +36,7 @@ public class FlyPattern : MonoBehaviour
             this.enabled = false;
         }
         Vector3 dest = capitan.position + myOffset;
-        transform.position = Vector3.SmoothDamp(transform.position, dest, ref velocity, smoothTime, speed, Time.deltaTime * DateManager.timeScale);
+        transform.position = Vector3.SmoothDamp(transform.position, dest, ref velocity, smoothTime, fleet.speed, Time.deltaTime * DateManager.timeScale);
 
     }
 }
