@@ -11,31 +11,23 @@ public enum ShipType
 }
 public class Fleet : ObjectInfo
 {
-
-    public GameObject[] ships;
-
+    [Header("Basic info")]
     public string fleetName;
-
     public Ship[] composition;
-
-    private CameraFocus cameraFocus;
-
+    public GameObject capitan;
     public GameObject destination;
-
-
-    public LineRenderer path;
-
     public FleetStatus status;
 
 
-    // Capitan
-    public GameObject capitan;
+    private CameraFocus cameraFocus;
+    
+    public LineRenderer path;
+    private const float lrOffset = 2.5f;
 
     private Vector3 velocity = Vector3.zero;
-
     public float smoothTime = 0.3F;
-
     public float speed = 15.0f;
+
     void Start()
     {
         cameraFocus = Camera.main.GetComponent<CameraFocus>();
@@ -67,15 +59,14 @@ public class Fleet : ObjectInfo
         }
 
         DrawPath(dest);
-        capitan.transform.rotation = Quaternion.SlerpUnclamped(capitan.transform.rotation, Quaternion.LookRotation(dest - capitan.transform.position), Time.deltaTime * .55f);
-        Debug.Log(capitan.transform.forward);
+        capitan.transform.rotation = Quaternion.SlerpUnclamped(capitan.transform.rotation, Quaternion.LookRotation(dest - capitan.transform.position), Time.deltaTime * .55f * DateManager.timeScale);
+
         if (Vector3.Distance(capitan.transform.position, dest) > 30f)
         {
             capitan.transform.position = Vector3.SmoothDamp(capitan.transform.position, capitan.transform.position + capitan.transform.forward * 20, ref velocity, smoothTime, speed, Time.deltaTime * DateManager.timeScale);
             return;
         }
         capitan.transform.position = Vector3.SmoothDamp(capitan.transform.position, dest, ref velocity, smoothTime, speed, Time.deltaTime * DateManager.timeScale);
-        //capitan.transform.LookAt(dest);
 
     }
     public void SetDestination(GameObject dest)
@@ -105,7 +96,7 @@ public class Fleet : ObjectInfo
         if (status == FleetStatus.Moving)
         {
             path.positionCount = 2;
-            path.SetPosition(0, capitan.transform.position);
+            path.SetPosition(0, capitan.transform.position + capitan.transform.forward * lrOffset);
             path.SetPosition(1, dest);
         }
         else
