@@ -18,6 +18,16 @@ public class Fleet : ObjectInfo
     public GameObject destination;
     public FleetStatus status;
 
+    [Header("Fleet stats")]
+    
+    public float speed = 15.0f;
+    public float smoothTime = 0.3F; // Acceleration time
+
+    public float maneuverabilityPenalty = 0.15f; // The multiplier of the angle modifier when ship has to rotate quickly, should be greater than 0
+    public float minSpeed = 5.0f;
+
+    [Header("Formation")]
+    public bool forceManeuver = false;
 
     private CameraFocus cameraFocus;
     
@@ -25,9 +35,9 @@ public class Fleet : ObjectInfo
     private const float lrOffset = 2.5f;
 
     private Vector3 velocity = Vector3.zero;
-    public float smoothTime = 0.3F;
-    public float speed = 15.0f;
+    
 
+    private const float forceManueverDistance = 50f;
     void Start()
     {
         cameraFocus = Camera.main.GetComponent<CameraFocus>();
@@ -59,15 +69,37 @@ public class Fleet : ObjectInfo
         }
 
         DrawPath(dest);
-        capitan.transform.rotation = Quaternion.SlerpUnclamped(capitan.transform.rotation, Quaternion.LookRotation(dest - capitan.transform.position), Time.deltaTime * .55f * DateManager.timeScale);
 
-        if (Vector3.Distance(capitan.transform.position, dest) > 30f)
+        Quaternion targetRotation = Quaternion.LookRotation(dest - capitan.transform.position);
+
+        float distance = Vector3.Distance(capitan.transform.position, dest);
+
+        Vector3 dir = dest - capitan.transform.position;
+        float angle = Vector3.Angle(capitan.transform.forward, dir); // The resulting angle ranges from 0 to 180.
+
+        float maneuverSpeed = speed;
+
+        if (distance > forceManueverDistance && !forceManeuver)
         {
-            capitan.transform.position = Vector3.SmoothDamp(capitan.transform.position, capitan.transform.position + capitan.transform.forward * 20, ref velocity, smoothTime, speed, Time.deltaTime * DateManager.timeScale);
+            //Speed up rotation when getting closer
+            float angularMultiplier = .55f;
+            if(distance < 400)
+            {
+                angularMultiplier = Mathf.Clamp(100 / distance, .55f, 2f);
+                maneuverSpeed -= (angularMultiplier - .55f) * maneuverabilityPenalty * angle;
+            }
+
+            capitan.transform.rotation = Quaternion.SlerpUnclamped(capitan.transform.rotation, targetRotation, Time.deltaTime * angularMultiplier * DateManager.timeScale);
+            capitan.transform.position = Vector3.SmoothDamp(capitan.transform.position, capitan.transform.position + capitan.transform.forward * 20, ref velocity, smoothTime, maneuverSpeed, Time.deltaTime * DateManager.timeScale);
             return;
         }
-        capitan.transform.position = Vector3.SmoothDamp(capitan.transform.position, dest, ref velocity, smoothTime, speed, Time.deltaTime * DateManager.timeScale);
 
+
+        maneuverSpeed = Mathf.Clamp(speed - maneuverabilityPenalty * angle, minSpeed, speed);
+        capitan.transform.position = Vector3.SmoothDamp(capitan.transform.position, dest, ref velocity, smoothTime, maneuverSpeed, Time.deltaTime * DateManager.timeScale);
+
+        // Rotate much faster when close to destination
+        capitan.transform.rotation = Quaternion.SlerpUnclamped(capitan.transform.rotation, targetRotation, Time.deltaTime * 2 * DateManager.timeScale);
     }
     public void SetDestination(GameObject dest)
     {
