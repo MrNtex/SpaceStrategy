@@ -87,7 +87,7 @@ public class Billboard : MonoBehaviour
         directionToCamera.Normalize();
 
         // Calculate a position to the right of the target by using the cross product, which gives a perpendicular vector
-        Vector3 rightOfTarget = Vector3.Cross(directionToCamera, Vector3.up);
+        Vector3 rightOfTarget = Vector3.Cross(directionToCamera, transform.up);
 
 
         

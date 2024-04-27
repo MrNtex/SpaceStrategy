@@ -85,9 +85,13 @@ public class Fleet : ObjectInfo
             float angularMultiplier = .55f;
             if(distance < 400)
             {
-                angularMultiplier = Mathf.Clamp(100 / distance, .55f, 2f);
-                maneuverSpeed -= (angularMultiplier - .55f) * maneuverabilityPenalty * angle;
+                float ratio = 1-(distance - forceManueverDistance) / (400 - forceManueverDistance);
+                angularMultiplier = Mathf.Lerp(.55f, 2, ratio);
+
+                maneuverSpeed = Mathf.Clamp(speed - maneuverabilityPenalty * angle * Mathf.Pow(ratio, 3), minSpeed, speed);
+                Debug.Log($"{ratio}, {maneuverSpeed}");
             }
+            
 
             capitan.transform.rotation = Quaternion.SlerpUnclamped(capitan.transform.rotation, targetRotation, Time.deltaTime * angularMultiplier * DateManager.timeScale);
             capitan.transform.position = Vector3.SmoothDamp(capitan.transform.position, capitan.transform.position + capitan.transform.forward * 20, ref velocity, smoothTime, maneuverSpeed, Time.deltaTime * DateManager.timeScale);
