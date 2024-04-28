@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class CelestailBilboard : Billboard
@@ -27,5 +28,9 @@ public class CelestailBilboard : Billboard
         button.GetComponent<Button>().onClick.AddListener(() => bodyInfo.ButtonClicked());
 
         text.color = bodyInfo.GetColor();
+    }
+    public void RightClick()
+    {
+        mainCamera.GetComponent<CameraRightClick>().onRightClick(target.gameObject);
     }
 }

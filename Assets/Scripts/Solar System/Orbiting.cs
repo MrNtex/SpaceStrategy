@@ -6,7 +6,7 @@ public class Orbiting : MonoBehaviour
 {
     public Transform target;
 
-    public const float speed = 1000.0f;
+    public const float speed = 100.0f;
     private float actualSpeed;
 
     private LineRenderer lineRenderer;

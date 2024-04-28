@@ -44,7 +44,7 @@ public class Fleet : ObjectInfo
         path = GetComponent<LineRenderer>();
 
         Debug.Log("Fleet " + fleetName + " has been created, with capitan: " + capitan.name);
-        Debug.Log(FleetFormationHelper.instance);
+
         FleetFormationHelper.instance.SetFormation(FleetFormation.Triangle, composition, capitan);
     }
     private void FixedUpdate()
@@ -66,6 +66,7 @@ public class Fleet : ObjectInfo
     }
     void FlyTowards(Vector3 dest)
     {
+        Debug.Log(Vector3.Distance(capitan.transform.position, dest));
         if (Vector3.Distance(capitan.transform.position, dest) < .1f)
         {
             SetStatus(FleetStatus.Idle);

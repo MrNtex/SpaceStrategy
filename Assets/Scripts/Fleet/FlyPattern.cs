@@ -52,7 +52,10 @@ public class FlyPattern : MonoBehaviour
             return;
         }
 
-
+        if(Vector3.Distance(transform.position, dest) < .1f)
+        {
+            return;
+        }
         fleet.CalculateMovment(dest, transform, ref velocity);
 
         return;
