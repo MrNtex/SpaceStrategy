@@ -97,6 +97,7 @@ public class Fleet : ObjectInfo
                 angularMultiplier = Mathf.Lerp(.55f, 2, ratio);
 
                 maneuverSpeed = Mathf.Clamp(speed - maneuverabilityPenalty * angle * Mathf.Pow(ratio, 3), minSpeed, speed);
+
                 // Debug.Log($"{ratio}, {maneuverSpeed}");
             }
 

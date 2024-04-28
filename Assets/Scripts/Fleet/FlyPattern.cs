@@ -19,6 +19,7 @@ public class FlyPattern : MonoBehaviour
     private Vector3 velocity = Vector3.zero;
 
     private Fleet fleet;
+    private Transform mainCamera;
 
     private void Start()
     {
@@ -28,6 +29,8 @@ public class FlyPattern : MonoBehaviour
         {
             Debug.LogError("FlyPattern: Fleet not found");
         }
+
+        mainCamera = Camera.main.transform;
     }
     void FixedUpdate()
     {
@@ -35,13 +38,20 @@ public class FlyPattern : MonoBehaviour
         {
             return;
         }
-
-        
-
         float angle = capitan.transform.rotation.eulerAngles.y;
 
         Vector3 offset = Quaternion.Euler(0, angle, 0) * myOffset;
         Vector3 dest = capitan.position + offset;
+
+        if (Vector3.Distance(mainCamera.position, transform.position) > 1000f)
+        {
+            // Perform simplified calculations
+            transform.position = dest;
+            transform.rotation = capitan.rotation;
+
+            return;
+        }
+
 
         fleet.CalculateMovment(dest, transform, ref velocity);
 
