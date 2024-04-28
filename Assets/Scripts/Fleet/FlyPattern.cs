@@ -29,7 +29,7 @@ public class FlyPattern : MonoBehaviour
             Debug.LogError("FlyPattern: Fleet not found");
         }
     }
-    void Update()
+    void FixedUpdate()
     {
         if (capitan == transform)
         {
@@ -44,6 +44,7 @@ public class FlyPattern : MonoBehaviour
         Vector3 dest = capitan.position + offset;
 
         fleet.CalculateMovment(dest, transform, ref velocity);
+
         return;
     }
 }

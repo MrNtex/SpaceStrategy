@@ -47,7 +47,7 @@ public class Fleet : ObjectInfo
         Debug.Log(FleetFormationHelper.instance);
         FleetFormationHelper.instance.SetFormation(FleetFormation.Triangle, composition, capitan);
     }
-    private void Update()
+    private void FixedUpdate()
     {
         if (status == FleetStatus.Moving && destination != null)
         {
