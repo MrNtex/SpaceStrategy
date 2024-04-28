@@ -35,8 +35,15 @@ public class FlyPattern : MonoBehaviour
         {
             return;
         }
-        Vector3 dest = capitan.position + myOffset;
-        transform.position = Vector3.SmoothDamp(transform.position, dest, ref velocity, smoothTime, fleet.speed, Time.deltaTime * DateManager.timeScale);
 
+        
+
+        float angle = capitan.transform.rotation.eulerAngles.y;
+
+        Vector3 offset = Quaternion.Euler(0, angle, 0) * myOffset;
+        Vector3 dest = capitan.position + offset;
+
+        fleet.CalculateMovment(dest, transform, ref velocity);
+        return;
     }
 }
