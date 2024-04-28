@@ -16,6 +16,7 @@ public class Fleet : ObjectInfo
     public Ship[] composition;
     public GameObject capitan;
     public GameObject destination;
+    private float destinationOffset = 1;
     public FleetStatus status;
 
     [Header("Fleet stats")]
@@ -67,8 +68,12 @@ public class Fleet : ObjectInfo
     void FlyTowards(Vector3 dest)
     {
         Debug.Log(Vector3.Distance(capitan.transform.position, dest));
-        if (Vector3.Distance(capitan.transform.position, dest) < .1f)
+        if (Vector3.Distance(capitan.transform.position, dest) < destinationOffset)
         {
+            if (destination.CompareTag("CelestialBody"))
+            {
+                gameObject.transform.SetParent(destination.transform);
+            }
             SetStatus(FleetStatus.Idle);
             return;
         }
@@ -119,6 +124,16 @@ public class Fleet : ObjectInfo
     public void SetDestination(GameObject dest)
     {
         destination = dest;
+        if (dest.CompareTag("CelestialBody"))
+        {
+            destinationOffset = dest.transform.localScale.x * 2;
+        }
+        else
+        {
+            destinationOffset = .5f;
+        }
+        
+        gameObject.transform.SetParent(null);
 
         SetStatus(FleetStatus.Moving);
     }

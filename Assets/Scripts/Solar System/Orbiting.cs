@@ -5,6 +5,7 @@ using UnityEngine;
 public class Orbiting : MonoBehaviour
 {
     public Transform target;
+    public float rotationSpeed = 10.0f;
 
     public const float speed = 100.0f;
     private float actualSpeed;
@@ -49,7 +50,9 @@ public class Orbiting : MonoBehaviour
         float speed = actualSpeed * multiplier * DateManager.timeScale;
         transform.RotateAround(target.position, Vector3.up, speed * Time.deltaTime);
 
-        if(dateManager != null)
+        transform.Rotate(rotationSpeed * Vector3.up * Time.deltaTime * DateManager.timeScale);
+
+        if (dateManager != null)
         {
             float elapsedDays = Vector3.Angle(target.position - transform.localPosition, lastPosition) * 1.0145f;
 
