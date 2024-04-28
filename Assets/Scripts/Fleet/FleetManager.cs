@@ -11,18 +11,27 @@ public class FleetManager : MonoBehaviour
 
     public Fleet selectedFleet;
 
+
     public Color focused, normal;
 
     private void Awake()
     {
-        instance = this;
-
+        if(instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Debug.LogError("More than one FleetManager in the scene");
+        }
+    
         Camera.main.GetComponent<CameraRightClick>().onRightClick += UpdateTarget;
     }
     void UpdateTarget(GameObject dest)
     {
-        if (selectedFleet != null)
-            selectedFleet.SetDestination(dest);
+        if (selectedFleet == null) return;
+
+        selectedFleet.SetDestination(dest);
     }
     public void SetSelectedFleet(Fleet fleet)
     {
@@ -35,6 +44,18 @@ public class FleetManager : MonoBehaviour
         if(selectedFleet != null){
             selectedFleet.path.startColor = focused;
             selectedFleet.path.endColor = focused;
+        }
+    }
+
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SetSelectedFleet(null);
+        }
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            selectedFleet.SetStatus(FleetStatus.Idle);
         }
     }
 }

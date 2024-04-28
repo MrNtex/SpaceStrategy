@@ -20,14 +20,13 @@ public class FleetBillboard : Billboard
     private FleetIcon[] fleetIcons;
     protected override void Start()
     {
+        return;
+    }
+    public void SetupFleet()
+    {
         minDistance = -1;
 
         base.Start();
-
-        SetupFleet();
-    }
-    private void SetupFleet()
-    {
 
         fleet = transform.parent.GetComponent<Fleet>(); // UI is a child of the fleet capitan, while the fleet info is the parent
 

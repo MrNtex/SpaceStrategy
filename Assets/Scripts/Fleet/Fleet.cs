@@ -13,9 +13,10 @@ public class Fleet : ObjectInfo
 {
     [Header("Basic info")]
     public string fleetName;
-    public Ship[] composition;
+    public List<Ship> composition = new List<Ship>();
     public GameObject capitan;
-    public GameObject destination;
+    [SerializeField]
+    private GameObject destination;
     private float destinationOffset = 1;
     public FleetStatus status;
 
@@ -39,14 +40,37 @@ public class Fleet : ObjectInfo
     
 
     private const float forceManueverDistance = 50f;
+    private GameObject point;
+
+    [SerializeField]
+    private FleetBillboard fleetBillboard;
     void Start()
     {
         cameraFocus = Camera.main.GetComponent<CameraFocus>();
         path = GetComponent<LineRenderer>();
+        fleetBillboard.SetupFleet();
 
-        Debug.Log("Fleet " + fleetName + " has been created, with capitan: " + capitan.name);
+        UpdateFleet();
 
-        FleetFormationHelper.instance.SetFormation(FleetFormation.Triangle, composition, capitan);
+        point = new GameObject($"{fleetName}'s Point");
+    }
+    void UpdateFleet()
+    {
+        Debug.Log("Fleet " + fleetName + " has been updated, with capitan: " + capitan.name);
+
+        FleetFormationHelper.instance.SetFormation(FleetFormation.Triangle, composition.ToArray(), capitan);
+        fleetBillboard.UpdateFleet();
+    }
+    void RemoveFromFleet(Ship ship)
+    {
+        bool isCapitan = ship.prefab == capitan;
+        Destroy(ship.prefab);
+        composition.Remove(ship);
+        if(isCapitan)
+        {
+            capitan = composition[0].prefab;
+        }
+        UpdateFleet();
     }
     private void FixedUpdate()
     {
@@ -67,7 +91,6 @@ public class Fleet : ObjectInfo
     }
     void FlyTowards(Vector3 dest)
     {
-        Debug.Log(Vector3.Distance(capitan.transform.position, dest));
         if (Vector3.Distance(capitan.transform.position, dest) < destinationOffset)
         {
             if (destination.CompareTag("CelestialBody"))
@@ -123,7 +146,16 @@ public class Fleet : ObjectInfo
 
     public void SetDestination(GameObject dest)
     {
-        destination = dest;
+        if (dest.CompareTag("Point"))
+        {
+            point.transform.position = dest.transform.position;
+            destination = point;
+        }
+        else
+        {
+            destination = point;
+        }
+
         if (dest.CompareTag("CelestialBody"))
         {
             destinationOffset = dest.transform.localScale.x * 2;
@@ -140,6 +172,17 @@ public class Fleet : ObjectInfo
     public void SetStatus(FleetStatus status)
     {
         this.status = status;
+
+        switch (status)
+        {
+            case FleetStatus.Idle:
+                DrawPath(capitan.transform.position); // Clear path
+                break;
+            default:
+                Debug.LogError("Fleet " + fleetName + " has no status");
+                break;
+        }
+        
     }
     public override void ButtonClicked()
     {
