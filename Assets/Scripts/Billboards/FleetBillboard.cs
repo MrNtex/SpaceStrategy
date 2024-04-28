@@ -55,7 +55,13 @@ public class FleetBillboard : Billboard
         Dictionary<ShipType, int> shipCount = new Dictionary<ShipType, int>();
         foreach (Ship ship in fleet.composition)
         {
-            shipCount.Add(ship.type, ship.count);
+            if (shipCount.ContainsKey(ship.type))
+                shipCount[ship.type] += 1;
+            else
+            {
+                shipCount.Add(ship.type, 1);
+            }
+            
         }
         foreach(FleetIcon icon in fleetIcons)
         {

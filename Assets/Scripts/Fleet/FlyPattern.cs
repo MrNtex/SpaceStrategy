@@ -33,7 +33,7 @@ public class FlyPattern : MonoBehaviour
     {
         if (capitan == transform)
         {
-            this.enabled = false;
+            return;
         }
         Vector3 dest = capitan.position + myOffset;
         transform.position = Vector3.SmoothDamp(transform.position, dest, ref velocity, smoothTime, fleet.speed, Time.deltaTime * DateManager.timeScale);

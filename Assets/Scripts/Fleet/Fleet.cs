@@ -42,6 +42,10 @@ public class Fleet : ObjectInfo
     {
         cameraFocus = Camera.main.GetComponent<CameraFocus>();
         path = GetComponent<LineRenderer>();
+
+        Debug.Log("Fleet " + fleetName + " has been created, with capitan: " + capitan.name);
+        Debug.Log(FleetFormationHelper.instance);
+        FleetFormationHelper.instance.SetFormation(FleetFormation.Triangle, composition, capitan);
     }
     private void Update()
     {
@@ -89,7 +93,7 @@ public class Fleet : ObjectInfo
                 angularMultiplier = Mathf.Lerp(.55f, 2, ratio);
 
                 maneuverSpeed = Mathf.Clamp(speed - maneuverabilityPenalty * angle * Mathf.Pow(ratio, 3), minSpeed, speed);
-                Debug.Log($"{ratio}, {maneuverSpeed}");
+               // Debug.Log($"{ratio}, {maneuverSpeed}");
             }
             
 
@@ -145,5 +149,20 @@ public class Fleet : ObjectInfo
 public struct Ship
 {
     public ShipType type;
-    public int count;
+    //public int count;
+    public FlyPattern flyPattern;
+    public GameObject prefab;
+
+    void Start()
+    {
+        if(prefab == null)
+        {
+            Debug.LogError("Prefab is not set for " + type);
+        }
+        flyPattern = prefab.GetComponent<FlyPattern>();
+        if(flyPattern == null)
+        {
+            Debug.LogError("FlyPattern is not set for " + type);
+        }
+    }
 }
