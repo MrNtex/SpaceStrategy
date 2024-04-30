@@ -22,6 +22,9 @@ public class Orbiting : MonoBehaviour
 
     private Vector3 lastPosition;
 
+    [SerializeField]
+    private Transform crust;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -50,7 +53,8 @@ public class Orbiting : MonoBehaviour
         float speed = actualSpeed * multiplier * DateManager.timeScale;
         transform.RotateAround(target.position, Vector3.up, speed * Time.deltaTime);
 
-        transform.Rotate(rotationSpeed * Vector3.up * Time.deltaTime * DateManager.timeScale);
+        if(crust != null)
+            crust.Rotate(rotationSpeed * Vector3.up * Time.deltaTime * DateManager.timeScale);
 
         if (dateManager != null)
         {

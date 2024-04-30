@@ -22,6 +22,26 @@ public class BodyInfo : ObjectInfo
 {
     public BodyType bodyType;
     public PlanetType planetType;
+
+    [SerializeField]
+    private bool useCustomColor = false;
+    [SerializeField]
+    private Color customColor;
+    [SerializeField]
+    private Renderer crust;
+
+    public override void Start()
+    {
+        base.Start();
+
+        if(useCustomColor)
+        {
+            Debug.Log("Using custom color");
+            Material material = new Material(crust.material);
+            material.color = customColor;
+            crust.material = material;
+        }
+    }
     public override string GetDescrition()
     {
         string description = "";   

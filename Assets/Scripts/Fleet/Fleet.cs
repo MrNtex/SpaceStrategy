@@ -153,7 +153,7 @@ public class Fleet : ObjectInfo
         }
         else
         {
-            destination = point;
+            destination = dest;
         }
 
         if (dest.CompareTag("CelestialBody"))

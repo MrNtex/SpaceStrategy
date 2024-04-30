@@ -12,10 +12,6 @@ public class ObjectInfo : MonoBehaviour
     private CameraFocus cameraFocus;
     public BodyStatus bodyStatus;
 
-    [SerializeField]
-    private bool useCustomColor = false;
-    [SerializeField]
-    private Color color;
 
     public Orbiting orbiting;
 
@@ -32,12 +28,8 @@ public class ObjectInfo : MonoBehaviour
         
     }
     
-    private void Start()
+    public virtual void Start()
     {
-        if (useCustomColor)
-        {
-            gameObject.GetComponent<Renderer>().material.color = color;
-        }
         bodyStatus = GetComponent<BodyStatus>();
         orbiting = GetComponent<Orbiting>();
     }
