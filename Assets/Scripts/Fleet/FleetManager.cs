@@ -14,6 +14,8 @@ public class FleetManager : MonoBehaviour
 
     public Color focused, normal;
 
+    private BodyInfoUI bodyInfoUI;
+
     private void Awake()
     {
         if(instance == null)
@@ -26,12 +28,15 @@ public class FleetManager : MonoBehaviour
         }
     
         Camera.main.GetComponent<CameraRightClick>().onRightClick += UpdateTarget;
+        bodyInfoUI = BodyInfoUI.instance;
     }
     void UpdateTarget(GameObject dest)
     {
         if (selectedFleet == null) return;
 
         selectedFleet.SetDestination(dest);
+
+        bodyInfoUI.SetBody(selectedFleet);
     }
     public void SetSelectedFleet(Fleet fleet)
     {
@@ -77,6 +82,7 @@ public enum FleetStatus
 {
     Idle,
     Moving,
+    OnOrbit,
     Attacking,
     Fleeing
 }

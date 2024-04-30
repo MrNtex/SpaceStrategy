@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 public enum ShipType
 {
@@ -210,9 +211,28 @@ public class Fleet : ObjectInfo
         }
     }
 
-    public override string GetDescription()
+    public override void SetStatus(ref TMP_Text text)
     {
-        return fleetName;
+        switch (status)
+        {
+            case FleetStatus.Idle:
+                text.text = "Idle";
+                break;
+            case FleetStatus.Moving:
+                if(destination.CompareTag("CelestialBody"))
+                {
+                    text.text = "Moving to " + destination.name;
+                }
+                else
+                {
+                    string point = "X: " + destination.transform.position.x + " Y: " + destination.transform.position.z; // Y because of the 2D plane
+                    text.text = "Moving to " + point;
+                }
+                break;
+            default:
+                text.text = "No status";
+                break;
+        }
     }
 }
 [System.Serializable]
