@@ -40,7 +40,7 @@ public class ObjectInfo : MonoBehaviour
         cameraFocus.FocusOn(objectFocusHelper);
     }
 
-    public virtual string GetDescrition()
+    public virtual string GetDescription()
     {
         return "This should be overridden in the subclass";
     }

@@ -48,7 +48,7 @@ public class BodyInfoUI : MonoBehaviour
             
         }
 
-        description.text = obj.GetDescrition();
+        description.text = obj.GetDescription();
         obj.SetStatus(ref status);
 
         panel.SetActive(true);

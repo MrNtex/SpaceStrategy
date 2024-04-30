@@ -44,7 +44,7 @@ public class Fleet : ObjectInfo
 
     [SerializeField]
     private FleetBillboard fleetBillboard;
-    void Start()
+    public override void Start()
     {
         cameraFocus = Camera.main.GetComponent<CameraFocus>();
         path = GetComponent<LineRenderer>();
@@ -208,6 +208,11 @@ public class Fleet : ObjectInfo
         {
             path.positionCount = 0;
         }
+    }
+
+    public override string GetDescription()
+    {
+        return fleetName;
     }
 }
 [System.Serializable]

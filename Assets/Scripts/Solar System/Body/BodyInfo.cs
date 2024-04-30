@@ -42,7 +42,7 @@ public class BodyInfo : ObjectInfo
             crust.material = material;
         }
     }
-    public override string GetDescrition()
+    public override string GetDescription()
     {
         string description = "";   
         switch (bodyType)
