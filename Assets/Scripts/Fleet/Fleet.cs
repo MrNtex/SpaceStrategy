@@ -38,7 +38,7 @@ public class Fleet : ObjectInfo
     private const float lrOffset = 2.5f;
 
     private Vector3 capitanVelocity = Vector3.zero;
-    
+
 
     private const float forceManueverDistance = 50f;
     private GameObject point;
@@ -213,6 +213,7 @@ public class Fleet : ObjectInfo
 
     public override void SetStatus(ref TMP_Text text)
     {
+        text.color = ColorManager.instance.fleetDestination;
         switch (status)
         {
             case FleetStatus.Idle:
@@ -221,7 +222,8 @@ public class Fleet : ObjectInfo
             case FleetStatus.Moving:
                 if(destination.CompareTag("CelestialBody"))
                 {
-                    text.text = "Moving to " + destination.name;
+                    text.text = $"Moving to <link=\"CelestialBody\"><color=#ffd666>{destination.name}</color></link>";
+                    ClickableLinkHandler.adress = destination;
                 }
                 else
                 {

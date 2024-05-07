@@ -29,4 +29,7 @@ public class ColorManager : MonoBehaviour
 
     [Header("Body colors")]
     public Color[] bodyColor;
+
+    [Header("Fleet UI")]
+    public Color fleetDestination;
 }
