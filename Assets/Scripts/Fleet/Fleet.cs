@@ -29,6 +29,8 @@ public class Fleet : ObjectInfo
     public float maneuverabilityPenalty = 0.15f; // The multiplier of the angle modifier when ship has to rotate quickly, should be greater than 0
     public float minSpeed = 5.0f;
 
+    public GameObject onOrbit;
+
     [Header("Formation")]
     public bool forceManeuver = false;
 
@@ -97,8 +99,9 @@ public class Fleet : ObjectInfo
             if (destination.CompareTag("CelestialBody"))
             {
                 gameObject.transform.SetParent(destination.transform);
+                onOrbit = destination;
             }
-            SetStatus(FleetStatus.Idle);
+            SetFleetStatus(FleetStatus.Idle);
             return;
         }
 
@@ -168,11 +171,13 @@ public class Fleet : ObjectInfo
         
         gameObject.transform.SetParent(null);
 
-        SetStatus(FleetStatus.Moving);
+        SetFleetStatus(FleetStatus.Moving);
     }
-    public void SetStatus(FleetStatus status)
+    public void SetFleetStatus(FleetStatus status)
     {
         this.status = status;
+
+        if(status != FleetStatus.Idle) onOrbit = null;
 
         switch (status)
         {
@@ -180,10 +185,10 @@ public class Fleet : ObjectInfo
                 DrawPath(capitan.transform.position); // Clear path
                 break;
             default:
-                Debug.LogError("Fleet " + fleetName + " has no status");
                 break;
         }
-        
+
+        BodyInfoUI.instance.SetBody(this, false);
     }
     public override void ButtonClicked()
     {
@@ -217,6 +222,11 @@ public class Fleet : ObjectInfo
         switch (status)
         {
             case FleetStatus.Idle:
+                if (onOrbit)
+                {
+                    text.text = $"Orbiting <link=\"CelestialBody\"><color=#ffd666>{onOrbit.name}</color></link>";
+                    break;
+                }
                 text.text = "Idle";
                 break;
             case FleetStatus.Moving:

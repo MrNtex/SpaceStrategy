@@ -60,7 +60,7 @@ public class FleetManager : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.H))
         {
-            selectedFleet.SetStatus(FleetStatus.Idle);
+            selectedFleet.SetFleetStatus(FleetStatus.Idle);
         }
     }
 }

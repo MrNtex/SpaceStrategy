@@ -19,6 +19,8 @@ public class BodyInfoUI : MonoBehaviour
 
     [SerializeField]
     private Color gray;
+
+    private ObjectInfo currentBody;
     private void Awake()
     {
         if (instance == null)
@@ -30,8 +32,21 @@ public class BodyInfoUI : MonoBehaviour
             Destroy(this);
         }
     }
-    public void SetBody(ObjectInfo obj)
+    /// <summary>
+    /// Sets UI to display the information of the object
+    /// Force is used to determine whether its just a refresh or a new object
+    /// </summary>
+    /// <param name="obj"></param>
+    /// <param name="force"></param>
+    public void SetBody(ObjectInfo obj, bool force = true)
     {
+        if(!force && obj != currentBody)
+        {
+            return;
+        }
+
+        currentBody = obj;
+
         if (obj == null) // Used to hide the UI
         {
             panel.SetActive(false);
@@ -53,7 +68,5 @@ public class BodyInfoUI : MonoBehaviour
 
         panel.SetActive(true);
     }
-
-
     
 }
