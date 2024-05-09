@@ -22,7 +22,8 @@ public class DateManager : MonoBehaviour
     [SerializeField]
     private Color active, inactive, maxActive;
 
-    private const float maxTimeScale = 10;
+
+    private readonly float[] timeScales = { 1, 5, 10, 20, 50};
     private void Start()
     {
         currentDate = startDate;
@@ -34,11 +35,11 @@ public class DateManager : MonoBehaviour
 
         dateText.text = currentDate.ToString("dd-MM-yyyy");
     }
-    public void UpdateTimeScale(float timeScale)
+    public void UpdateTimeScale(int idx)
     {
-        DateManager.timeScale = timeScale;
+        DateManager.timeScale = timeScales[idx];
         int i = 0;
-        for (; i < scaleStamps.Length-1 && i < Mathf.Ceil(DateManager.timeScale); i++)
+        for (; i <= idx; i++)
         {
             scaleStamps[i].GetComponent<Image>().color = active;
         }
@@ -46,7 +47,7 @@ public class DateManager : MonoBehaviour
         {
             scaleStamps[i].GetComponent<Image>().color = inactive;
         }
-        if(DateManager.timeScale >= maxTimeScale)
+        if(idx == scaleStamps.Length - 1)
         {
             scaleStamps[scaleStamps.Length - 1].GetComponent<Image>().color = maxActive;
         }else

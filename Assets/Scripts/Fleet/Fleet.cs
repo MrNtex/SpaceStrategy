@@ -116,7 +116,8 @@ public class Fleet : ObjectInfo
         Vector3 dir = dest - ship.position;
         float angle = Vector3.Angle(ship.forward, dir); // The resulting angle ranges from 0 to 180.
 
-        float maneuverSpeed = speed;
+        float maneuverSpeed = speed * DateManager.timeScale;
+
 
         if (distance > forceManueverDistance && !forceManeuver)
         {
@@ -127,7 +128,7 @@ public class Fleet : ObjectInfo
                 float ratio = 1 - (distance - forceManueverDistance) / (400 - forceManueverDistance);
                 angularMultiplier = Mathf.Lerp(.55f, 2, ratio);
 
-                maneuverSpeed = Mathf.Clamp(speed - maneuverabilityPenalty * angle * Mathf.Pow(ratio, 3), minSpeed, speed);
+                maneuverSpeed = Mathf.Clamp(speed - maneuverabilityPenalty * angle * Mathf.Pow(ratio, 3), minSpeed, speed) * DateManager.timeScale;
 
                 // Debug.Log($"{ratio}, {maneuverSpeed}");
             }
@@ -138,8 +139,7 @@ public class Fleet : ObjectInfo
             return;
         }
 
-
-        maneuverSpeed = Mathf.Clamp(speed - maneuverabilityPenalty * angle, minSpeed, speed);
+        maneuverSpeed = Mathf.Clamp(speed - maneuverabilityPenalty * angle, minSpeed, speed) * DateManager.timeScale;
         ship.position = Vector3.SmoothDamp(ship.position, dest, ref velocity, smoothTime, maneuverSpeed, Time.deltaTime * DateManager.timeScale);
 
         // Rotate much faster when close to destination
