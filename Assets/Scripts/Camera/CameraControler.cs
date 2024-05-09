@@ -14,13 +14,6 @@ public class CameraControler : MonoBehaviour
     public float rotationSpeed = 20f;
     
 
-    private CameraFocus cameraFocus;
-
-    private void Start()
-    {
-        cameraFocus = GetComponent<CameraFocus>();
-    }
-
 
 
     // Update is called once per frame
@@ -58,7 +51,7 @@ public class CameraControler : MonoBehaviour
         if(transform.parent != null && breakFromParent)
         {
             transform.SetParent(null);
-            cameraFocus.focusedObject = null;
+            CameraFocus.focusedObject = null;
         }
     }
 }

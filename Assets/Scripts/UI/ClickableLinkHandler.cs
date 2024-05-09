@@ -45,7 +45,7 @@ public class ClickableLinkHandler : MonoBehaviour, IPointerClickHandler
                     return;
                 }
 
-                cameraFocus.FocusOn(objectFocusHelper);
+                cameraFocus.FocusOn(objectFocusHelper, true);
                 break;
             default:
                 Debug.Log("Unknown link clicked!");

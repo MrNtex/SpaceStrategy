@@ -195,10 +195,7 @@ public class Fleet : ObjectInfo
         objectFocusHelper.cameraPlacement.SetParent(capitan.transform);
         BodyInfoUI.instance.SetBody(this);
 
-        if (FleetManager.instance.selectedFleet == this)
-        {
-            cameraFocus.FocusOn(objectFocusHelper);
-        }
+        cameraFocus.FocusOn(objectFocusHelper, FleetManager.instance.selectedFleet == this);
 
         FleetManager.instance.SetSelectedFleet(this);
     }

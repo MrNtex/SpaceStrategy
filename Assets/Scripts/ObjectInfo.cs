@@ -35,8 +35,6 @@ public class ObjectInfo : MonoBehaviour
     }
     public virtual void ButtonClicked()
     {
-        FleetManager.instance.SetSelectedFleet(null); // Override this in the Fleet class
-
         cameraFocus.FocusOn(objectFocusHelper);
     }
 

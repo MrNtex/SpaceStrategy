@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraFocus : MonoBehaviour
 {
-    public ObjectFocusHelper focusedObject;
+    public static ObjectFocusHelper focusedObject;
 
 
     public float focusTime;
@@ -85,11 +85,10 @@ public class CameraFocus : MonoBehaviour
         {
             onLeftClick?.Invoke(); // This helps clicking on the smaller planets
 
+            FleetManager.instance.SetSelectedFleet(null);
 
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-            FleetManager.instance.SetSelectedFleet(null);
 
             if (Physics.Raycast(ray, out hit))
             {
@@ -97,7 +96,7 @@ public class CameraFocus : MonoBehaviour
                 {
 
                     dest = hit.transform.GetComponent<ObjectFocusHelper>();
-                    FocusOn(dest);
+                    FocusOn(dest.Focus());
                     return;
                 }
             }
@@ -117,30 +116,37 @@ public class CameraFocus : MonoBehaviour
             }
 
             dest = focusedObject.target.gameObject.GetComponent<ObjectFocusHelper>();
-            FocusOn(dest);
+            FocusOn(dest, true);
         }
     }
 
-    public void FocusOn(ObjectFocusHelper obj)
+    public void FocusOn(ObjectFocusHelper obj, bool force = false)
     {
-        if(this.focusedObject == obj)
+        bodyInfoUI.SetBody(obj.objectInfo);
+
+        if (obj != focusedObject && !force)
         {
-            bodyInfoUI.SetBody(obj.objectInfo);
+            // Only move the camera if double clicked
+            focusedObject = obj;
             return;
         }
 
-        this.focusedObject = obj.Focus();
+        if (cameraFocus == obj.cameraPlacement)
+        {
+            // If camera is already focused on the object, show the body info (it could've disapeared)
+            return;
+        }
+
         oldPos.transform.position = transform.position;
         oldPos.transform.rotation = transform.rotation;
 
         cameraFocus = obj.cameraPlacement;
         startTime = Time.time;
         isFocusing = true;
-
-        bodyInfoUI.SetBody(obj.objectInfo);
     }
     private void FocusOn(Vector3 pos, Quaternion rot)
     {
+
         focusedObject = null;
 
         oldPos.transform.position = transform.position;
