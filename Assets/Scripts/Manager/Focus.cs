@@ -83,8 +83,6 @@ public class Focus : MonoBehaviour
         {
             onLeftClick?.Invoke(); // This helps clicking on the smaller planets
 
-            FleetManager.instance.selectedFleet = null;
-
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
@@ -101,6 +99,8 @@ public class Focus : MonoBehaviour
             else
             {
                 bodyInfoUI.SetBody(null);
+                FleetManager.instance.selectedFleet = null;
+                focusedObject = null;
             }
 
         }
@@ -121,6 +121,7 @@ public class Focus : MonoBehaviour
     public void FocusOn(ObjectFocusHelper obj, bool force = false)
     {
         bodyInfoUI.SetBody(obj.objectInfo);
+        
 
         if (obj != focusedObject && !force)
         {
@@ -135,6 +136,8 @@ public class Focus : MonoBehaviour
             return;
         }
 
+        FleetManager.instance.selectedFleet = null;
+
         oldPos.transform.position = transform.position;
         oldPos.transform.rotation = transform.rotation;
 
@@ -144,7 +147,6 @@ public class Focus : MonoBehaviour
     }
     private void FocusOn(Vector3 pos, Quaternion rot)
     {
-
         focusedObject = null;
 
         oldPos.transform.position = transform.position;

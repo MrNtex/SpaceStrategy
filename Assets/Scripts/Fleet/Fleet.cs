@@ -195,7 +195,7 @@ public class Fleet : ObjectInfo
 
         cameraFocus.FocusOn(objectFocusHelper, FleetManager.instance.selectedFleet == this);
 
-        FleetManager.instance.selectedFleet = this;
+        FleetManager.instance.selectedFleet = this; // Reminder: Selected Object and Selected Fleet must be different (they are changed under similar yet diffrent circumstances)
     }
     public void DrawPath(Vector3 dest)
     {

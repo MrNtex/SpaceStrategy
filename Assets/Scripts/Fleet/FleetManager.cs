@@ -30,6 +30,7 @@ public class FleetManager : MonoBehaviour
             }
         }
     }
+    [SerializeField]
     private Fleet _selectedFleet;
 
 
