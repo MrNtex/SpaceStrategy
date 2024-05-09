@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraFocus : MonoBehaviour
+[RequireComponent(typeof(Camera))]
+public class Focus : MonoBehaviour
 {
     public static ObjectFocusHelper focusedObject;
-
 
     public float focusTime;
     private bool isFocusing = false;
@@ -18,7 +18,6 @@ public class CameraFocus : MonoBehaviour
     [SerializeField]
     private AnimationCurve focusCurve;
 
-    private CameraControler cameraControler;
 
     private Vector3 initialPosition;
     private Quaternion initialRotation;
@@ -34,7 +33,6 @@ public class CameraFocus : MonoBehaviour
     private void Start()
     {
         oldPos = new GameObject("OldPos");
-        cameraControler = GetComponent<CameraControler>();
 
         initialPosition = transform.position;
         initialRotation = transform.rotation;
@@ -85,7 +83,7 @@ public class CameraFocus : MonoBehaviour
         {
             onLeftClick?.Invoke(); // This helps clicking on the smaller planets
 
-            FleetManager.instance.SetSelectedFleet(null);
+            FleetManager.instance.selectedFleet = null;
 
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);

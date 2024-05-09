@@ -51,7 +51,7 @@ public class CameraControler : MonoBehaviour
         if(transform.parent != null && breakFromParent)
         {
             transform.SetParent(null);
-            CameraFocus.focusedObject = null;
+            Focus.focusedObject = null;
         }
     }
 }

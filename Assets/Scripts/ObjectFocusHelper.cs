@@ -5,7 +5,7 @@ using UnityEngine;
 public class ObjectFocusHelper : MonoBehaviour
 {
 
-    private Orbiting orbiting;
+    public Orbiting orbiting;
     public ObjectInfo objectInfo;
 
     [SerializeField]
@@ -87,7 +87,7 @@ public class ObjectFocusHelper : MonoBehaviour
     }
     private void OnEnable()
     {
-        if(useCollider) cameraMain.GetComponent<CameraFocus>().onLeftClick += RecalculateColliders;
+        if(useCollider) cameraMain.GetComponent<Focus>().onLeftClick += RecalculateColliders;
     }
     public void RecalculateColliders()
     {

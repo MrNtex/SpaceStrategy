@@ -34,7 +34,6 @@ public class Fleet : ObjectInfo
     [Header("Formation")]
     public bool forceManeuver = false;
 
-    private CameraFocus cameraFocus;
     
     public LineRenderer path;
     private const float lrOffset = 2.5f;
@@ -49,7 +48,6 @@ public class Fleet : ObjectInfo
     private FleetBillboard fleetBillboard;
     public override void Start()
     {
-        cameraFocus = Camera.main.GetComponent<CameraFocus>();
         path = GetComponent<LineRenderer>();
         fleetBillboard.SetupFleet();
 
@@ -197,7 +195,7 @@ public class Fleet : ObjectInfo
 
         cameraFocus.FocusOn(objectFocusHelper, FleetManager.instance.selectedFleet == this);
 
-        FleetManager.instance.SetSelectedFleet(this);
+        FleetManager.instance.selectedFleet = this;
     }
     public void DrawPath(Vector3 dest)
     {

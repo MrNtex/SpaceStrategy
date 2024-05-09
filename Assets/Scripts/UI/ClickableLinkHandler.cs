@@ -7,13 +7,13 @@ public class ClickableLinkHandler : MonoBehaviour, IPointerClickHandler
 
     [SerializeField] private TMP_Text textMeshPro;
 
-    private CameraFocus cameraFocus;
+    private Focus cameraFocus;
 
     public static GameObject adress; // Object that the link addresses
 
     void Start()
     {
-        cameraFocus = Camera.main.GetComponent<CameraFocus>();
+        cameraFocus = Camera.main.GetComponent<Focus>();
     }
     public void OnPointerClick(PointerEventData eventData)
     {

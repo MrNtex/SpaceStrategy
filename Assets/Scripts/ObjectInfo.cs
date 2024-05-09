@@ -9,7 +9,7 @@ public class ObjectInfo : MonoBehaviour
     public string objectName;
 
     protected ObjectFocusHelper objectFocusHelper;
-    private CameraFocus cameraFocus;
+    protected Focus cameraFocus;
     public BodyStatus bodyStatus;
 
 
@@ -24,7 +24,7 @@ public class ObjectInfo : MonoBehaviour
         if(objectName == "") objectName = gameObject.name;
 
         objectFocusHelper = GetComponent<ObjectFocusHelper>();
-        cameraFocus = Camera.main.GetComponent<CameraFocus>();
+        cameraFocus = Camera.main.GetComponent<Focus>();
         
     }
     

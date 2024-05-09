@@ -9,7 +9,28 @@ public class FleetManager : MonoBehaviour
     public static FleetManager instance;
     // Start is called before the first frame update
 
-    public Fleet selectedFleet;
+    public Fleet selectedFleet
+    {
+        get
+        {
+            return _selectedFleet;
+        }
+        set
+        {
+            if (_selectedFleet != null)
+            {
+                _selectedFleet.path.startColor = normal;
+                _selectedFleet.path.endColor = normal;
+            }
+            _selectedFleet = value;
+            if (_selectedFleet != null)
+            {
+                _selectedFleet.path.startColor = focused;
+                _selectedFleet.path.endColor = focused;
+            }
+        }
+    }
+    private Fleet _selectedFleet;
 
 
     public Color focused, normal;
@@ -38,25 +59,12 @@ public class FleetManager : MonoBehaviour
 
         bodyInfoUI.SetBody(selectedFleet);
     }
-    public void SetSelectedFleet(Fleet fleet)
-    {
-        if(selectedFleet != null)
-        {
-            selectedFleet.path.startColor = normal;
-            selectedFleet.path.endColor = normal;
-        }
-        selectedFleet = fleet;
-        if(selectedFleet != null){
-            selectedFleet.path.startColor = focused;
-            selectedFleet.path.endColor = focused;
-        }
-    }
 
     public void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            SetSelectedFleet(null);
+            selectedFleet = null;
         }
         if (Input.GetKeyDown(KeyCode.H))
         {
