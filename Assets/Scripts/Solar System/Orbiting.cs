@@ -10,7 +10,7 @@ public class Orbiting : MonoBehaviour
     public const float speed = 100.0f;
     private float actualSpeed;
 
-    public LineRenderer lineRenderer;
+    private LineRenderer lineRenderer;
 
     [SerializeField]
     [Range(-1.0f, 1.0f)]

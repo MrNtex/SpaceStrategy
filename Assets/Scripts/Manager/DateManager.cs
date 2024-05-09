@@ -23,11 +23,11 @@ public class DateManager : MonoBehaviour
     private Color active, inactive, maxActive;
 
 
-    private readonly float[] timeScales = { 1, 5, 10, 20, 50};
+    private readonly float[] timeScales = { 1, 5, 10, 20, 100};
     private void Start()
     {
         currentDate = startDate;
-        UpdateTimeScale(1);
+        UpdateTimeScale(0);
     }
     public void UpdateDate(float days)
     {
