@@ -89,7 +89,9 @@ public class ResearchManager
         public bool researched;
 
         public DateTime unlockedDate;
-        public Research(int id, string name, string description, int cost, List<int> prerequisites, DateTime unlockedDate)
+
+        public float x, y;
+        public Research(int id, string name, string description, int cost, List<int> prerequisites, DateTime unlockedDate, float x, float y)
         {
             this.id = id;
             this.name = name;
@@ -98,6 +100,9 @@ public class ResearchManager
             this.prerequisites = prerequisites;
             researched = false;
             this.unlockedDate = unlockedDate;
+
+            this.x = x;
+            this.y = y;
         }
     }
 }

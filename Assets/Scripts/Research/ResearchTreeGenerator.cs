@@ -6,11 +6,18 @@ using UnityEngine;
 public class ResearchTreeGenerator : MonoBehaviour
 {
     int currentCategory = 0;
+
+    [SerializeField]
+    private GameObject researchPrefab;
+
+    [SerializeField]
+    private Transform researchParent;
     private void OnEnable()
     {
-        foreach(var Research in ResearchJSON.Instance.categories[currentCategory].researches)
+        foreach(var Research in ResearchJSON.Instance.categories[currentCategory].researches.Values)
         {
-            Debug.Log(Research.Value.name);
+            GameObject go = Instantiate(researchPrefab, researchParent);
+            go.GetComponent<ResearchButton>().Create(Research);
         }
     }
 }
