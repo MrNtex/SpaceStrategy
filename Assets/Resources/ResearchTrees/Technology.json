@@ -1,0 +1,27 @@
+{
+  "name": "Technology",
+  "researches": [
+    {
+      "id": 1,
+      "name": "AI Development",
+      "description": "Research on artificial intelligence development.",
+      "cost": 500,
+      "prerequisites": [],
+      "researched": false,
+      "unlockedDate": "2024-05-10T12:00:00"
+    },
+    {
+      "id": 2,
+      "name": "Quantum Computing",
+      "description": "Research on quantum computing advancements.",
+      "cost": 1000,
+      "prerequisites": [
+        {
+          "id": 1
+        }
+      ],
+      "researched": false,
+      "unlockedDate": "2024-05-15T12:00:00"
+    }
+  ]
+}

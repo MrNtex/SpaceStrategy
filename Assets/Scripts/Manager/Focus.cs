@@ -133,7 +133,7 @@ public class Focus : MonoBehaviour
         if (cameraFocus == obj.cameraPlacement)
         {
             // If camera is already focused on the object, show the body info (it could've disapeared)
-            return;
+            //return;
         }
 
         FleetManager.instance.selectedFleet = null;
