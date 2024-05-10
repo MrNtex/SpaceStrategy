@@ -9,12 +9,8 @@ public class ResearchJSON : MonoBehaviour
 {
     public static ResearchJSON Instance { get; private set; }
 
-    public List<ResearchCategory> categories = new List<ResearchCategory>();
-    public struct ResearchCategory
-    {
-        public string name;
-        public Dictionary<int, Research> researches;
-    }
+    public List<ResearchCategory> categories;
+
     private void Awake()
     {
         if (Instance == null)
@@ -39,33 +35,8 @@ public class ResearchJSON : MonoBehaviour
             ResearchManager.ResearchCategory category = JsonUtility.FromJson<ResearchManager.ResearchCategory>(file.text);
 
             // Debug
-            ProcessCategory(category);
+            categories.Add(category);
         }
-    }
-
-    void ProcessCategory(ResearchManager.ResearchCategory category)
-    {
-        Dictionary<int, Research> researches = new Dictionary<int, Research>();
-        Debug.Log($"Category Name: {category.name}");
-        foreach (var research in category.researches)
-        {
-            if (researches.ContainsKey(research.id))
-            {
-                Debug.LogError($"Duplicate ID found: {category.name} - {research.id}");
-                continue;
-            }
-            else
-            {
-                researches.Add(research.id, research);
-            }
-
-            
-        }
-        categories.Add(new ResearchCategory
-        {
-            name = category.name,
-            researches = researches
-        }) ;
     }
 }
 public class ResearchManager
