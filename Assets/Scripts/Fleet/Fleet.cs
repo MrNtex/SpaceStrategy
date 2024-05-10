@@ -98,6 +98,14 @@ public partial class Fleet : ObjectInfo
         gameObject.transform.SetParent(null);
 
         SetFleetStatus(FleetStatus.Moving);
+
+        // This is a temporary solution, i have to somehow reduce the calcuations to only x axis
+        // It makes so that camera is looking at the middle point between the destination and the fleet
+
+        Quaternion rotation = Quaternion.LookRotation(destination.transform.position - objectFocusHelper.cameraPlacement.position);
+        Quaternion middlePoint = Quaternion.Slerp(rotation, objectFocusHelper.cameraPlacement.rotation, 0.5f);
+
+        objectFocusHelper.cameraPlacement.rotation = Quaternion.Euler(middlePoint.eulerAngles.x, objectFocusHelper.cameraPlacement.rotation.eulerAngles.y, 0);
     }
     public void SetFleetStatus(FleetStatus status)
     {

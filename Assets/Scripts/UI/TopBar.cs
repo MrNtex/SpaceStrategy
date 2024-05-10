@@ -14,7 +14,10 @@ public class TopBar : MonoBehaviour
     public GameObject topBar;
 
     [SerializeField]
-    private Image arrowImage;
+    private Image arrowImage, lockImage;
+
+    [SerializeField]
+    private Sprite lockSprite, unlockSprite;
 
     private const float arrowY = 75;
     private const float topBarY = 65;
@@ -37,6 +40,7 @@ public class TopBar : MonoBehaviour
                 float val = diff / (100 - arrowY);
                 arrowImage.color = new Color(1, 1, 1, curve.Evaluate(val*2));
             }
+            
         }else if(topBar.activeInHierarchy && !topBarLocked)
         {
             float mouseY = Input.mousePosition.y;
@@ -53,7 +57,21 @@ public class TopBar : MonoBehaviour
 
     public void Hover()
     {
+        arrowImage.color = new Color(1, 1, 1, 0);
         arrow.SetActive(false);
         topBar.SetActive(true);
+    }
+
+    public void Lock()
+    {
+        topBarLocked = !topBarLocked;
+
+        if(!topBarLocked)
+        {
+            lockImage.sprite = unlockSprite;
+        }else
+        {
+            lockImage.sprite = lockSprite;
+        }
     }
 }
