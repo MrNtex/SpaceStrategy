@@ -36,7 +36,6 @@ public class BodyInfo : ObjectInfo
 
         if(useCustomColor)
         {
-            Debug.Log("Using custom color");
             Material material = new Material(crust.material);
             material.color = customColor;
             crust.material = material;

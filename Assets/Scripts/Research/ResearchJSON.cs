@@ -3,9 +3,30 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using static ResearchManager;
 
 public class ResearchJSON : MonoBehaviour
 {
+    public static ResearchJSON Instance { get; private set; }
+
+    public List<ResearchCategory> categories = new List<ResearchCategory>();
+    public struct ResearchCategory
+    {
+        public string name;
+        public Dictionary<int, Research> researches;
+    }
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
     void Start()
     {
         TextAsset[] jsonFiles = Resources.LoadAll<TextAsset>("ResearchTrees");
@@ -24,19 +45,27 @@ public class ResearchJSON : MonoBehaviour
 
     void ProcessCategory(ResearchManager.ResearchCategory category)
     {
-        HashSet<int> ids = new HashSet<int>();
+        Dictionary<int, Research> researches = new Dictionary<int, Research>();
         Debug.Log($"Category Name: {category.name}");
         foreach (var research in category.researches)
         {
-            if (ids.Contains(research.id))
+            if (researches.ContainsKey(research.id))
             {
                 Debug.LogError($"Duplicate ID found: {category.name} - {research.id}");
+                continue;
             }
             else
             {
-                ids.Add(research.id);
+                researches.Add(research.id, research);
             }
+
+            
         }
+        categories.Add(new ResearchCategory
+        {
+            name = category.name,
+            researches = researches
+        }) ;
     }
 }
 public class ResearchManager
