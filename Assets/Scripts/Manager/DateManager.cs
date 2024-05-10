@@ -24,6 +24,7 @@ public class DateManager : MonoBehaviour
 
 
     private readonly float[] timeScales = { 1, 5, 10, 20, 100};
+    int lastScale = 1;
     private void Start()
     {
         currentDate = startDate;
@@ -54,5 +55,26 @@ public class DateManager : MonoBehaviour
         {
             scaleStamps[scaleStamps.Length - 1].GetComponent<Image>().color = inactive;
         }
+
+        lastScale = idx;
     }
+    public void Pause()
+    {
+        if (timeScale == 0)
+        {
+            UpdateTimeScale(lastScale);
+            return;
+        }
+        timeScale = 0;
+    }
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1)) UpdateTimeScale(0);
+        else if (Input.GetKeyDown(KeyCode.Alpha2)) UpdateTimeScale(1);
+        else if (Input.GetKeyDown(KeyCode.Alpha3)) UpdateTimeScale(2);
+        else if (Input.GetKeyDown(KeyCode.Alpha4)) UpdateTimeScale(3);
+        else if (Input.GetKeyDown(KeyCode.Alpha5)) UpdateTimeScale(4);
+        else if (Input.GetKeyDown(KeyCode.Space)) Pause();
+    }
+
 }

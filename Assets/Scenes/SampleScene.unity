@@ -1339,6 +1339,103 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a02352aa69936e44cbf17c40ad615734, type: 3}
+--- !u!1 &177975966
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 177975967}
+  - component: {fileID: 177975970}
+  - component: {fileID: 177975969}
+  - component: {fileID: 177975968}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &177975967
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 177975966}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 621977154}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 751.1, y: -33.364014}
+  m_SizeDelta: {x: 1502.2, y: 67.5478}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &177975968
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 177975966}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 702f3f9f4a47d404f884f8cf944f2445, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &177975969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 177975966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.21568628, g: 0.21568628, b: 0.21568628, a: 0.39215687}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &177975970
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 177975966}
+  m_CullTransparentMesh: 1
 --- !u!1001 &181631376
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7342,7 +7439,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47460aacd48349143bce64c36172fcbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  focusedObject: {fileID: 0}
   focusTime: 1
   focusCurve:
     serializedVersion: 2
@@ -7826,6 +7922,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3714d205ad29d7479b5590e49da5e85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  orbiting: {fileID: 0}
   objectInfo: {fileID: 0}
   offset: {x: 0, y: 7.8548307, z: 11.624336}
   target: {fileID: 0}
@@ -8899,6 +8996,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3714d205ad29d7479b5590e49da5e85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  orbiting: {fileID: 0}
   objectInfo: {fileID: 0}
   offset: {x: 0, y: 0, z: 0}
   target: {fileID: 0}
@@ -9488,6 +9586,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3714d205ad29d7479b5590e49da5e85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  orbiting: {fileID: 0}
   objectInfo: {fileID: 0}
   offset: {x: 0, y: 0, z: 0}
   target: {fileID: 0}
@@ -9653,6 +9752,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3714d205ad29d7479b5590e49da5e85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  orbiting: {fileID: 0}
   objectInfo: {fileID: 0}
   offset: {x: 0, y: 0, z: 0}
   target: {fileID: 0}
@@ -10211,6 +10311,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3714d205ad29d7479b5590e49da5e85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  orbiting: {fileID: 0}
   objectInfo: {fileID: 0}
   offset: {x: 0, y: 7.854831, z: 11.624336}
   target: {fileID: 462992311}
@@ -10725,6 +10826,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3714d205ad29d7479b5590e49da5e85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  orbiting: {fileID: 0}
   objectInfo: {fileID: 0}
   offset: {x: 0, y: 7.8548307, z: 11.624336}
   target: {fileID: 0}
@@ -10916,6 +11018,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3714d205ad29d7479b5590e49da5e85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  orbiting: {fileID: 0}
   objectInfo: {fileID: 574368441}
   offset: {x: 0, y: 9, z: -11}
   target: {fileID: 1688640018}
@@ -10951,6 +11054,7 @@ MonoBehaviour:
     prefab: {fileID: 727713627}
   capitan: {fileID: 1688640017}
   destination: {fileID: 0}
+  destinationOffset: 1
   status: 0
   speed: 25
   smoothTime: 0.3
@@ -11170,6 +11274,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3714d205ad29d7479b5590e49da5e85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  orbiting: {fileID: 0}
   objectInfo: {fileID: 0}
   offset: {x: 0, y: 7.8548307, z: 11.624336}
   target: {fileID: 0}
@@ -11458,6 +11563,7 @@ RectTransform:
   m_Children:
   - {fileID: 3327111}
   - {fileID: 458021715}
+  - {fileID: 177975967}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -11738,6 +11844,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3714d205ad29d7479b5590e49da5e85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  orbiting: {fileID: 0}
   objectInfo: {fileID: 0}
   offset: {x: 0, y: 0, z: 0}
   target: {fileID: 0}
@@ -12201,6 +12308,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3714d205ad29d7479b5590e49da5e85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  orbiting: {fileID: 0}
   objectInfo: {fileID: 0}
   offset: {x: 0, y: 7.8548307, z: 11.624336}
   target: {fileID: 0}
@@ -12360,6 +12468,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3714d205ad29d7479b5590e49da5e85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  orbiting: {fileID: 0}
   objectInfo: {fileID: 0}
   offset: {x: 0, y: 7.8548307, z: 11.624336}
   target: {fileID: 0}
@@ -12855,6 +12964,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3714d205ad29d7479b5590e49da5e85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  orbiting: {fileID: 0}
   objectInfo: {fileID: 0}
   offset: {x: 0, y: 0, z: 0}
   target: {fileID: 0}
@@ -13107,8 +13217,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 311654d34b7ad2448b8c49e65d000db5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colonized: {r: 0.38210782, g: 1, b: 0.10849059, a: 1}
-  colonizable: {r: 0.55474395, g: 1, b: 0.33490568, a: 1}
+  colonized: {r: 0.56861746, g: 0.9433962, b: 0.40494838, a: 1}
+  colonizable: {r: 0.6935423, g: 0.8207547, b: 0.63105196, a: 1}
   canBeTerraformed: {r: 0.8917657, g: 1, b: 0.16509432, a: 1}
   specialized: {r: 0, g: 0.4946847, b: 1, a: 1}
   canBeSpecialized: {r: 0.4292453, g: 0.67620254, b: 1, a: 1}
@@ -13133,7 +13243,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fleets: []
-  selectedFleet: {fileID: 0}
+  _selectedFleet: {fileID: 0}
   focused: {r: 1, g: 0.9878868, b: 0.9009434, a: 0.6392157}
   normal: {r: 1, g: 0.9858491, b: 0.9858491, a: 0.09411765}
 --- !u!114 &941910638
@@ -13303,6 +13413,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3714d205ad29d7479b5590e49da5e85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  orbiting: {fileID: 0}
   objectInfo: {fileID: 0}
   offset: {x: 0, y: 0, z: 0}
   target: {fileID: 0}
@@ -14432,6 +14543,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3714d205ad29d7479b5590e49da5e85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  orbiting: {fileID: 0}
   objectInfo: {fileID: 0}
   offset: {x: 0, y: 7.8548307, z: 11.624336}
   target: {fileID: 0}
@@ -14621,6 +14733,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3714d205ad29d7479b5590e49da5e85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  orbiting: {fileID: 0}
   objectInfo: {fileID: 0}
   offset: {x: 0, y: 0, z: 0}
   target: {fileID: 0}
@@ -14973,6 +15086,7 @@ MonoBehaviour:
     prefab: {fileID: 449676906}
   capitan: {fileID: 1675667123}
   destination: {fileID: 0}
+  destinationOffset: 1
   status: 0
   speed: 25
   smoothTime: 0.3
@@ -15015,6 +15129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3714d205ad29d7479b5590e49da5e85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  orbiting: {fileID: 0}
   objectInfo: {fileID: 1264452442}
   offset: {x: 0, y: 9, z: -11}
   target: {fileID: 1675667124}
@@ -15481,11 +15596,11 @@ MonoBehaviour:
       - m_Target: {fileID: 330585550}
         m_TargetAssemblyTypeName: DateManager, Assembly-CSharp
         m_MethodName: UpdateTimeScale
-        m_Mode: 4
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 4
           m_FloatArgument: 10
           m_StringArgument: 
           m_BoolArgument: 0
@@ -15814,6 +15929,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3714d205ad29d7479b5590e49da5e85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  orbiting: {fileID: 0}
   objectInfo: {fileID: 0}
   offset: {x: 0, y: 0, z: 0}
   target: {fileID: 0}
@@ -16336,6 +16452,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3714d205ad29d7479b5590e49da5e85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  orbiting: {fileID: 0}
   objectInfo: {fileID: 0}
   offset: {x: 0, y: 7.8548307, z: 11.624336}
   target: {fileID: 0}
@@ -18816,6 +18933,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3714d205ad29d7479b5590e49da5e85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  orbiting: {fileID: 0}
   objectInfo: {fileID: 0}
   offset: {x: 0, y: 0, z: 0}
   target: {fileID: 0}
@@ -18945,11 +19063,11 @@ MonoBehaviour:
       - m_Target: {fileID: 330585550}
         m_TargetAssemblyTypeName: DateManager, Assembly-CSharp
         m_MethodName: UpdateTimeScale
-        m_Mode: 4
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 3
           m_StringArgument: 
           m_BoolArgument: 0
@@ -19596,11 +19714,11 @@ MonoBehaviour:
       - m_Target: {fileID: 330585550}
         m_TargetAssemblyTypeName: DateManager, Assembly-CSharp
         m_MethodName: UpdateTimeScale
-        m_Mode: 4
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 2
           m_StringArgument: 
           m_BoolArgument: 0
@@ -20106,12 +20224,12 @@ MonoBehaviour:
       - m_Target: {fileID: 330585550}
         m_TargetAssemblyTypeName: DateManager, Assembly-CSharp
         m_MethodName: UpdateTimeScale
-        m_Mode: 4
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 1
+          m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -20498,6 +20616,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3714d205ad29d7479b5590e49da5e85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  orbiting: {fileID: 0}
   objectInfo: {fileID: 0}
   offset: {x: 0, y: 7.8548307, z: 11.624336}
   target: {fileID: 0}
@@ -20576,6 +20695,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3714d205ad29d7479b5590e49da5e85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  orbiting: {fileID: 0}
   objectInfo: {fileID: 0}
   offset: {x: 0, y: 7.8548307, z: 11.624336}
   target: {fileID: 0}
@@ -20992,11 +21112,11 @@ MonoBehaviour:
       - m_Target: {fileID: 330585550}
         m_TargetAssemblyTypeName: DateManager, Assembly-CSharp
         m_MethodName: UpdateTimeScale
-        m_Mode: 4
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 3
           m_FloatArgument: 4
           m_StringArgument: 
           m_BoolArgument: 0
