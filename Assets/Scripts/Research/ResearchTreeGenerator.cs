@@ -20,7 +20,7 @@ public class ResearchTreeGenerator : MonoBehaviour
 
     [SerializeField]
     private GameObject categoryPrefab;
-    private void OnEnable()
+    private void Start()
     {
         ResearchManager.ResearchCategory[] rCategory = ResearchJSON.Instance.categories.ToArray();
 
@@ -45,9 +45,9 @@ public class ResearchTreeGenerator : MonoBehaviour
             ResearchButton researchButton = go.GetComponent<ResearchButton>();
             researchButton.Create(Research);
             categoryPanel.researchButtons.Add(Research.id, researchButton);
+            
             foreach (int prereq in Research.prerequisites)
             {
-
                 if (categoryPanel.researchButtons.ContainsKey(prereq))
                 {
                     researchButton.CreateConnection(categoryPanel.researchButtons[prereq]);

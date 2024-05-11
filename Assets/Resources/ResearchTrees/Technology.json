@@ -18,9 +18,7 @@
       "description": "Research on quantum computing advancements.",
       "cost": 1000,
       "prerequisites": [
-        {
-          "id": 1
-        }
+        0
       ],
       "researched": false,
       "unlockedDate": "2024-05-15T12:00:00",
@@ -29,13 +27,11 @@
     },
     {
       "id": 2,
-      "name": "Cos innego",
+      "name": "Smth",
       "description": "Research on quantum computing advancements.",
       "cost": 1000,
       "prerequisites": [
-        {
-          "id": 2
-        }
+        1
       ],
       "researched": false,
       "unlockedDate": "2024-05-15T12:00:00",
