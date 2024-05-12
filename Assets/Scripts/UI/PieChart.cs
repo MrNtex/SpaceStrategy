@@ -4,8 +4,12 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class PieChart : MonoBehaviour, IPointerMoveHandler, IPointerExitHandler
+public class PieChart : MonoBehaviour, IPointerMoveHandler, IPointerExitHandler, IPointerClickHandler
 {
+    public int SelectedSliceIndex = -1;
+    public int hoveredSelectedSliceIndex = -1;
+    private bool freeze = false;
+
     public List<float> values = new List<float>();
     public List<Color> colors = new List<Color>();
 
@@ -22,6 +26,7 @@ public class PieChart : MonoBehaviour, IPointerMoveHandler, IPointerExitHandler
     Vector3 startScale = Vector3.one;
 
     private Dictionary<Transform, Coroutine> activeCoroutines = new Dictionary<Transform, Coroutine>();
+
     Transform selectedSlice
     {
         get
@@ -40,6 +45,7 @@ public class PieChart : MonoBehaviour, IPointerMoveHandler, IPointerExitHandler
             if (_selectedSlice != value)
             {
                 if(_selectedSlice != null) AnimateTransform(_selectedSlice, Vector3.one);
+                
                 _selectedSlice = value;
                 AnimateTransform(_selectedSlice, new Vector3(1.3f, 1.3f));
                 startScale = _selectedSlice.localScale;
@@ -106,6 +112,8 @@ public class PieChart : MonoBehaviour, IPointerMoveHandler, IPointerExitHandler
             if (angle < -angles[i])
             {
                 selectedSlice = slices[i - 1];
+                hoveredSelectedSliceIndex = i - 1;
+                
                 break;
             }
         }
@@ -113,14 +121,39 @@ public class PieChart : MonoBehaviour, IPointerMoveHandler, IPointerExitHandler
     void IPointerExitHandler.OnPointerExit(PointerEventData eventData)
     {
         selectedSlice = null;
-    }
+        hoveredSelectedSliceIndex = -1;
 
+        Debug.Log(SelectedSliceIndex);
+    }
+    void IPointerClickHandler.OnPointerClick(PointerEventData eventData)
+    {
+        if(hoveredSelectedSliceIndex == SelectedSliceIndex)
+        {
+            freeze = false;
+            hoveredSelectedSliceIndex = -1;
+            SelectedSliceIndex = -1;
+            return;
+        }
+        int temp = SelectedSliceIndex;
+        SelectedSliceIndex = hoveredSelectedSliceIndex;
+        if (temp != -1)
+        {
+            AnimateTransform(slices[temp], Vector3.one);
+        }
+        freeze = true;
+    }
     public void AnimateTransform(Transform transform, Vector3 targetScale)
     {
-        float speed = 2.3f;
+        if (SelectedSliceIndex != -1 && slices[SelectedSliceIndex] == transform) return;
+       float speed = 2.3f;
         // Check if there's already a running coroutine for this transform
         if (activeCoroutines.TryGetValue(transform, out Coroutine runningCoroutine))
         {
+            if (runningCoroutine == null)
+            {
+                activeCoroutines.Remove(transform);
+                return;
+            }
             StopCoroutine(runningCoroutine);
             activeCoroutines.Remove(transform);
         }
@@ -131,6 +164,7 @@ public class PieChart : MonoBehaviour, IPointerMoveHandler, IPointerExitHandler
 
     IEnumerator AnimateSlice(Transform transform, Vector3 targetScale, float speed)
     {
+        
         while (transform != null && Vector3.Distance(transform.localScale, targetScale) > 0.01f)
         {
             transform.localScale = Vector3.Lerp(transform.localScale, targetScale, Time.deltaTime * speed);
