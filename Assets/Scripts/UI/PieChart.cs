@@ -18,6 +18,10 @@ public class PieChart : MonoBehaviour, IPointerMoveHandler, IPointerExitHandler
 
     List<float> angles = new List<float>();
     List<Transform> slices = new List<Transform>();
+
+    Vector3 startScale = Vector3.one;
+
+    private Dictionary<Transform, Coroutine> activeCoroutines = new Dictionary<Transform, Coroutine>();
     Transform selectedSlice
     {
         get
@@ -29,16 +33,16 @@ public class PieChart : MonoBehaviour, IPointerMoveHandler, IPointerExitHandler
             if(value == null)
             {
                 if (_selectedSlice == null) return;
-                _selectedSlice.localScale = Vector3.one;
+                AnimateTransform(_selectedSlice, Vector3.one);
                 _selectedSlice = null;
                 return;
             }
             if (_selectedSlice != value)
             {
-                if (_selectedSlice != null) _selectedSlice.localScale = Vector3.one;
+                if(_selectedSlice != null) AnimateTransform(_selectedSlice, Vector3.one);
                 _selectedSlice = value;
-                _selectedSlice.localScale = Vector3.one * 1.3f;
-                
+                AnimateTransform(_selectedSlice, new Vector3(1.3f, 1.3f));
+                startScale = _selectedSlice.localScale;
             }
         }
     }
@@ -110,4 +114,31 @@ public class PieChart : MonoBehaviour, IPointerMoveHandler, IPointerExitHandler
     {
         selectedSlice = null;
     }
+
+    public void AnimateTransform(Transform transform, Vector3 targetScale)
+    {
+        float speed = 2.3f;
+        // Check if there's already a running coroutine for this transform
+        if (activeCoroutines.TryGetValue(transform, out Coroutine runningCoroutine))
+        {
+            StopCoroutine(runningCoroutine);
+            activeCoroutines.Remove(transform);
+        }
+
+        Coroutine newCoroutine = StartCoroutine(AnimateSlice(transform, targetScale, speed));
+        activeCoroutines[transform] = newCoroutine;
+    }
+
+    IEnumerator AnimateSlice(Transform transform, Vector3 targetScale, float speed)
+    {
+        while (transform != null && Vector3.Distance(transform.localScale, targetScale) > 0.01f)
+        {
+            transform.localScale = Vector3.Lerp(transform.localScale, targetScale, Time.deltaTime * speed);
+            yield return null;
+        }
+
+        transform.localScale = targetScale;
+        activeCoroutines.Remove(transform); 
+    }
+
 }
