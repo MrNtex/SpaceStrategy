@@ -62,7 +62,6 @@ public partial class Fleet : ObjectInfo
         float angle = Vector3.Angle(ship.forward, dir); // The resulting angle ranges from 0 to 180.
 
         float maneuverSpeed = speed * DateManager.timeScale;
-        Debug.Log(maneuverSpeed);
 
         if (distance > forceManueverDistance && !forceManeuver)
         {

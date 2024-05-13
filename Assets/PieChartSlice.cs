@@ -8,7 +8,7 @@ public class PieChartSlice : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 {
     public int sliceIndex;
     [SerializeField]
-    private float maxScale = 1.3f, maxOffset = 0.5f;
+    private float maxScale = 1.3f;
 
     private Vector3 originalScale;
     private Vector3 originalPosition;

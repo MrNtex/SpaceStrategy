@@ -10266,7 +10266,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -499.11, y: 258}
+  m_AnchoredPosition: {x: -392, y: -95}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &510360401
@@ -15495,7 +15495,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 245, y: -424}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &998315474
@@ -15510,14 +15510,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6534c1eb4feb5c4a8a46c7aed2114cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SelectedSliceIndex: -1
+  hoveredSelectedSliceIndex: -1
   values:
   - 19.96
   - 4
   - 4
   colors:
-  - {r: 1, g: 0.06132078, b: 0.06132078, a: 1}
-  - {r: 0.9622642, g: 0.7126202, b: 0.7126202, a: 1}
-  - {r: 0.46226418, g: 0.13737096, b: 0.13737096, a: 0.9372549}
+  - {r: 0.6648245, g: 0.8867924, b: 0.46431112, a: 1}
+  - {r: 1, g: 0.8558303, b: 0.495283, a: 1}
+  - {r: 0.7075472, g: 0.18356179, b: 0.26370075, a: 0.9372549}
   - {r: 0, g: 0, b: 0, a: 0}
   slice: {fileID: 8264650567763148849, guid: ca35242f9f4008742bfc5d4fa7592c71, type: 3}
   background: {fileID: 1337510943}

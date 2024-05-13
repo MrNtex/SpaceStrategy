@@ -8,7 +8,6 @@ public class PieChart : MonoBehaviour, IPointerMoveHandler, IPointerExitHandler,
 {
     public int SelectedSliceIndex = -1;
     public int hoveredSelectedSliceIndex = -1;
-    private bool freeze = false;
 
     public List<float> values = new List<float>();
     public List<Color> colors = new List<Color>();
@@ -22,8 +21,6 @@ public class PieChart : MonoBehaviour, IPointerMoveHandler, IPointerExitHandler,
 
     List<float> angles = new List<float>();
     List<Transform> slices = new List<Transform>();
-
-    Vector3 startScale = Vector3.one;
 
     private Dictionary<Transform, Coroutine> activeCoroutines = new Dictionary<Transform, Coroutine>();
 
@@ -48,7 +45,6 @@ public class PieChart : MonoBehaviour, IPointerMoveHandler, IPointerExitHandler,
                 
                 _selectedSlice = value;
                 AnimateTransform(_selectedSlice, new Vector3(1.3f, 1.3f));
-                startScale = _selectedSlice.localScale;
             }
         }
     }
@@ -129,7 +125,6 @@ public class PieChart : MonoBehaviour, IPointerMoveHandler, IPointerExitHandler,
     {
         if(hoveredSelectedSliceIndex == SelectedSliceIndex)
         {
-            freeze = false;
             hoveredSelectedSliceIndex = -1;
             SelectedSliceIndex = -1;
             return;
@@ -140,7 +135,6 @@ public class PieChart : MonoBehaviour, IPointerMoveHandler, IPointerExitHandler,
         {
             AnimateTransform(slices[temp], Vector3.one);
         }
-        freeze = true;
     }
     public void AnimateTransform(Transform transform, Vector3 targetScale)
     {
