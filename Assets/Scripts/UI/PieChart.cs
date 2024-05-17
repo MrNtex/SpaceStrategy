@@ -6,6 +6,17 @@ using UnityEngine.UI;
 
 public class PieChart : MonoBehaviour, IPointerMoveHandler, IPointerExitHandler, IPointerClickHandler
 {
+    enum PieChartType
+    {
+        HoverToSelect,
+        ClickToSelect
+    }
+    [SerializeField]
+    private PieChartType pieChartType;
+
+    [SerializeField]
+    private float donutSize = 0;
+
     public int SelectedSliceIndex = -1;
     public int hoveredSelectedSliceIndex = -1;
 
@@ -73,6 +84,15 @@ public class PieChart : MonoBehaviour, IPointerMoveHandler, IPointerExitHandler,
             slices.Add(newSlice.transform);
         }
         angles.Add(rotation);
+
+        if (donutSize > 0)
+        {
+            GameObject hole = Instantiate(slice, background);
+            hole.GetComponent<Image>().color = background.GetComponent<Image>().color;
+            hole.GetComponent<RectTransform>().sizeDelta = new Vector2(background.GetComponent<RectTransform>().sizeDelta.x * donutSize, background.GetComponent<RectTransform>().sizeDelta.y * donutSize);
+            hole.transform.SetAsLastSibling();
+            hole.GetComponent<Image>().fillAmount = 1;
+        }
     }
 
     private float[] FindPercentage(float[] values)
@@ -123,6 +143,7 @@ public class PieChart : MonoBehaviour, IPointerMoveHandler, IPointerExitHandler,
     }
     void IPointerClickHandler.OnPointerClick(PointerEventData eventData)
     {
+        if (pieChartType == PieChartType.HoverToSelect) return;
         if(hoveredSelectedSliceIndex == SelectedSliceIndex)
         {
             hoveredSelectedSliceIndex = -1;

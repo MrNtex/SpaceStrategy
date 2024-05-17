@@ -6,7 +6,7 @@ public class DecisionsJSON : MonoBehaviour
 {
     public static DecisionsJSON Instance { get; private set; }
 
-    public List<int, Decision> decisions;
+    public Dictionary<int, Decision> decisions = new Dictionary<int, Decision>();
 
     private void Awake()
     {
