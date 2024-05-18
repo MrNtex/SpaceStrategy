@@ -8,6 +8,8 @@ public class DecisionsJSON : MonoBehaviour
 
     public Dictionary<int, Decision> decisions = new Dictionary<int, Decision>();
 
+    public Sprite defaultBackground;
+
     private void Awake()
     {
         if (Instance == null)
@@ -63,12 +65,33 @@ public class DecisionsJSON : MonoBehaviour
                     }
                 }
 
-                Decision decision = new Decision(decisionJSON.id, decisionJSON.name, decisionJSON.description, decisionJSON.cost, decisionJSON.prerequisites, effects, countriesLiking);
+                Sprite background = LoadSprite(decisionJSON.background);
+
+                Decision decision = new Decision(decisionJSON.id, decisionJSON.name, decisionJSON.description, decisionJSON.cost, decisionJSON.next, effects, countriesLiking, background);
                 this.decisions.Add(decision.id, decision);
+
+                if(decision.next.Count == 0)
+                {
+                    DecisionsManger.instance.avalibleDecisions.Add(decision);
+                }
             }
             
             
         }
+    }
+    public Sprite LoadSprite(string fileName)
+    {
+        string path = "GFX/Decisions/" + fileName;
+
+        Sprite sprite = Resources.Load<Sprite>(path);
+
+        if (sprite == null)
+        {
+            Debug.LogWarning("Texture not found at path: " + path);
+            return defaultBackground;
+        }
+
+        return sprite;
     }
 }
 [System.Serializable]
@@ -87,10 +110,12 @@ public struct DecisionJSON
 
     public int cost;
 
-    public List<int> prerequisites;
+    public List<int> next;
 
     public List<string> effectsString;
     public List<string> countriesLikingString;
+
+    public string background;
 }
 
 [System.Serializable]
@@ -103,19 +128,21 @@ public struct Decision
 
     public int cost;
 
-    public List<int> prerequisites;
+    public List<int> next;
 
     public Dictionary<string, int> effects; // Tag, Value
     public Dictionary<string, int> coutriesLiking; // Tag, Value
 
-    public Decision(int id, string name, string description, int cost, List<int> prerequisites, Dictionary<string, int> effects, Dictionary<string, int> coutriesLiking)
+    public Sprite background;
+    public Decision(int id, string name, string description, int cost, List<int> next, Dictionary<string, int> effects, Dictionary<string, int> coutriesLiking, Sprite background)
     {
         this.id = id;
         this.name = name;
         this.description = description;
         this.cost = cost;
-        this.prerequisites = prerequisites;
+        this.next = next;
         this.effects = effects;
         this.coutriesLiking = coutriesLiking;
+        this.background = background;
     }
 }

@@ -5,7 +5,7 @@
       "name": "Decision1",
       "description": "Description of Decision1",
       "cost": 100,
-      "prerequisites": [ 2, 3 ],
+      "next": [ 2, 3 ],
       "effectsString": [ "Effect3" ],
       "countriesLikingString": [ "CHI: 20", "USA: 10" ]
     },
@@ -14,7 +14,7 @@
       "name": "Decision2",
       "description": "Description of Decision2",
       "cost": 200,
-      "prerequisites": [ 1 ],
+      "next": [ 1 ],
       "effectsString": [ "Effect3" ],
       "countriesLikingString": [ "CHI: 20", "USA: 10" ]
     }

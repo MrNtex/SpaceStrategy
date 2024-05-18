@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class DateManager : MonoBehaviour
 {
 
-    public DateTime currentDate;
+    public static DateTime currentDate;
     public DateTime startDate = new DateTime(2224, 4, 7);
 
     public static float timeScale = 1;
