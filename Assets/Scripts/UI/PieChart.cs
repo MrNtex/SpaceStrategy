@@ -35,6 +35,9 @@ public class PieChart : MonoBehaviour, IPointerMoveHandler, IPointerExitHandler,
 
     private Dictionary<Transform, Coroutine> activeCoroutines = new Dictionary<Transform, Coroutine>();
 
+    private RectTransform rectTransform;
+    [SerializeField]
+    private Camera UICamera;
     Transform selectedSlice
     {
         get
@@ -63,6 +66,7 @@ public class PieChart : MonoBehaviour, IPointerMoveHandler, IPointerExitHandler,
     Transform _selectedSlice;
     void Start()
     {
+        rectTransform = background.GetComponent<RectTransform>();
         SetValues();
     }
 
@@ -73,6 +77,7 @@ public class PieChart : MonoBehaviour, IPointerMoveHandler, IPointerExitHandler,
 
         for (int i = 0; i < percents.Length; i++)
         {
+            // I save the rotation of each slice to be able to know which slice the pointer is hovering over
             angles.Add(rotation);
 
             GameObject newSlice = Instantiate(slice, background);
@@ -89,7 +94,7 @@ public class PieChart : MonoBehaviour, IPointerMoveHandler, IPointerExitHandler,
         {
             GameObject hole = Instantiate(slice, background);
             hole.GetComponent<Image>().color = background.GetComponent<Image>().color;
-            hole.GetComponent<RectTransform>().sizeDelta = new Vector2(background.GetComponent<RectTransform>().sizeDelta.x * donutSize, background.GetComponent<RectTransform>().sizeDelta.y * donutSize);
+            hole.GetComponent<RectTransform>().sizeDelta = new Vector2(rectTransform.sizeDelta.x * donutSize, rectTransform.sizeDelta.y * donutSize);
             hole.transform.SetAsLastSibling();
             hole.GetComponent<Image>().fillAmount = 1;
         }
@@ -113,8 +118,9 @@ public class PieChart : MonoBehaviour, IPointerMoveHandler, IPointerExitHandler,
 
     void IPointerMoveHandler.OnPointerMove(PointerEventData eventData)
     {
+        // Get the angle of the pointer relative to the center of the pie chart
         Vector2 localPoint;
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(background.GetComponent<RectTransform>(), eventData.position, eventData.pressEventCamera, out localPoint);
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(rectTransform, eventData.position, UICamera, out localPoint); // eventData.pressEventCamera doesn't unless you first click on something
         float angle = Mathf.Atan2(localPoint.y, localPoint.x) * Mathf.Rad2Deg;
 
         angle -= 90;
@@ -122,7 +128,7 @@ public class PieChart : MonoBehaviour, IPointerMoveHandler, IPointerExitHandler,
         //Normalize angle
         angle = 360 - (angle + 360) % 360;
 
-        
+        // Find the slice that the pointer is hovering over
         for (int i = 0; i < angles.Count; i++)
         {
             if (angle < -angles[i])

@@ -16,7 +16,7 @@ public class MenusManager : MonoBehaviour
     {
         get
         {
-            return activeMenu;
+            return _activeMenu;
         }
         set
         {
@@ -39,6 +39,16 @@ public class MenusManager : MonoBehaviour
     }
     public void ChangeMenu(int menuIndex)
     {
+        if(menuIndex >= menus.Length || menuIndex < 0)
+        {
+            Debug.LogError("Menu index out of range");
+            return;
+        }
+
+        if(activeMenu == menus[menuIndex])
+        {
+            return;
+        }
         activeMenu = menus[menuIndex];
 
         if (menuIndex == 0)
@@ -50,6 +60,14 @@ public class MenusManager : MonoBehaviour
         {
             mainCamera.gameObject.SetActive(false);
             UICamera.gameObject.SetActive(true);
+        }
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            ChangeMenu(0);
         }
     }
 }

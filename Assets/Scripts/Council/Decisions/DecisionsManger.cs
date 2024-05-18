@@ -62,6 +62,8 @@ public class DecisionsManger : MonoBehaviour
         }
 
         activeDecision = null;
+
+        SetButtons();
     }
 
     void SetButtons()
@@ -83,6 +85,26 @@ public class DecisionsManger : MonoBehaviour
             {
                 decisionButtonPrefab[i].SetActive(false);
             }
+            return;
         }
+
+        // Select 3 random decisions
+        List<Decision> selectedDecisions = new List<Decision>();
+        while(selectedDecisions.Count < 3)
+        {
+            Decision decision = avalibleDecisions[UnityEngine.Random.Range(0, avalibleDecisions.Count)];
+            if (!selectedDecisions.Contains(decision))
+            {
+                selectedDecisions.Add(decision);
+            }
+        }
+    }
+
+    public void SelectDecision(Decision decision)
+    {
+        avalibleDecisions.Remove(decision);
+
+        activeDecision = decision;
+        startDate = DateManager.currentDate;
     }
 }
