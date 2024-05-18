@@ -2,21 +2,192 @@
   "decisions": [
     {
       "id": 1,
-      "name": "Decision1",
-      "description": "Description of Decision1",
-      "cost": 100,
+      "name": "International Space Cooperation Treaty",
+      "description": "Form a global alliance to tackle the alien threat and expand into the solar system.",
+      "cost": 150,
       "next": [ 2, 3 ],
-      "effectsString": [ "Effect3" ],
-      "countriesLikingString": [ "CHI: 20", "USA: 10" ]
+      "effectsString": [ "research_speed:5", "diplomacy:10" ],
+      "countriesLikingString": [ "USA: 15", "CHI: 10", "EUR: 20", "RUS: 15", "JAP: 10", "ARG: 15" ]
     },
     {
       "id": 2,
-      "name": "Decision2",
-      "description": "Description of Decision2",
+      "name": "Establish Lunar Base",
+      "description": "Set up a base on the Moon to serve as a launch point for further space exploration.",
       "cost": 200,
-      "next": [ 1 ],
-      "effectsString": [ "Effect3" ],
-      "countriesLikingString": [ "CHI: 20", "USA: 10" ]
+      "next": [ 3, 4 ],
+      "effectsString": [ "specialize_moon_force", "military_strength:3" ],
+      "countriesLikingString": [ "USA: 20", "CHI: 20", "EUR: 15", "RUS: 10", "JAP: 20", "ARG: 10" ]
+    },
+    {
+      "id": 3,
+      "name": "United in threat",
+      "description": "Form a global alliance to accelerate research and innovation against the alien threat.",
+      "cost": 200,
+      "next": [ 3, 4 ],
+      "effectsString": [ "research_speed:3" ],
+      "countriesLikingString": [ "USA: 20", "CHI: -10", "EUR: 15", "RUS: -10", "JAP: 40", "ARG: 10" ]
+    },
+    {
+      "id": 4,
+      "name": "Mars Colonization Initiative",
+      "description": "Start the colonization of Mars to secure new resources and living space.",
+      "cost": 300,
+      "next": [ 6, 7 ],
+      "effectsString": [ "population_growth:5", "resource_gathering:10" ],
+      "countriesLikingString": [ "USA: 15", "CHI: 25", "EUR: 10", "RUS: 20", "JAP: 15", "ARG: 10" ]
+    },
+    {
+      "id": 5,
+      "name": "Space Defense Network",
+      "description": "Develop a comprehensive defense system to protect Earth and colonies from alien attacks.",
+      "cost": 250,
+      "next": [ 8, 9 ],
+      "effectsString": [ "military_strength:10", "research_speed:3" ],
+      "countriesLikingString": [ "USA: 20", "CHI: 15", "EUR: 15", "RUS: 10", "JAP: 15", "ARG: 10" ]
+    },
+    {
+      "id": 6,
+      "name": "Asteroid Mining Operations",
+      "description": "Initiate mining operations on asteroids to gather essential resources for space expansion.",
+      "cost": 220,
+      "next": [ 10, 11 ],
+      "effectsString": [ "resource_gathering:10", "economic_growth:5" ],
+      "countriesLikingString": [ "USA: 15", "CHI: 25", "EUR: 10", "RUS: 20", "JAP: 15", "ARG: 20" ]
+    },
+    {
+      "id": 7,
+      "name": "Venus Research Stations",
+      "description": "Set up research stations on Venus to study its atmosphere and potential for colonization.",
+      "cost": 180,
+      "next": [ 12, 13 ],
+      "effectsString": [ "research_speed:10", "diplomacy:5" ],
+      "countriesLikingString": [ "USA: 15", "CHI: 10", "EUR: 20", "RUS: 10", "JAP: 20", "ARG: 10" ]
+    },
+    {
+      "id": 8,
+      "name": "Earth Preservation Program",
+      "description": "Implement measures to maintain Earth's habitability while expanding into space.",
+      "cost": 200,
+      "next": [ 14, 15 ],
+      "effectsString": [ "environmental_protection:10", "diplomacy:5" ],
+      "countriesLikingString": [ "USA: -25", "CHI: -30", "EUR: 55", "RUS: -30", "JAP: 15", "ARG: -10" ]
+    },
+    {
+      "id": 9,
+      "name": "Jovian Moon Colonies",
+      "description": "Begin the colonization of the moons of Jupiter to expand human presence in the solar system.",
+      "cost": 300,
+      "next": [ 16, 17 ],
+      "effectsString": [ "population_growth:5", "resource_gathering:10" ],
+      "countriesLikingString": [ "USA: 15", "CHI: 20", "EUR: 10", "RUS: 25", "JAP: 10", "ARG: 15" ]
+    },
+    {
+      "id": 10,
+      "name": "Solar Power Satellites",
+      "description": "Deploy satellites to collect solar energy and beam it back to Earth.",
+      "cost": 250,
+      "next": [ 18, 19 ],
+      "effectsString": [ "energy_production:10", "economic_growth:5" ],
+      "countriesLikingString": [ "USA: 20", "CHI: 15", "EUR: 20", "RUS: 10", "JAP: 20", "ARG: 15" ]
+    },
+    {
+      "id": 11,
+      "name": "Terraforming Mars",
+      "description": "Invest in long-term terraforming projects to make Mars more habitable.",
+      "cost": 400,
+      "next": [ 20 ],
+      "effectsString": [ "population_growth:10", "research_speed:5" ],
+      "countriesLikingString": [ "USA: 15", "CHI: 25", "EUR: 10", "RUS: 20", "JAP: 15", "ARG: 10" ]
+    },
+    {
+      "id": 12,
+      "name": "Space Tourism Industry",
+      "description": "Develop a thriving space tourism industry to fund further space exploration.",
+      "cost": 180,
+      "next": [ 20 ],
+      "effectsString": [ "economic_growth:10", "diplomacy:5" ],
+      "countriesLikingString": [ "USA: 20", "CHI: 10", "EUR: 15", "RUS: 10", "JAP: 20", "ARG: 20" ]
+    },
+    {
+      "id": 13,
+      "name": "Martian Agriculture",
+      "description": "Develop advanced agricultural techniques to support colonies on Mars.",
+      "cost": 220,
+      "next": [ 20 ],
+      "effectsString": [ "population_growth:5", "resource_gathering:5" ],
+      "countriesLikingString": [ "USA: 15", "CHI: 20", "EUR: 15", "RUS: 15", "JAP: 20", "ARG: 10" ]
+    },
+    {
+      "id": 14,
+      "name": "Neptune's Moon Bases",
+      "description": "Establish bases on Neptune's moons to further human reach in the solar system.",
+      "cost": 350,
+      "next": [ 20 ],
+      "effectsString": [ "military_strength:10", "research_speed:5" ],
+      "countriesLikingString": [ "USA: 15", "CHI: 15", "EUR: 10", "RUS: 25", "JAP: 15", "ARG: 15" ]
+    },
+    {
+      "id": 15,
+      "name": "Global Resource Sharing Agreement",
+      "description": "Create an agreement for sharing resources gathered from space among all nations.",
+      "cost": 150,
+      "next": [ 20 ],
+      "effectsString": [ "diplomacy:10", "economic_growth:5" ],
+      "countriesLikingString": [ "USA: 20", "CHI: 10", "EUR: 20", "RUS: 10", "JAP: 20", "ARG: 15" ]
+    },
+    {
+      "id": 16,
+      "name": "Space Mining Regulations",
+      "description": "Implement regulations to ensure ethical and sustainable mining practices in space.",
+      "cost": 200,
+      "next": [ 20 ],
+      "effectsString": [ "environmental_protection:10", "diplomacy:5" ],
+      "countriesLikingString": [ "USA: 15", "CHI: 10", "EUR: 25", "RUS: 10", "JAP: 15", "ARG: 10" ]
+    },
+    {
+      "id": 17,
+      "name": "Fusion Energy Research",
+      "description": "Invest in research to harness fusion energy for sustainable power.",
+      "cost": 250,
+      "next": [ 20 ],
+      "effectsString": [ "energy_production:10", "research_speed:10" ],
+      "countriesLikingString": [ "USA: 20", "CHI: 15", "EUR: 20", "RUS: 15", "JAP: 20", "ARG: 15" ]
+    },
+    {
+      "id": 18,
+      "name": "Martian Military Outpost",
+      "description": "Establish a military outpost on Mars to protect colonies and resources.",
+      "cost": 300,
+      "next": [ 20 ],
+      "effectsString": [ "military_strength:15", "population_growth:5" ],
+      "countriesLikingString": [ "USA: 20", "CHI: 20", "EUR: 10", "RUS: 20", "JAP: 15", "ARG: 10" ]
+    },
+    {
+      "id": 19,
+      "name": "Artificial Intelligence Development",
+      "description": "Develop AI technologies to enhance space operations and research.",
+      "cost": 280,
+      "next": [ 20 ],
+      "effectsString": [ "research_speed:15", "economic_growth:10" ],
+      "countriesLikingString": [ "USA: 25", "CHI: 20", "EUR: 15", "RUS: 10", "JAP: 20", "ARG: 15" ]
+    },
+    {
+      "id": 20,
+      "name": "Space Habitat Construction",
+      "description": "Build space habitats to support long-term human presence in space.",
+      "cost": 300,
+      "next": [ 20 ],
+      "effectsString": [ "population_growth:10", "diplomacy:5" ],
+      "countriesLikingString": [ "USA: 15", "CHI: 15", "EUR: 20", "RUS: 15", "JAP: 20", "ARG: 10" ]
+    },
+    {
+      "id": 21,
+      "name": "Galactic Trade Network",
+      "description": "Establish a trade network connecting Earth and its colonies for resource exchange.",
+      "cost": 350,
+      "next": [],
+      "effectsString": [ "economic_growth:15", "diplomacy:10" ],
+      "countriesLikingString": [ "USA: 20", "CHI: 20", "EUR: 20", "RUS: 15", "JAP: 20", "ARG: 20" ]
     }
   ]
 }

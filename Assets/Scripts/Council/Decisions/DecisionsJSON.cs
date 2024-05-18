@@ -69,14 +69,15 @@ public class DecisionsJSON : MonoBehaviour
 
                 Decision decision = new Decision(decisionJSON.id, decisionJSON.name, decisionJSON.description, decisionJSON.cost, decisionJSON.next, effects, countriesLiking, background);
                 this.decisions.Add(decision.id, decision);
-
-                if(decision.next.Count == 0)
-                {
-                    DecisionsManger.instance.avalibleDecisions.Add(decision);
-                }
             }
             
             
+        }
+        for(int i = 1; i < 4; i++)
+        {
+            // First 3 decisions are always available
+            DecisionsManger.instance.avalibleDecisions.Add(decisions[i]);
+            DecisionsManger.instance.SetButtons();
         }
     }
     public Sprite LoadSprite(string fileName)

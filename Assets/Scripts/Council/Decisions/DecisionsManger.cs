@@ -66,7 +66,7 @@ public class DecisionsManger : MonoBehaviour
         SetButtons();
     }
 
-    void SetButtons()
+    public void SetButtons()
     {
         if(avalibleDecisions.Count == 0)
         {
@@ -80,6 +80,7 @@ public class DecisionsManger : MonoBehaviour
             for (; i < avalibleDecisions.Count; i++)
             {
                 decisionButtonPrefab[i].SetActive(true);
+                decisionButtonPrefab[i].GetComponent<DecisionButton>().SetDecision(avalibleDecisions[i]);
             }
             for (; i < decisionButtonPrefab.Length; i++)
             {

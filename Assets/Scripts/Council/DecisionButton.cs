@@ -12,7 +12,7 @@ public class DecisionButton : MonoBehaviour
     private Image background;
 
     public Decision decision;
-    void SetDecision(Decision decision)
+    public void SetDecision(Decision decision)
     {
         this.decision = decision;
         // Set the decision text
