@@ -7,7 +7,8 @@
       "cost": 150,
       "next": [ 2, 3 ],
       "effectsString": [ "research_speed:5", "diplomacy:10" ],
-      "countriesLikingString": [ "USA: 15", "CHI: 10", "EUR: 20", "RUS: 15", "JAP: 10", "ARG: 15" ]
+      "countriesLikingString": [ "USA: 15", "CHI: 10", "EUR: 20", "RUS: 15", "JAP: 10", "ARG: 15" ],
+      "background": "space_cooperation_treaty"
     },
     {
       "id": 2,
@@ -16,7 +17,8 @@
       "cost": 200,
       "next": [ 3, 4 ],
       "effectsString": [ "specialize_moon_force", "military_strength:3" ],
-      "countriesLikingString": [ "USA: 20", "CHI: 20", "EUR: 15", "RUS: 10", "JAP: 20", "ARG: 10" ]
+      "countriesLikingString": [ "USA: 20", "CHI: 20", "EUR: 15", "RUS: 10", "JAP: 20", "ARG: 10" ],
+      "background": "establish_lunar_base"
     },
     {
       "id": 3,
