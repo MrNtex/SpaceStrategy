@@ -75,6 +75,9 @@ public class PieChart : MonoBehaviour, IPointerMoveHandler, IPointerExitHandler,
         float[] percents = FindPercentage(values.ToArray());
         float rotation = 0;
 
+        StopAllCoroutines();
+        activeCoroutines.Clear();
+
         foreach (Transform slice in slices)
         {
             Destroy(slice.gameObject);
@@ -193,8 +196,7 @@ public class PieChart : MonoBehaviour, IPointerMoveHandler, IPointerExitHandler,
 
     IEnumerator AnimateSlice(Transform transform, Vector3 targetScale, float speed)
     {
-        
-        while (transform != null && Vector3.Distance(transform.localScale, targetScale) > 0.01f)
+        while (Vector3.Distance(transform.localScale, targetScale) > 0.01f)
         {
             transform.localScale = Vector3.Lerp(transform.localScale, targetScale, Time.deltaTime * speed);
             yield return null;
