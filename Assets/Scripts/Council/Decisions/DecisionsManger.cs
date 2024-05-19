@@ -129,5 +129,7 @@ public class DecisionsManger : MonoBehaviour
         endDate = startDate.AddDays(duration);
 
         activeDecisionButton.SetUp(decision);
+
+        NationalUnity.instance.GenerateSupportForADecision(decision);
     }
 }

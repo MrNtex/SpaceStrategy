@@ -75,6 +75,14 @@ public class PieChart : MonoBehaviour, IPointerMoveHandler, IPointerExitHandler,
         float[] percents = FindPercentage(values.ToArray());
         float rotation = 0;
 
+        foreach (Transform slice in slices)
+        {
+            Destroy(slice.gameObject);
+        }
+        slices.Clear();
+        angles.Clear();
+
+
         for (int i = 0; i < percents.Length; i++)
         {
             // I save the rotation of each slice to be able to know which slice the pointer is hovering over

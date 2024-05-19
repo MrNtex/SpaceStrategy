@@ -35,4 +35,6 @@ public struct Country
     public Sprite icon;
 
     public int diplomaticWeight;
+
+    public float support;
 }

@@ -17,7 +17,7 @@
       "cost": 200,
       "next": [ 3, 4 ],
       "effectsString": [ "specialize_moon_force", "military_strength:3" ],
-      "countriesLikingString": [ "USA: 20", "CHI: 20", "EUR: 15", "RUS: 10", "JAP: 20", "ARG: 10" ],
+      "countriesLikingString": [ "USA: 30", "CHI: 30", "EUR: -15", "RUS: -10", "JAP: 20", "ARG: 10" ],
       "background": "establish_lunar_base"
     },
     {
