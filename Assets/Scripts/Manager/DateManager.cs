@@ -26,7 +26,7 @@ public class DateManager : MonoBehaviour
     private Color active, inactive, maxActive;
 
 
-    private readonly float[] timeScales = { 1, 5, 10, 20, 100};
+    private readonly float[] timeScales = { 1, 5, 10, 15, 50};
     int lastScale = 1;
 
     public static GameObject DateObject;

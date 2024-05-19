@@ -18,6 +18,9 @@ public class DecisionsManger : MonoBehaviour
     [SerializeField]
     private GameObject[] decisionButtonPrefab;
 
+    [SerializeField]
+    private ActiveDecisionButton activeDecisionButton;
+
     private void Awake()
     {
         if (instance == null)
@@ -57,14 +60,28 @@ public class DecisionsManger : MonoBehaviour
             Effects.instance.ApplyEffect(effect.Key, effect.Value);
         }
 
-        foreach(int next in activeDecision.Value.next)
+        foreach (int next in activeDecision.Value.next)
         {
-            avalibleDecisions.Add(DecisionsJSON.Instance.decisions[next]);
+            if (DecisionsJSON.Instance.decisions.ContainsKey(next))
+            {
+                Decision decision = DecisionsJSON.Instance.decisions[next];
+                if(avalibleDecisions.Contains(decision))
+                {
+                    continue;
+                }
+                avalibleDecisions.Add(DecisionsJSON.Instance.decisions[next]);
+            }
+            else
+            {
+                Debug.LogWarning($"Decision {next} not found");
+            }
+            
         }
 
         activeDecision = null;
 
         SetButtons();
+        activeDecisionButton.SetUp();
     }
 
     public void SetButtons()
@@ -110,5 +127,7 @@ public class DecisionsManger : MonoBehaviour
         startDate = DateManager.currentDate;
         duration = decision.cost;
         endDate = startDate.AddDays(duration);
+
+        activeDecisionButton.SetUp(decision);
     }
 }

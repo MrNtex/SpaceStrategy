@@ -1,15 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class ActiveDecisionButton : MonoBehaviour
 {
     [SerializeField]
-    private Image progressBar;
+    private Image progressBar, background;
+
+    [SerializeField]
+    private TMP_Text decisionName;
 
     [SerializeField]
     private GameObject decisionModal;
+
+    private void Start()
+    {
+        SetUp();
+    }
     void Update()
     {
         if (DecisionsManger.instance.activeDecision == null)
@@ -27,5 +36,19 @@ public class ActiveDecisionButton : MonoBehaviour
             return;
         }
         decisionModal.SetActive(true);
+    }
+
+    public void SetUp(Decision decision)
+    {
+        progressBar.fillAmount = 0;
+        decisionName.text = decision.name;
+        background.sprite = decision.background;
+    }
+
+    public void SetUp()
+    {
+        progressBar.fillAmount = 0;
+        decisionName.text = "No active decision";
+        background.sprite = null;
     }
 }
