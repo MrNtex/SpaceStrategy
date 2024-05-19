@@ -7,7 +7,10 @@ using UnityEngine.UI;
 
 public class DateManager : MonoBehaviour
 {
-
+    /// <summary>
+    /// Date updates are handled by the object with orbiting script connected to the date manager
+    /// The object is saved as the DateObject
+    /// </summary>
     public static DateTime currentDate;
     public DateTime startDate = new DateTime(2224, 4, 7);
 
@@ -25,6 +28,8 @@ public class DateManager : MonoBehaviour
 
     private readonly float[] timeScales = { 1, 5, 10, 20, 100};
     int lastScale = 1;
+
+    public static GameObject DateObject;
     private void Start()
     {
         currentDate = startDate;

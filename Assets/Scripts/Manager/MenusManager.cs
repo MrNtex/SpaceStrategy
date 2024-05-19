@@ -37,6 +37,10 @@ public class MenusManager : MonoBehaviour
     {
         Instance = this;
     }
+    void Start()
+    {
+        ChangeMenu(0);
+    }
     public void ChangeMenu(int menuIndex)
     {
         if(menuIndex >= menus.Length || menuIndex < 0)

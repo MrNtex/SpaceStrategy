@@ -19,6 +19,7 @@ public class Orbiting : MonoBehaviour
 
     [SerializeField]
     private DateManager dateManager;
+    private const float dateUpdateThreshold = 0.1f;
 
     private Vector3 lastPosition;
 
@@ -45,6 +46,15 @@ public class Orbiting : MonoBehaviour
             }
         }
         
+        if(dateManager != null)
+        {
+            if(DateManager.DateObject != null)
+            {
+                Debug.LogWarning($"Multiple objects with orbiting script connected to the date manager ({DateManager.DateObject}, trying to add {gameObject})");
+            }
+            DateManager.DateObject = gameObject;
+        }
+            
     }
 
     // Update is called once per frame
@@ -60,7 +70,7 @@ public class Orbiting : MonoBehaviour
         {
             float elapsedDays = Vector3.Angle(target.position - transform.localPosition, lastPosition) * 1.0145f;
 
-            if (elapsedDays >= 1)
+            if (elapsedDays >= dateUpdateThreshold)
             {
                 dateManager.UpdateDate(elapsedDays);
                 lastPosition = target.position - transform.localPosition;

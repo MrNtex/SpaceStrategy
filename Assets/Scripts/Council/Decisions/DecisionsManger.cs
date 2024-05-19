@@ -13,6 +13,7 @@ public class DecisionsManger : MonoBehaviour
     public double progress = 0;
     public DateTime startDate;
     public DateTime endDate = new DateTime(2224, 6, 7);
+    public float duration = 0;
 
     [SerializeField]
     private GameObject[] decisionButtonPrefab;
@@ -35,9 +36,9 @@ public class DecisionsManger : MonoBehaviour
         {
             return;
         }
-        progress = endDate.Subtract(DateManager.currentDate).TotalDays;
-        Debug.Log(progress);
-        if(progress <= 0)
+        progress = DateManager.currentDate.Subtract(startDate).TotalDays;
+        
+        if(progress >= duration)
         {
             FinishedDecision();
         }
@@ -107,5 +108,7 @@ public class DecisionsManger : MonoBehaviour
 
         activeDecision = decision;
         startDate = DateManager.currentDate;
+        duration = decision.cost;
+        endDate = startDate.AddDays(duration);
     }
 }
