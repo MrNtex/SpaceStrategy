@@ -6,7 +6,7 @@ public class DecisionsJSON : MonoBehaviour
 {
     public static DecisionsJSON Instance { get; private set; }
 
-    public Dictionary<int, Decision> decisions = new Dictionary<int, Decision>();
+
 
     public Sprite defaultBackground;
 
@@ -68,17 +68,12 @@ public class DecisionsJSON : MonoBehaviour
                 Sprite background = LoadSprite(decisionJSON.background);
 
                 Decision decision = new Decision(decisionJSON.id, decisionJSON.name, decisionJSON.description, decisionJSON.cost, decisionJSON.next, effects, countriesLiking, background);
-                this.decisions.Add(decision.id, decision);
+                DecisionsManger.instance.decisions.Add(decision.id, decision);
             }
             
-            
+            DecisionsManger.instance.SelectStarting();
         }
-        for(int i = 1; i < 4; i++)
-        {
-            // First 3 decisions are always available
-            DecisionsManger.instance.avalibleDecisions.Add(decisions[i]);
-            DecisionsManger.instance.SetButtons();
-        }
+        
     }
     public Sprite LoadSprite(string fileName)
     {

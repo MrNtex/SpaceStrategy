@@ -11,19 +11,19 @@ public class DecisionButton : MonoBehaviour
     [SerializeField]
     private Image background;
 
-    public Decision decision;
-    public void SetDecision(Decision decision)
+    public int decisionIdx;
+    public void SetDecision(int decisionIdx)
     {
-        this.decision = decision;
+        this.decisionIdx = decisionIdx;
         // Set the decision text
-        decisionText.text = decision.name;
-        descriptionText.text = decision.description;
+        decisionText.text = DecisionsManger.instance.decisions[decisionIdx].name;
+        descriptionText.text = DecisionsManger.instance.decisions[decisionIdx].description;
 
         // Set the decision color
-        background.sprite = decision.background;
+        background.sprite = DecisionsManger.instance.decisions[decisionIdx].background;
     }
     public void OnClick()
     {
-        DecisionsManger.instance.SelectDecision(decision);
+        DecisionsManger.instance.SelectDecision(decisionIdx);
     }
 }

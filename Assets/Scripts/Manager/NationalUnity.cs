@@ -12,6 +12,9 @@ public class NationalUnity : MonoBehaviour
 
     public static NationalUnity instance;
 
+    [SerializeField]
+    private float defaultNationalUnity = 84;
+
     public float nationalUnity {
         get
         {
@@ -29,7 +32,10 @@ public class NationalUnity : MonoBehaviour
     {
         instance = this;
     }
-
+    void Start()
+    {
+        nationalUnity = defaultNationalUnity;
+    }
     public void GenerateSupportForADecision(Decision decision)
     {
         Dictionary<Country, float> countriesLikingDecision = new Dictionary<Country, float>();

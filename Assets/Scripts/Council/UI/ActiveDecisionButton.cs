@@ -21,7 +21,7 @@ public class ActiveDecisionButton : MonoBehaviour
     }
     void Update()
     {
-        if (DecisionsManger.instance.activeDecision == null)
+        if (DecisionsManger.instance.activeDecision == -1)
         {
             return;
         }
@@ -31,7 +31,7 @@ public class ActiveDecisionButton : MonoBehaviour
 
     public void OnClick()
     {
-        if(DecisionsManger.instance.activeDecision != null)
+        if(DecisionsManger.instance.activeDecision != -1)
         {
             return;
         }
