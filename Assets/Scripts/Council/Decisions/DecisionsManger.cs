@@ -153,6 +153,11 @@ public class DecisionsManger : MonoBehaviour
                 selectedDecisions.Add(decisionIdx);
             }
         }
+        for (int i = 0; i < 3; i++)
+        {
+            decisionButtonPrefab[i].SetActive(true);
+            decisionButtonPrefab[i].GetComponent<DecisionButton>().SetDecision(selectedDecisions[i]);
+        }
     }
 
     public void SelectDecision(int decisionIdx)

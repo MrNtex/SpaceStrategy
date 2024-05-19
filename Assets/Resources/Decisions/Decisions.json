@@ -5,13 +5,34 @@
       "name": "International Space Cooperation Treaty",
       "description": "Form a global alliance to tackle the alien threat and expand into the solar system.",
       "cost": 150,
-      "next": [ 2, 3 ],
+      "next": [ 8, 4, 5 ],
       "effectsString": [ "research_speed:5", "diplomacy:10" ],
       "countriesLikingString": [ "USA: 15", "CHI: 10", "EUR: 20", "RUS: 15", "JAP: 10", "ARG: 15" ],
       "background": "space_cooperation_treaty"
     },
     {
       "id": 2,
+      "name": "Invest in heavy industry",
+      "description": "Allocate resources to develop and expand heavy industry on earth to support large-scale space infrastructure and manufacturing projects.",
+      "cost": 300,
+      "next": [ 4, 6 ],
+      "effectsString": [ "population_growth:5", "resource_gathering:10" ],
+      "countriesLikingString": [ "USA: 15", "CHI: 55", "EUR: -40", "RUS: 20", "JAP: 15", "ARG: 10" ],
+      "background": "steel_works"
+    },
+
+    {
+      "id": 3,
+      "name": "United in threat",
+      "description": "Form a global alliance to accelerate research and innovation against the alien threat.",
+      "cost": 200,
+      "next": [ 7 ],
+      "effectsString": [ "research_speed:3" ],
+      "countriesLikingString": [ "USA: 20", "CHI: -10", "EUR: 15", "RUS: -10", "JAP: 40", "ARG: 10" ],
+      "background": "boost_reasearch"
+    },
+    {
+      "id": 4,
       "name": "Establish Lunar Base",
       "description": "Set up a base on the Moon to serve as a launch point for further space exploration.",
       "cost": 200,
@@ -21,31 +42,14 @@
       "background": "establish_lunar_base"
     },
     {
-      "id": 3,
-      "name": "United in threat",
-      "description": "Form a global alliance to accelerate research and innovation against the alien threat.",
-      "cost": 200,
-      "next": [ 3, 4 ],
-      "effectsString": [ "research_speed:3" ],
-      "countriesLikingString": [ "USA: 20", "CHI: -10", "EUR: 15", "RUS: -10", "JAP: 40", "ARG: 10" ]
-    },
-    {
-      "id": 4,
-      "name": "Mars Colonization Initiative",
-      "description": "Start the colonization of Mars to secure new resources and living space.",
-      "cost": 300,
-      "next": [ 6, 7 ],
-      "effectsString": [ "population_growth:5", "resource_gathering:10" ],
-      "countriesLikingString": [ "USA: 15", "CHI: 25", "EUR: 10", "RUS: 20", "JAP: 15", "ARG: 10" ]
-    },
-    {
       "id": 5,
       "name": "Space Defense Network",
       "description": "Develop a comprehensive defense system to protect Earth and colonies from alien attacks.",
       "cost": 250,
       "next": [ 8, 9 ],
       "effectsString": [ "military_strength:10", "research_speed:3" ],
-      "countriesLikingString": [ "USA: 20", "CHI: 15", "EUR: 15", "RUS: 10", "JAP: 15", "ARG: 10" ]
+      "countriesLikingString": [ "USA: 20", "CHI: 15", "EUR: 15", "RUS: 10", "JAP: 15", "ARG: 10" ],
+      "background": "space_defence_network"
     },
     {
       "id": 6,
@@ -54,16 +58,18 @@
       "cost": 220,
       "next": [ 10, 11 ],
       "effectsString": [ "resource_gathering:10", "economic_growth:5" ],
-      "countriesLikingString": [ "USA: 15", "CHI: 25", "EUR: 10", "RUS: 20", "JAP: 15", "ARG: 20" ]
+      "countriesLikingString": [ "USA: 15", "CHI: 25", "EUR: 10", "RUS: 20", "JAP: 15", "ARG: 20" ],
+      "background": "asteroid_mining"
     },
     {
       "id": 7,
-      "name": "Venus Research Stations",
-      "description": "Set up research stations on Venus to study its atmosphere and potential for colonization.",
+      "name": "Split the atom",
+      "description": "Invest in the advancement of nuclear physics to unlock the potential of atomic energy and revolutionize technology.",
       "cost": 180,
       "next": [ 12, 13 ],
       "effectsString": [ "research_speed:10", "diplomacy:5" ],
-      "countriesLikingString": [ "USA: 15", "CHI: 10", "EUR: 20", "RUS: 10", "JAP: 20", "ARG: 10" ]
+      "countriesLikingString": [ "USA: 15", "CHI: 10", "EUR: 20", "RUS: 10", "JAP: 20", "ARG: 10" ],
+      "background": "split_the_atom"
     },
     {
       "id": 8,
@@ -72,7 +78,8 @@
       "cost": 200,
       "next": [ 14, 15 ],
       "effectsString": [ "environmental_protection:10", "diplomacy:5" ],
-      "countriesLikingString": [ "USA: -25", "CHI: -30", "EUR: 55", "RUS: -30", "JAP: 15", "ARG: -10" ]
+      "countriesLikingString": [ "USA: -25", "CHI: -30", "EUR: 100", "RUS: -30", "JAP: 15", "ARG: -10" ],
+      "background": "earth_green"
     },
     {
       "id": 9,
