@@ -12,6 +12,7 @@ public class TopBar : MonoBehaviour
 
     public GameObject arrow;
     public GameObject topBar;
+    public Animator topBarAnimator;
 
     [SerializeField]
     private Image arrowImage, lockImage;
@@ -21,6 +22,9 @@ public class TopBar : MonoBehaviour
 
     private const float arrowY = 75;
     private const float topBarY = 65;
+
+    [SerializeField]
+    private GameObject alerts;
     void Start()
     {
         
@@ -49,7 +53,7 @@ public class TopBar : MonoBehaviour
             float diff = screenPercent - topBarY;
             if(diff < 0)
             {
-                topBar.SetActive(false);
+                topBarAnimator.SetTrigger("Hide");
                 arrow.SetActive(true);
             }
         }
@@ -59,7 +63,7 @@ public class TopBar : MonoBehaviour
     {
         arrowImage.color = new Color(1, 1, 1, 0);
         arrow.SetActive(false);
-        topBar.SetActive(true);
+        topBarAnimator.SetTrigger("Show");
     }
 
     public void Lock()

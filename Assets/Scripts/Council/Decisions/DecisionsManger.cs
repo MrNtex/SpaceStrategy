@@ -76,11 +76,16 @@ public class DecisionsManger : MonoBehaviour
 
         ChangeRelations();
 
+        PopupsManager.Instance.CreatePopup(decisions[activeDecision]);
+
         activeDecision = -1;
 
 
         SetButtons();
         activeDecisionButton.SetUp();
+
+        AlertsManager.Instance.ShowAlert(AlertType.Decision);
+        
     }
     private void ChangeRelations()
     {
@@ -175,5 +180,7 @@ public class DecisionsManger : MonoBehaviour
         NationalUnity.instance.GenerateSupportForADecision(decision);
 
         avalibleDecisions.Remove(decisionIdx);
+
+        AlertsManager.Instance.HideAlert(AlertType.Decision);
     }
 }
