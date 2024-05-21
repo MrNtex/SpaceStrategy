@@ -28,12 +28,14 @@ public class Popup : MonoBehaviour
     public void Close()
     {
         Destroy(gameObject);
+        DateManager.instance.Resume();
     }
 
     public void OpenPanel()
     {
         // Open panel with ID
         MenusManager.Instance.ChangeMenu(openPanelID);
-        Close();
+        Destroy(gameObject);
+        //Close();
     }
 }

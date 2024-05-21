@@ -12,8 +12,9 @@ public class PopupsManager : MonoBehaviour
         Instance = this;
     }
 
-    public void CreatePopup<T>(T arg) {
+    public void CreatePopup<T>(T arg, bool pause = false) {
         
+        DateManager.instance.Pause(true);
         if (arg is Decision decision)
         {
             Popup decisionPopup = Instantiate(popupDefault, transform).GetComponent<Popup>();

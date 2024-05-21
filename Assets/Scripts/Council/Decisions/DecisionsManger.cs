@@ -76,7 +76,7 @@ public class DecisionsManger : MonoBehaviour
 
         ChangeRelations();
 
-        PopupsManager.Instance.CreatePopup(decisions[activeDecision]);
+        PopupsManager.Instance.CreatePopup(decisions[activeDecision], true);
 
         activeDecision = -1;
 

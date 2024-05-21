@@ -11,6 +11,9 @@ public class DateManager : MonoBehaviour
     /// Date updates are handled by the object with orbiting script connected to the date manager
     /// The object is saved as the DateObject
     /// </summary>
+    /// 
+    public static DateManager instance;
+
     public static DateTime currentDate;
     public DateTime startDate = new DateTime(2224, 4, 7);
 
@@ -30,6 +33,19 @@ public class DateManager : MonoBehaviour
     int lastScale = 1;
 
     public static GameObject DateObject;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Debug.LogError("Multiple DateManagers in scene");
+            Destroy(gameObject);
+        }
+    }
     private void Start()
     {
         currentDate = startDate;
@@ -63,14 +79,18 @@ public class DateManager : MonoBehaviour
 
         lastScale = idx;
     }
-    public void Pause()
+    public void Pause(bool force = false)
     {
-        if (timeScale == 0)
+        if (!force && timeScale == 0)
         {
-            UpdateTimeScale(lastScale);
+            Resume();
             return;
         }
         timeScale = 0;
+    }
+    public void Resume()
+    {
+        UpdateTimeScale(lastScale);
     }
     void Update()
     {
