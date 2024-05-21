@@ -38,6 +38,9 @@ public class PieChart : MonoBehaviour, IPointerMoveHandler, IPointerExitHandler,
     private RectTransform rectTransform;
     [SerializeField]
     private Camera UICamera;
+
+    [SerializeField]
+    private SupportTooltip supportTooltip;
     Transform selectedSlice
     {
         get
@@ -59,6 +62,8 @@ public class PieChart : MonoBehaviour, IPointerMoveHandler, IPointerExitHandler,
                 
                 _selectedSlice = value;
                 AnimateTransform(_selectedSlice, new Vector3(1.3f, 1.3f));
+
+                supportTooltip.ShowTooltip(hoveredSelectedSliceIndex, false);
             }
         }
     }
@@ -126,12 +131,14 @@ public class PieChart : MonoBehaviour, IPointerMoveHandler, IPointerExitHandler,
         }
         return percentages;
     }
-
     void IPointerMoveHandler.OnPointerMove(PointerEventData eventData)
     {
         // Get the angle of the pointer relative to the center of the pie chart
         Vector2 localPoint;
         RectTransformUtility.ScreenPointToLocalPointInRectangle(rectTransform, eventData.position, UICamera, out localPoint); // eventData.pressEventCamera doesn't unless you first click on something
+        
+        supportTooltip.MoveTooltip(eventData.position);
+
         float angle = Mathf.Atan2(localPoint.y, localPoint.x) * Mathf.Rad2Deg;
 
         angle -= 90;
@@ -144,9 +151,9 @@ public class PieChart : MonoBehaviour, IPointerMoveHandler, IPointerExitHandler,
         {
             if (angle < -angles[i])
             {
-                selectedSlice = slices[i - 1];
-                hoveredSelectedSliceIndex = i - 1;
                 
+                hoveredSelectedSliceIndex = i - 1;
+                selectedSlice = slices[i - 1];
                 break;
             }
         }
@@ -156,7 +163,7 @@ public class PieChart : MonoBehaviour, IPointerMoveHandler, IPointerExitHandler,
         selectedSlice = null;
         hoveredSelectedSliceIndex = -1;
 
-        Debug.Log(SelectedSliceIndex);
+        supportTooltip.HideTooltip();
     }
     void IPointerClickHandler.OnPointerClick(PointerEventData eventData)
     {
