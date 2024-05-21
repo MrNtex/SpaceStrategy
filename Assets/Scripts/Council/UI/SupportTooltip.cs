@@ -25,6 +25,12 @@ public class SupportTooltip : MonoBehaviour
     {
         currentSlice = slice;
         Clear();
+
+        if(NationalUnity.instance.countryOpinions.Count <= slice)
+        {
+            // This happens when the tooltip is called before the country opinions are set, or when piechar is empty
+            return;
+        }
         List<CountryOpinion> countryOpinions = NationalUnity.instance.countryOpinions[slice];
         tooltip.SetActive(true);
 
@@ -42,17 +48,17 @@ public class SupportTooltip : MonoBehaviour
         switch (slice)
         {
             case 0:
-                header.text = "Support for the decision";
+                header.text = "Support";
                 if(advanced)
                 {
                     sub.text = $"The value is being multiplied by {Mathf.Clamp(Mathf.Log(NationalUnity.instance.nationalUnity, 50), 0.3f, 2)} due to national unity.";
                 }
                 break;
             case 1:
-                header.text = "Neutral";
+                header.text = "Abstained";
                 break;
             case 2:
-                header.text = "Opposition to the decision";
+                header.text = "Opposition";
                 break;
         }
         foreach(CountryOpinion opinion in countryOpinions)
@@ -104,9 +110,17 @@ public class SupportTooltip : MonoBehaviour
     private void Update()
     {
         shiftPressed = Input.GetKey(KeyCode.LeftShift);
-        if(Input.GetKeyDown(KeyCode.LeftShift))
+        if(tooltip.activeSelf)
         {
-            ShowTooltip(currentSlice, true);
+            if (Input.GetKeyDown(KeyCode.LeftShift))
+            {
+                ShowTooltip(currentSlice, true);
+            }
+            if (Input.GetKeyUp(KeyCode.LeftShift))
+            {
+                ShowTooltip(currentSlice, false);
+            }
         }
+        
     }
 }
