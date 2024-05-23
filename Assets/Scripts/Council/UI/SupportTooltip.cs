@@ -3,21 +3,18 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class SupportTooltip : MonoBehaviour
+public class SupportTooltip : Tooltip
 {
-    [SerializeField]
-    private TMP_Text header, sub;
-    public GameObject tooltip;
+    
 
     [SerializeField]
     private GameObject countryPanel;
 
     List<GameObject> countries = new List<GameObject>();
     [SerializeField]
-    private RectTransform dragger;
+    
 
-    [SerializeField]
-    private Vector2 offset = new Vector2(-5, -5);
+    
 
     private bool shiftPressed = false;
     private int currentSlice = 0;
@@ -72,16 +69,11 @@ public class SupportTooltip : MonoBehaviour
             countries.Add(cp);
         }
     }
-    public void MoveTooltip(Vector2 pos)
-    {
-        dragger.anchoredPosition = pos + offset;
-    }
-    public void HideTooltip()
+    public override void HideTooltip()
     {
         Clear();
-        tooltip.SetActive(false);
+        base.HideTooltip();
     }
-
     private void Clear()
     {
         foreach (GameObject country in countries)
