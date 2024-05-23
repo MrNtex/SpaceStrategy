@@ -19,6 +19,10 @@ public class ActiveDecisionButton : MonoBehaviour, IPointerMoveHandler, IPointer
     [SerializeField]
     private Tooltip tooltip;
 
+    private const string sub = "SHIFT for more info";
+
+    private string advancedContent;
+
     private void Start()
     {
         SetUp();
@@ -47,6 +51,17 @@ public class ActiveDecisionButton : MonoBehaviour, IPointerMoveHandler, IPointer
         progressBar.fillAmount = 0;
         decisionName.text = decision.name;
         background.sprite = decision.background;
+
+        advancedContent = "Effects:\n";
+        foreach (var effect in decision.effects)
+        {
+            advancedContent += $"{effect.Key}: {effect.Value}\n";
+        }
+        advancedContent += "\n";
+        foreach (var liking in decision.coutriesLiking)
+        {
+            advancedContent += $"{liking.Key}: {liking.Value}\n";
+        }
     }
 
     public void SetUp()
@@ -71,7 +86,11 @@ public class ActiveDecisionButton : MonoBehaviour, IPointerMoveHandler, IPointer
         if (DecisionsManger.instance.activeDecision != -1)
         {
             Decision decision = DecisionsManger.instance.decisions[DecisionsManger.instance.activeDecision];
-            tooltip.ShowTooltip(decision.name, "SHIFT for more info" , $"Days remaining: {(int)(DecisionsManger.instance.duration - DecisionsManger.instance.progress)}", false);
+
+            int daysRemaining = (int)(DecisionsManger.instance.duration - DecisionsManger.instance.progress); 
+            
+            TooltipData tooltipData = new TooltipData(decision.name, sub, $"Days remaining: {daysRemaining}", decision.name, "", $"Progress: {DecisionsManger.instance.progress}/{DecisionsManger.instance.duration} \n{advancedContent}");
+            tooltip.ShowTooltip(tooltipData);
         }
     }
 }
