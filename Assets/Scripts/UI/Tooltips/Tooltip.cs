@@ -6,7 +6,7 @@ using UnityEngine;
 public class Tooltip : MonoBehaviour
 {
     [SerializeField]
-    protected TMP_Text header, sub;
+    protected TMP_Text header, sub, content;
 
     public GameObject tooltip;
     [SerializeField]
@@ -15,10 +15,13 @@ public class Tooltip : MonoBehaviour
     [SerializeField]
     protected Vector2 offset = new Vector2(-5, -5);
 
-    public void ShowTooltip(string header, string sub, bool advanced)
+    public void ShowTooltip(string header, string sub, string content, bool advanced)
     {
+        tooltip.SetActive(true);
+
         this.header.text = header;
         this.sub.text = sub;
+        this.content.text = content;
     }
     public void MoveTooltip(Vector2 pos)
     {
