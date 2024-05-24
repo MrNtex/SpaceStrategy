@@ -27,7 +27,15 @@ public class ActiveDecisionButton : MonoBehaviour, IPointerMoveHandler, IPointer
     {
         SetUp();
     }
-    void Update()
+    private void OnEnable()
+    {
+        DateManager.instance.OnDateUpdate += HandleDateChange;
+    }
+    private void OnDisable()
+    {
+        DateManager.instance.OnDateUpdate -= HandleDateChange;
+    }
+    void HandleDateChange()
     {
         if (DecisionsManger.instance.activeDecision == -1)
         {
@@ -35,6 +43,11 @@ public class ActiveDecisionButton : MonoBehaviour, IPointerMoveHandler, IPointer
         }
         float progress = (float)DecisionsManger.instance.progress/DecisionsManger.instance.duration;
         progressBar.fillAmount = progress;
+
+        if(tooltip.tooltip.activeSelf)
+        {
+            SetTooltip();
+        }
     }
 
     public void OnClick()
@@ -85,12 +98,17 @@ public class ActiveDecisionButton : MonoBehaviour, IPointerMoveHandler, IPointer
     {
         if (DecisionsManger.instance.activeDecision != -1)
         {
-            Decision decision = DecisionsManger.instance.decisions[DecisionsManger.instance.activeDecision];
-
-            int daysRemaining = (int)(DecisionsManger.instance.duration - DecisionsManger.instance.progress); 
-            
-            TooltipData tooltipData = new TooltipData(decision.name, sub, $"Days remaining: {daysRemaining}", decision.name, "", $"Progress: {DecisionsManger.instance.progress}/{DecisionsManger.instance.duration} \n{advancedContent}");
-            tooltip.ShowTooltip(tooltipData);
+            SetTooltip();
         }
+    }
+
+    private void SetTooltip()
+    {
+        Decision decision = DecisionsManger.instance.decisions[DecisionsManger.instance.activeDecision];
+
+        int daysRemaining = (int)(DecisionsManger.instance.duration - DecisionsManger.instance.progress);
+
+        TooltipData tooltipData = new TooltipData(decision.name, sub, $"Days remaining: {daysRemaining}", decision.name, "", $"Progress: {DecisionsManger.instance.progress}/{DecisionsManger.instance.duration} \n{advancedContent}");
+        tooltip.ShowTooltip(tooltipData);
     }
 }

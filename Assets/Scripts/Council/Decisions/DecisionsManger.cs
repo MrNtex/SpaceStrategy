@@ -35,6 +35,11 @@ public class DecisionsManger : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    void Start()
+    {
+        DateManager.instance.OnDateUpdate += HandleDateChanged;
+    }
     public void SelectStarting()
     {
         for (int i = 1; i < 4; i++)
@@ -45,7 +50,7 @@ public class DecisionsManger : MonoBehaviour
         SetButtons();
     }
 
-    private void Update()
+    private void HandleDateChanged()
     {
         if(activeDecision == -1)
         {

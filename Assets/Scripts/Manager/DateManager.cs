@@ -34,6 +34,8 @@ public class DateManager : MonoBehaviour
 
     public static GameObject DateObject;
 
+    public delegate void DateUpdate();
+    public event DateUpdate OnDateUpdate;
     private void Awake()
     {
         if (instance == null)
@@ -56,6 +58,8 @@ public class DateManager : MonoBehaviour
         currentDate = currentDate.AddDays(days);
 
         dateText.text = currentDate.ToString("dd-MM-yyyy");
+
+        OnDateUpdate?.Invoke();
     }
     public void UpdateTimeScale(int idx)
     {

@@ -25,6 +25,7 @@ public class Tooltip : MonoBehaviour
 
         HideTooltip();
     }
+    
     public void ShowTooltip(TooltipData tooltipData)
     {
         tooltip.SetActive(true);
@@ -56,7 +57,6 @@ public class Tooltip : MonoBehaviour
         float clampedY = Mathf.Clamp(desiredPosition.y, tooltipSize.y, canvasSize.y);
 
         dragger.anchoredPosition = new Vector2(clampedX, clampedY);
-        Debug.Log($"Tooltip position: {dragger.anchoredPosition}");
     }
     public virtual void HideTooltip()
     {
