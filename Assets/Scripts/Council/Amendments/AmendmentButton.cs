@@ -8,6 +8,7 @@ public class AmendmentButton : MonoBehaviour
 {
 
     public Amendment amendment;
+    private int id;
 
     [SerializeField]
     private TMP_Text titleText, subText, costText;
@@ -16,8 +17,10 @@ public class AmendmentButton : MonoBehaviour
     private Image background, filler;
 
     bool finished = false;
-    public void Create(Amendment amendment)
+    public void Create(Amendment amendment, int id)
     {
+        this.id = id;
+
         this.amendment = amendment;
 
         titleText.text = amendment.name;
@@ -48,7 +51,7 @@ public class AmendmentButton : MonoBehaviour
             finished = false;
             return;
         }
-        AmendmentsManager.Instance.SelectAmendment(amendment);
+        AmendmentsManager.Instance.SelectAmendment(id);
     }
     public void Finish()
     {

@@ -9,9 +9,10 @@ public class AmendmentsManager : MonoBehaviour
 
     public Dictionary<int, Amendment> amendments = new Dictionary<int, Amendment>();
 
-    private List<Amendment> activeAmendments = new List<Amendment>();
+    [SerializeField]
+    private List<int> activeAmendments = new List<int>();
 
-    public Dictionary<Amendment, AmendmentButton> buttons = new Dictionary<Amendment, AmendmentButton>();
+    public Dictionary<int, AmendmentButton> buttons = new Dictionary<int, AmendmentButton>();
 
     [SerializeField]
     private GameObject amendmentButtonPrefab;
@@ -38,22 +39,24 @@ public class AmendmentsManager : MonoBehaviour
         {
             if (amendment.Value.available)
             {
-                AddAmendment(amendment.Value);
+                AddAmendment(amendment.Key);
             }
         }
     }
-    void AddAmendment(Amendment amendment)
+    void AddAmendment(int amendmentID)
     {
         AmendmentButton button = Instantiate(amendmentButtonPrefab, modal).GetComponent<AmendmentButton>();
-        button.Create(amendment);
-        buttons.Add(amendment, button);
+        buttons.Add(amendmentID, button);
+
+        button.Create(amendments[amendmentID], amendmentID);
+        
     }
     private void HandleDateChanged()
     {
-        List<Amendment> toRemove = new List<Amendment>();
+        List<int> toRemove = new List<int>();
         for (int i = 0; i < activeAmendments.Count; i++)
         {
-            Amendment amendment = activeAmendments[i];
+            Amendment amendment = amendments[activeAmendments[i]];
             amendment.progress = (float)(DateManager.currentDate - amendment.startDate).TotalDays;
             if(amendment.progress >= amendment.duration)
             {
@@ -63,20 +66,20 @@ public class AmendmentsManager : MonoBehaviour
                     Debug.Log($"Applying effect {effect.Key} with value {effect.Value}");
                 }
 
-                toRemove.Add(amendment);
-                buttons[amendment].Finish();
+                toRemove.Add(activeAmendments[i]);
+                buttons[activeAmendments[i]].Finish();
                 continue;
             }
-            activeAmendments[i] = amendment;
+            amendments[activeAmendments[i]] = amendment;
 
-            buttons[amendment].UpdateFiller();
+            buttons[activeAmendments[i]].UpdateFiller();
         }
-        foreach (Amendment i in toRemove)
+        foreach (int i in toRemove)
         {
             activeAmendments.Remove(i);
         }
     }
-    public void SelectAmendment(Amendment amendment)
+    public void SelectAmendment(int amendment)
     {
         if (activeAmendments.Contains(amendment))
         {
@@ -87,17 +90,20 @@ public class AmendmentsManager : MonoBehaviour
 
     }
 
-    private void StartAmendment(Amendment amendment)
+    private void StartAmendment(int amendmentID)
     {
+        Amendment amendment = amendments[amendmentID];
+
         if (amendment.cost > 100) // Change when money system is implemented
         {
             Debug.LogWarning("Not enough money to start amendment");
             return;
         }
+        
         amendment.startDate = DateManager.currentDate;
         amendment.progress = 0;
-        activeAmendments.Add(amendment);
-        buttons[amendment].Activate();
+        activeAmendments.Add(amendmentID);
+        buttons[amendmentID].Activate();
     }
 }
 
