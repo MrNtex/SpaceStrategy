@@ -108,7 +108,7 @@ public class ActiveDecisionButton : MonoBehaviour, IPointerMoveHandler, IPointer
 
         int daysRemaining = (int)(DecisionsManger.instance.duration - DecisionsManger.instance.progress);
 
-        TooltipData tooltipData = new TooltipData(decision.name, sub, $"Days remaining: {daysRemaining}", decision.name, "", $"Progress: {DecisionsManger.instance.progress}/{DecisionsManger.instance.duration} \n{advancedContent}");
+        TooltipData tooltipData = new TooltipData(decision.name, sub, $"Days remaining: {daysRemaining}", decision.name, "", $"Progress: {DecisionsManger.instance.progress.ToString("N2")}/{DecisionsManger.instance.duration} \n{advancedContent}");
         tooltip.ShowTooltip(tooltipData);
     }
 }

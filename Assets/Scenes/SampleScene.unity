@@ -690,7 +690,7 @@ PositionConstraint:
   serializedVersion: 2
   m_Weight: 1
   m_TranslationAtRest: {x: -912.18, y: 493, z: 0}
-  m_TranslationOffset: {x: -703.28, y: -77.99469, z: 0}
+  m_TranslationOffset: {x: -703.28, y: -40.581116, z: 0}
   m_AffectTranslationX: 1
   m_AffectTranslationY: 1
   m_AffectTranslationZ: 1

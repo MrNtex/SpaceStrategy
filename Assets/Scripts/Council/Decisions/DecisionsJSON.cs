@@ -65,7 +65,7 @@ public class DecisionsJSON : MonoBehaviour
                     }
                 }
 
-                Sprite background = LoadSprite(decisionJSON.background);
+                Sprite background = JSONUtils.LoadSprite("Decisions/", decisionJSON.background);
 
                 Decision decision = new Decision(decisionJSON.id, decisionJSON.name, decisionJSON.description, decisionJSON.cost, decisionJSON.next, effects, countriesLiking, background);
                 DecisionsManger.instance.decisions.Add(decision.id, decision);
@@ -75,20 +75,7 @@ public class DecisionsJSON : MonoBehaviour
         }
         
     }
-    public Sprite LoadSprite(string fileName)
-    {
-        string path = "GFX/Decisions/" + fileName;
-
-        Sprite sprite = Resources.Load<Sprite>(path);
-
-        if (sprite == null)
-        {
-            Debug.LogWarning("Texture not found at path: " + path);
-            return defaultBackground;
-        }
-
-        return sprite;
-    }
+    
 }
 [System.Serializable]
 public struct Decisions
