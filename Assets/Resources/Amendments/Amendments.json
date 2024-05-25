@@ -1,0 +1,30 @@
+{
+  "amendments": [
+    {
+      "id": 1,
+      "name": "Amendment One",
+      "description": "Description for Amendment One.",
+      "cost": 70,
+      "duration": 30,
+      "availableByDefault": true,
+      "effectsString": [
+        "effect1:10",
+        "effect2:20"
+      ],
+      "background": "background1"
+    },
+    {
+      "id": 2,
+      "name": "Amendment Two",
+      "description": "Description for Amendment Two.",
+      "cost": 200.0,
+      "duration": 45,
+      "availableByDefault": false,
+      "effectsString": [
+        "effect1:15",
+        "effect3:25"
+      ],
+      "background": "background2"
+    }
+  ]
+}

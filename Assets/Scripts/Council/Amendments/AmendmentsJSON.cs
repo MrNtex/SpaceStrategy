@@ -12,12 +12,12 @@ public class AmendmentsJSON : MonoBehaviour
         {
             // Parse each JSON file into a ResearchCategory object
             AmendmentsBufforJSON buffor = JsonUtility.FromJson<AmendmentsBufforJSON>(file.text);
-            if (buffor.buffor == null)
+            if (buffor.amendments == null)
             {
                 Debug.LogError($"Failed to parse decisions from {file.name}");
                 continue; // Skip this iteration if parsing failed
             }
-            foreach (AmendmentJSON amendmentJSON in buffor.buffor)
+            foreach (AmendmentJSON amendmentJSON in buffor.amendments)
             {
                 Dictionary<string, int> effects = new Dictionary<string, int>();
 
@@ -36,13 +36,13 @@ public class AmendmentsJSON : MonoBehaviour
                 AmendmentsManager.Instance.amendments.Add(amendmentJSON.id, amendment);
             }
         }
-
+        AmendmentsManager.Instance.UpdateAmendments();
     }
 }
 [System.Serializable]
 public struct AmendmentsBufforJSON
 {
-    public List<AmendmentJSON> buffor;
+    public List<AmendmentJSON> amendments;
 }
 [System.Serializable]
 public struct AmendmentJSON
