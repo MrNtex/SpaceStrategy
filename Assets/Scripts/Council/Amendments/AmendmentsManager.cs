@@ -72,7 +72,7 @@ public class AmendmentsManager : MonoBehaviour
             }
             amendments[activeAmendments[i]] = amendment;
 
-            buttons[activeAmendments[i]].UpdateFiller();
+            buttons[activeAmendments[i]].UpdateFiller(amendment.progress / amendment.duration);
         }
         foreach (int i in toRemove)
         {

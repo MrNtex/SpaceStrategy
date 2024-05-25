@@ -35,13 +35,13 @@ public class AmendmentButton : MonoBehaviour
         filler.fillAmount = 0;
         finished = false;
     }
-    public void UpdateFiller()
+    public void UpdateFiller(float progress)
     {
         if (!gameObject.activeSelf)
         {
             return;
         }
-        filler.fillAmount = amendment.progress / amendment.duration;
+        filler.fillAmount = progress;
     }
 
     public void OnClick()
