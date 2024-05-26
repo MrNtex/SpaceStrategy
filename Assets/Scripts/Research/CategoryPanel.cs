@@ -6,6 +6,6 @@ using UnityEngine.UI;           // For using Image
 
 public class CategoryPanel : MonoBehaviour
 {
-    public ResearchManager.ResearchCategory category;
+    public ResearchCategory category;
     public Dictionary<int, ResearchButton> researchButtons = new Dictionary<int, ResearchButton>();
 }

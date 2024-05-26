@@ -14,7 +14,7 @@ public class ResearchTreeGenerator : MonoBehaviour
     private Transform researchParent;
 
     List<ResearchButton> researchButtons = new List<ResearchButton>();
-    ResearchManager.ResearchCategory[] rCategory;
+    ResearchCategory[] rCategory;
 
     public List<CategoryPanel> categoryPanels = new List<CategoryPanel>();
 
@@ -22,7 +22,7 @@ public class ResearchTreeGenerator : MonoBehaviour
     private GameObject categoryPrefab;
     private void Start()
     {
-        ResearchManager.ResearchCategory[] rCategory = ResearchJSON.Instance.categories.ToArray();
+        ResearchCategory[] rCategory = ResearchJSON.Instance.categories.ToArray();
 
         for(int i = 0; i < rCategory.Length; i++)
         {
@@ -31,7 +31,7 @@ public class ResearchTreeGenerator : MonoBehaviour
 
 
     }
-    void GenerateTree(ResearchManager.ResearchCategory category)
+    void GenerateTree(ResearchCategory category)
     {
         GameObject categoryGO = Instantiate(categoryPrefab, researchParent);
         CategoryPanel categoryPanel = categoryGO.GetComponent<CategoryPanel>();

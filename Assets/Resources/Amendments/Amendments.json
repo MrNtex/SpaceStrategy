@@ -8,8 +8,7 @@
       "duration": 30,
       "availableByDefault": true,
       "effectsString": [
-        "effect1:10",
-        "effect2:20"
+        "unlock_decision:2"
       ],
       "background": "background1"
     },

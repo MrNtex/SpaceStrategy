@@ -13,8 +13,8 @@ public class Effects : MonoBehaviour
     {
         switch (effect)
         {
-            case "debug":
-                Debug.Log("Debug effect applied");
+            case "unlock_decision":
+                AmendmentsManager.Instance.UnlockDecision(val);
                 break;
 
             default:

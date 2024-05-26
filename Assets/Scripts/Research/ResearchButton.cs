@@ -20,8 +20,8 @@ public class ResearchButton : MonoBehaviour
     private Color lineColor = Color.white;
     private float lineWidth = 0.1f;
 
-    public ResearchManager.Research research;
-    public void Create(ResearchManager.Research research)
+    public Research research;
+    public void Create(Research research)
     {
         rectTransform = GetComponent<RectTransform>();
         rectTransform.anchoredPosition = new Vector2(research.x * offset, research.y * offset);

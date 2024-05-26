@@ -18,6 +18,7 @@ public class AmendmentsManager : MonoBehaviour
     private GameObject amendmentButtonPrefab;
     [SerializeField]
     private Transform modal;
+
     private void Awake()
     {
         if (Instance == null)
@@ -43,6 +44,16 @@ public class AmendmentsManager : MonoBehaviour
             }
         }
     }
+    public void UnlockDecision(int amendmentID)
+    {
+        if (!amendments.ContainsKey(amendmentID))
+        {
+            Debug.LogWarning($"Amendment with ID {amendmentID} not found");
+            return;
+        }
+        amendments[amendmentID].available = true;
+        AddAmendment(amendmentID);
+    }
     void AddAmendment(int amendmentID)
     {
         AmendmentButton button = Instantiate(amendmentButtonPrefab, modal).GetComponent<AmendmentButton>();
@@ -51,34 +62,39 @@ public class AmendmentsManager : MonoBehaviour
         button.Create(amendments[amendmentID], amendmentID);
         
     }
-    private void HandleDateChanged()
+    public void HandleDateChanged()
     {
         List<int> toRemove = new List<int>();
         for (int i = 0; i < activeAmendments.Count; i++)
         {
-            Amendment amendment = amendments[activeAmendments[i]];
-            amendment.progress = (float)(DateManager.currentDate - amendment.startDate).TotalDays;
-            if(amendment.progress >= amendment.duration)
+            amendments[activeAmendments[i]].progress = (float)(DateManager.currentDate - amendments[activeAmendments[i]].startDate).TotalDays;
+            if(amendments[activeAmendments[i]].progress >= amendments[activeAmendments[i]].duration)
             {
-                foreach (KeyValuePair<string, int> effect in amendment.effects)
-                {
-                    // Apply effects
-                    Debug.Log($"Applying effect {effect.Key} with value {effect.Value}");
-                }
-
-                toRemove.Add(activeAmendments[i]);
-                buttons[activeAmendments[i]].Finish();
+                Finish(toRemove, i);
                 continue;
             }
-            amendments[activeAmendments[i]] = amendment;
+            amendments[activeAmendments[i]] = amendments[activeAmendments[i]];
 
-            buttons[activeAmendments[i]].UpdateFiller(amendment.progress / amendment.duration);
+            buttons[activeAmendments[i]].UpdateFiller(amendments[activeAmendments[i]].progress / amendments[activeAmendments[i]].duration);
         }
         foreach (int i in toRemove)
         {
             activeAmendments.Remove(i);
         }
     }
+
+    private void Finish(List<int> toRemove, int i)
+    {
+        foreach (KeyValuePair<string, int> effect in amendments[activeAmendments[i]].effects)
+        {
+            // Apply effects
+            Effects.instance.ApplyEffect(effect.Key, effect.Value);
+        }
+
+        toRemove.Add(activeAmendments[i]);
+        buttons[activeAmendments[i]].Finish();
+    }
+
     public void SelectAmendment(int amendment)
     {
         if (activeAmendments.Contains(amendment))
@@ -108,7 +124,7 @@ public class AmendmentsManager : MonoBehaviour
 }
 
 [System.Serializable]
-public struct Amendment
+public class Amendment
 {
     public string name;
     public string description;

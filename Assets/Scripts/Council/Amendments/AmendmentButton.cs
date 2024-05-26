@@ -17,6 +17,9 @@ public class AmendmentButton : MonoBehaviour
     private Image background, filler;
 
     bool finished = false;
+
+    [SerializeField]
+    private Animator activeAnimation;
     public void Create(Amendment amendment, int id)
     {
         this.id = id;
@@ -29,11 +32,14 @@ public class AmendmentButton : MonoBehaviour
 
         background.sprite = amendment.background;
         filler.fillAmount = amendment.progress / amendment.duration;
+
+        activeAnimation.enabled = false;
     }
     public void Activate()
     {
         filler.fillAmount = 0;
         finished = false;
+        activeAnimation.enabled = true;
     }
     public void UpdateFiller(float progress)
     {
@@ -57,5 +63,9 @@ public class AmendmentButton : MonoBehaviour
     {
         filler.fillAmount = 0;
         finished = true;
+
+        activeAnimation.enabled = false;
     }
+
+    
 }
