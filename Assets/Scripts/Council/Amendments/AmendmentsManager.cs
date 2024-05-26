@@ -141,7 +141,7 @@ public class Amendment
 
     public Sprite background;
 
-    public Amendment(string name, string description, float cost, int duration, bool available, Dictionary<string, int> effects, Sprite background)
+    public Amendment(string name, string description, float cost, int duration, bool available, string[] effects, Sprite background)
     {
         this.name = name;
         this.description = description;
@@ -150,7 +150,7 @@ public class Amendment
         this.available = available;
         this.startDate = DateManager.currentDate;
         this.progress = 0;
-        this.effects = effects;
+        this.effects = JSONUtils.StringIntToDictionary(effects);
         this.background = background;
     }
 }

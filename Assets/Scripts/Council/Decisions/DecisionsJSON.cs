@@ -39,35 +39,9 @@ public class DecisionsJSON : MonoBehaviour
             }
             foreach (DecisionJSON decisionJSON in decisions.decisions)
             {
-                Dictionary<string, int> effects = new Dictionary<string, int>();
-                
-                foreach (string effect in decisionJSON.effectsString)
-                {
-                    string[] effectSplit = effect.Split(':');
-                    if (effectSplit.Length == 2)
-                        effects.Add(effectSplit[0], int.Parse(effectSplit[1]));
-                    else
-                        effects.Add(effectSplit[0], 0);
-                }
-
-                Dictionary<string, int> countriesLiking = new Dictionary<string, int>();
-
-                foreach (string countryLiking in decisionJSON.countriesLikingString)
-                {
-                    string[] countryLikingSplit = countryLiking.Split(':');
-                    if (Countries.instance.countriesDict.ContainsKey(countryLikingSplit[0]))
-                    {
-                        countriesLiking.Add(countryLikingSplit[0], int.Parse(countryLikingSplit[1]));
-                    }
-                    else
-                    {
-                        Debug.LogWarning($"{file.name}, {decisionJSON.name}: {countryLikingSplit[0]} not found in countries dictionary");
-                    }
-                }
-
                 Sprite background = JSONUtils.LoadSprite("Decisions/", decisionJSON.background);
 
-                Decision decision = new Decision(decisionJSON.id, decisionJSON.name, decisionJSON.description, decisionJSON.cost, decisionJSON.next, effects, countriesLiking, background);
+                Decision decision = new Decision(decisionJSON.id, decisionJSON.name, decisionJSON.description, decisionJSON.cost, decisionJSON.next, decisionJSON.effectsString.ToArray(), decisionJSON.countriesLikingString.ToArray(), background);
                 DecisionsManger.instance.decisions.Add(decision.id, decision);
             }
             
@@ -117,15 +91,15 @@ public struct Decision
     public Dictionary<string, int> coutriesLiking; // Tag, Value
 
     public Sprite background;
-    public Decision(int id, string name, string description, int cost, List<int> next, Dictionary<string, int> effects, Dictionary<string, int> coutriesLiking, Sprite background)
+    public Decision(int id, string name, string description, int cost, List<int> next, string[] effects, string[] coutriesLiking, Sprite background)
     {
         this.id = id;
         this.name = name;
         this.description = description;
         this.cost = cost;
         this.next = next;
-        this.effects = effects;
-        this.coutriesLiking = coutriesLiking;
+        this.effects = JSONUtils.StringIntToDictionary(effects);
+        this.coutriesLiking = JSONUtils.StringIntToDictionary(coutriesLiking);
         this.background = background;
     }
 }

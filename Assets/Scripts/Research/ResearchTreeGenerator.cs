@@ -20,9 +20,10 @@ public class ResearchTreeGenerator : MonoBehaviour
 
     [SerializeField]
     private GameObject categoryPrefab;
-    private void Start()
+    private void OnEnable()
     {
-        ResearchCategory[] rCategory = ResearchJSON.Instance.categories.ToArray();
+        ResearchCategory[] rCategory = ResearchManager.instance.categories.ToArray();
+
 
         for(int i = 0; i < rCategory.Length; i++)
         {
@@ -43,10 +44,10 @@ public class ResearchTreeGenerator : MonoBehaviour
             GameObject go = Instantiate(researchPrefab, categoryGO.transform);
             
             ResearchButton researchButton = go.GetComponent<ResearchButton>();
-            researchButton.Create(Research);
-            categoryPanel.researchButtons.Add(Research.id, researchButton);
+            researchButton.Create(Research.Value);
+            categoryPanel.researchButtons.Add(Research.Key, researchButton);
             
-            foreach (int prereq in Research.prerequisites)
+            foreach (int prereq in Research.Value.prerequisites)
             {
                 if (categoryPanel.researchButtons.ContainsKey(prereq))
                 {
@@ -54,7 +55,7 @@ public class ResearchTreeGenerator : MonoBehaviour
                 }
                 else
                 {
-                    Debug.LogError($"Research {Research.name} has a prerequisite that does not exist or hasn't yet been initialized: {prereq}");
+                    Debug.LogError($"Research {Research.Value.name} has a prerequisite that does not exist or hasn't yet been initialized: {prereq}");
                 }
             }
         }

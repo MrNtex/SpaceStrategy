@@ -19,20 +19,9 @@ public class AmendmentsJSON : MonoBehaviour
             }
             foreach (AmendmentJSON amendmentJSON in buffor.amendments)
             {
-                Dictionary<string, int> effects = new Dictionary<string, int>();
-
-                foreach (string effect in amendmentJSON.effectsString)
-                {
-                    string[] effectSplit = effect.Split(':');
-                    if (effectSplit.Length == 2)
-                        effects.Add(effectSplit[0], int.Parse(effectSplit[1]));
-                    else
-                        effects.Add(effectSplit[0], 0);
-                }
-
                 Sprite background = JSONUtils.LoadSprite("Amendments/", amendmentJSON.background);
 
-                Amendment amendment = new Amendment(amendmentJSON.name, amendmentJSON.description, amendmentJSON.cost, amendmentJSON.duration, amendmentJSON.availableByDefault, effects, background);
+                Amendment amendment = new Amendment(amendmentJSON.name, amendmentJSON.description, amendmentJSON.cost, amendmentJSON.duration, amendmentJSON.availableByDefault, amendmentJSON.effectsString.ToArray(), background);
                 AmendmentsManager.Instance.amendments.Add(amendmentJSON.id, amendment);
             }
         }
