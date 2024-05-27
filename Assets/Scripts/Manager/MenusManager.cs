@@ -10,7 +10,7 @@ public class MenusManager : MonoBehaviour
     Camera mainCamera, UICamera;
 
     [SerializeField]
-    GameObject[] menus; // 0 is reserved for the game
+    GameObject[] menus, modals; // 0 is reserved for the game
 
     GameObject activeMenu
     {
@@ -71,7 +71,19 @@ public class MenusManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            ChangeMenu(0);
+            Close();
         }
+    }
+
+    public void Close()
+    {
+        foreach (GameObject modal in modals)
+        {
+            if (modal.activeSelf)
+            {
+                modal.SetActive(false);
+            }
+        }
+        ChangeMenu(0);
     }
 }
