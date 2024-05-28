@@ -69,6 +69,7 @@ public class PieChart : MonoBehaviour, IPointerMoveHandler, IPointerExitHandler,
     }
 
     Transform _selectedSlice;
+
     void Start()
     {
         rectTransform = background.GetComponent<RectTransform>();

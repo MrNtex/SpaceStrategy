@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using System.Linq;
 
 public class ActiveDecisionButton : MonoBehaviour, IPointerMoveHandler, IPointerEnterHandler, IPointerExitHandler
 {
@@ -70,11 +71,6 @@ public class ActiveDecisionButton : MonoBehaviour, IPointerMoveHandler, IPointer
         {
             advancedContent += $"{effect.Key}: {effect.Value}\n";
         }
-        advancedContent += "\n";
-        foreach (var liking in decision.coutriesLiking)
-        {
-            advancedContent += $"{liking.Key}: {liking.Value}\n";
-        }
     }
 
     public void SetUp()
@@ -108,7 +104,10 @@ public class ActiveDecisionButton : MonoBehaviour, IPointerMoveHandler, IPointer
 
         int daysRemaining = (int)(DecisionsManger.instance.duration - DecisionsManger.instance.progress);
 
-        TooltipData tooltipData = new TooltipData(decision.name, sub, $"Days remaining: {daysRemaining}", decision.name, "", $"Progress: {DecisionsManger.instance.progress.ToString("N2")}/{DecisionsManger.instance.duration} \n{advancedContent}");
+        Dictionary<string, string> countriesLiking = decision.coutriesLiking.ToDictionary(kvp => kvp.Key, kvp => kvp.ToString());
+
+
+        TooltipData tooltipData = new TooltipData(decision.name, sub, $"Days remaining: {daysRemaining}", decision.name, "", $"Progress: {DecisionsManger.instance.progress.ToString("N2")}/{DecisionsManger.instance.duration} \n{advancedContent}", new Dictionary<string, string>(), countriesLiking);
         tooltip.ShowTooltip(tooltipData);
     }
 }

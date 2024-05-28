@@ -5,16 +5,6 @@ using UnityEngine;
 
 public class SupportTooltip : Tooltip
 {
-    
-
-    [SerializeField]
-    private GameObject countryPanel;
-
-    List<GameObject> countries = new List<GameObject>();
-    [SerializeField]
-    
-
-    
 
     private bool shiftPressed = false;
     private int currentSlice = 0;
