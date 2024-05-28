@@ -24,6 +24,8 @@ public class Tooltip : MonoBehaviour
         tooltipRect = tooltip.GetComponent<RectTransform>();
 
         HideTooltip();
+
+        MenusManager.Instance.OnChangedMenu += HideTooltip;
     }
     
     public void ShowTooltip(TooltipData tooltipData)

@@ -74,7 +74,19 @@ public class PieChart : MonoBehaviour, IPointerMoveHandler, IPointerExitHandler,
         rectTransform = background.GetComponent<RectTransform>();
         SetValues();
     }
+    void OnEnable()
+    {
+        foreach (Transform slice in slices)
+        {
+            slice.localScale = Vector3.one;
+        }
 
+        selectedSlice = null;
+        hoveredSelectedSliceIndex = -1;
+
+        StopAllCoroutines();
+        activeCoroutines.Clear();
+    }
     public void SetValues()
     {
         float[] percents = FindPercentage(values.ToArray());

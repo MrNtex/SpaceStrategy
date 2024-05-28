@@ -12,6 +12,9 @@ public class MenusManager : MonoBehaviour
     [SerializeField]
     GameObject[] menus, modals; // 0 is reserved for the game
 
+    public delegate void ChangedMenu();
+    public event ChangedMenu OnChangedMenu;
+
     GameObject activeMenu
     {
         get
