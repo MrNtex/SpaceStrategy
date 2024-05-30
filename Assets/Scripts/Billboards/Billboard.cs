@@ -9,7 +9,7 @@ public class Billboard : MonoBehaviour
     protected float minDistance; // Overriden by the PlanetFocusHelper
 
     protected Transform target; // Your planet's transform
-    const float distanceFromTarget = 75; // Distance from the target to place the text
+    const float distanceFromTarget = 60; // Distance from the target to place the text
     public float YOffset = 1f; // Height from the target to place the text
     public float maxFontSize = 0.1f; // Maximum font size
     public Camera mainCamera;
@@ -93,7 +93,7 @@ public class Billboard : MonoBehaviour
         
         const float DistanceScaleFactor = 600f;
         const float MinScaleMultiplier = 0.1f;
-        const float MaxScaleMultiplier = 1;
+        const float MaxScaleMultiplier = .75f;
         const float TargetLerpDistance = 2.636f; // Specific distance for Lerp
 
         // SCALE
