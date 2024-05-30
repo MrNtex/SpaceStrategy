@@ -37,6 +37,19 @@
       "unlockedDate": "2024-05-15T12:00:00",
       "x": 2,
       "y": 2.5
+    },
+    {
+      "id": 3,
+      "name": "Michal",
+      "description": "Research on quantum computing advancements.",
+      "cost": 1000,
+      "prerequisites": [
+        2
+      ],
+      "researched": false,
+      "unlockedDate": "2024-05-15T12:00:00",
+      "x": 4,
+      "y": 2.5
     }
   ]
 }

@@ -127,4 +127,9 @@ public class BodyInfo : ObjectInfo
                 break;
         }
     }
+
+    public void SpecialButtonClicked()
+    {
+        Effects.instance.ApplyEffect("unlock_decision", 0);
+    }
 }

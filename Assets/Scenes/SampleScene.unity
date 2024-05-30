@@ -690,7 +690,7 @@ PositionConstraint:
   serializedVersion: 2
   m_Weight: 1
   m_TranslationAtRest: {x: -912.18, y: 450, z: 0}
-  m_TranslationOffset: {x: -703.2799, y: -90.71979, z: 0}
+  m_TranslationOffset: {x: -703.28, y: -90.267395, z: 0}
   m_AffectTranslationX: 1
   m_AffectTranslationY: 1
   m_AffectTranslationZ: 1
@@ -14932,7 +14932,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &592299799
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15054,7 +15054,6 @@ MonoBehaviour:
   offset: {x: 30, y: -15}
   countryPanel: {fileID: 792194089166109169, guid: 41de526c0c44d0d47b348ffbd97654a6,
     type: 3}
-  shiftPressed: 0
 --- !u!114 &592299805
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15074,6 +15073,8 @@ MonoBehaviour:
   dragger: {fileID: 413715910}
   canvasRect: {fileID: 592299802}
   offset: {x: 30, y: -15}
+  countryPanel: {fileID: 792194089166109169, guid: 41de526c0c44d0d47b348ffbd97654a6,
+    type: 3}
 --- !u!1 &604111101
 GameObject:
   m_ObjectHideFlags: 0
