@@ -28,4 +28,10 @@ public class PlanetModal : MonoBehaviour
         stability.text = bodyStatus.stability.ToString()+"%";
         population.text = bodyStatus.population.ToString();
     }
+
+    public void DestroySelf()
+    {
+        MenusManager.activeModals.Remove(gameObject);
+        Destroy(gameObject);
+    }
 }
