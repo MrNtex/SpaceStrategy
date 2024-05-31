@@ -130,6 +130,6 @@ public class BodyInfo : ObjectInfo
 
     public void SpecialButtonClicked()
     {
-        Effects.instance.ApplyEffect("unlock_decision", 0);
+        PlanetModalManager.Instance.Spawn(this);
     }
 }

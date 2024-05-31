@@ -18,4 +18,11 @@ public class BodyStatus : MonoBehaviour
     public float populationGrowthRateModifier;
 
     public BodyStatusType status = BodyStatusType.Inhabitable;
+
+    [Range(0, 100)]
+    public float stability;
+
+    [Range(0, 100)]
+    public float hability;
+
 }
