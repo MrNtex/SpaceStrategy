@@ -6,6 +6,19 @@ public class MenusManager : MonoBehaviour
 {
     public static MenusManager Instance;
 
+    public static List<GameObject> activeModals
+    {
+        set
+        {
+            _activeModals = value ?? new List<GameObject>(); ;
+        }
+        get
+        {
+            _activeModals.RemoveAll(item => item == null);
+            return _activeModals;
+        }
+    }
+    private static List<GameObject> _activeModals = new List<GameObject>();
     [SerializeField]
     Camera mainCamera, UICamera;
 
@@ -46,6 +59,8 @@ public class MenusManager : MonoBehaviour
     }
     public void ChangeMenu(int menuIndex)
     {
+
+
         if(menuIndex >= menus.Length || menuIndex < 0)
         {
             Debug.LogError("Menu index out of range");
@@ -72,8 +87,16 @@ public class MenusManager : MonoBehaviour
 
     void Update()
     {
+        
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            if (activeModals.Count > 0)
+            {
+                // Safely destroy the last GameObject and remove it from the list
+                GameObject lastModal = activeModals[activeModals.Count - 1];
+                Destroy(lastModal);
+                activeModals.RemoveAt(activeModals.Count - 1);
+            }
             Close();
         }
     }

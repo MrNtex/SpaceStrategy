@@ -19,6 +19,7 @@ public class PopupsManager : MonoBehaviour
         {
             Popup decisionPopup = Instantiate(popupDefault, transform).GetComponent<Popup>();
             decisionPopup.Create("Finished decision", decision.name, 2, decision.background);
+            MenusManager.activeModals.Add(decisionPopup.gameObject);
         }
         else
         {

@@ -27,8 +27,11 @@ public class Popup : MonoBehaviour
 
     public void Close()
     {
+        MenusManager.activeModals.Remove(gameObject);
+
         Destroy(gameObject);
         DateManager.instance.Resume();
+        
     }
 
     public void OpenPanel()
