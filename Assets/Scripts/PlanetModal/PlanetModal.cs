@@ -7,7 +7,7 @@ public enum CurrentGraph
 {
     Population,
     GDP,
-    Energy
+    Stability,
 }
 public class PlanetModal : MonoBehaviour
 {
@@ -26,6 +26,8 @@ public class PlanetModal : MonoBehaviour
 
     [SerializeField]
     private Graph graph;
+
+    public CurrentGraph currentGraph;
     public void Spawn(BodyInfo bodyInfo)
     {
 
@@ -45,7 +47,11 @@ public class PlanetModal : MonoBehaviour
 
         ColoniesManager.instance.OnColonyUpdate += OnColonyUpdate;
     }
-
+    public void SetCurrentGraph(int currentGraph)
+    {
+        this.currentGraph = (CurrentGraph)currentGraph;
+        DoGraph();
+    }
     public void DestroySelf()
     {
         MenusManager.activeModals.Remove(gameObject);
@@ -63,13 +69,38 @@ public class PlanetModal : MonoBehaviour
         stability.text = colonyStatus.stability.ToString() + "%";
         population.text = colonyStatus.population.ToString();
 
+        DoGraph();
+    }
+    void DoGraph()
+    {
         Dictionary<float, float> points = new Dictionary<float, float>();
-        for (int i = 0; i < colonyStatus.recentPops.Count; i++)
+        switch (currentGraph)
         {
-            points.Add(DateManager.currentDate.Month-5+i , colonyStatus.recentPops[i]);
-            Debug.Log($"{DateManager.currentDate.Month-5+1}: {colonyStatus.recentPops[i]}");
-        }
+            case CurrentGraph.Population:
+                
+                for (int i = 0; i < colonyStatus.recentPops.Count; i++)
+                {
+                    points.Add(DateManager.currentDate.Month - 5 + i, colonyStatus.recentPops[i]);
+                }
+                graph.GenerateAGraph(points, 12, 6);
+                break;
+            case CurrentGraph.GDP:
 
-        graph.GenerateAGraph(points, 5, 5);
+                for (int i = 0; i < colonyStatus.recentGDP.Count; i++)
+                {
+                    points.Add(DateManager.currentDate.Month - 5 + i, colonyStatus.recentGDP[i]);
+                }
+                graph.GenerateAGraph(points, 12, 6);
+                break;
+            case CurrentGraph.Stability:
+
+                for (int i = 0; i < colonyStatus.recentStability.Count; i++)
+                {
+                    points.Add(DateManager.currentDate.Month - 5 + i, colonyStatus.recentStability[i]);
+                }
+
+                graph.GenerateAGraph(points, 12, 6);
+                break;
+        }
     }
 }

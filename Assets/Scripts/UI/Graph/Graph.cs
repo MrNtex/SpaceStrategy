@@ -20,6 +20,11 @@ public class Graph : MonoBehaviour
 
     public void GenerateAGraph(Dictionary<float, float> points, int numberOfX, int numberOfY, bool sort = false)
     {
+        if(points.Count == 0)
+        {
+            return;
+        }
+
         if (sort)
         {
             points = new Dictionary<float, float>(points.OrderBy(x => x.Key));
@@ -37,6 +42,10 @@ public class Graph : MonoBehaviour
         float yMin = points.Values.Min();
 
         float padding = (yMax-yMin) * 0.2f;
+        if(padding < 0.1f)
+        {
+            padding = xMax * 0.2f;
+        }
 
         yMax += padding;
         yMin -= padding;
@@ -44,14 +53,14 @@ public class Graph : MonoBehaviour
         {
             GameObject x = Instantiate(xMarker, graphContainer);
             x.GetComponent<RectTransform>().anchoredPosition = new Vector2(i * graphContainer.sizeDelta.x / numberOfX, 0);
-            x.GetComponentInChildren<TMPro.TMP_Text>().text = Mathf.Lerp(xMin, xMax, i / (float)numberOfX).ToString();
+            x.GetComponentInChildren<TMPro.TMP_Text>().text = Mathf.Lerp(xMin, xMax, i / (float)numberOfX).ToString("N1");
         }
 
         for(int i = 1; i < numberOfY; i++)
         {
             GameObject y = Instantiate(yMarker, graphContainer);
             y.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, i * graphContainer.sizeDelta.y / numberOfY);
-            y.GetComponentInChildren<TMPro.TMP_Text>().text = Mathf.Lerp(yMin, yMax, i / (float)numberOfY).ToString();
+            y.GetComponentInChildren<TMPro.TMP_Text>().text = Mathf.Lerp(yMin, yMax, i / (float)numberOfY).ToString("N1");
         }
 
         LineRenderer lineRenderer = Instantiate(lineRendererPrefab, graphContainer).GetComponent<LineRenderer>();
@@ -72,13 +81,8 @@ public class Graph : MonoBehaviour
         }
     }
     // Multiple lines
-    public void GenerateAGraph(List<Dictionary<float, float>> points, int numberOfX, int numberOfY, bool sort = false)
+    public void GenerateAGraph(List<Dictionary<float, float>> points, int numberOfX, int numberOfY)
     {
-        if (sort)
-        {
-            points = new Dictionary<float, float>(points.OrderBy(x => x.Key));
-        }
-
         foreach (Transform child in graphContainer)
         {
             Destroy(child.gameObject);

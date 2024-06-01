@@ -23,9 +23,13 @@ public class ColonyStatus : MonoBehaviour
     [Range(0, 100)]
     public float hability;
 
+    public float gdp = 1010.3f; // In trillions
+    public float gdpChangeRate = 0.02f;
 
-    public CircularBuffer<float> recentPops = new CircularBuffer<float>(5);
 
+    public CircularBuffer<float> recentPops = new CircularBuffer<float>(12);
+    public CircularBuffer<float> recentGDP = new CircularBuffer<float>(12);
+    public CircularBuffer<float> recentStability = new CircularBuffer<float>(12);
     void Start()
     {
         recentPops.Add(population);
@@ -34,5 +38,10 @@ public class ColonyStatus : MonoBehaviour
     {
         population += (int)(population * (populationGrowthRate + Random.Range(-.5f,.5f)));
         recentPops.Add(population);
+
+        recentStability.Add(stability);
+
+        gdp += gdp * gdpChangeRate * Random.Range(-.5f, .5f);
+        recentGDP.Add(gdp);
     }
 }
