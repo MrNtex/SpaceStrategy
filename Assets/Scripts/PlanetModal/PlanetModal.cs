@@ -17,6 +17,9 @@ public class PlanetModal : MonoBehaviour
 
     public BodyInfo bodyInfo;
     ColonyStatus colonyStatus;
+
+    [SerializeField]
+    private Graph graph;
     public void Spawn(BodyInfo bodyInfo)
     {
 
@@ -30,11 +33,9 @@ public class PlanetModal : MonoBehaviour
             return;
         }
 
-        hability.text = colonyStatus.hability.ToString()+"%";
-        stability.text = colonyStatus.stability.ToString()+"%";
-        population.text = colonyStatus.population.ToString();
-
         this.bodyInfo = bodyInfo;
+
+        OnColonyUpdate();
 
         ColoniesManager.instance.OnColonyUpdate += OnColonyUpdate;
     }
@@ -49,11 +50,20 @@ public class PlanetModal : MonoBehaviour
         ColoniesManager.instance.OnColonyUpdate -= OnColonyUpdate;
     }
     void OnColonyUpdate()
-    {
+    {;
         // UpdateVariables
 
         hability.text = colonyStatus.hability.ToString() + "%";
         stability.text = colonyStatus.stability.ToString() + "%";
         population.text = colonyStatus.population.ToString();
+
+        Dictionary<float, float> points = new Dictionary<float, float>();
+        for (int i = 0; i < colonyStatus.recentPops.Count; i++)
+        {
+            points.Add(DateManager.currentDate.Month-5+i , colonyStatus.recentPops[i]);
+            Debug.Log($"{DateManager.currentDate.Month-5+1}: {colonyStatus.recentPops[i]}");
+        }
+
+        graph.GenerateAGraph(points, 5, 5);
     }
 }

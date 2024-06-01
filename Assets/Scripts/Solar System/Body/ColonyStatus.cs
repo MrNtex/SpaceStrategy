@@ -12,10 +12,9 @@ public enum BodyStatusType
 }
 public class ColonyStatus : MonoBehaviour
 {
-    public int population;
+    public float population;
     public int maxPopulation;
     public float populationGrowthRate;
-    public float populationGrowthRateModifier = 1;
 
 
     [Range(0, 100)]
@@ -25,7 +24,7 @@ public class ColonyStatus : MonoBehaviour
     public float hability;
 
 
-    CircularBuffer<int> recentPops = new CircularBuffer<int>(5);
+    public CircularBuffer<float> recentPops = new CircularBuffer<float>(5);
 
     void Start()
     {
@@ -33,7 +32,7 @@ public class ColonyStatus : MonoBehaviour
     }
     public void UpdateColony()
     {
-        population += (int)(population * populationGrowthRate * populationGrowthRateModifier);
+        population += (int)(population * (populationGrowthRate + Random.Range(-.5f,.5f)));
         recentPops.Add(population);
     }
 }

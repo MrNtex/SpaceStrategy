@@ -15,31 +15,17 @@ public class Graph : MonoBehaviour
     [SerializeField]
     private GameObject yMarker, xMarker;
 
-    private void Start()
-    {
-        // Debug
-        Dictionary<float, float> test = new Dictionary<float, float>
-        {
-            { 0, 0 },
-            { 1, 3 },
-            { 2, 6 },
-            { 3, 2 },
-            { 4, 3 },
-            { 5, 7 },
-            { 6, 6 },
-            { 7, 9 },
-            { 8, 8 },
-            { 9, 9 },
-            { 10, 10 }
-        };
-        GenerateAGraph(test, 5, 5);
-    }
-
     public void GenerateAGraph(Dictionary<float, float> points, int numberOfX, int numberOfY, bool sort = false)
     {
         if (sort)
         {
             points = new Dictionary<float, float>(points.OrderBy(x => x.Key));
+        }
+        Transform l = lineRenderer.transform;
+        foreach (Transform child in graphContainer)
+        {
+            if (child != l)
+                Destroy(child.gameObject);
         }
 
         float xMax = points.Keys.Max();
@@ -48,6 +34,10 @@ public class Graph : MonoBehaviour
         float xMin = points.Keys.Min();
         float yMin = points.Values.Min();
 
+        float padding = (yMax-yMin) * 0.2f;
+
+        yMax += padding;
+        yMin -= padding;
         for(int i = 1; i < numberOfX; i++)
         {
             GameObject x = Instantiate(xMarker, graphContainer);

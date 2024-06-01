@@ -26,7 +26,7 @@ public class ColoniesManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        DateManager.instance.OnDateUpdate += UpdateColonies;
+        DateManager.instance.OnMonthUpdate += UpdateColonies;
     }
 
     // Update is called once per frame

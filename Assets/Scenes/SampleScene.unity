@@ -9629,7 +9629,6 @@ MonoBehaviour:
   maxPopulation: 0
   populationGrowthRate: 0
   populationGrowthRateModifier: 0
-  status: 0
   stability: 75.3
   hability: 82.4
 --- !u!114 &356142580
@@ -9645,7 +9644,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: 
-  bodyStatus: {fileID: 0}
+  colonyStatus: {fileID: 356142579}
   orbiting: {fileID: 0}
   icon: {fileID: 21300000, guid: 6431e80df9a7b554c8b0e35bb2454c14, type: 3}
   bodyType: 0
@@ -9653,6 +9652,7 @@ MonoBehaviour:
   useCustomColor: 0
   customColor: {r: 0, g: 0, b: 0, a: 0}
   crust: {fileID: 2121564225}
+  status: 0
 --- !u!1001 &357648203
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11727,7 +11727,6 @@ MonoBehaviour:
   maxPopulation: 0
   populationGrowthRate: 0
   populationGrowthRateModifier: 0
-  status: 5
   stability: 0
   hability: 0
 --- !u!114 &443832780
@@ -11743,7 +11742,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: 
-  bodyStatus: {fileID: 0}
+  colonyStatus: {fileID: 0}
   orbiting: {fileID: 0}
   icon: {fileID: 0}
   bodyType: 0
@@ -11751,6 +11750,7 @@ MonoBehaviour:
   useCustomColor: 0
   customColor: {r: 0, g: 0, b: 0, a: 0}
   crust: {fileID: 0}
+  status: 5
 --- !u!1001 &444287255
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12603,7 +12603,6 @@ MonoBehaviour:
   maxPopulation: 0
   populationGrowthRate: 0
   populationGrowthRateModifier: 0
-  status: 5
   stability: 0
   hability: 0
 --- !u!114 &462690854
@@ -12619,7 +12618,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: 
-  bodyStatus: {fileID: 0}
+  colonyStatus: {fileID: 0}
   orbiting: {fileID: 0}
   icon: {fileID: 0}
   bodyType: 3
@@ -12627,6 +12626,7 @@ MonoBehaviour:
   useCustomColor: 0
   customColor: {r: 0, g: 0, b: 0, a: 0}
   crust: {fileID: 0}
+  status: 5
 --- !u!1 &462992310
 GameObject:
   m_ObjectHideFlags: 0
@@ -12769,7 +12769,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: 
-  bodyStatus: {fileID: 0}
+  colonyStatus: {fileID: 0}
   orbiting: {fileID: 0}
   icon: {fileID: 21300000, guid: 93b55552b309b5e4a890005b3196651f, type: 3}
   bodyType: 2
@@ -12777,6 +12777,7 @@ MonoBehaviour:
   useCustomColor: 0
   customColor: {r: 0, g: 0, b: 0, a: 0}
   crust: {fileID: 0}
+  status: 5
 --- !u!114 &462992317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12793,7 +12794,6 @@ MonoBehaviour:
   maxPopulation: 0
   populationGrowthRate: 0
   populationGrowthRateModifier: 0
-  status: 5
   stability: 0
   hability: 0
 --- !u!1 &474107153
@@ -13736,7 +13736,6 @@ MonoBehaviour:
   maxPopulation: 0
   populationGrowthRate: 0
   populationGrowthRateModifier: 0
-  status: 5
   stability: 0
   hability: 0
 --- !u!114 &515440458
@@ -13752,7 +13751,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: 
-  bodyStatus: {fileID: 0}
+  colonyStatus: {fileID: 0}
   orbiting: {fileID: 0}
   icon: {fileID: 21300000, guid: dc50c89f5f9aa6f418ba16bd1102006d, type: 3}
   bodyType: 0
@@ -13760,6 +13759,7 @@ MonoBehaviour:
   useCustomColor: 1
   customColor: {r: 1, g: 0.90588397, b: 0.7122642, a: 1}
   crust: {fileID: 865691317}
+  status: 5
 --- !u!1001 &533703823
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14442,7 +14442,6 @@ MonoBehaviour:
   maxPopulation: 0
   populationGrowthRate: 0
   populationGrowthRateModifier: 0
-  status: 5
   stability: 0
   hability: 0
 --- !u!114 &564395479
@@ -14458,7 +14457,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: 
-  bodyStatus: {fileID: 0}
+  colonyStatus: {fileID: 0}
   orbiting: {fileID: 0}
   icon: {fileID: 21300000, guid: 66fbc0996803e6c4ab7455291c523914, type: 3}
   bodyType: 0
@@ -14466,6 +14465,7 @@ MonoBehaviour:
   useCustomColor: 1
   customColor: {r: 0.6132076, g: 0.6132076, b: 0.6132076, a: 1}
   crust: {fileID: 73985918}
+  status: 5
 --- !u!114 &565601973 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 478063242034734912, guid: e15411735d06a2c49910aa327f2908a6,
@@ -14633,7 +14633,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: 
-  bodyStatus: {fileID: 0}
+  colonyStatus: {fileID: 0}
   orbiting: {fileID: 0}
   icon: {fileID: 0}
   fleetName: dsada
@@ -14892,7 +14892,6 @@ MonoBehaviour:
   maxPopulation: 0
   populationGrowthRate: 0
   populationGrowthRateModifier: 0
-  status: 4
   stability: 0
   hability: 0
 --- !u!114 &582741486
@@ -14908,7 +14907,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: 
-  bodyStatus: {fileID: 0}
+  colonyStatus: {fileID: 582741485}
   orbiting: {fileID: 0}
   icon: {fileID: 21300000, guid: bc6c7bfd41241d24486950f30e139020, type: 3}
   bodyType: 0
@@ -14916,6 +14915,7 @@ MonoBehaviour:
   useCustomColor: 1
   customColor: {r: 0.6415094, g: 0.26931292, b: 0.26931292, a: 1}
   crust: {fileID: 1496886881}
+  status: 4
 --- !u!1 &584995903
 GameObject:
   m_ObjectHideFlags: 0
@@ -15946,7 +15946,6 @@ MonoBehaviour:
   maxPopulation: 0
   populationGrowthRate: 0
   populationGrowthRateModifier: 0
-  status: 5
   stability: 0
   hability: 0
 --- !u!114 &651233530
@@ -15962,7 +15961,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: 
-  bodyStatus: {fileID: 0}
+  colonyStatus: {fileID: 0}
   orbiting: {fileID: 0}
   icon: {fileID: 0}
   bodyType: 3
@@ -15970,6 +15969,7 @@ MonoBehaviour:
   useCustomColor: 0
   customColor: {r: 0, g: 0, b: 0, a: 0}
   crust: {fileID: 0}
+  status: 5
 --- !u!1 &673938498
 GameObject:
   m_ObjectHideFlags: 0
@@ -17750,7 +17750,6 @@ MonoBehaviour:
   maxPopulation: 0
   populationGrowthRate: 0
   populationGrowthRateModifier: 0
-  status: 5
   stability: 0
   hability: 0
 --- !u!114 &828426965
@@ -17766,7 +17765,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: 
-  bodyStatus: {fileID: 0}
+  colonyStatus: {fileID: 0}
   orbiting: {fileID: 0}
   icon: {fileID: 21300000, guid: 357f818aa282bfb45b62dfb98d332b05, type: 3}
   bodyType: 0
@@ -17774,6 +17773,7 @@ MonoBehaviour:
   useCustomColor: 1
   customColor: {r: 0.46079564, g: 0.8595034, b: 0.8962264, a: 1}
   crust: {fileID: 1915736615}
+  status: 5
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -18119,7 +18119,6 @@ MonoBehaviour:
   maxPopulation: 0
   populationGrowthRate: 0
   populationGrowthRateModifier: 0
-  status: 5
   stability: 0
   hability: 0
 --- !u!114 &860914098
@@ -18135,7 +18134,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: 
-  bodyStatus: {fileID: 0}
+  colonyStatus: {fileID: 0}
   orbiting: {fileID: 0}
   icon: {fileID: 21300000, guid: a4ec4c5288bb6384890a56ecd211528f, type: 3}
   bodyType: 4
@@ -18143,6 +18142,7 @@ MonoBehaviour:
   useCustomColor: 0
   customColor: {r: 0, g: 0, b: 0, a: 0}
   crust: {fileID: 0}
+  status: 5
 --- !u!1 &865691316
 GameObject:
   m_ObjectHideFlags: 0
@@ -18410,7 +18410,6 @@ MonoBehaviour:
   maxPopulation: 0
   populationGrowthRate: 0
   populationGrowthRateModifier: 0
-  status: 5
   stability: 0
   hability: 0
 --- !u!114 &867471420
@@ -18426,7 +18425,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: 
-  bodyStatus: {fileID: 0}
+  colonyStatus: {fileID: 0}
   orbiting: {fileID: 0}
   icon: {fileID: 0}
   bodyType: 0
@@ -18434,6 +18433,7 @@ MonoBehaviour:
   useCustomColor: 0
   customColor: {r: 0, g: 0, b: 0, a: 0}
   crust: {fileID: 0}
+  status: 5
 --- !u!1001 &870685738
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18763,6 +18763,7 @@ GameObject:
   - component: {fileID: 941910646}
   - component: {fileID: 941910648}
   - component: {fileID: 941910647}
+  - component: {fileID: 941910650}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -19126,6 +19127,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   categories: []
+--- !u!114 &941910650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 941910633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37694ed55bfd3f44d9bb0196263128be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colonies: []
 --- !u!1 &951593548
 GameObject:
   m_ObjectHideFlags: 0
@@ -19288,7 +19302,6 @@ MonoBehaviour:
   maxPopulation: 0
   populationGrowthRate: 0
   populationGrowthRateModifier: 0
-  status: 5
   stability: 0
   hability: 0
 --- !u!114 &951593557
@@ -19304,7 +19317,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: 
-  bodyStatus: {fileID: 0}
+  colonyStatus: {fileID: 0}
   orbiting: {fileID: 0}
   icon: {fileID: 0}
   bodyType: 3
@@ -19312,6 +19325,7 @@ MonoBehaviour:
   useCustomColor: 0
   customColor: {r: 0, g: 0, b: 0, a: 0}
   crust: {fileID: 0}
+  status: 5
 --- !u!1001 &954015971
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21356,7 +21370,6 @@ MonoBehaviour:
   maxPopulation: 0
   populationGrowthRate: 0
   populationGrowthRateModifier: 0
-  status: 5
   stability: 0
   hability: 0
 --- !u!114 &1138087777
@@ -21372,7 +21385,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: 
-  bodyStatus: {fileID: 0}
+  colonyStatus: {fileID: 0}
   orbiting: {fileID: 0}
   icon: {fileID: 21300000, guid: 9facf3569fd04894ea3c366a52294434, type: 3}
   bodyType: 0
@@ -21380,6 +21393,7 @@ MonoBehaviour:
   useCustomColor: 1
   customColor: {r: 0.745283, g: 0.69591737, b: 0.5097454, a: 1}
   crust: {fileID: 1868105290}
+  status: 5
 --- !u!4 &1155085050 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a02352aa69936e44cbf17c40ad615734,
@@ -21902,7 +21916,6 @@ MonoBehaviour:
   maxPopulation: 0
   populationGrowthRate: 0
   populationGrowthRateModifier: 0
-  status: 5
   stability: 0
   hability: 0
 --- !u!114 &1186634157
@@ -21918,7 +21931,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: 
-  bodyStatus: {fileID: 0}
+  colonyStatus: {fileID: 0}
   orbiting: {fileID: 0}
   icon: {fileID: 0}
   bodyType: 0
@@ -21926,6 +21939,7 @@ MonoBehaviour:
   useCustomColor: 0
   customColor: {r: 0, g: 0, b: 0, a: 0}
   crust: {fileID: 0}
+  status: 5
 --- !u!1 &1202368145
 GameObject:
   m_ObjectHideFlags: 0
@@ -22323,7 +22337,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: 
-  bodyStatus: {fileID: 0}
+  colonyStatus: {fileID: 0}
   orbiting: {fileID: 0}
   icon: {fileID: 0}
   fleetName: sadsada
@@ -23808,7 +23822,6 @@ MonoBehaviour:
   maxPopulation: 0
   populationGrowthRate: 0
   populationGrowthRateModifier: 0
-  status: 5
   stability: 0
   hability: 0
 --- !u!114 &1333688748
@@ -23827,7 +23840,6 @@ MonoBehaviour:
   maxPopulation: 0
   populationGrowthRate: 0
   populationGrowthRateModifier: 0
-  status: 5
   stability: 0
   hability: 0
 --- !u!114 &1333688749
@@ -23843,7 +23855,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: 
-  bodyStatus: {fileID: 0}
+  colonyStatus: {fileID: 0}
   orbiting: {fileID: 0}
   icon: {fileID: 0}
   bodyType: 0
@@ -23851,6 +23863,7 @@ MonoBehaviour:
   useCustomColor: 0
   customColor: {r: 0, g: 0, b: 0, a: 0}
   crust: {fileID: 0}
+  status: 5
 --- !u!1 &1337510942
 GameObject:
   m_ObjectHideFlags: 0
@@ -24470,7 +24483,6 @@ MonoBehaviour:
   maxPopulation: 0
   populationGrowthRate: 0
   populationGrowthRateModifier: 0
-  status: 5
   stability: 0
   hability: 0
 --- !u!114 &1376634471
@@ -24489,7 +24501,6 @@ MonoBehaviour:
   maxPopulation: 0
   populationGrowthRate: 0
   populationGrowthRateModifier: 0
-  status: 5
   stability: 0
   hability: 0
 --- !u!114 &1376634472
@@ -24505,7 +24516,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: 
-  bodyStatus: {fileID: 0}
+  colonyStatus: {fileID: 0}
   orbiting: {fileID: 0}
   icon: {fileID: 21300000, guid: 1413420a319cca344bf6b12a5cbeef52, type: 3}
   bodyType: 0
@@ -24513,6 +24524,7 @@ MonoBehaviour:
   useCustomColor: 1
   customColor: {r: 0.38901743, g: 0.5358975, b: 0.5849056, a: 1}
   crust: {fileID: 115086656}
+  status: 5
 --- !u!1 &1379268069
 GameObject:
   m_ObjectHideFlags: 0
@@ -28834,7 +28846,6 @@ MonoBehaviour:
   maxPopulation: 0
   populationGrowthRate: 0
   populationGrowthRateModifier: 0
-  status: 5
   stability: 0
   hability: 0
 --- !u!114 &1792061405
@@ -28850,7 +28861,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: 
-  bodyStatus: {fileID: 0}
+  colonyStatus: {fileID: 0}
   orbiting: {fileID: 0}
   icon: {fileID: 0}
   bodyType: 3
@@ -28858,6 +28869,7 @@ MonoBehaviour:
   useCustomColor: 0
   customColor: {r: 0, g: 0, b: 0, a: 0}
   crust: {fileID: 0}
+  status: 5
 --- !u!1 &1803584626
 GameObject:
   m_ObjectHideFlags: 0
@@ -31766,7 +31778,6 @@ MonoBehaviour:
   maxPopulation: 0
   populationGrowthRate: 0
   populationGrowthRateModifier: 0
-  status: 5
   stability: 0
   hability: 0
 --- !u!114 &2016960383
@@ -31782,7 +31793,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: 
-  bodyStatus: {fileID: 0}
+  colonyStatus: {fileID: 0}
   orbiting: {fileID: 0}
   icon: {fileID: 21300000, guid: 615abb42da9017c4ea9f861ba70d27fa, type: 3}
   bodyType: 0
@@ -31790,6 +31801,7 @@ MonoBehaviour:
   useCustomColor: 1
   customColor: {r: 0.6698113, g: 0.58666104, b: 0.3507031, a: 1}
   crust: {fileID: 102819325}
+  status: 5
 --- !u!1 &2039847313
 GameObject:
   m_ObjectHideFlags: 0
@@ -32082,7 +32094,6 @@ MonoBehaviour:
   maxPopulation: 0
   populationGrowthRate: 0
   populationGrowthRateModifier: 0
-  status: 5
   stability: 0
   hability: 0
 --- !u!114 &2047691605
@@ -32098,7 +32109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: 
-  bodyStatus: {fileID: 0}
+  colonyStatus: {fileID: 0}
   orbiting: {fileID: 0}
   icon: {fileID: 21300000, guid: 962dd0d6cd0fb4c4a805306afbfb6198, type: 3}
   bodyType: 4
@@ -32106,6 +32117,7 @@ MonoBehaviour:
   useCustomColor: 1
   customColor: {r: 0.4339623, g: 0.4339623, b: 0.4339623, a: 1}
   crust: {fileID: 1435170838}
+  status: 5
 --- !u!224 &2062387168 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7692068427078058106, guid: c6ab3bd338f660e45879ac1f4ea1edc4,
