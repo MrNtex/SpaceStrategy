@@ -3,6 +3,12 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+public enum CurrentGraph
+{
+    Population,
+    GDP,
+    Energy
+}
 public class PlanetModal : MonoBehaviour
 {
 
