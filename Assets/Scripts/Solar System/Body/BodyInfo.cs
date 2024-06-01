@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
-using static BodyInfo;
 public enum BodyType
 {
     Planet,
@@ -29,6 +28,8 @@ public class BodyInfo : ObjectInfo
     private Color customColor;
     [SerializeField]
     private Renderer crust;
+
+    public BodyStatusType status = BodyStatusType.Inhabitable;
 
     public override void Start()
     {
@@ -96,7 +97,7 @@ public class BodyInfo : ObjectInfo
     }
     public override void SetStatus(ref TMP_Text status)
     {
-        switch (bodyStatus.status)
+        switch (this.status)
         {
             case BodyStatusType.Colonized:
                 status.text = "Colonized";

@@ -13,6 +13,7 @@ public class PlanetModalManager : MonoBehaviour
 
     [SerializeField]
     private GameObject planetModal;
+
     private void Awake()
     {
         if (Instance == null)
@@ -29,7 +30,10 @@ public class PlanetModalManager : MonoBehaviour
     public void Spawn(BodyInfo bodyInfo)
     {
         GameObject modal = Instantiate(planetModal, transform);
-        modal.GetComponent<PlanetModal>().Spawn(bodyInfo);
+        PlanetModal pm = modal.GetComponent<PlanetModal>();
+        pm.Spawn(bodyInfo);
+
         MenusManager.activeModals.Add(modal);
+        
     }
 }

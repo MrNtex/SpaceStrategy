@@ -54,10 +54,10 @@ public class CelestailBilboard : Billboard
     {
         bodyInfo = target.GetComponent<BodyInfo>();
 
-        if(bodyInfo != null && bodyInfo.bodyStatus.status != BodyStatusType.Inhabitable)
+        if(bodyInfo != null && bodyInfo.status != BodyStatusType.Inhabitable)
         {
             specialButton.SetActive(true);
-            planetSpecialButton.SetUp(bodyInfo.bodyStatus.status, bodyInfo.icon);
+            planetSpecialButton.SetUp(bodyInfo.status, bodyInfo.icon);
             layoutGroup.padding.left = offset;
             return;
         }

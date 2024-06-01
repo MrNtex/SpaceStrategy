@@ -36,6 +36,11 @@ public class DateManager : MonoBehaviour
 
     public delegate void DateUpdate();
     public event DateUpdate OnDateUpdate;
+
+    public delegate void MonthUpdate();
+    public event MonthUpdate OnMonthUpdate;
+
+    int lastMonth = 0;
     private void Awake()
     {
         if (instance == null)
@@ -60,6 +65,12 @@ public class DateManager : MonoBehaviour
         dateText.text = currentDate.ToString("dd-MM-yyyy");
 
         OnDateUpdate?.Invoke();
+
+        if (currentDate.Day == 1 && lastMonth != currentDate.Month)
+        {
+            lastMonth = currentDate.Month;
+            OnMonthUpdate?.Invoke();
+        }
     }
     public void UpdateTimeScale(int idx)
     {

@@ -10,8 +10,8 @@ public class ObjectInfo : MonoBehaviour
 
     protected ObjectFocusHelper objectFocusHelper;
     protected Focus cameraFocus;
-    public BodyStatus bodyStatus;
-
+    
+    public ColonyStatus colonyStatus;
 
     public Orbiting orbiting;
 
@@ -30,7 +30,6 @@ public class ObjectInfo : MonoBehaviour
     
     public virtual void Start()
     {
-        bodyStatus = GetComponent<BodyStatus>();
         orbiting = GetComponent<Orbiting>();
     }
     public virtual void ButtonClicked()
