@@ -12,10 +12,10 @@ public class Dragger : MonoBehaviour, IBeginDragHandler, IDragHandler
     
     public void OnBeginDrag(PointerEventData eventData)
     {
-        offset = (Vector2)target.position - eventData.position;
+        offset = (Vector2)target.localPosition - eventData.position;
     }
     public void OnDrag(PointerEventData eventData)
     {
-        target.position = eventData.position + offset;
+        target.localPosition = eventData.position + offset;
     }
 }
