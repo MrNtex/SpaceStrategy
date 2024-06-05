@@ -22,7 +22,7 @@ public class ResearchJSON : MonoBehaviour
         }
     }
 
-    void Start()
+    public static void Config()
     {
         TextAsset[] jsonFiles = Resources.LoadAll<TextAsset>("ResearchTrees");
 

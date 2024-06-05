@@ -8,9 +8,12 @@ public class ResearchManager : MonoBehaviour
 {
     public static ResearchManager instance;
 
-    public List<ResearchCategory> categories;
+    public List<ResearchCategory> categories = new List<ResearchCategory>();
 
     public List<ActiveResearch> activeResearches = new List<ActiveResearch>();
+
+    [SerializeField]
+    private ResearchUI researchUI;
 
     private void Awake()
     {
@@ -18,6 +21,9 @@ public class ResearchManager : MonoBehaviour
     }
     void Start()
     {
+        ResearchJSON.Config();
+        researchUI.Config(categories.ToArray());
+
         DateManager.instance.OnDateUpdate += HandleDateChanged;
     }
 

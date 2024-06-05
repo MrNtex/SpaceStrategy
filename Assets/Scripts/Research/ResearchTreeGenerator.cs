@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class ResearchTreeGenerator : MonoBehaviour
 {
-    public int currentCategory = 0;
-
     [SerializeField]
     private GameObject researchPrefab;
 
@@ -14,25 +12,13 @@ public class ResearchTreeGenerator : MonoBehaviour
     private Transform researchParent;
 
     List<ResearchButton> researchButtons = new List<ResearchButton>();
-    ResearchCategory[] rCategory;
+
 
     public List<CategoryPanel> categoryPanels = new List<CategoryPanel>();
 
     [SerializeField]
     private GameObject categoryPrefab;
-    private void OnEnable()
-    {
-        ResearchCategory[] rCategory = ResearchManager.instance.categories.ToArray();
-
-
-        for(int i = 0; i < rCategory.Length; i++)
-        {
-            GenerateTree(rCategory[i]);
-        }
-
-
-    }
-    void GenerateTree(ResearchCategory category)
+    public GameObject GenerateTree(ResearchCategory category)
     {
         GameObject categoryGO = Instantiate(categoryPrefab, researchParent);
         CategoryPanel categoryPanel = categoryGO.GetComponent<CategoryPanel>();
@@ -59,5 +45,7 @@ public class ResearchTreeGenerator : MonoBehaviour
                 }
             }
         }
+
+        return categoryGO;
     }
 }

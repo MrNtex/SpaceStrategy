@@ -41,6 +41,8 @@ public class ColonyStatus : MonoBehaviour
 
         recentStability.Add(stability);
 
+
+        // Scaling by pops, stability, 
         gdp += gdp * gdpChangeRate * Random.Range(-.5f, .5f);
         recentGDP.Add(gdp);
     }

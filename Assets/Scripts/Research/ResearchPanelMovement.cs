@@ -5,20 +5,23 @@ using UnityEngine.EventSystems;
 
 public class ResearchPanelMovement : MonoBehaviour, IDragHandler, IPointerDownHandler
 {
-    ResearchTreeGenerator researchTreeGenerator;
+    ResearchUI researchUI;
     // Start is called before the first frame update
     void Start()
     {
-        researchTreeGenerator = transform.parent.GetComponent<ResearchTreeGenerator>();
+        researchUI = transform.parent.GetComponent<ResearchUI>();
     }
 
     private RectTransform rectTransform;
-
+    void ChangeCategory()
+    {
+        rectTransform = researchUI.categoryPanels[researchUI.currentCategory].GetComponent<RectTransform>();
+    }
     public void OnPointerDown(PointerEventData eventData)
     {
         if (eventData.button == PointerEventData.InputButton.Middle)
         {
-            rectTransform = researchTreeGenerator.categoryPanels[researchTreeGenerator.currentCategory].GetComponent<RectTransform>();
+            rectTransform = researchUI.categoryPanels[researchUI.currentCategory].GetComponent<RectTransform>();
         }
     }
 
@@ -27,6 +30,14 @@ public class ResearchPanelMovement : MonoBehaviour, IDragHandler, IPointerDownHa
         if (eventData.button == PointerEventData.InputButton.Middle)
         {
             rectTransform.localPosition += (Vector3)eventData.delta;
+        }
+    }
+
+    void Update()
+    {
+        if(Input.mouseScrollDelta.y != 0)
+        {
+            rectTransform.localScale += new Vector3(Input.mouseScrollDelta.y * 0.1f, Input.mouseScrollDelta.y * 0.1f, 0);
         }
     }
 }
