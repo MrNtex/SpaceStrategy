@@ -28962,6 +28962,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   researchTreeGenerator: {fileID: 1825213243}
+  researchPanelMovement: {fileID: 0}
   topbar: {fileID: 2044828113}
   cattegoryButton: {fileID: 7196962130773435307, guid: 69f5586bde9abcf48918eed6ffe5e33d,
     type: 3}

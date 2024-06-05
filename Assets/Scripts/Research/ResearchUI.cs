@@ -7,8 +7,6 @@ using UnityEngine.UI;
 
 public class ResearchUI : MonoBehaviour
 {
-    public static ResearchUI instance;
-
     [SerializeField]
     private ResearchTreeGenerator researchTreeGenerator;
 
@@ -23,9 +21,9 @@ public class ResearchUI : MonoBehaviour
     [SerializeField]
     private ToggleGroup toggleGroup;
 
-    public int currentCategory = 0;
+    public static int currentCategory = 0;
 
-    public List<GameObject> categoryPanels = new List<GameObject>();
+    public static List<GameObject> categoryPanels = new List<GameObject>();
 
     public void Config(ResearchCategory[] rCategory)
     {
