@@ -12,6 +12,9 @@ public class ResearchUI : MonoBehaviour
     [SerializeField]
     private ResearchTreeGenerator researchTreeGenerator;
 
+    [SerializeField]
+    private ResearchPanelMovement researchPanelMovement;
+
     ResearchCategory[] rCategory;
 
     [SerializeField]
@@ -26,6 +29,8 @@ public class ResearchUI : MonoBehaviour
 
     public void Config(ResearchCategory[] rCategory)
     {
+        gameObject.SetActive(true); // I have to set it active, because otherwise the line renderer won't work, because positions don't update
+
         rCategory = ResearchManager.instance.categories.ToArray();
 
         for (int i = 0; i < rCategory.Length; i++)
@@ -38,6 +43,8 @@ public class ResearchUI : MonoBehaviour
         }
 
         categoryPanels[currentCategory].SetActive(true);
+
+        gameObject.SetActive(false);
     }
 
     void ChangeCategory(int category)
@@ -45,5 +52,6 @@ public class ResearchUI : MonoBehaviour
         categoryPanels[currentCategory].SetActive(false);
         currentCategory = category;
         categoryPanels[category].SetActive(true);
+        researchPanelMovement.ChangeCategory();
     }
 }

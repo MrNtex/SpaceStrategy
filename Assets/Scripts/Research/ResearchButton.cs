@@ -43,7 +43,7 @@ public class ResearchButton : MonoBehaviour
         lr.sortingOrder = 1;
         lr.useWorldSpace = false;
 
-        if(origin.research.y == research.y)
+        if (origin.research.y == research.y)
         {
             // Simple straight line
             lr.positionCount = 2;

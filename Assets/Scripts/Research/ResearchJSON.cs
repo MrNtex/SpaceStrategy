@@ -28,7 +28,6 @@ public class ResearchJSON : MonoBehaviour
 
         foreach (TextAsset file in jsonFiles)
         {
-            Debug.Log($"Loaded file: {file.name}");
 
             // Parse each JSON file into a ResearchCategory object
             ResearchCategoryJSON category = JsonUtility.FromJson<ResearchCategoryJSON>(file.text);

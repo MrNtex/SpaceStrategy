@@ -45,7 +45,6 @@ public class ResearchTreeGenerator : MonoBehaviour
                 }
             }
         }
-
         return categoryGO;
     }
 }

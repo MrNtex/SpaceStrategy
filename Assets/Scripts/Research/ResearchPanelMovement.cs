@@ -13,7 +13,7 @@ public class ResearchPanelMovement : MonoBehaviour, IDragHandler, IPointerDownHa
     }
 
     private RectTransform rectTransform;
-    void ChangeCategory()
+    public void ChangeCategory()
     {
         rectTransform = researchUI.categoryPanels[researchUI.currentCategory].GetComponent<RectTransform>();
     }

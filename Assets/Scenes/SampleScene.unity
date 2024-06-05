@@ -19050,6 +19050,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   categories: []
+  researchUI: {fileID: 1825213248}
 --- !u!114 &941910650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28960,6 +28961,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aa39092fc5908b4496f83e8a16e6f53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  researchTreeGenerator: {fileID: 1825213243}
   topbar: {fileID: 2044828113}
   cattegoryButton: {fileID: 7196962130773435307, guid: 69f5586bde9abcf48918eed6ffe5e33d,
     type: 3}
