@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8253047217178578945}
   - component: {fileID: 8485974702297524364}
   m_Layer: 5
-  m_Name: CountryDecisionInfo
+  m_Name: Country Panel for tooltip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

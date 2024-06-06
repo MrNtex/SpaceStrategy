@@ -24,6 +24,8 @@ public class DecisionsManger : MonoBehaviour
     [SerializeField]
     private ActiveDecisionButton activeDecisionButton;
 
+    private TooltipData tooltipData = new TooltipData("No decision slected", "", "Select new decision");
+
     private void Awake()
     {
         if (instance == null)
@@ -39,6 +41,8 @@ public class DecisionsManger : MonoBehaviour
     void Start()
     {
         DateManager.instance.OnDateUpdate += HandleDateChanged;
+
+        AlertsManager.Instance.ShowAlert(AlertType.Decision, tooltipData);
     }
     public void SelectStarting()
     {
@@ -89,7 +93,7 @@ public class DecisionsManger : MonoBehaviour
         SetButtons();
         activeDecisionButton.SetUp();
 
-        AlertsManager.Instance.ShowAlert(AlertType.Decision);
+        AlertsManager.Instance.ShowAlert(AlertType.Decision, tooltipData);
         
     }
     private void ChangeRelations()
