@@ -17,13 +17,19 @@ public class AlertsManager : MonoBehaviour
 
     [SerializeField]
     private GameObject[] alerts;
+
+    public delegate void AlertTick(Color c);
+    public AlertTick OnAlertTick;
+
     private void Awake()
     {
+        Debug.Log("AlertsManager Awake");
         Instance = this;
     }
     public void ShowAlert(AlertType alert, TooltipData? td = null)
     {
         alerts[(int)alert].SetActive(true);
+
         alerts[(int)alert].GetComponent<AlertObject>().UpdateTooltipData(td);
     }
     public void HideAlert(AlertType alert)
@@ -42,5 +48,11 @@ public class AlertsManager : MonoBehaviour
                 Debug.Log("Decision Alert Clicked");
                 break;
         }
+    }
+
+    private void Update()
+    {
+        Color animationColor = Color.Lerp(colors[0], colors[1], Mathf.Abs(Mathf.Sin(Time.time)));
+        OnAlertTick?.Invoke(animationColor);
     }
 }

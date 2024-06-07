@@ -8,7 +8,7 @@ public class CelestialBillboardRightClick : MonoBehaviour, IPointerClickHandler
     private CelestailBilboard celestailBilboard;
     void Start()
     {
-        celestailBilboard = transform.parent.GetComponent<CelestailBilboard>();
+        celestailBilboard = transform.parent.parent.GetComponent<CelestailBilboard>();
     }
     public void OnPointerClick(PointerEventData eventData)
     {

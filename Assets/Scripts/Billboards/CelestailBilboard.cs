@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class CelestailBilboard : Billboard
 {
+    // MUST BE AFTER ALERTS MANAGER IN THE EXECUTION ORDER !!!
+
     [SerializeField]
     private Sprite pentagon, hexagon;
     [SerializeField]
