@@ -5,7 +5,9 @@ using UnityEngine.UI;
 public enum AlertType
 {
     Research,
-    Decision
+    Decision,
+    WaveClose,
+    WaveIncoming
 }
 public class AlertsManager : MonoBehaviour
 {
