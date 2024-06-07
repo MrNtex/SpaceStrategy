@@ -10,21 +10,20 @@ public class AlertsManager : MonoBehaviour
 {
     public static AlertsManager Instance;
 
-    [SerializeField]
-    private List<Sprite> alertSprites = new List<Sprite>();
-
     public Color[] colors;
 
     [SerializeField]
     private GameObject[] alerts;
-
-    public delegate void AlertTick(Color c);
-    public AlertTick OnAlertTick;
-
     private void Awake()
     {
-        Debug.Log("AlertsManager Awake");
-        Instance = this;
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
     public void ShowAlert(AlertType alert, TooltipData? td = null)
     {
@@ -48,11 +47,5 @@ public class AlertsManager : MonoBehaviour
                 Debug.Log("Decision Alert Clicked");
                 break;
         }
-    }
-
-    private void Update()
-    {
-        Color animationColor = Color.Lerp(colors[0], colors[1], Mathf.Abs(Mathf.Sin(Time.time)));
-        OnAlertTick?.Invoke(animationColor);
     }
 }

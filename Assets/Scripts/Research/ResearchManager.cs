@@ -25,6 +25,7 @@ public class ResearchManager : MonoBehaviour
         researchUI.Config(categories.ToArray());
 
         DateManager.instance.OnDateUpdate += HandleDateChanged;
+        AlertsManager.Instance.ShowAlert(AlertType.Research);
     }
 
     public void StartResearch(ResearchButton button)
