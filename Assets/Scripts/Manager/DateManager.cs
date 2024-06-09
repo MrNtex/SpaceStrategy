@@ -30,7 +30,7 @@ public class DateManager : MonoBehaviour
 
 
     private readonly float[] timeScales = { 1, 5, 10, 15, 50};
-    int lastScale = 1;
+    public int lastScale = 1;
 
     public static GameObject DateObject;
 
@@ -72,7 +72,7 @@ public class DateManager : MonoBehaviour
             OnMonthUpdate?.Invoke();
         }
     }
-    public void UpdateTimeScale(int idx)
+    public void UpdateTimeScale(int idx) 
     {
         DateManager.timeScale = timeScales[idx];
         int i = 0;
@@ -93,6 +93,14 @@ public class DateManager : MonoBehaviour
         }
 
         lastScale = idx;
+    }
+    public void UpdateTimeScale(int idx, bool indirectly)
+    {
+        // It's a bit of a hack, but it's a way to prevent the time scale from being changed by events, without having to remake the button system
+
+        // Indirectly is left to create a setting that will disable the time scale change by events
+
+        UpdateTimeScale(idx);
     }
     public void Pause(bool force = false)
     {

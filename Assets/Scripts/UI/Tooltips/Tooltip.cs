@@ -3,6 +3,13 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+public enum TooltipTarget
+{
+    Empty,
+    Alert,
+    Piechart,
+    ActiveDecision
+}
 public class Tooltip : MonoBehaviour
 {
     [SerializeField]
@@ -20,6 +27,8 @@ public class Tooltip : MonoBehaviour
 
     private Vector2 savedPos;
 
+    public TooltipTarget target;
+
 
     [SerializeField]
     protected GameObject countryPanel;
@@ -34,8 +43,10 @@ public class Tooltip : MonoBehaviour
         MenusManager.Instance.OnChangedMenu += HideTooltip;
     }
     
-    public void ShowTooltip(TooltipData tooltipData)
+    public void ShowTooltip(TooltipData tooltipData, TooltipTarget target)
     {
+        this.target = target;
+
         tooltip.SetActive(true);
 
         this.tooltipData = tooltipData;
@@ -69,6 +80,7 @@ public class Tooltip : MonoBehaviour
     public virtual void HideTooltip()
     {
         tooltip.SetActive(false);
+        target = TooltipTarget.Empty;
     }
 
     protected virtual void ShowAdvanced()

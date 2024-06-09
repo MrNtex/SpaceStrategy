@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class JSONUtils : MonoBehaviour
 {
+    public static bool textureNotFoundWarning = false;
+
     public static Sprite LoadSprite(string folder, string fileName)
     {
         string path = "GFX/" + folder + fileName;
@@ -12,7 +14,8 @@ public class JSONUtils : MonoBehaviour
 
         if (sprite == null)
         {
-            Debug.LogWarning("Texture not found at path: " + path);
+            if (textureNotFoundWarning)
+                Debug.LogWarning("Texture not found at path: " + path);
             return null;
         }
 

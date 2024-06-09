@@ -108,6 +108,6 @@ public class ActiveDecisionButton : MonoBehaviour, IPointerMoveHandler, IPointer
 
 
         TooltipData tooltipData = new TooltipData(decision.name, sub, $"Days remaining: {daysRemaining}", decision.name, "", $"Progress: {DecisionsManger.instance.progress.ToString("N2")}/{DecisionsManger.instance.duration} \n{advancedContent}", new Dictionary<string, string>(), countriesLiking);
-        tooltip.ShowTooltip(tooltipData);
+        tooltip.ShowTooltip(tooltipData, TooltipTarget.ActiveDecision);
     }
 }

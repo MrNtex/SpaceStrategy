@@ -19,9 +19,6 @@ public class WavesManager : MonoBehaviour
     public int daysRemaining;
 
     public DateTime endDate;
-
-    private TooltipData waveCloseData = new TooltipData("Wave Incoming", "", "A wave of enemies is approaching in less than a month. Prepare your defenses.");
-    private TooltipData waveIncomingData = new TooltipData("Wave Incoming", "", "A wave of enemies is approaching in less than a week. Prepare your defenses.");
     private void Awake()
     {
         if (instance == null)
@@ -38,22 +35,36 @@ public class WavesManager : MonoBehaviour
     void Start()
     {
         DateManager.instance.OnDateUpdate += HandleDateChanged;
-
+        WaveFinished();
     }
 
     void HandleDateChanged()
     {
         daysRemaining = endDate.Subtract(DateManager.currentDate).Days;
         
-        if(daysRemaining == 30)
+        if(daysRemaining == 60 && !nextWave.firstWarningFired)
         {
-            AlertsManager.Instance.ShowAlert(AlertType.WaveIncoming, waveCloseData);
-            return;
+            TooltipData waveIncomingData = new TooltipData("Wave aproaching", "", $"A wave of enemies is approaching in less than two months. They are aproaching from the {DirectionFromVector(nextWave.spawnPoint)}");
+            AlertsManager.Instance.ShowAlert(AlertType.WaveIncoming, waveIncomingData);
+            if (DateManager.instance.lastScale > 2)
+            {
+                DateManager.instance.UpdateTimeScale(2, true);
+            }
+            
+            // Handle date changed can be called multiple times in a day, this is to prevent undestoyable alerts
+            nextWave.firstWarningFired = true;
         }
-        if(daysRemaining == 7)
+        if(daysRemaining == 7 && !nextWave.secondWarningFired)
         {
+            TooltipData waveIncomingData = new TooltipData("Wave aproaching", "", $"A wave of enemies is approaching in less than a week. They are aproaching from the {DirectionFromVector(nextWave.spawnPoint)}");
             AlertsManager.Instance.ShowAlert(AlertType.WaveClose, waveIncomingData);
             AlertsManager.Instance.HideAlert(AlertType.WaveIncoming);
+            if (DateManager.instance.lastScale > 0)
+            {
+                DateManager.instance.UpdateTimeScale(0, true);
+            }
+
+            nextWave.secondWarningFired = true;
             return;
         }
 
@@ -62,7 +73,24 @@ public class WavesManager : MonoBehaviour
             Debug.Log("Wave Incoming");
         }
     }
+    private string DirectionFromVector(Vector3 dir)
+    {
+        float angle = Mathf.Atan2(dir.x, dir.z) * Mathf.Rad2Deg;
 
+        if(angle < -90)
+        {
+            return "Betelgeuse";
+        }
+        if(angle < 0)
+        {
+            return "Vega";
+        }
+        if(angle < 90)
+        {
+            return "Arcturus";
+        }
+        return "Regulus";
+    }
     void WaveFinished()
     {
         currentWave++;
@@ -85,4 +113,8 @@ public struct Wave
     public int delay;
     
     public int power;
+
+    public Vector3 spawnPoint;
+
+    public bool firstWarningFired, secondWarningFired;
 }

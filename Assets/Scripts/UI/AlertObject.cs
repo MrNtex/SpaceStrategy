@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class AlertObject : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerMoveHandler
+public class AlertObject : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerMoveHandler, IPointerClickHandler
 {
     public AlertType alertType;
 
@@ -16,7 +16,7 @@ public class AlertObject : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         {
             return;
         }
-        tooltip.ShowTooltip((TooltipData)tooltipData);
+        tooltip.ShowTooltip((TooltipData)tooltipData, TooltipTarget.Alert);
     }
     public void OnPointerExit(PointerEventData eventData)
     {
@@ -34,5 +34,16 @@ public class AlertObject : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public void UpdateTooltipData(TooltipData? tooltipData)
     {
         this.tooltipData = tooltipData;
+    }
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if(eventData.button == PointerEventData.InputButton.Left)
+        {
+            OnClick();
+        }
+        if(eventData.button == PointerEventData.InputButton.Right)
+        {
+            AlertsManager.Instance.HideAlert(alertType);
+        }
     }
 }
