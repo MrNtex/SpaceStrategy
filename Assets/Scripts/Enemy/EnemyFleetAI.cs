@@ -16,19 +16,21 @@ public class EnemyFleetAI : MonoBehaviour
 
     EnemyFleetPriority priority = EnemyFleetPriority.Normal;
 
+    public GameObject target;
 
     private void Start()
     {
-        
+        target = CheckForTargets(range);
+        Debug.Log(target);
     }
-    void CheckForTargets(float fleetSearchRange)
+    GameObject CheckForTargets(float fleetSearchRange)
     {
         Fleet targetFleet = TargetFleet(fleetSearchRange);
 
         if (targetFleet != null)
         {
             // Attack
-            return;
+            return targetFleet.capitan;
         }
 
 
@@ -36,29 +38,40 @@ public class EnemyFleetAI : MonoBehaviour
         if (targetColony != null)
         {
             // Move to target
-            return;
+            return targetColony;
         }
         // Something went wrong
         Debug.LogError($"{this} - No target found");
+        return null;
     }
 
     private Fleet TargetFleet(float fleetSearchRange)
     {
+        Fleet closest = null;
         foreach (Fleet fleet in FleetManager.instance.fleets)
         {
-            float dist = Vector3.Distance(transform.position, fleet.transform.position);
+            float dist = Vector3.Distance(transform.position, fleet.capitan.transform.position);
+            Debug.Log(dist);
             if (dist < fleetSearchRange)
             {
-                return fleet;
+                if (closest == null)
+                {
+                    closest = fleet;
+                    continue;
+                }
+                if(Vector3.Distance(transform.position, fleet.capitan.transform.position) < Vector3.Distance(transform.position, closest.capitan.transform.position))
+                {
+                    closest = fleet;
+                }
             }
         }
-        return null;
+        return closest;
     }
 
     GameObject FindTheClosestColony()
     {
         GameObject[] bodies = GameObject.FindGameObjectsWithTag("CelestialBody");
-        GameObject closestFleet = null;
+        GameObject closestBody = null;
         foreach (GameObject planet in bodies)
         {
             BodyInfo bodyInfo = planet.GetComponent<BodyInfo>();
@@ -67,12 +80,17 @@ public class EnemyFleetAI : MonoBehaviour
                 Debug.LogWarning(planet + " is marked, but doesn't have the BodyInfo attached");
                 continue;
             }
-            if (CanBeAttacked(bodyInfo.status) && Vector3.Distance(transform.position, planet.transform.position) < Vector3.Distance(transform.position, closestFleet.transform.position))
+            if (closestBody == null)
             {
-                closestFleet = planet;
+                closestBody = planet;
+                continue;
+            }
+            if (CanBeAttacked(bodyInfo.status) && Vector3.Distance(transform.position, planet.transform.position) < Vector3.Distance(transform.position, closestBody.transform.position))
+            {
+                closestBody = planet;
             }
         }
-        return closestFleet;
+        return closestBody;
     }
     private bool CanBeAttacked(BodyStatusType bst)
     {
