@@ -3,11 +3,23 @@ using System.Collections.Generic;
 using System.Drawing;
 using UnityEngine;
 
-public class Fleet : ObjectInfo
+public partial class Fleet : ObjectInfo
 {
     [Header("Basic info")]
     public List<Ship> composition = new List<Ship>();
-    public GameObject capitan;
+    public GameObject capitan
+    {
+        set
+        {
+            capitanIndex = composition.FindIndex(x => x.prefab == value);
+        }
+        get
+        {
+            return composition[capitanIndex].prefab;
+        }
+    }
+
+    private int capitanIndex = 0;
     [SerializeField]
     public GameObject destination;
 
@@ -81,7 +93,19 @@ public class Fleet : ObjectInfo
         UpdateFleet();
     }
 
+    public virtual void DrawPath(Vector3 dest) { }
+    public virtual void SetFleetStatus(FleetStatus status) { }
 }
+[System.Serializable]
+public class Ship
+{
+    public ShipType type;
+    //public int count;
+    public Vector3 velocity;
+    public GameObject prefab;
+    public Vector3 myOffset;
+}
+
 public enum FleetFlyPatternType
 {
     Follow,

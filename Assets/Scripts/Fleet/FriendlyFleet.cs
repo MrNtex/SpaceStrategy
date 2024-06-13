@@ -12,16 +12,14 @@ public enum ShipType
 }
 public partial class FriendlyFleet : Fleet
 {
-    [Header("Formation")]
-    public bool forceManeuver = false;
 
-    
     public LineRenderer path;
     private const float lrOffset = 2.5f;
 
 
-    public void Start()
+    protected override void Start()
     {
+        base.Start();
         path = GetComponent<LineRenderer>();
         fleetBillboard.SetupFleet();
 
@@ -62,7 +60,7 @@ public partial class FriendlyFleet : Fleet
 
         FleetManager.instance.selectedFleet = this; // Reminder: Selected Object and Selected Fleet must be different (they are changed under similar yet diffrent circumstances)
     }
-    public void DrawPath(Vector3 dest)
+    public override void DrawPath(Vector3 dest)
     {
         if (status == FleetStatus.Moving)
         {
@@ -104,27 +102,6 @@ public partial class FriendlyFleet : Fleet
             default:
                 text.text = "No status";
                 break;
-        }
-    }
-}
-[System.Serializable]
-public struct Ship
-{
-    public ShipType type;
-    //public int count;
-    public FlyPattern flyPattern;
-    public GameObject prefab;
-
-    void Start()
-    {
-        if(prefab == null)
-        {
-            Debug.LogError("Prefab is not set for " + type);
-        }
-        flyPattern = prefab.GetComponent<FlyPattern>();
-        if(flyPattern == null)
-        {
-            Debug.LogError("FlyPattern is not set for " + type);
         }
     }
 }

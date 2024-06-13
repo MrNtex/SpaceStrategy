@@ -18,13 +18,25 @@ public class EnemyFleetAI : MonoBehaviour
 
     public GameObject target;
 
-    private void OnEnable()
+    public EnemyFleet enemyFleet;
+
+    private Transform capitan;
+    private void Start()
     {
+        enemyFleet = GetComponent<EnemyFleet>();
+
         target = CheckForTargets(range);
-        Debug.Log(target);
     }
     GameObject CheckForTargets(float fleetSearchRange)
     {
+        capitan = enemyFleet.capitan.transform;
+
+        if(capitan == null)
+        {
+            Debug.LogError("Capitan is null");
+            return null;
+        }
+
         FriendlyFleet targetFleet = TargetFleet(fleetSearchRange);
 
         if (targetFleet != null)
@@ -50,7 +62,7 @@ public class EnemyFleetAI : MonoBehaviour
         FriendlyFleet closest = null;
         foreach (FriendlyFleet fleet in FleetManager.instance.fleets)
         {
-            float dist = Vector3.Distance(transform.position, fleet.capitan.transform.position);
+            float dist = Vector3.Distance(capitan.position, fleet.capitan.transform.position);
             if (dist < fleetSearchRange)
             {
                 if (closest == null)
@@ -58,7 +70,7 @@ public class EnemyFleetAI : MonoBehaviour
                     closest = fleet;
                     continue;
                 }
-                if(Vector3.Distance(transform.position, fleet.capitan.transform.position) < Vector3.Distance(transform.position, closest.capitan.transform.position))
+                if(Vector3.Distance(capitan.position, fleet.capitan.transform.position) < Vector3.Distance(capitan.position, closest.capitan.transform.position))
                 {
                     closest = fleet;
                 }
@@ -84,7 +96,7 @@ public class EnemyFleetAI : MonoBehaviour
                 closestBody = planet;
                 continue;
             }
-            if (CanBeAttacked(bodyInfo.status) && Vector3.Distance(transform.position, planet.transform.position) < Vector3.Distance(transform.position, closestBody.transform.position))
+            if (CanBeAttacked(bodyInfo.status) && Vector3.Distance(capitan.position, planet.transform.position) < Vector3.Distance(capitan.position, closestBody.transform.position))
             {
                 closestBody = planet;
             }

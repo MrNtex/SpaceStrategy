@@ -2,33 +2,76 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public partial class FriendlyFleet : Fleet
+public partial class Fleet : ObjectInfo
 {
 
     private Vector3 capitanVelocity = Vector3.zero;
 
     private const float forceManueverDistance = 50f;
 
+    [Header("Formation")]
+    public bool forceManeuver = false;
 
+    protected virtual void Start()
+    {
+        Debug.Log("Fleet Start");
+    }
     private void FixedUpdate()
     {
         if (status == FleetStatus.Moving && destination != null)
         {
             if (destination.CompareTag("Point"))
             {
-                FlyTowards(destination.transform.position);
-                return;
+                FlyCapitan(destination.transform.position);
             }
-
-            Vector3 near = destination.transform.position - capitan.transform.position;
-            near -= near.normalized;
-            near += capitan.transform.position;
-            FlyTowards(near);
-
+            else
+            {
+                Vector3 near = destination.transform.position - capitan.transform.position;
+                near -= near.normalized;
+                near += capitan.transform.position;
+                FlyCapitan(near);
+            }
+            
+            for (int i = 0; i < composition.Count; i++)
+            {
+                FlyTowards(i);
+            }
         }
     }
-    void FlyTowards(Vector3 dest)
+    void FlyTowards(int idx)
     {
+        Transform t = composition[idx].prefab.transform;
+
+        if (t == capitan)
+        {
+            return;
+        }
+
+        float angle = capitan.transform.rotation.eulerAngles.y;
+
+        Vector3 offset = Quaternion.Euler(0, angle, 0) * composition[idx].myOffset;
+        Vector3 dest = capitan.transform.position + offset;
+
+        if (Vector3.Distance(Camera.main.transform.position, t.position) > 1000f)
+        {
+            // Perform simplified calculations
+            t.position = dest;
+            t.rotation = capitan.transform.rotation;
+
+            return;
+        }
+
+        if (Vector3.Distance(t.position, dest) < .1f)
+        {
+            return;
+        }
+        CalculateMovment(dest, composition[idx]);
+
+        return;
+    }
+    void FlyCapitan(Vector3 dest)
+    {
+        // Capitan version
         if (Vector3.Distance(capitan.transform.position, dest) < destinationOffset)
         {
             if (destination.CompareTag("CelestialBody"))
@@ -41,25 +84,27 @@ public partial class FriendlyFleet : Fleet
         }
 
         DrawPath(dest);
-        CalculateMovment(dest, capitan.transform, ref capitanVelocity);
+        CalculateMovment(dest, composition[capitanIndex]);
     }
 
-    public void CalculateMovment(Vector3 dest, Transform ship, ref Vector3 velocity)
+    public void CalculateMovment(Vector3 dest, Ship ship)
     {
         if (DateManager.timeScale == 0) return;
 
+        Transform t = ship.prefab.transform;
+
         if (DateManager.timeScale > 50)
         {
-            ship.position = Vector3.MoveTowards(ship.position, dest, speed * DateManager.timeScale * Time.deltaTime);
+            t.position = Vector3.MoveTowards(t.position, dest, speed * DateManager.timeScale * Time.deltaTime);
             return;
         }
 
-        Quaternion targetRotation = Quaternion.LookRotation(dest - ship.position);
+        Quaternion targetRotation = Quaternion.LookRotation(dest - t.position);
 
-        float distance = Vector3.Distance(ship.position, dest);
+        float distance = Vector3.Distance(t.position, dest);
 
-        Vector3 dir = dest - ship.position;
-        float angle = Vector3.Angle(ship.forward, dir); // The resulting angle ranges from 0 to 180.
+        Vector3 dir = dest - t.position;
+        float angle = Vector3.Angle(t.forward, dir); // The resulting angle ranges from 0 to 180.
 
         float maneuverSpeed = speed * DateManager.timeScale;
 
@@ -78,16 +123,16 @@ public partial class FriendlyFleet : Fleet
             }
 
 
-            ship.rotation = Quaternion.SlerpUnclamped(ship.rotation, targetRotation, Time.deltaTime * angularMultiplier * DateManager.timeScale);
-            ship.position = Vector3.SmoothDamp(ship.position, ship.position + ship.forward * 20, ref velocity, smoothTime, maneuverSpeed, Time.deltaTime * DateManager.timeScale);
+            t.rotation = Quaternion.SlerpUnclamped(t.rotation, targetRotation, Time.deltaTime * angularMultiplier * DateManager.timeScale);
+            t.position = Vector3.SmoothDamp(t.position, t.position + t.forward * 20, ref ship.velocity, smoothTime, maneuverSpeed, Time.deltaTime * DateManager.timeScale);
             return;
         }
 
         maneuverSpeed = Mathf.Clamp(speed - maneuverabilityPenalty * angle, minSpeed, speed) * DateManager.timeScale;
 
-        ship.position = Vector3.SmoothDamp(ship.position, dest, ref velocity, smoothTime, maneuverSpeed, Time.deltaTime * DateManager.timeScale);
+        t.position = Vector3.SmoothDamp(t.position, dest, ref ship.velocity, smoothTime, maneuverSpeed, Time.deltaTime * DateManager.timeScale);
 
         // Rotate much faster when close to destination
-        ship.rotation = Quaternion.SlerpUnclamped(ship.rotation, targetRotation, Time.deltaTime * 2 * DateManager.timeScale);
+        t.rotation = Quaternion.SlerpUnclamped(t.rotation, targetRotation, Time.deltaTime * 2 * DateManager.timeScale);
     }
 }

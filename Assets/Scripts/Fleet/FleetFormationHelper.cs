@@ -20,6 +20,8 @@ public class FleetFormationHelper : MonoBehaviour
     }
     public void SetLineFormation(Ship[] composition, GameObject capitan)
     {
+        Debug.Log("Setting line formation");
+
         float distanceX = 3;
         float distanceZ = -7.5f;
 
@@ -31,12 +33,12 @@ public class FleetFormationHelper : MonoBehaviour
         {
             if (composition[i].prefab == capitan)
             {
-                composition[i].flyPattern.myOffset = Vector3.zero;
+                composition[i].myOffset = Vector3.zero;
                 continue;
             }
             if(itemInRow < row)
             {
-                composition[i].flyPattern.myOffset = offset[itemInRow];
+                composition[i].myOffset = offset[itemInRow];
                 itemInRow++;
                 continue;
             }
@@ -44,7 +46,7 @@ public class FleetFormationHelper : MonoBehaviour
             itemInRow = 0;
             row++;
             offset = OffsetForRow(row, distanceX, distanceZ);
-            composition[i].flyPattern.myOffset = offset[itemInRow];
+            composition[i].myOffset = offset[itemInRow];
             itemInRow++;
 
         }
