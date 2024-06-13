@@ -23,7 +23,6 @@ public class Billboard : MonoBehaviour
 
     protected PositionConstraint positionConstraint;
 
-
     protected virtual void Start()
     {
         positionConstraint = gameObject.GetComponent<PositionConstraint>();
@@ -40,11 +39,8 @@ public class Billboard : MonoBehaviour
             }
         }
 
-        if (mainCamera == null)
-        {
-            mainCamera = Camera.main;
-        }
-
+        if (mainCamera == null) mainCamera = Camera.main;
+        
 
         Vector3 cumulativeScale = CalculateCumulativeParentScale(transform);
         // Inverse the parents scale to keep the text size consistent (it has to be cumulative because of moons)
@@ -68,9 +64,13 @@ public class Billboard : MonoBehaviour
     }
     protected virtual void FixedUpdate()
     {
-        if (target == null || mainCamera == null) return;
+        //if (target == null || mainCamera == null) return;
 
         Vector3 directionToCamera = mainCamera.transform.position - target.position;
+        if (Vector3.Dot(directionToCamera, mainCamera.transform.forward) > 0)
+        {
+            return;
+        }
 
         float distance = directionToCamera.magnitude;
 

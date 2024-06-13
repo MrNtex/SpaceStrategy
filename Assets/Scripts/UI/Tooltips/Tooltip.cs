@@ -138,6 +138,7 @@ public class Tooltip : MonoBehaviour
     }
     void Update()
     {
+        if (!tooltip.activeSelf) return;
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             ShowAdvanced();

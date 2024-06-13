@@ -42,6 +42,25 @@ public partial class Fleet : ObjectInfo
     public GameObject onOrbit;
 
     protected GameObject point;
+
+
+    public LineRenderer path;
+    protected const float lrOffset = 2.5f;
+
+    private Transform mainCamera;
+
+    void Start()
+    {
+        path = GetComponent<LineRenderer>();
+
+        fleetBillboard.SetUpFleet();
+        UpdateFleet();
+
+        point = new GameObject($"{objectName}'s Point");
+
+        mainCamera = Camera.main.transform;
+    }
+
     public virtual void SetDestination(GameObject dest)
     {
         if (dest.CompareTag("Point"))

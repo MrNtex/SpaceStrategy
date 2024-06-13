@@ -11,19 +11,16 @@ public class FleetBillboard : Billboard
     [SerializeField]
     private List<Color> textColors;
 
-    private FriendlyFleet fleet;
+    public FriendlyFleet fleet;
 
     private ObjectFocusHelper objectFocusHelper;
 
 
     [SerializeField]
     private FleetIcon[] fleetIcons;
-    protected override void Start()
+    public void SetUpFleet()
     {
-        return;
-    }
-    public void SetupFleet()
-    {
+
         minDistance = -1;
 
         base.Start();
@@ -42,7 +39,7 @@ public class FleetBillboard : Billboard
         source.sourceTransform = target;
         source.weight = 1;
 
-        if(positionConstraint.sourceCount == 0)
+        if (positionConstraint.sourceCount == 0)
         {
             positionConstraint.AddSource(source);
             return;

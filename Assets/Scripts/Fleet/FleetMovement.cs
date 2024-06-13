@@ -12,10 +12,7 @@ public partial class Fleet : ObjectInfo
     [Header("Formation")]
     public bool forceManeuver = false;
 
-    protected virtual void Start()
-    {
-        Debug.Log("Fleet Start");
-    }
+
     private void FixedUpdate()
     {
         if (status == FleetStatus.Moving && destination != null)
@@ -52,7 +49,7 @@ public partial class Fleet : ObjectInfo
         Vector3 offset = Quaternion.Euler(0, angle, 0) * composition[idx].myOffset;
         Vector3 dest = capitan.transform.position + offset;
 
-        if (Vector3.Distance(Camera.main.transform.position, t.position) > 1000f)
+        if (Vector3.Distance(mainCamera.position, t.position) > 1000f)
         {
             // Perform simplified calculations
             t.position = dest;

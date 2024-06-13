@@ -13,21 +13,6 @@ public enum ShipType
 public partial class FriendlyFleet : Fleet
 {
 
-    public LineRenderer path;
-    private const float lrOffset = 2.5f;
-
-
-    protected override void Start()
-    {
-        base.Start();
-        path = GetComponent<LineRenderer>();
-        fleetBillboard.SetupFleet();
-
-        base.UpdateFleet();
-
-        point = new GameObject($"{objectName}'s Point");
-    }
-
     public override void SetDestination(GameObject dest)
     {
         base.SetDestination(dest);
