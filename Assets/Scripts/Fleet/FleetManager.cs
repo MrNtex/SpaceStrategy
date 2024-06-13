@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class FleetManager : MonoBehaviour
 {
-    public Fleet[] fleets;
+    public FriendlyFleet[] fleets;
 
     public static FleetManager instance;
     // Start is called before the first frame update
 
-    public Fleet selectedFleet
+    public FriendlyFleet selectedFleet
     {
         get
         {
@@ -31,7 +31,7 @@ public class FleetManager : MonoBehaviour
         }
     }
     [SerializeField]
-    private Fleet _selectedFleet;
+    private FriendlyFleet _selectedFleet;
 
 
     public Color focused, normal;
@@ -72,26 +72,4 @@ public class FleetManager : MonoBehaviour
             selectedFleet.SetFleetStatus(FleetStatus.Idle);
         }
     }
-}
-public enum FleetFlyPatternType
-{
-    Follow,
-    Orbit,
-    Attack,
-    Flee
-}
-public enum FleetFormation
-{
-    Line,
-    Circle,
-    Triangle,
-    Square
-}
-public enum FleetStatus
-{
-    Idle,
-    Moving,
-    OnOrbit,
-    Attacking,
-    Fleeing
 }

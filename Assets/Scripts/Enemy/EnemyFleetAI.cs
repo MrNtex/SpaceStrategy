@@ -18,14 +18,14 @@ public class EnemyFleetAI : MonoBehaviour
 
     public GameObject target;
 
-    private void Start()
+    private void OnEnable()
     {
         target = CheckForTargets(range);
         Debug.Log(target);
     }
     GameObject CheckForTargets(float fleetSearchRange)
     {
-        Fleet targetFleet = TargetFleet(fleetSearchRange);
+        FriendlyFleet targetFleet = TargetFleet(fleetSearchRange);
 
         if (targetFleet != null)
         {
@@ -45,13 +45,12 @@ public class EnemyFleetAI : MonoBehaviour
         return null;
     }
 
-    private Fleet TargetFleet(float fleetSearchRange)
+    private FriendlyFleet TargetFleet(float fleetSearchRange)
     {
-        Fleet closest = null;
-        foreach (Fleet fleet in FleetManager.instance.fleets)
+        FriendlyFleet closest = null;
+        foreach (FriendlyFleet fleet in FleetManager.instance.fleets)
         {
             float dist = Vector3.Distance(transform.position, fleet.capitan.transform.position);
-            Debug.Log(dist);
             if (dist < fleetSearchRange)
             {
                 if (closest == null)

@@ -11,7 +11,7 @@ public class FleetBillboard : Billboard
     [SerializeField]
     private List<Color> textColors;
 
-    private Fleet fleet;
+    private FriendlyFleet fleet;
 
     private ObjectFocusHelper objectFocusHelper;
 
@@ -28,9 +28,9 @@ public class FleetBillboard : Billboard
 
         base.Start();
 
-        fleet = transform.parent.GetComponent<Fleet>(); // UI is a child of the fleet capitan, while the fleet info is the parent
+        fleet = transform.parent.GetComponent<FriendlyFleet>(); // UI is a child of the fleet capitan, while the fleet info is the parent
 
-        text.text = fleet.fleetName;
+        text.text = fleet.objectName;
         button.GetComponent<Button>().onClick.AddListener(() => fleet.ButtonClicked());
         UpdateFleet();
 

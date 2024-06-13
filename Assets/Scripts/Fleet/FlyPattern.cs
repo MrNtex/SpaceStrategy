@@ -18,12 +18,12 @@ public class FlyPattern : MonoBehaviour
     public float smoothTime = 0.3F;
     private Vector3 velocity = Vector3.zero;
 
-    private Fleet fleet;
+    private FriendlyFleet fleet;
     private Transform mainCamera;
 
     private void Start()
     {
-        fleet = transform.parent.GetComponent<Fleet>();
+        fleet = transform.parent.GetComponent<FriendlyFleet>();
 
         if(fleet == null)
         {

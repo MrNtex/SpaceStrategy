@@ -19,6 +19,10 @@ public enum PlanetType
 }
 public class BodyInfo : ObjectInfo
 {
+    /// <summary>
+    /// Object info used for planets, moons, stars and dwarf planets
+    /// </summary>
+
     public BodyType bodyType;
     public PlanetType planetType;
 
@@ -31,9 +35,13 @@ public class BodyInfo : ObjectInfo
 
     public BodyStatusType status = BodyStatusType.Inhabitable;
 
-    public override void Start()
+    public ColonyStatus colonyStatus;
+
+    public Orbiting orbiting;
+
+    public void Start()
     {
-        base.Start();
+        orbiting = GetComponent<Orbiting>();
 
         if(useCustomColor)
         {

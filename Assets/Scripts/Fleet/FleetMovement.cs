@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public partial class Fleet : ObjectInfo
+public partial class FriendlyFleet : Fleet
 {
 
     private Vector3 capitanVelocity = Vector3.zero;

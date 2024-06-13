@@ -10,11 +10,6 @@ public class ObjectInfo : MonoBehaviour
 
     protected ObjectFocusHelper objectFocusHelper;
     protected Focus cameraFocus;
-    
-    public ColonyStatus colonyStatus;
-
-    public Orbiting orbiting;
-
 
     public Sprite icon;
 
@@ -26,11 +21,6 @@ public class ObjectInfo : MonoBehaviour
         objectFocusHelper = GetComponent<ObjectFocusHelper>();
         cameraFocus = Camera.main.GetComponent<Focus>();
         
-    }
-    
-    public virtual void Start()
-    {
-        orbiting = GetComponent<Orbiting>();
     }
     public virtual void ButtonClicked()
     {
