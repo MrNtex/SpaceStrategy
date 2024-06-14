@@ -12,8 +12,7 @@ public partial class Fleet : ObjectInfo
     [Header("Formation")]
     public bool forceManeuver = false;
 
-
-    private void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
         if (status == FleetStatus.Moving && destination != null)
         {
@@ -29,10 +28,11 @@ public partial class Fleet : ObjectInfo
                 FlyCapitan(near);
             }
             
-            for (int i = 0; i < composition.Count; i++)
-            {
-                FlyTowards(i);
-            }
+            
+        }
+        for (int i = 0; i < composition.Count; i++)
+        {
+            FlyTowards(i);
         }
     }
     void FlyTowards(int idx)
@@ -69,6 +69,7 @@ public partial class Fleet : ObjectInfo
     void FlyCapitan(Vector3 dest)
     {
         // Capitan version
+
         if (Vector3.Distance(capitan.transform.position, dest) < destinationOffset)
         {
             if (destination.CompareTag("CelestialBody"))

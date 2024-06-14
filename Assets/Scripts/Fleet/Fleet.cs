@@ -49,7 +49,7 @@ public partial class Fleet : ObjectInfo
 
     private Transform mainCamera;
 
-    void Start()
+    protected virtual void Start()
     {
         path = GetComponent<LineRenderer>();
 
@@ -113,7 +113,10 @@ public partial class Fleet : ObjectInfo
     }
 
     public virtual void DrawPath(Vector3 dest) { }
-    public virtual void SetFleetStatus(FleetStatus status) { }
+    public virtual void SetFleetStatus(FleetStatus status)
+    {
+        this.status = status;
+    }
 }
 [System.Serializable]
 public class Ship
@@ -144,6 +147,6 @@ public enum FleetStatus
     Idle,
     Moving,
     OnOrbit,
-    Attacking,
+    Fighting,
     Fleeing
 }

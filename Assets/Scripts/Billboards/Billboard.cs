@@ -58,8 +58,13 @@ public class Billboard : MonoBehaviour
         // Inverse the parents scale to keep the text size consistent (it has to be cumulative because of moons)
         inverseParentScale = new Vector3(1 / cumulativeScale.x, 1 / cumulativeScale.y, 1 / cumulativeScale.z);
 
-        specialButtonImg = specialButton.GetComponent<Image>();
-        planetSpecialButton = specialButton.GetComponent<PlanetSpecialButton>();
+        if(specialButton != null)
+        {
+            specialButtonImg = specialButton.GetComponent<Image>();
+            planetSpecialButton = specialButton.GetComponent<PlanetSpecialButton>();
+
+            specialButton.SetActive(false); // If not overriden, left disabled
+        }
     }
 
     

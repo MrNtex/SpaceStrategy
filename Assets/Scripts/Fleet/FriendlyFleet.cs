@@ -12,7 +12,6 @@ public enum ShipType
 }
 public partial class FriendlyFleet : Fleet
 {
-
     public override void SetDestination(GameObject dest)
     {
         base.SetDestination(dest);

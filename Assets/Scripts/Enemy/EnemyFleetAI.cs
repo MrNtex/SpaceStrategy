@@ -17,6 +17,7 @@ public class EnemyFleetAI : MonoBehaviour
     EnemyFleetPriority priority = EnemyFleetPriority.Normal;
 
     public GameObject target;
+    public ObjectInfo targetInfo;
 
     public EnemyFleet enemyFleet;
 
@@ -25,7 +26,17 @@ public class EnemyFleetAI : MonoBehaviour
     {
         enemyFleet = GetComponent<EnemyFleet>();
 
+        FindNewTarget();
+    }
+    private void FindNewTarget()
+    {
         target = CheckForTargets(range);
+
+        if (target != null)
+        {
+            enemyFleet.SetDestination(target);
+            enemyFleet.SetFleetStatus(FleetStatus.Moving);
+        }
     }
     GameObject CheckForTargets(float fleetSearchRange)
     {
@@ -42,6 +53,7 @@ public class EnemyFleetAI : MonoBehaviour
         if (targetFleet != null)
         {
             // Attack
+            targetInfo = targetFleet.GetComponent<ObjectInfo>();
             return targetFleet.capitan;
         }
 
@@ -50,6 +62,7 @@ public class EnemyFleetAI : MonoBehaviour
         if (targetColony != null)
         {
             // Move to target
+            targetInfo = targetColony.GetComponent<ObjectInfo>();
             return targetColony;
         }
         // Something went wrong
