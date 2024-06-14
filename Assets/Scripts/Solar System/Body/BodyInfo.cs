@@ -137,7 +137,7 @@ public class BodyInfo : ObjectInfo
         }
     }
 
-    public void SpecialButtonClicked()
+    public override void SpecialButtonClicked()
     {
         PlanetModalManager.Instance.Spawn(this);
     }

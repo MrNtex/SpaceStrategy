@@ -19,7 +19,7 @@ public partial class FriendlyFleet : Fleet
         SetFleetStatus(FleetStatus.Moving);
     }
 
-    public void SetFleetStatus(FleetStatus status)
+    public override void SetFleetStatus(FleetStatus status)
     {
         this.status = status;
 

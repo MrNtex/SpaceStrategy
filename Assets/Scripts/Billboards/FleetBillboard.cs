@@ -11,7 +11,7 @@ public class FleetBillboard : Billboard
     [SerializeField]
     private List<Color> textColors;
 
-    public FriendlyFleet fleet;
+    public Fleet fleet;
 
     private ObjectFocusHelper objectFocusHelper;
 
@@ -25,7 +25,7 @@ public class FleetBillboard : Billboard
 
         base.Start();
 
-        fleet = transform.parent.GetComponent<FriendlyFleet>(); // UI is a child of the fleet capitan, while the fleet info is the parent
+        fleet = transform.parent.GetComponent<Fleet>(); // UI is a child of the fleet capitan, while the fleet info is the parent
 
         text.text = fleet.objectName;
         button.GetComponent<Button>().onClick.AddListener(() => fleet.ButtonClicked());
@@ -33,7 +33,6 @@ public class FleetBillboard : Billboard
 
         // KTO TAK SPIERDOLIL TE SOURCES !!!!
 
-        target = fleet.capitan.transform;
 
         ConstraintSource source = new ConstraintSource();
         source.sourceTransform = target;
@@ -48,6 +47,8 @@ public class FleetBillboard : Billboard
     }
     public void UpdateFleet()
     {
+        target = fleet.capitan.transform;
+
         Dictionary<ShipType, int> shipCount = new Dictionary<ShipType, int>();
         foreach (Ship ship in fleet.composition)
         {

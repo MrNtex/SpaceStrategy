@@ -13,16 +13,10 @@ public class CelestailBilboard : Billboard
     private Sprite pentagon, hexagon;
     [SerializeField]
     private Color canSpecializedColor, specializedColor, canBeColonizedColor, colonizedColor, canBeTerraformedColor;
-    [SerializeField]
-    private GameObject specialButton;
-    private PlanetSpecialButton planetSpecialButton;
+
 
     private HorizontalLayoutGroup layoutGroup;
 
-    [SerializeField]
-    private int offset = 15;
-
-    private Image specialButtonImg;
     private BodyInfo bodyInfo;
     protected override void Start()
     {
@@ -41,8 +35,6 @@ public class CelestailBilboard : Billboard
         minDistance = planetFocusHelper.minDistance;
 
         specialButton.GetComponent<Button>().onClick.AddListener(() => bodyInfo.SpecialButtonClicked());
-        specialButtonImg = specialButton.GetComponent<Image>();
-        planetSpecialButton = specialButton.GetComponent<PlanetSpecialButton>();
 
         button.GetComponent<Button>().onClick.AddListener(() => bodyInfo.ButtonClicked());
         layoutGroup = button.GetComponent<HorizontalLayoutGroup>();
@@ -60,7 +52,7 @@ public class CelestailBilboard : Billboard
         {
             specialButton.SetActive(true);
             planetSpecialButton.SetUp(bodyInfo.status, bodyInfo.icon);
-            layoutGroup.padding.left = offset;
+            layoutGroup.padding.left = specialButtonTextOffset;
             return;
         }
 

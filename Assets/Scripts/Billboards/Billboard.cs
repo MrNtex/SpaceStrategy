@@ -6,8 +6,10 @@ using UnityEngine.Animations;
 using UnityEngine.UI;
 public class Billboard : MonoBehaviour
 {
-    protected float minDistance; // Overriden by the PlanetFocusHelper
+    [SerializeField]
+    protected float minDistance = -1; // Overriden by the PlanetFocusHelper
 
+    [SerializeField]
     protected Transform target; // Your planet's transform
     const float distanceFromTarget = 60; // Distance from the target to place the text
     public float YOffset = 1f; // Height from the target to place the text
@@ -22,6 +24,16 @@ public class Billboard : MonoBehaviour
     protected Vector3 inverseParentScale;
 
     protected PositionConstraint positionConstraint;
+
+
+    [Header("Special button")]
+    [SerializeField]
+    protected GameObject specialButton;
+    protected PlanetSpecialButton planetSpecialButton;
+
+    [SerializeField]
+    protected int specialButtonTextOffset = 15;
+    protected Image specialButtonImg;
 
     protected virtual void Start()
     {
@@ -45,6 +57,9 @@ public class Billboard : MonoBehaviour
         Vector3 cumulativeScale = CalculateCumulativeParentScale(transform);
         // Inverse the parents scale to keep the text size consistent (it has to be cumulative because of moons)
         inverseParentScale = new Vector3(1 / cumulativeScale.x, 1 / cumulativeScale.y, 1 / cumulativeScale.z);
+
+        specialButtonImg = specialButton.GetComponent<Image>();
+        planetSpecialButton = specialButton.GetComponent<PlanetSpecialButton>();
     }
 
     

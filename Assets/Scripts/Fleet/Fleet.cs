@@ -18,7 +18,7 @@ public partial class Fleet : ObjectInfo
             return composition[capitanIndex].prefab;
         }
     }
-
+    [SerializeField]
     private int capitanIndex = 0;
     [SerializeField]
     public GameObject destination;
@@ -54,7 +54,7 @@ public partial class Fleet : ObjectInfo
         path = GetComponent<LineRenderer>();
 
         fleetBillboard.SetUpFleet();
-        UpdateFleet();
+        UpdateFleet(false);
 
         point = new GameObject($"{objectName}'s Point");
 
@@ -92,12 +92,12 @@ public partial class Fleet : ObjectInfo
 
         objectFocusHelper.cameraPlacement.rotation = Quaternion.Euler(middlePoint.eulerAngles.x, objectFocusHelper.cameraPlacement.rotation.eulerAngles.y, 0);
     }
-    public void UpdateFleet()
+    public void UpdateFleet(bool billboard = true)
     {
         Debug.Log("Fleet " + objectName + " has been updated, with capitan: " + capitan.name);
 
         FleetFormationHelper.instance.SetFormation(FleetFormation.Triangle, composition.ToArray(), capitan);
-        fleetBillboard.UpdateFleet();
+        if(billboard) fleetBillboard.UpdateFleet();
     }
 
     void RemoveFromFleet(Ship ship)

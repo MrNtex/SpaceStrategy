@@ -45,4 +45,8 @@ public class ObjectInfo : MonoBehaviour
     {
         return Color.white;
     }
+    public virtual void SpecialButtonClicked()
+    {
+        return;
+    }
 }
