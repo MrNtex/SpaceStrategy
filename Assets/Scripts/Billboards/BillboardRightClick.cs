@@ -3,18 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class CelestialBillboardRightClick : MonoBehaviour, IPointerClickHandler
+public class BillboardRightClick : MonoBehaviour, IPointerClickHandler
 {
-    private CelestailBilboard celestailBilboard;
+    private Billboard billboard;
     void Start()
     {
-        celestailBilboard = transform.parent.parent.GetComponent<CelestailBilboard>();
+        billboard = transform.parent.parent.GetComponent<Billboard>();
     }
     public void OnPointerClick(PointerEventData eventData)
     {
         if (eventData.button == PointerEventData.InputButton.Right)
         {
-            celestailBilboard.RightClick();
+            billboard.RightClick();
         }
     }
 }

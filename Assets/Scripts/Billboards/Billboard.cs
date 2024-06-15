@@ -11,6 +11,8 @@ public class Billboard : MonoBehaviour
 
     [SerializeField]
     protected Transform target; // Your planet's transform
+    [SerializeField]
+    protected GameObject rightClickTarget;
     const float distanceFromTarget = 60; // Distance from the target to place the text
     public float YOffset = 1f; // Height from the target to place the text
     public float maxFontSize = 0.1f; // Maximum font size
@@ -141,5 +143,16 @@ public class Billboard : MonoBehaviour
 
 
         transform.LookAt(transform.position - directionToCamera);
+    }
+
+    public void RightClick()
+    {
+        Debug.Log("Right click");
+        if (rightClickTarget != null)
+        {
+            mainCamera.GetComponent<CameraRightClick>().onRightClick(rightClickTarget);
+            return;
+        }
+        mainCamera.GetComponent<CameraRightClick>().onRightClick(target.gameObject);
     }
 }

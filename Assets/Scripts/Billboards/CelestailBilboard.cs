@@ -59,8 +59,4 @@ public class CelestailBilboard : Billboard
         layoutGroup.padding.left = 0;
         specialButton.SetActive(false);
     }
-    public void RightClick()
-    {
-        mainCamera.GetComponent<CameraRightClick>().onRightClick(target.gameObject); 
-    }
 }

@@ -49,13 +49,34 @@ public class FleetManager : MonoBehaviour
             Debug.LogError("More than one FleetManager in the scene");
         }
     
-        Camera.main.GetComponent<CameraRightClick>().onRightClick += UpdateTarget;
+        Camera.main.GetComponent<CameraRightClick>().onRightClick += RightClick;
         bodyInfoUI = BodyInfoUI.instance;
     }
-    void UpdateTarget(GameObject dest)
+    void RightClick(GameObject target)
     {
         if (selectedFleet == null) return;
 
+
+        if (target.CompareTag("CelestialBody") || target.CompareTag("Point"))
+        {
+            UpdateTarget(target);
+            return;
+        }
+
+        if (target.CompareTag("Fleet"))
+        {
+            Fleet fleet = target.GetComponent<Fleet>();
+            
+            if (fleet is FriendlyFleet)
+            {
+                // TODO: Implement fleet merging
+                return;
+            }
+            UpdateTarget(fleet.capitan);
+        }
+    }
+    void UpdateTarget(GameObject dest)
+    {
         selectedFleet.SetDestination(dest);
 
         bodyInfoUI.SetBody(selectedFleet);

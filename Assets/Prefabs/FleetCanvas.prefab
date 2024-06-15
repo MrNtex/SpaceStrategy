@@ -541,6 +541,7 @@ GameObject:
   - component: {fileID: 1815898519569966591}
   - component: {fileID: 7269673194546304757}
   - component: {fileID: 2111445938057563584}
+  - component: {fileID: 8860679937585181989}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -692,6 +693,18 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &8860679937585181989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3605941113051186170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebc87b30a3c548247abc3737674b4bf2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4111502106275216512
 GameObject:
   m_ObjectHideFlags: 0
@@ -809,6 +822,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minDistance: -1
   target: {fileID: 0}
+  rightClickTarget: {fileID: 0}
   YOffset: 1
   maxFontSize: 0.1
   mainCamera: {fileID: 0}
