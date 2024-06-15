@@ -13,18 +13,11 @@ public partial class FriendlyFleet : Fleet
 
     public override void SetFleetStatus(FleetStatus status)
     {
-        this.status = status;
+        base.SetFleetStatus(status);
 
         if(status != FleetStatus.Idle) onOrbit = null;
 
-        switch (status)
-        {
-            case FleetStatus.Idle:
-                DrawPath(capitan.transform.position); // Clear path
-                break;
-            default:
-                break;
-        }
+        DrawPath(capitan.transform.position); // Clear path
 
         BodyInfoUI.instance.SetBody(this, false);
     }
