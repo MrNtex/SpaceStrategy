@@ -2,14 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-public enum ShipType
-{
-    Fighter,
-    Destroyer,
-    Cruiser,
-    Battleship,
-    Dreadnought
-}
+
 public partial class FriendlyFleet : Fleet
 {
     public override void SetDestination(GameObject dest)

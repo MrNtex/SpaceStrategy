@@ -19,7 +19,7 @@ public class Orbiting : MonoBehaviour
 
     [SerializeField]
     private DateManager dateManager;
-    private const float dateUpdateThreshold = 0.1f;
+    private const float dateUpdateThreshold = 0.25f; // it means that the date update event will be called every 0.25 of day
 
     private Vector3 lastPosition;
 

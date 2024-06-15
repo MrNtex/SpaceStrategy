@@ -624,7 +624,7 @@ PositionConstraint:
   serializedVersion: 2
   m_Weight: 1
   m_TranslationAtRest: {x: -912.18, y: 450, z: 0}
-  m_TranslationOffset: {x: -703.2797, y: -126.77374, z: -0.00053496286}
+  m_TranslationOffset: {x: -703.27985, y: -140.48224, z: 0.00018284988}
   m_AffectTranslationX: 1
   m_AffectTranslationY: 1
   m_AffectTranslationZ: 1
@@ -8565,6 +8565,31 @@ PrefabInstance:
     - target: {fileID: 4286612076276619683, guid: e15411735d06a2c49910aa327f2908a6,
         type: 3}
       propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5738011575715336408, guid: e15411735d06a2c49910aa327f2908a6,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5738011575715336408, guid: e15411735d06a2c49910aa327f2908a6,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5738011575715336408, guid: e15411735d06a2c49910aa327f2908a6,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5738011575715336408, guid: e15411735d06a2c49910aa327f2908a6,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5738011575715336408, guid: e15411735d06a2c49910aa327f2908a6,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6651049585832930316, guid: e15411735d06a2c49910aa327f2908a6,
@@ -19950,6 +19975,7 @@ GameObject:
   - component: {fileID: 961585155}
   - component: {fileID: 961585154}
   - component: {fileID: 961585156}
+  - component: {fileID: 961585157}
   m_Layer: 0
   m_Name: EnemyFleet
   m_TagString: Untagged
@@ -19971,7 +19997,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 300
   target: {fileID: 0}
-  enemyFleet: {fileID: 0}
+  targetInfo: {fileID: 0}
+  enemyFleet: {fileID: 961585156}
 --- !u!4 &961585155
 Transform:
   m_ObjectHideFlags: 0
@@ -19981,7 +20008,7 @@ Transform:
   m_GameObject: {fileID: 961585153}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.99, y: 0.19440675, z: 933}
+  m_LocalPosition: {x: 228, y: 0.19440675, z: 880}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -20013,6 +20040,7 @@ MonoBehaviour:
     velocity: {x: 0, y: 0, z: 0}
     prefab: {fileID: 1213550340}
     myOffset: {x: 0, y: 0, z: 0}
+  capitanIndex: 0
   destination: {fileID: 0}
   destinationOffset: 1
   status: 0
@@ -20024,6 +20052,27 @@ MonoBehaviour:
   onOrbit: {fileID: 0}
   path: {fileID: 0}
   forceManeuver: 0
+  enemyFleetAI: {fileID: 0}
+  fightingRange: 50
+--- !u!114 &961585157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 961585153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3714d205ad29d7479b5590e49da5e85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orbiting: {fileID: 0}
+  objectInfo: {fileID: 961585156}
+  offset: {x: 0, y: 9, z: -11}
+  target: {fileID: 0}
+  cameraPlacement: {fileID: 0}
+  minDistance: 3000
+  useCollider: 1
 --- !u!1 &967456198
 GameObject:
   m_ObjectHideFlags: 0
@@ -21982,6 +22031,31 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5738011575715336408, guid: e15411735d06a2c49910aa327f2908a6,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5738011575715336408, guid: e15411735d06a2c49910aa327f2908a6,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5738011575715336408, guid: e15411735d06a2c49910aa327f2908a6,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5738011575715336408, guid: e15411735d06a2c49910aa327f2908a6,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5738011575715336408, guid: e15411735d06a2c49910aa327f2908a6,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6651049585832930316, guid: e15411735d06a2c49910aa327f2908a6,
         type: 3}
       propertyPath: m_Sprite
@@ -22649,6 +22723,7 @@ MonoBehaviour:
     velocity: {x: 0, y: 0, z: 0}
     prefab: {fileID: 449676906}
     myOffset: {x: 0, y: 0, z: 0}
+  capitanIndex: 0
   destination: {fileID: 0}
   destinationOffset: 1
   status: 0

@@ -126,8 +126,29 @@ public class Ship
     public Vector3 velocity;
     public GameObject prefab;
     public Vector3 myOffset;
-}
 
+    public ShipStats stats;
+}
+[System.Serializable]
+public class ShipStats
+{
+    public float speed;
+    public float maneuverabilityPenalty;
+
+    public float lightDamage; // Damage dealt to light ships
+    public float heavyDamage; // Damage dealt to capital ships
+
+    public float health;
+    public float armor;
+    public float shield;
+
+    [Range(0, 1)]
+    public float reliability; // The chance of the ship to take critical damage
+
+    public int cooldown = 1; // Number of time ticks between shots
+    [HideInInspector]
+    public int currentCooldown = 0;
+}
 public enum FleetFlyPatternType
 {
     Follow,
@@ -149,4 +170,13 @@ public enum FleetStatus
     OnOrbit,
     Fighting,
     Fleeing
+}
+public enum ShipType
+{
+    Fighter,
+    Destroyer,
+    LightCruiser,
+    HeavyCruiser,
+    Battleship,
+    Dreadnought
 }

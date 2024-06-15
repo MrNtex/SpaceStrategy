@@ -55,8 +55,10 @@ public class ObjectFocusHelper : MonoBehaviour
             }
             
         }
+
+        CameraPlacement();
     }
-    private void Start()
+    private void CameraPlacement()
     {
         myCollider = GetComponent<SphereCollider>();
         hitboxMultiplier /= transform.localScale.x;
