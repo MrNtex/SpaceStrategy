@@ -14,6 +14,11 @@ public partial class Fleet : ObjectInfo
 
     protected virtual void FixedUpdate()
     {
+        if(status == FleetStatus.Fighting && battleTarget != null)
+        {
+            FightMovement();
+            return;
+        }
         if (status == FleetStatus.Moving && destination != null)
         {
             if (destination.CompareTag("Point"))
@@ -77,7 +82,8 @@ public partial class Fleet : ObjectInfo
                 gameObject.transform.SetParent(destination.transform);
                 onOrbit = destination;
             }
-            SetFleetStatus(FleetStatus.Idle);
+            if(status == FleetStatus.Moving) // Do not change status while fighing
+                SetFleetStatus(FleetStatus.Idle);
             return;
         }
 
@@ -106,7 +112,7 @@ public partial class Fleet : ObjectInfo
 
         float maneuverSpeed = speed * DateManager.timeScale;
 
-        if (distance > forceManueverDistance && !forceManeuver)
+        if (status == FleetStatus.Fighting || (distance > forceManueverDistance && !forceManeuver))
         {
             //Speed up rotation when getting closer
             float angularMultiplier = .55f;
@@ -132,5 +138,33 @@ public partial class Fleet : ObjectInfo
 
         // Rotate much faster when close to destination
         t.rotation = Quaternion.SlerpUnclamped(t.rotation, targetRotation, Time.deltaTime * 2 * DateManager.timeScale);
+    }
+
+    void FightMovement()
+    {
+        // Simplified solution, if I think of something better I will change it
+
+        if(CheckIfChangeDesination())
+        {
+            FindFightDestination();
+        }
+        FlyCapitan(destination.transform.position);
+        for (int i = 0; i < composition.Count; i++)
+        {
+            FlyTowards(i);
+        }
+    }
+    bool CheckIfChangeDesination()
+    {
+        if (Vector3.Distance(capitan.transform.position, destination.transform.position) < 10f) return true;
+        if (Vector3.Distance(battleTarget.capitan.transform.position, destination.transform.position) > 45f) return true;
+        return false;
+    }
+    public void FindFightDestination()
+    {
+        Vector3 dir = battleTarget.capitan.transform.position - capitan.transform.position;
+
+        destination = point;
+        destination.transform.position = capitan.transform.position + dir.normalized * Random.Range(25, 40);
     }
 }

@@ -18979,6 +18979,7 @@ GameObject:
   - component: {fileID: 941910647}
   - component: {fileID: 941910650}
   - component: {fileID: 941910651}
+  - component: {fileID: 941910652}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -19384,6 +19385,20 @@ MonoBehaviour:
     firstWarningFired: 0
     secondWarningFired: 0
   daysRemaining: 0
+--- !u!114 &941910652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 941910633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7d9b03ab64f6c64cacdc92f706d99a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  battlePrefab: {fileID: 6029923260694119522, guid: 5d53ab0894ef47a4db712e1187cebf77,
+    type: 3}
 --- !u!1 &951593548
 GameObject:
   m_ObjectHideFlags: 0
@@ -20036,10 +20051,32 @@ MonoBehaviour:
     velocity: {x: 0, y: 0, z: 0}
     prefab: {fileID: 1740668197}
     myOffset: {x: 0, y: 0, z: 0}
+    stats:
+      speed: 0
+      maneuverabilityPenalty: 0
+      lightDamage: 0
+      heavyDamage: 0
+      health: 0
+      armor: 0
+      shield: 0
+      reliability: 0
+      cooldown: 1
+      currentCooldown: 0
   - type: 0
     velocity: {x: 0, y: 0, z: 0}
     prefab: {fileID: 1213550340}
     myOffset: {x: 0, y: 0, z: 0}
+    stats:
+      speed: 0
+      maneuverabilityPenalty: 0
+      lightDamage: 0
+      heavyDamage: 0
+      health: 0
+      armor: 0
+      shield: 0
+      reliability: 0
+      cooldown: 1
+      currentCooldown: 0
   capitanIndex: 0
   destination: {fileID: 0}
   destinationOffset: 1
@@ -20072,7 +20109,7 @@ MonoBehaviour:
   target: {fileID: 0}
   cameraPlacement: {fileID: 0}
   minDistance: 3000
-  useCollider: 1
+  useCollider: 0
 --- !u!1 &967456198
 GameObject:
   m_ObjectHideFlags: 0
@@ -22707,22 +22744,77 @@ MonoBehaviour:
     velocity: {x: 0, y: 0, z: 0}
     prefab: {fileID: 1675667123}
     myOffset: {x: 0, y: 0, z: 0}
+    stats:
+      speed: 0
+      maneuverabilityPenalty: 0
+      lightDamage: 0
+      heavyDamage: 0
+      health: 0
+      armor: 0
+      shield: 0
+      reliability: 0
+      cooldown: 1
+      currentCooldown: 0
   - type: 0
     velocity: {x: 0, y: 0, z: 0}
     prefab: {fileID: 1008808726}
     myOffset: {x: 0, y: 0, z: 0}
+    stats:
+      speed: 0
+      maneuverabilityPenalty: 0
+      lightDamage: 0
+      heavyDamage: 0
+      health: 0
+      armor: 0
+      shield: 0
+      reliability: 0
+      cooldown: 1
+      currentCooldown: 0
   - type: 0
     velocity: {x: 0, y: 0, z: 0}
     prefab: {fileID: 1043986960}
     myOffset: {x: 0, y: 0, z: 0}
+    stats:
+      speed: 0
+      maneuverabilityPenalty: 0
+      lightDamage: 0
+      heavyDamage: 0
+      health: 0
+      armor: 0
+      shield: 0
+      reliability: 0
+      cooldown: 1
+      currentCooldown: 0
   - type: 0
     velocity: {x: 0, y: 0, z: 0}
     prefab: {fileID: 1379268069}
     myOffset: {x: 0, y: 0, z: 0}
+    stats:
+      speed: 0
+      maneuverabilityPenalty: 0
+      lightDamage: 0
+      heavyDamage: 0
+      health: 0
+      armor: 0
+      shield: 0
+      reliability: 0
+      cooldown: 1
+      currentCooldown: 0
   - type: 0
     velocity: {x: 0, y: 0, z: 0}
     prefab: {fileID: 449676906}
     myOffset: {x: 0, y: 0, z: 0}
+    stats:
+      speed: 0
+      maneuverabilityPenalty: 0
+      lightDamage: 0
+      heavyDamage: 0
+      health: 0
+      armor: 0
+      shield: 0
+      reliability: 0
+      cooldown: 1
+      currentCooldown: 0
   capitanIndex: 0
   destination: {fileID: 0}
   destinationOffset: 1

@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class Battle : MonoBehaviour
 {
+    private FriendlyFleet friendlyFleet;
+    private EnemyFleet enemyFleet;
+
     [SerializeField]
     List<Ship> friendlyScreens = new List<Ship>();
     [SerializeField]
@@ -14,6 +17,9 @@ public class Battle : MonoBehaviour
     List<Ship> enemyScreens = new List<Ship>();
     [SerializeField]
     List<Ship> enemyCapitals = new List<Ship>();
+
+    private readonly float enemyCapitalsMinMultiplier = 1f;
+    private readonly float enemyCapitalsMaxMultiplier = 2.5f;
     public void Initialize(FriendlyFleet ff, EnemyFleet ef)
     {
         // Separating enemy ships into screens and capitals
@@ -30,7 +36,12 @@ public class Battle : MonoBehaviour
     }
     void BattleTick()
     {
+        // Friendly fleet attacks enemy fleet
+        
+        // Chance to penetrate enemy screens
+        float enemyCapitalsToAttack = Random.Range(enemyCapitalsMinMultiplier, enemyCapitalsMaxMultiplier) * enemyCapitals.Count - enemyScreens.Count;
 
+        
     }
     private bool CheckIfScreen(Ship s)
     {

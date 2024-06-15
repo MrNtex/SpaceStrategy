@@ -26,6 +26,12 @@ public class BattlesManager : MonoBehaviour
         ff.SetFleetStatus(FleetStatus.Fighting);
         ef.SetFleetStatus(FleetStatus.Fighting);
 
+        ff.battleTarget = ef;
+        ef.battleTarget = ff;
+
+        ff.FindFightDestination();
+        ef.FindFightDestination();
+
         GameObject battleGO = Instantiate(battlePrefab, ff.transform);
         Battle battle = battleGO.GetComponent<Battle>();
         battle.Initialize(ff, ef);

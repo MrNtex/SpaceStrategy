@@ -49,7 +49,8 @@ public partial class Fleet : ObjectInfo
 
     private Transform mainCamera;
 
-    private Battle battle;
+    public Battle battle;
+    public Fleet battleTarget;
 
     protected virtual void Start()
     {
