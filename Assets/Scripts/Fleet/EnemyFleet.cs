@@ -21,9 +21,8 @@ public class EnemyFleet : Fleet
             float distance = Vector3.Distance(capitan.transform.position, destination.transform.position);
             if(distance < fightingRange && enemyFleetAI.targetInfo is FriendlyFleet)
             {
-                status = FleetStatus.Fighting;
                 FriendlyFleet targetFleet = enemyFleetAI.targetInfo as FriendlyFleet;
-                targetFleet.SetFleetStatus(FleetStatus.Fighting);
+                BattlesManager.instance.AddBattle(targetFleet, this);
             }
         }
     }

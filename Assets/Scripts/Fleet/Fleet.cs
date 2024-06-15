@@ -49,6 +49,8 @@ public partial class Fleet : ObjectInfo
 
     private Transform mainCamera;
 
+    private Battle battle;
+
     protected virtual void Start()
     {
         path = GetComponent<LineRenderer>();
