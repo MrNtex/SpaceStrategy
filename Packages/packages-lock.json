@@ -143,6 +143,12 @@
         "com.unity.modules.imgui": "1.0.0"
       }
     },
+    "com.unity.vfx-toolbox": {
+      "version": "file:D:/Unity/Packages/VFXToolbox-master/VFXToolbox-master",
+      "depth": 0,
+      "source": "local",
+      "dependencies": {}
+    },
     "com.unity.visualscripting": {
       "version": "1.9.1",
       "depth": 0,

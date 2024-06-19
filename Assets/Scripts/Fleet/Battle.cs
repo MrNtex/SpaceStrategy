@@ -28,6 +28,9 @@ public class Battle : MonoBehaviour
     public void Initialize(FriendlyFleet ff, EnemyFleet ef)
     {
         // Separating enemy ships into screens and capitals
+        friendlyFleet = ff;
+        enemyFleet = ef;
+
 
         friendlyFleetStats = GenerateFleetStats(ff);
         enemyFleetStats = GenerateFleetStats(ef);
@@ -37,6 +40,7 @@ public class Battle : MonoBehaviour
     private FleetStats GenerateFleetStats(Fleet fleet)
     {
         FleetStats fleetStats = new FleetStats();
+        fleetStats.battle = this;
         fleetStats.myFleet = fleet;
 
         fleetStats.screens = fleet.composition.Where(s => FleetStats.CheckIfScreen(s)).ToList();
@@ -50,19 +54,6 @@ public class Battle : MonoBehaviour
     }
     void BattleTick()
     {
-        // Friendly fleet attacks enemy fleet
-        if(friendlyFleetStats.screens.Count == 0 && friendlyFleetStats.capitals.Count == 0)
-        {
-            // Battle is over
-            return;
-        }
-        
-        if(enemyFleetStats.screens.Count == 0 && enemyFleetStats.capitals.Count == 0)
-        {
-            // Battle is over
-            return;
-        }
-
         Attack(ref friendlyFleetStats, ref enemyFleetStats);
         Attack(ref enemyFleetStats, ref friendlyFleetStats);
     }
@@ -105,5 +96,25 @@ public class Battle : MonoBehaviour
         dmg += stats.heavyDamage; // Heavy damage is always applied, there is no armor scaling
 
         return dmg;
+    }
+
+    public void EndBattle(Fleet loser)
+    {
+        DateManager.instance.OnDateUpdate -= BattleTick;
+
+        Debug.Log("Battle ended");
+
+        if(friendlyFleet != null)
+        {
+            friendlyFleet.SetFleetStatus(FleetStatus.Idle);
+        }
+
+        if(enemyFleet != null)
+        {
+            enemyFleet.SetFleetStatus(FleetStatus.Idle);
+        }
+
+        Destroy(gameObject);
+
     }
 }

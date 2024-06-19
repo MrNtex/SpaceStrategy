@@ -5,6 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class FleetStats
 {
+    public Battle battle;
     public Fleet myFleet;
 
     public List<Ship> screens = new List<Ship>();
@@ -27,7 +28,13 @@ public class FleetStats
         {
             capitals.Remove(target);
         }
-        myFleet.RemoveFromFleet(target);
+        myFleet.RemoveFromFleet(target, true);
+
+        if(myFleet.composition.Count == 0)
+        {
+            battle.EndBattle(myFleet);
+        }
+
         GetCapitalsChance();
     }
 

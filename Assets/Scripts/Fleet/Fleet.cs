@@ -15,6 +15,8 @@ public partial class Fleet : ObjectInfo
         }
         get
         {
+            if(composition.Count == 0) return null;
+            if(capitanIndex < 0 || capitanIndex >= composition.Count) return composition[0].prefab;
             return composition[capitanIndex].prefab;
         }
     }
@@ -51,6 +53,9 @@ public partial class Fleet : ObjectInfo
 
     public Battle battle;
     public Fleet battleTarget;
+
+    [SerializeField]
+    private GameObject expolsionPartilcles;
 
     protected virtual void Start()
     {
@@ -99,20 +104,21 @@ public partial class Fleet : ObjectInfo
     {
         if(composition.Count == 0)
         {
-            Debug.LogWarning("Fleet " + objectName + " has no ships, destroying it");
             Destroy(gameObject);
             return;
         }
-
-        Debug.Log("Fleet " + objectName + " has been updated, with capitan: " + capitan.name);
 
         FleetFormationHelper.instance.SetFormation(FleetFormation.Triangle, composition.ToArray(), capitan);
         if(billboard) fleetBillboard.UpdateFleet();
     }
 
-    public void RemoveFromFleet(Ship ship)
+    public void RemoveFromFleet(Ship ship, bool inBattle)
     {
         bool isCapitan = ship.prefab == capitan;
+        if (inBattle)
+        {
+            Destroy(Instantiate(expolsionPartilcles, ship.prefab.transform.position, Quaternion.identity), 2.0f);
+        }
         Destroy(ship.prefab);
         composition.Remove(ship);
         if (isCapitan && composition.Count > 0)

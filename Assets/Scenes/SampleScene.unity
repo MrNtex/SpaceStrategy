@@ -20054,14 +20054,12 @@ MonoBehaviour:
     stats:
       speed: 0
       maneuverabilityPenalty: 0
-      lightDamage: 0
-      heavyDamage: 0
-      health: 0
-      armor: 0
+      lightDamage: 20
+      heavyDamage: 5
+      health: 1000
+      armor: 10
       shield: 0
-      reliability: 0
-      cooldown: 1
-      currentCooldown: 0
+      reliability: 0.811
   - type: 0
     velocity: {x: 0, y: 0, z: 0}
     prefab: {fileID: 1213550340}
@@ -20069,14 +20067,12 @@ MonoBehaviour:
     stats:
       speed: 0
       maneuverabilityPenalty: 0
-      lightDamage: 0
-      heavyDamage: 0
-      health: 0
-      armor: 0
+      lightDamage: 20
+      heavyDamage: 5
+      health: 1000
+      armor: 10
       shield: 0
-      reliability: 0
-      cooldown: 1
-      currentCooldown: 0
+      reliability: 0.811
   capitanIndex: 0
   destination: {fileID: 0}
   destinationOffset: 1
@@ -22754,14 +22750,12 @@ MonoBehaviour:
     stats:
       speed: 0
       maneuverabilityPenalty: 0
-      lightDamage: 0
-      heavyDamage: 0
-      health: 0
-      armor: 0
+      lightDamage: 20
+      heavyDamage: 5
+      health: 1000
+      armor: 10
       shield: 0
-      reliability: 0
-      cooldown: 1
-      currentCooldown: 0
+      reliability: 0.811
   - type: 0
     velocity: {x: 0, y: 0, z: 0}
     prefab: {fileID: 1008808726}
@@ -22769,14 +22763,12 @@ MonoBehaviour:
     stats:
       speed: 0
       maneuverabilityPenalty: 0
-      lightDamage: 0
-      heavyDamage: 0
-      health: 0
-      armor: 0
+      lightDamage: 20
+      heavyDamage: 5
+      health: 1000
+      armor: 10
       shield: 0
-      reliability: 0
-      cooldown: 1
-      currentCooldown: 0
+      reliability: 0.811
   - type: 0
     velocity: {x: 0, y: 0, z: 0}
     prefab: {fileID: 1043986960}
@@ -22784,14 +22776,12 @@ MonoBehaviour:
     stats:
       speed: 0
       maneuverabilityPenalty: 0
-      lightDamage: 0
-      heavyDamage: 0
-      health: 0
-      armor: 0
+      lightDamage: 20
+      heavyDamage: 5
+      health: 1000
+      armor: 10
       shield: 0
-      reliability: 0
-      cooldown: 1
-      currentCooldown: 0
+      reliability: 0.811
   - type: 0
     velocity: {x: 0, y: 0, z: 0}
     prefab: {fileID: 1379268069}
@@ -22799,14 +22789,12 @@ MonoBehaviour:
     stats:
       speed: 0
       maneuverabilityPenalty: 0
-      lightDamage: 0
-      heavyDamage: 0
-      health: 0
-      armor: 0
+      lightDamage: 20
+      heavyDamage: 5
+      health: 1000
+      armor: 10
       shield: 0
-      reliability: 0
-      cooldown: 1
-      currentCooldown: 0
+      reliability: 0.811
   - type: 0
     velocity: {x: 0, y: 0, z: 0}
     prefab: {fileID: 449676906}
@@ -22814,14 +22802,12 @@ MonoBehaviour:
     stats:
       speed: 0
       maneuverabilityPenalty: 0
-      lightDamage: 0
-      heavyDamage: 0
-      health: 0
-      armor: 0
+      lightDamage: 20
+      heavyDamage: 5
+      health: 1000
+      armor: 10
       shield: 0
-      reliability: 0
-      cooldown: 1
-      currentCooldown: 0
+      reliability: 0.811
   capitanIndex: 0
   destination: {fileID: 0}
   destinationOffset: 1
