@@ -54,7 +54,7 @@ public class Billboard : MonoBehaviour
         }
 
         if (mainCamera == null) mainCamera = Camera.main;
-        
+
 
         Vector3 cumulativeScale = CalculateCumulativeParentScale(transform);
         // Inverse the parents scale to keep the text size consistent (it has to be cumulative because of moons)

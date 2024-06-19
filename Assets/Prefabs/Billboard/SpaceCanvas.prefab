@@ -677,6 +677,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minDistance: -1
   target: {fileID: 0}
+  rightClickTarget: {fileID: 0}
   YOffset: 1
   maxFontSize: 0.1
   mainCamera: {fileID: 0}

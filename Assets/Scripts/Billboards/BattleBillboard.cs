@@ -1,0 +1,46 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using TMPro;
+using UnityEngine;
+
+public class BattleBillboard : Billboard
+{
+    public Battle battle;
+
+    // Derived text is used to display the friendly fleet
+    public TMP_Text enemyFleetText;
+
+    [SerializeField]
+    private FleetIcons friendlyFleetIcons, enemyFleetIcons;
+    protected override void Start()
+    {
+        return;
+    }
+    public void SetupBattle(Battle battle)
+    {
+        base.Start();
+
+        target = Instantiate(new GameObject()).transform;
+
+        this.battle = battle;
+
+        text.text = battle.friendlyFleet.objectName;
+        enemyFleetText.text = battle.enemyFleet.objectName;
+
+        UpdateBattle();
+    }
+    public void UpdateBattle()
+    {
+        friendlyFleetIcons.UpdateFleet(battle.friendlyFleet);
+        enemyFleetIcons.UpdateFleet(battle.enemyFleet);
+    }
+
+    protected override void FixedUpdate()
+    {
+        base.FixedUpdate();
+
+        target.position = (battle.friendlyFleet.capitan.transform.position + battle.enemyFleet.capitan.transform.position)/2;
+    }
+
+}

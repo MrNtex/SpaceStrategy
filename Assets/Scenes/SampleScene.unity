@@ -624,7 +624,7 @@ PositionConstraint:
   serializedVersion: 2
   m_Weight: 1
   m_TranslationAtRest: {x: -912.18, y: 450, z: 0}
-  m_TranslationOffset: {x: -703.27985, y: -140.48224, z: 0.00018284988}
+  m_TranslationOffset: {x: -703.2804, y: -139.98755, z: 0.00007307452}
   m_AffectTranslationX: 1
   m_AffectTranslationY: 1
   m_AffectTranslationZ: 1
@@ -20086,6 +20086,8 @@ MonoBehaviour:
   path: {fileID: 0}
   battle: {fileID: 0}
   battleTarget: {fileID: 0}
+  expolsionPartilcles: {fileID: 7730130326036923481, guid: 1f46b403de4ac5243a53b876288ad85b,
+    type: 3}
   forceManeuver: 0
   enemyFleetAI: {fileID: 0}
   fightingRange: 50
@@ -22821,6 +22823,8 @@ MonoBehaviour:
   path: {fileID: 0}
   battle: {fileID: 0}
   battleTarget: {fileID: 0}
+  expolsionPartilcles: {fileID: 7730130326036923481, guid: 1f46b403de4ac5243a53b876288ad85b,
+    type: 3}
   forceManeuver: 0
 --- !u!4 &1264452443
 Transform:

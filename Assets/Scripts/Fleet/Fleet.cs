@@ -38,8 +38,7 @@ public partial class Fleet : ObjectInfo
     public float maneuverabilityPenalty = 0.15f; // The multiplier of the angle modifier when ship has to rotate quickly, should be greater than 0
     public float minSpeed = 5.0f;
 
-    [SerializeField]
-    protected FleetBillboard fleetBillboard;
+    public FleetBillboard fleetBillboard;
 
     public GameObject onOrbit;
 

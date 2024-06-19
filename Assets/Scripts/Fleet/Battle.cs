@@ -16,8 +16,11 @@ enum TargetSelection
 
 public class Battle : MonoBehaviour
 {
-    private FriendlyFleet friendlyFleet;
-    private EnemyFleet enemyFleet;
+    [SerializeField]
+    private BattleBillboard billboard;
+
+    public FriendlyFleet friendlyFleet;
+    public EnemyFleet enemyFleet;
 
     public readonly float armorScalingFactor = .1f;
 
@@ -34,6 +37,11 @@ public class Battle : MonoBehaviour
 
         friendlyFleetStats = GenerateFleetStats(ff);
         enemyFleetStats = GenerateFleetStats(ef);
+
+        friendlyFleet.fleetBillboard.gameObject.SetActive(false);
+        enemyFleet.fleetBillboard.gameObject.SetActive(false);
+
+        billboard.SetupBattle(this);
 
         DateManager.instance.OnDateUpdate += BattleTick;
     }
@@ -68,6 +76,7 @@ public class Battle : MonoBehaviour
         if (targetShip.stats.health <= 0)
         {
             target.ShipDestroyed(targetShip);
+            billboard.UpdateBattle();
         }
     }
     private Ship GetTarget(ref FleetStats sourece, ref FleetStats target)
@@ -107,11 +116,13 @@ public class Battle : MonoBehaviour
         if(friendlyFleet != null)
         {
             friendlyFleet.SetFleetStatus(FleetStatus.Idle);
+            friendlyFleet.fleetBillboard.gameObject.SetActive(true);
         }
 
         if(enemyFleet != null)
         {
             enemyFleet.SetFleetStatus(FleetStatus.Idle);
+            enemyFleet.fleetBillboard.gameObject.SetActive(true);
         }
 
         Destroy(gameObject);
