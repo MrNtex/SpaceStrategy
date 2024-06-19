@@ -19993,7 +19993,7 @@ GameObject:
   - component: {fileID: 961585157}
   m_Layer: 0
   m_Name: EnemyFleet
-  m_TagString: Untagged
+  m_TagString: Fleet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20088,6 +20088,8 @@ MonoBehaviour:
   fleetBillboard: {fileID: 1863195623}
   onOrbit: {fileID: 0}
   path: {fileID: 0}
+  battle: {fileID: 0}
+  battleTarget: {fileID: 0}
   forceManeuver: 0
   enemyFleetAI: {fileID: 0}
   fightingRange: 50
@@ -22136,6 +22138,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7358965263208286764, guid: e15411735d06a2c49910aa327f2908a6,
         type: 3}
+      propertyPath: rightClickTarget
+      value: 
+      objectReference: {fileID: 961585153}
+    - target: {fileID: 7358965263208286764, guid: e15411735d06a2c49910aa327f2908a6,
+        type: 3}
       propertyPath: fleetIcons.Array.size
       value: 5
       objectReference: {fileID: 0}
@@ -22720,7 +22727,7 @@ GameObject:
   - component: {fileID: 1264452445}
   m_Layer: 0
   m_Name: Fleet
-  m_TagString: Untagged
+  m_TagString: Fleet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22826,6 +22833,8 @@ MonoBehaviour:
   fleetBillboard: {fileID: 1998192312}
   onOrbit: {fileID: 0}
   path: {fileID: 0}
+  battle: {fileID: 0}
+  battleTarget: {fileID: 0}
   forceManeuver: 0
 --- !u!4 &1264452443
 Transform:

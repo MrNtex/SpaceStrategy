@@ -95,20 +95,27 @@ public partial class Fleet : ObjectInfo
 
         objectFocusHelper.cameraPlacement.rotation = Quaternion.Euler(middlePoint.eulerAngles.x, objectFocusHelper.cameraPlacement.rotation.eulerAngles.y, 0);
     }
-    public void UpdateFleet(bool billboard = true)
+    public virtual void UpdateFleet(bool billboard = true)
     {
+        if(composition.Count == 0)
+        {
+            Debug.LogWarning("Fleet " + objectName + " has no ships, destroying it");
+            Destroy(gameObject);
+            return;
+        }
+
         Debug.Log("Fleet " + objectName + " has been updated, with capitan: " + capitan.name);
 
         FleetFormationHelper.instance.SetFormation(FleetFormation.Triangle, composition.ToArray(), capitan);
         if(billboard) fleetBillboard.UpdateFleet();
     }
 
-    void RemoveFromFleet(Ship ship)
+    public void RemoveFromFleet(Ship ship)
     {
         bool isCapitan = ship.prefab == capitan;
         Destroy(ship.prefab);
         composition.Remove(ship);
-        if (isCapitan)
+        if (isCapitan && composition.Count > 0)
         {
             capitan = composition[0].prefab;
         }
@@ -119,6 +126,11 @@ public partial class Fleet : ObjectInfo
     public virtual void SetFleetStatus(FleetStatus status)
     {
         this.status = status;
+    }
+
+    private void OnDestroy()
+    {
+        Destroy(point);
     }
 }
 [System.Serializable]
@@ -147,10 +159,6 @@ public class ShipStats
 
     [Range(0, 1)]
     public float reliability; // The chance of the ship to take critical damage
-
-    public int cooldown = 1; // Number of time ticks between shots
-    [HideInInspector]
-    public int currentCooldown = 0;
 }
 public enum FleetFlyPatternType
 {

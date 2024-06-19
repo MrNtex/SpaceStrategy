@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FleetManager : MonoBehaviour
 {
-    public FriendlyFleet[] fleets;
+    public List<FriendlyFleet> fleets = new List<FriendlyFleet>();
 
     public static FleetManager instance;
     // Start is called before the first frame update

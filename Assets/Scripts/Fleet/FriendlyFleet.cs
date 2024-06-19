@@ -11,6 +11,16 @@ public partial class FriendlyFleet : Fleet
         SetFleetStatus(FleetStatus.Moving);
     }
 
+    public override void UpdateFleet(bool billboard = true)
+    {
+        base.UpdateFleet(billboard);
+        if(composition.Count == 0)
+        {
+            FleetManager.instance.fleets.Remove(this);
+            return;
+        }
+    }
+
     public override void SetFleetStatus(FleetStatus status)
     {
         base.SetFleetStatus(status);

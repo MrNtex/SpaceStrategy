@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Point
   - CelestialBody
+  - Fleet
   layers:
   - Default
   - TransparentFX
