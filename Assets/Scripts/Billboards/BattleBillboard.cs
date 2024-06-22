@@ -21,7 +21,7 @@ public class BattleBillboard : Billboard
     {
         base.Start();
 
-        target = Instantiate(new GameObject()).transform;
+        target = new GameObject($"Battle billboard midpoint").transform;
 
         this.battle = battle;
 
@@ -42,5 +42,8 @@ public class BattleBillboard : Billboard
 
         target.position = (battle.friendlyFleet.capitan.transform.position + battle.enemyFleet.capitan.transform.position)/2;
     }
-
+    void OnDestroy()
+    {
+        Destroy(target.gameObject);
+    }
 }
