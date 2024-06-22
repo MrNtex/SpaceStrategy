@@ -2,9 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using System;
 
 public class Graph : MonoBehaviour
 {
+    [SerializeField]
+    private UIGridRenderer uiGridRenderer;
 
     [SerializeField]
     private GameObject lineRendererPrefab;
@@ -49,7 +52,10 @@ public class Graph : MonoBehaviour
 
         yMax += padding;
         yMin -= padding;
-        for(int i = 1; i < numberOfX; i++)
+
+        uiGridRenderer.gridSize = new Vector2Int(numberOfX, numberOfY);
+
+        for (int i = 1; i < numberOfX; i++)
         {
             GameObject x = Instantiate(xMarker, graphContainer);
             x.GetComponent<RectTransform>().anchoredPosition = new Vector2(i * graphContainer.sizeDelta.x / numberOfX, 0);
@@ -63,21 +69,21 @@ public class Graph : MonoBehaviour
             y.GetComponentInChildren<TMPro.TMP_Text>().text = Mathf.Lerp(yMin, yMax, i / (float)numberOfY).ToString("N1");
         }
 
-        LineRenderer lineRenderer = Instantiate(lineRendererPrefab, graphContainer).GetComponent<LineRenderer>();
+        UILineRenderer lineRenderer = Instantiate(lineRendererPrefab, graphContainer).GetComponent<UILineRenderer>();
 
-        lineRenderer.positionCount = 0;
-        lineRenderer.startColor = colors[0];
-        lineRenderer.endColor = colors[0];
+        lineRenderer.points = new List<Vector2>();
+        lineRenderer.color = colors[0];
 
-        foreach(KeyValuePair<float, float> point in points)
+        lineRenderer.uiGrid = GetComponent<UIGridRenderer>();
+
+
+        foreach (KeyValuePair<float, float> point in points)
         {
-            lineRenderer.positionCount++;
+            float x = Mathf.InverseLerp(xMin, xMax, point.Key) * numberOfX;
+            float y = Mathf.InverseLerp(yMin, yMax, point.Value) * numberOfY;
 
-            float x = Mathf.InverseLerp(xMin, xMax, point.Key) * graphContainer.sizeDelta.x;
-            float y = Mathf.InverseLerp(yMin, yMax, point.Value) * graphContainer.sizeDelta.y;
+            lineRenderer.points.Add(new Vector2(x, y));
 
-            lineRenderer.SetPosition(lineRenderer.positionCount - 1, new Vector3(x, y, 0));
-            
         }
     }
     // Multiple lines
@@ -98,6 +104,9 @@ public class Graph : MonoBehaviour
 
         yMax += padding;
         yMin -= padding;
+
+        uiGridRenderer.gridSize = new Vector2Int(numberOfX, numberOfY);
+
         for (int i = 1; i < numberOfX; i++)
         {
             GameObject x = Instantiate(xMarker, graphContainer);
@@ -114,21 +123,21 @@ public class Graph : MonoBehaviour
         int colorIndex = 0;
         foreach(Dictionary<float, float> tuple in points)
         {
-            LineRenderer lineRenderer = Instantiate(lineRendererPrefab, graphContainer).GetComponent<LineRenderer>();
+            UILineRenderer lineRenderer = Instantiate(lineRendererPrefab, graphContainer).GetComponent<UILineRenderer>();
 
-            lineRenderer.positionCount = 0;
-            lineRenderer.startColor = colors[colorIndex];
-            lineRenderer.endColor = colors[colorIndex];
+            lineRenderer.points = new List<Vector2>();
+            lineRenderer.color = colors[colorIndex];
             colorIndex++;
+
+            lineRenderer.uiGrid = GetComponent<UIGridRenderer>();
+            
 
             foreach (KeyValuePair<float, float> point in tuple)
             {
-                lineRenderer.positionCount++;
+                float x = Mathf.InverseLerp(xMin, xMax, point.Key) * numberOfX;
+                float y = Mathf.InverseLerp(yMin, yMax, point.Value) * numberOfY;
 
-                float x = Mathf.InverseLerp(xMin, xMax, point.Key) * graphContainer.sizeDelta.x;
-                float y = Mathf.InverseLerp(yMin, yMax, point.Value) * graphContainer.sizeDelta.y;
-
-                lineRenderer.SetPosition(lineRenderer.positionCount - 1, new Vector3(x, y, 0));
+                lineRenderer.points.Add(new Vector2(x,y));
 
             }
         }
