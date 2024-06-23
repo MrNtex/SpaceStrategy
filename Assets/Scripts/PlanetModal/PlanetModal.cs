@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum CurrentGraph
 {
@@ -28,6 +29,12 @@ public class PlanetModal : MonoBehaviour
     private Graph graph;
 
     public CurrentGraph currentGraph;
+
+    [SerializeField]
+    private Color selectedColor, defaultColor;
+    private int currentGraphIndex = 0;
+    [SerializeField]
+    private Image[] graphButtons;
     public void Spawn(BodyInfo bodyInfo)
     {
 
@@ -49,6 +56,15 @@ public class PlanetModal : MonoBehaviour
     }
     public void SetCurrentGraph(int currentGraph)
     {
+        if(this.currentGraphIndex == currentGraph)
+        {
+            return;
+        }
+
+        graphButtons[this.currentGraphIndex].color = defaultColor;
+        graphButtons[currentGraph].color = selectedColor;
+        this.currentGraphIndex = currentGraph;
+
         this.currentGraph = (CurrentGraph)currentGraph;
         DoGraph();
     }

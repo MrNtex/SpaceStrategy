@@ -12,10 +12,13 @@ public class CameraControler : MonoBehaviour
     public float maxY = 120f;
 
     public float rotationSpeed = 20f;
-    
 
+    public static GameObject mainCamera;
 
-
+    private void Awake()
+    {
+        mainCamera = gameObject;
+    }
     // Update is called once per frame
     void Update()
     {

@@ -16,7 +16,7 @@ public class Billboard : MonoBehaviour
     const float distanceFromTarget = 60; // Distance from the target to place the text
     public float YOffset = 1f; // Height from the target to place the text
     public float maxFontSize = 0.1f; // Maximum font size
-    public Camera mainCamera;
+    public GameObject mainCamera;
     [SerializeField]
     protected GameObject button;
 
@@ -53,7 +53,7 @@ public class Billboard : MonoBehaviour
             }
         }
 
-        if (mainCamera == null) mainCamera = Camera.main;
+        if (mainCamera == null) mainCamera = CameraControler.mainCamera;
 
 
         Vector3 cumulativeScale = CalculateCumulativeParentScale(transform);
@@ -86,7 +86,7 @@ public class Billboard : MonoBehaviour
     }
     protected virtual void FixedUpdate()
     {
-        //if (target == null || mainCamera == null) return;
+        if (target == null || mainCamera == null) return;
 
         Vector3 directionToCamera = mainCamera.transform.position - target.position;
         if (Vector3.Dot(directionToCamera, mainCamera.transform.forward) > 0)

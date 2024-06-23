@@ -19,7 +19,7 @@ public class ObjectInfo : MonoBehaviour
         if(objectName == "") objectName = gameObject.name;
 
         objectFocusHelper = GetComponent<ObjectFocusHelper>();
-        cameraFocus = Camera.main.GetComponent<Focus>();
+        cameraFocus = CameraControler.mainCamera.GetComponent<Focus>();
         
     }
     public virtual void ButtonClicked()

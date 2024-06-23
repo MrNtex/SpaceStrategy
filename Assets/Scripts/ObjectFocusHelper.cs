@@ -32,7 +32,7 @@ public class ObjectFocusHelper : MonoBehaviour
     
     private void Awake()
     {
-        cameraMain = Camera.main.gameObject;
+        cameraMain = CameraControler.mainCamera.gameObject;
 
         orbiting = GetComponent<Orbiting>();
         if (orbiting != null)

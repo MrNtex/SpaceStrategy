@@ -49,7 +49,7 @@ public class FleetManager : MonoBehaviour
             Debug.LogError("More than one FleetManager in the scene");
         }
     
-        Camera.main.GetComponent<CameraRightClick>().onRightClick += RightClick;
+        CameraControler.mainCamera.GetComponent<CameraRightClick>().onRightClick += RightClick;
         bodyInfoUI = BodyInfoUI.instance;
     }
     void RightClick(GameObject target)

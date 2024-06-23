@@ -65,7 +65,7 @@ public partial class Fleet : ObjectInfo
 
         point = new GameObject($"{objectName}'s Point");
 
-        mainCamera = Camera.main.transform;
+        mainCamera = CameraControler.mainCamera.transform;
     }
 
     public virtual void SetDestination(GameObject dest)

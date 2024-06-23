@@ -13,7 +13,7 @@ public class ClickableLinkHandler : MonoBehaviour, IPointerClickHandler
 
     void Start()
     {
-        cameraFocus = Camera.main.GetComponent<Focus>();
+        cameraFocus = CameraControler.mainCamera.GetComponent<Focus>();
     }
     public void OnPointerClick(PointerEventData eventData)
     {

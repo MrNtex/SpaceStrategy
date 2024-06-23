@@ -10,10 +10,14 @@ public class CameraRightClick : MonoBehaviour
 
     private GameObject target;
 
+    private Camera cam;
+
     private void Start()
     {
         target = new GameObject("CameraRightClick's target");
         target.tag = "Point";
+
+        cam = gameObject.GetComponent<Camera>();
     }
     // Update is called once per frame
     void Update()
@@ -23,7 +27,7 @@ public class CameraRightClick : MonoBehaviour
         /// </sumary>
         if (Input.GetMouseButtonDown(1)) 
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
             
             if (Physics.Raycast(ray, out hit))
