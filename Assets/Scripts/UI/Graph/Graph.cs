@@ -21,7 +21,7 @@ public class Graph : MonoBehaviour
     [SerializeField]
     private Color[] colors;
 
-    public void GenerateAGraph(Dictionary<float, float> points, int numberOfX, int numberOfY, bool sort = false)
+    public void GenerateAGraph(Dictionary<float, float> points, int numberOfX, int numberOfY, bool sort = false, bool monthsMode = false)
     {
         if(points.Count == 0)
         {
@@ -57,9 +57,21 @@ public class Graph : MonoBehaviour
 
         for (int i = 1; i < numberOfX; i++)
         {
-            GameObject x = Instantiate(xMarker, graphContainer);
-            x.GetComponent<RectTransform>().anchoredPosition = new Vector2(i * graphContainer.sizeDelta.x / numberOfX, 0);
-            x.GetComponentInChildren<TMPro.TMP_Text>().text = Mathf.Lerp(xMin, xMax, i / (float)numberOfX).ToString("N1");
+            float numX = Mathf.Lerp(xMin, xMax, i / (float)numberOfX);
+            if(monthsMode)
+            {
+                int numXInt = (int)numX;
+                if (numXInt < 1) numXInt += 12;
+                GameObject x = Instantiate(xMarker, graphContainer);
+                x.GetComponent<RectTransform>().anchoredPosition = new Vector2(i * graphContainer.sizeDelta.x / numberOfX, 0);
+                x.GetComponentInChildren<TMPro.TMP_Text>().text = numXInt.ToString();
+            }
+            else
+            {
+                GameObject x = Instantiate(xMarker, graphContainer);
+                x.GetComponent<RectTransform>().anchoredPosition = new Vector2(i * graphContainer.sizeDelta.x / numberOfX, 0);
+                x.GetComponentInChildren<TMPro.TMP_Text>().text = numX.ToString("N1");
+            }
         }
 
         for(int i = 1; i < numberOfY; i++)

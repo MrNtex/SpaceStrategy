@@ -74,32 +74,33 @@ public class PlanetModal : MonoBehaviour
     void DoGraph()
     {
         Dictionary<float, float> points = new Dictionary<float, float>();
+        int n = 0;
         switch (currentGraph)
         {
             case CurrentGraph.Population:
-                
-                for (int i = 0; i < colonyStatus.recentPops.Count; i++)
+                n = colonyStatus.recentPops.Count;
+                for (int i = 0; i < n; i++)
                 {
                     points.Add(DateManager.currentDate.Month - 5 + i, colonyStatus.recentPops[i]);
                 }
-                graph.GenerateAGraph(points, 12, 6);
+                graph.GenerateAGraph(points, n, 6, false, true);
                 break;
             case CurrentGraph.GDP:
-
-                for (int i = 0; i < colonyStatus.recentGDP.Count; i++)
+                n = colonyStatus.recentGDP.Count;
+                for (int i = 0; i < n; i++)
                 {
                     points.Add(DateManager.currentDate.Month - 5 + i, colonyStatus.recentGDP[i]);
                 }
-                graph.GenerateAGraph(points, 12, 6);
+                graph.GenerateAGraph(points, n, 6, false, true);
                 break;
             case CurrentGraph.Stability:
-
-                for (int i = 0; i < colonyStatus.recentStability.Count; i++)
+                n = colonyStatus.recentStability.Count;
+                for (int i = 0; i < n; i++)
                 {
                     points.Add(DateManager.currentDate.Month - 5 + i, colonyStatus.recentStability[i]);
                 }
 
-                graph.GenerateAGraph(points, 12, 6);
+                graph.GenerateAGraph(points, n, 6, false, true);
                 break;
         }
     }

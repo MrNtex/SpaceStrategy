@@ -624,7 +624,7 @@ PositionConstraint:
   serializedVersion: 2
   m_Weight: 1
   m_TranslationAtRest: {x: -912.18, y: 450, z: 0}
-  m_TranslationOffset: {x: -703.2804, y: -139.98755, z: 0.00007307452}
+  m_TranslationOffset: {x: -703.27997, y: -127, z: 0}
   m_AffectTranslationX: 1
   m_AffectTranslationY: 1
   m_AffectTranslationZ: 1
@@ -15432,7 +15432,7 @@ Canvas:
   m_GameObject: {fileID: 621977150}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 330585545}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -15444,7 +15444,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &621977154
 RectTransform:
