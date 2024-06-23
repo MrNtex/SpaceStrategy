@@ -12,8 +12,7 @@ public class CameraRightClick : MonoBehaviour
 
     private void Start()
     {
-        target = new GameObject();
-        target.name = "Target";
+        target = new GameObject("CameraRightClick's target");
         target.tag = "Point";
     }
     // Update is called once per frame

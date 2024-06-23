@@ -55,7 +55,7 @@ public class Graph : MonoBehaviour
 
         uiGridRenderer.gridSize = new Vector2Int(numberOfX, numberOfY);
 
-        for (int i = 1; i < numberOfX; i++)
+        for (int i = 1; i < numberOfX-1; i++)
         {
             float numX = Mathf.Lerp(xMin, xMax, i / (float)numberOfX);
             if(monthsMode)
@@ -63,13 +63,13 @@ public class Graph : MonoBehaviour
                 int numXInt = (int)numX;
                 if (numXInt < 1) numXInt += 12;
                 GameObject x = Instantiate(xMarker, graphContainer);
-                x.GetComponent<RectTransform>().anchoredPosition = new Vector2(i * graphContainer.sizeDelta.x / numberOfX, 0);
+                x.GetComponent<RectTransform>().anchoredPosition = new Vector2(i * graphContainer.sizeDelta.x / (numberOfX-1), 0);
                 x.GetComponentInChildren<TMPro.TMP_Text>().text = numXInt.ToString();
             }
             else
             {
                 GameObject x = Instantiate(xMarker, graphContainer);
-                x.GetComponent<RectTransform>().anchoredPosition = new Vector2(i * graphContainer.sizeDelta.x / numberOfX, 0);
+                x.GetComponent<RectTransform>().anchoredPosition = new Vector2(i * graphContainer.sizeDelta.x / (numberOfX - 1), 0);
                 x.GetComponentInChildren<TMPro.TMP_Text>().text = numX.ToString("N1");
             }
         }

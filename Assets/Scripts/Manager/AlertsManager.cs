@@ -59,10 +59,10 @@ public class AlertsManager : MonoBehaviour
         switch (alertType)
         {
             case AlertType.Research:
-                Debug.Log("Research Alert Clicked");
+                MenusManager.Instance.ChangeMenu(1);
                 break;
             case AlertType.Decision:
-                Debug.Log("Decision Alert Clicked");
+                MenusManager.Instance.ChangeMenu(2);
                 break;
         }
     }

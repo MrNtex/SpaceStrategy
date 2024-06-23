@@ -928,7 +928,7 @@ MonoBehaviour:
   m_Color: {r: 1, g: 1, b: 1, a: 0.02745098}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  gridSize: {x: 16, y: 9}
+  gridSize: {x: 12, y: 6}
   thickness: 1
 --- !u!1 &2206879355657874852
 GameObject:
@@ -2884,7 +2884,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000000834465, y: -229.5}
+  m_AnchoredPosition: {x: 0, y: -229.5}
   m_SizeDelta: {x: -5.9999967, y: 226.99}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &1339114737612570443
