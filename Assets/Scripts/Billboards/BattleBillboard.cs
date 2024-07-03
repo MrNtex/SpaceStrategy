@@ -44,6 +44,6 @@ public class BattleBillboard : Billboard
     }
     void OnDestroy()
     {
-        Destroy(target.gameObject);
+        if(target != null) Destroy(target.gameObject);
     }
 }

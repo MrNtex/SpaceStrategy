@@ -30,14 +30,15 @@ public class ClickableLinkHandler : MonoBehaviour, IPointerClickHandler
 
     private void HandleLinkClick(string linkId)
     {
-        switch(linkId)
+        if (adress == null)
         {
+            Debug.LogWarning("Adress is not set!");
+            return;
+        }
+        switch (linkId)
+        {
+            case "Fleet":
             case "CelestialBody":
-                if(adress == null)
-                {
-                    Debug.LogWarning("Adress is not set!");
-                    return;
-                }
                 ObjectFocusHelper objectFocusHelper = adress.GetComponent<ObjectFocusHelper>();
                 if(objectFocusHelper == null)
                 {
@@ -47,6 +48,7 @@ public class ClickableLinkHandler : MonoBehaviour, IPointerClickHandler
 
                 cameraFocus.FocusOn(objectFocusHelper, true);
                 break;
+            
             default:
                 Debug.Log("Unknown link clicked!");
                 break;

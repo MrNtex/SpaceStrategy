@@ -87,6 +87,17 @@ public class ObjectFocusHelper : MonoBehaviour
         }
         
     }
+
+    public void SetParent(Transform p, Vector3 dest)
+    {
+        cameraPlacement.SetParent(p);
+        cameraPlacement.localPosition = offset;
+
+        Quaternion rotation = Quaternion.LookRotation(p.position - cameraPlacement.position);
+        Quaternion rotationToTarget = Quaternion.LookRotation(dest - cameraPlacement.position);
+        rotation = Quaternion.Euler(Mathf.Lerp(rotation.eulerAngles.x, rotationToTarget.eulerAngles.x, 0.5f), rotation.eulerAngles.y, 0);
+        cameraPlacement.rotation = rotation;
+    }
     private void OnEnable()
     {
         if(useCollider) cameraMain.GetComponent<Focus>().onLeftClick += RecalculateColliders;

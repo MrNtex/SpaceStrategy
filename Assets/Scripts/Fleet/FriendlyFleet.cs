@@ -33,10 +33,7 @@ public partial class FriendlyFleet : Fleet
     }
     public override void ButtonClicked()
     {
-        objectFocusHelper.cameraPlacement.SetParent(capitan.transform);
-        BodyInfoUI.instance.SetBody(this);
-
-        cameraFocus.FocusOn(objectFocusHelper, FleetManager.instance.selectedFleet == this);
+        base.ButtonClicked();
 
         FleetManager.instance.selectedFleet = this; // Reminder: Selected Object and Selected Fleet must be different (they are changed under similar yet diffrent circumstances)
     }
@@ -68,20 +65,42 @@ public partial class FriendlyFleet : Fleet
                 text.text = "Idle";
                 break;
             case FleetStatus.Moving:
-                if(destination.CompareTag("CelestialBody"))
-                {
-                    text.text = $"Moving to <link=\"CelestialBody\"><color=#ffd666>{destination.name}</color></link>";
-                    ClickableLinkHandler.adress = destination;
-                }
-                else
-                {
-                    string point = "X: " + destination.transform.position.x + " Y: " + destination.transform.position.z; // Y because of the 2D plane
-                    text.text = "Moving to " + point;
-                }
+                text.text = StatusMoving();
                 break;
             default:
                 text.text = "No status";
                 break;
         }
+    }
+    private string StatusMoving()
+    {
+        string text = "";
+        if (destination.CompareTag("CelestialBody"))
+        {
+            text = $"Moving to <link=\"CelestialBody\"><color=#ffd666>{destination.name}</color></link>";
+            ClickableLinkHandler.adress = destination;
+        }
+        else if (destination.CompareTag("Ship"))
+        {
+
+            Fleet fleet = destination.GetComponentInParent<Fleet>();
+            //ENEMY FLEET
+            if (fleet is EnemyFleet)
+            {
+                text = $"Engaging <link=\"Fleet\"><color=#ffd666>{fleet.name}</color></link>";
+            }
+            else
+            {
+                text = $"Following <link=\"Fleet\"><color=#ffd666>{fleet.name}</color></link>";
+            }
+            ClickableLinkHandler.adress = destination.transform.parent.gameObject;
+        }
+        else
+        {
+            string point = "X: " + destination.transform.position.x + " Y: " + destination.transform.position.z; // Y because of the 2D plane
+            text = "Moving to " + point;
+        }
+
+        return text;
     }
 }

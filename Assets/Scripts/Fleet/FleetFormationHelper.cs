@@ -20,8 +20,6 @@ public class FleetFormationHelper : MonoBehaviour
     }
     public void SetLineFormation(Ship[] composition, GameObject capitan)
     {
-        Debug.Log("Setting line formation");
-
         float distanceX = 3;
         float distanceZ = -7.5f;
 

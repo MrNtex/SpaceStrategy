@@ -68,6 +68,22 @@ public partial class Fleet : ObjectInfo
         mainCamera = CameraControler.mainCamera.transform;
     }
 
+    public override void ButtonClicked()
+    {
+        if (destination == null)
+        {
+            objectFocusHelper.SetParent(capitan.transform, capitan.transform.position);
+        }
+        else
+        {
+            objectFocusHelper.SetParent(capitan.transform, destination.transform.position);
+        }
+        
+        BodyInfoUI.instance.SetBody(this);
+
+        cameraFocus.FocusOn(objectFocusHelper, FleetManager.instance.selectedFleet == this);
+    }
+
     public virtual void SetDestination(GameObject dest)
     {
         if (dest.CompareTag("Point"))
