@@ -36,8 +36,6 @@ public class FleetManager : MonoBehaviour
 
     public Color focused, normal;
 
-    private BodyInfoUI bodyInfoUI;
-
     private void Awake()
     {
         if(instance == null)
@@ -50,7 +48,6 @@ public class FleetManager : MonoBehaviour
         }
     
         CameraControler.mainCamera.GetComponent<CameraRightClick>().onRightClick += RightClick;
-        bodyInfoUI = BodyInfoUI.instance;
     }
     void RightClick(GameObject target)
     {
@@ -79,7 +76,7 @@ public class FleetManager : MonoBehaviour
     {
         selectedFleet.SetDestination(dest);
 
-        bodyInfoUI.SetBody(selectedFleet);
+        BodyInfoUI.instance.SetBody(selectedFleet);
     }
 
     public void Update()

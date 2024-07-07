@@ -13,6 +13,10 @@ public class BodyInfoUI : MonoBehaviour
     private GameObject panel;
 
     [SerializeField]
+    private Button specialButton;
+    private Image specialButtonImage;
+
+    [SerializeField]
     private TMP_Text bodyName, description, status;
     [SerializeField]
     private Image bodyIcon;
@@ -21,6 +25,9 @@ public class BodyInfoUI : MonoBehaviour
     private Color gray;
 
     private ObjectInfo currentBody;
+
+    [SerializeField]
+    private Sprite square, hexagon, pentagon;
     private void Awake()
     {
         if (instance == null)
@@ -31,6 +38,8 @@ public class BodyInfoUI : MonoBehaviour
         {
             Destroy(this);
         }
+
+        specialButtonImage = specialButton.GetComponent<Image>();
     }
     /// <summary>
     /// Sets UI to display the information of the object
@@ -66,7 +75,45 @@ public class BodyInfoUI : MonoBehaviour
         description.text = obj.GetDescription();
         obj.SetStatus(ref status);
 
+        Sprite shape = GetShape(obj);
+
+        if(shape != null)
+        {
+            specialButtonImage.sprite = shape;
+        }
+        else
+        {
+            specialButtonImage.sprite = null;
+            specialButton.interactable = false;
+        }
+
         panel.SetActive(true);
     }
-    
+    public Sprite GetShape(ObjectInfo obj)
+    {
+        if(obj is BodyInfo)
+        {
+            switch (((BodyInfo)obj).status)
+            {
+                case BodyStatusType.CanBeSpecialized:
+                case BodyStatusType.Specialized:
+                case BodyStatusType.CanBeTerraformed:
+                    return pentagon;
+                case BodyStatusType.Colonizable:
+                case BodyStatusType.Colonized:
+                    return hexagon;
+                default:
+                    return null;
+            }
+        }
+        if(obj is Fleet)
+        {
+            if(obj is FriendlyFleet)
+            {
+                return square;
+            }
+            return hexagon;
+        }
+        return null;
+    }
 }

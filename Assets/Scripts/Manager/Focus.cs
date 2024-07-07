@@ -27,9 +27,6 @@ public class Focus : MonoBehaviour
 
     private GameObject dummyFocus;
 
-    [SerializeField]
-    private BodyInfoUI bodyInfoUI;
-
     private void Start()
     {
         oldPos = new GameObject("OldPos");
@@ -98,7 +95,7 @@ public class Focus : MonoBehaviour
             }
             else
             {
-                bodyInfoUI.SetBody(null);
+                BodyInfoUI.instance.SetBody(null);
                 FleetManager.instance.selectedFleet = null;
                 focusedObject = null;
             }
@@ -120,7 +117,7 @@ public class Focus : MonoBehaviour
 
     public void FocusOn(ObjectFocusHelper obj, bool force = false)
     {
-        bodyInfoUI.SetBody(obj.objectInfo);
+        BodyInfoUI.instance.SetBody(obj.objectInfo);
         
 
         if (obj != focusedObject && !force)
