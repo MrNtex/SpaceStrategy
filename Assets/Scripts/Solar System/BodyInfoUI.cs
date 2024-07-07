@@ -80,6 +80,11 @@ public class BodyInfoUI : MonoBehaviour
         if(shape != null)
         {
             specialButtonImage.sprite = shape;
+            specialButton.interactable = true;
+
+            specialButton.onClick.RemoveAllListeners();
+            specialButton.onClick.AddListener(() => obj.SpecialButtonClicked());
+            specialButton.onClick.AddListener(() => SetBody(null)); // Hide the UI
         }
         else
         {
