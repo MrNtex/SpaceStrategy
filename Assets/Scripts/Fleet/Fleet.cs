@@ -174,6 +174,9 @@ public class ShipStats
     public float lightDamage; // Damage dealt to light ships
     public float heavyDamage; // Damage dealt to capital ships
 
+    public float maxHealth;
+    public float maxShield;
+
     public float health;
     public float armor;
     public float shield;

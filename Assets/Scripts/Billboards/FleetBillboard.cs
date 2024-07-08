@@ -18,6 +18,11 @@ public class FleetBillboard : Billboard
 
     [SerializeField]
     private FleetIcon[] fleetIcons;
+
+    [SerializeField]
+    private Transform iconsParent;
+    [SerializeField]
+    private GameObject iconPrefab;
     public void SetUpFleet()
     {
 
@@ -29,6 +34,9 @@ public class FleetBillboard : Billboard
 
         text.text = fleet.objectName;
         button.GetComponent<Button>().onClick.AddListener(() => fleet.ButtonClicked());
+
+        CreateIcons();
+
         UpdateFleet();
 
         // KTO TAK SPIERDOLIL TE SOURCES !!!!
@@ -44,6 +52,20 @@ public class FleetBillboard : Billboard
             return;
         }
         positionConstraint.SetSource(0, source);
+    }
+    void CreateIcons()
+    {
+        List<FleetIcon> icons = new List<FleetIcon>();
+        foreach(KeyValuePair<ShipType, Sprite> kvp in ShipIconUtil.shipIcons)
+        {
+            GameObject go = Instantiate(iconPrefab, iconsParent);
+            go.GetComponent<Image>().sprite = kvp.Value;
+
+            go.SetActive(false);
+
+            icons.Add(new FleetIcon(kvp.Key, go.GetComponentInChildren<TMP_Text>(), go));
+        }
+        fleetIcons = icons.ToArray();
     }
     public void UpdateFleet()
     {
@@ -80,5 +102,12 @@ public class FleetBillboard : Billboard
         public ShipType type;
         public TMP_Text text;
         public GameObject icon;
+
+        public FleetIcon(ShipType type, TMP_Text text, GameObject icon)
+        {
+            this.type = type;
+            this.text = text;
+            this.icon = icon;
+        }
     }
 }
