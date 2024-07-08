@@ -10,6 +10,8 @@ public class BattlesManager : MonoBehaviour
 
     [SerializeField]
     private GameObject battlePrefab;
+
+    public GameObject battleModalPrefab;
     private void Awake()
     {
         instance = this;

@@ -27,6 +27,8 @@ public class Battle : MonoBehaviour
     public FleetStats friendlyFleetStats;
     public FleetStats enemyFleetStats;
 
+    public delegate void ShipUpdate(Ship ship);
+    public event ShipUpdate OnShipUpdate;
     
     public void Initialize(FriendlyFleet ff, EnemyFleet ef)
     {
@@ -78,6 +80,7 @@ public class Battle : MonoBehaviour
             target.ShipDestroyed(targetShip);
             billboard.UpdateBattle();
         }
+        OnShipUpdate?.Invoke(targetShip);
     }
     private Ship GetTarget(ref FleetStats sourece, ref FleetStats target)
     {
@@ -127,5 +130,12 @@ public class Battle : MonoBehaviour
 
         Destroy(gameObject);
 
+    }
+
+    public void CreateModal()
+    {
+        BattleModal modal = Instantiate(BattlesManager.instance.battleModalPrefab, MenusManager.Instance.mainCanvas.transform).GetComponent<BattleModal>();
+
+        modal.Create(this);
     }
 }

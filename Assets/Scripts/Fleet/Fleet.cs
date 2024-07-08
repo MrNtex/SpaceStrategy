@@ -158,6 +158,9 @@ public partial class Fleet : ObjectInfo
 public class Ship
 {
     public ShipType type;
+
+    public string shipName;
+
     //public int count;
     public Vector3 velocity;
     public GameObject prefab;

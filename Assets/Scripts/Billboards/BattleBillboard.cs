@@ -13,6 +13,7 @@ public class BattleBillboard : Billboard
 
     [SerializeField]
     private FleetIcons friendlyFleetIcons, enemyFleetIcons;
+
     protected override void Start()
     {
         return;
@@ -34,6 +35,11 @@ public class BattleBillboard : Billboard
     {
         friendlyFleetIcons.UpdateFleet(battle.friendlyFleet);
         enemyFleetIcons.UpdateFleet(battle.enemyFleet);
+    }
+
+    public void Click()
+    {
+        battle.CreateModal();
     }
 
     protected override void FixedUpdate()

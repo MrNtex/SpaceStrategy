@@ -181,7 +181,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &6276510558519736637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -548,7 +548,6 @@ GameObject:
   - component: {fileID: 7760079961390851819}
   - component: {fileID: 6921955232331091194}
   - component: {fileID: 8623535776352302969}
-  - component: {fileID: 8937219290603767153}
   m_Layer: 5
   m_Name: Battle
   m_TagString: Untagged
@@ -661,27 +660,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6921955232331091194}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
---- !u!114 &8937219290603767153
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5242852142365533636}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 534e0fb9d58e6bb42be79537cec7da9c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  background: {fileID: 6921955232331091194}
-  image: {fileID: 5912466920724486663}
-  outline: {fileID: 4712920427418270676}
-  hexagon: {fileID: 21300000, guid: d95c5f671bdb5ae43afe172d90abdecf, type: 3}
-  hexagonOutline: {fileID: 21300000, guid: d0c049a5060aed94d9631048cbf1296f, type: 3}
-  pentagon: {fileID: 21300000, guid: b23452788a5726445b97f99235b57519, type: 3}
-  pentagonOutline: {fileID: 21300000, guid: e4d1b04d9877e244093533ad189402ff, type: 3}
-  bgColor: {r: 0.23584908, g: 0.23584908, b: 0.23584908, a: 1}
+      m_Calls:
+      - m_Target: {fileID: 428842819438562659}
+        m_TargetAssemblyTypeName: BattleBillboard, Assembly-CSharp
+        m_MethodName: Click
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5257478069576271051
 GameObject:
   m_ObjectHideFlags: 0
@@ -1163,7 +1154,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6766369387563515130}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 428842819438562659}
+        m_TargetAssemblyTypeName: BattleBillboard, Assembly-CSharp
+        m_MethodName: Click
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &8046858286493086937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1545,7 +1548,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4057655994597212266}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 428842819438562659}
+        m_TargetAssemblyTypeName: BattleBillboard, Assembly-CSharp
+        m_MethodName: Click
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &5111163945095325920
 MonoBehaviour:
   m_ObjectHideFlags: 0

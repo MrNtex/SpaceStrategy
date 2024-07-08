@@ -9,6 +9,9 @@ public class BattleShipInfo : MonoBehaviour
     private Ship myShip;
 
     [SerializeField]
+    private Image shipIcon;
+
+    [SerializeField]
     private Image health;
     [SerializeField]
     private Image shield;
@@ -16,14 +19,23 @@ public class BattleShipInfo : MonoBehaviour
     [SerializeField]
     private TMP_Text shipName;
 
-    public void Create()
+    public void Create(Ship ship)
     {
-
+        myShip = ship;
+        shipIcon.sprite = ShipIconUtil.shipIcons[myShip.type];
+        shipName.text = myShip.shipName;
+        UpdateStats();
     }
 
     public void UpdateStats()
     {
         health.fillAmount = myShip.stats.health / myShip.stats.maxHealth;
-        shield.fillAmount = myShip.stats.shield / myShip.stats.maxShield;
+        if(myShip.stats.maxShield > 0) shield.fillAmount = myShip.stats.shield / myShip.stats.maxShield;
+        else shield.fillAmount = 0;
+    }
+
+    public void Destroyed()
+    {
+        Destroy(gameObject);
     }
 }
