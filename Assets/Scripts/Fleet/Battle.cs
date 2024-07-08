@@ -29,6 +29,11 @@ public class Battle : MonoBehaviour
 
     public delegate void ShipUpdate(Ship ship);
     public event ShipUpdate OnShipUpdate;
+
+    public delegate void BattleEnd(Fleet winner);
+    public event BattleEnd OnBattleEnd;
+
+    private BattleModal battleModal;
     
     public void Initialize(FriendlyFleet ff, EnemyFleet ef)
     {
@@ -128,14 +133,15 @@ public class Battle : MonoBehaviour
             enemyFleet.fleetBillboard.gameObject.SetActive(true);
         }
 
-        Destroy(gameObject);
+        OnBattleEnd?.Invoke(loser == enemyFleet ? friendlyFleet : enemyFleet); // Had to invert the loser, because the loser is the one that is destroyed
 
+        Destroy(gameObject);
     }
 
     public void CreateModal()
     {
-        BattleModal modal = Instantiate(BattlesManager.instance.battleModalPrefab, MenusManager.Instance.mainCanvas.transform).GetComponent<BattleModal>();
+        battleModal = Instantiate(BattlesManager.instance.battleModalPrefab, MenusManager.Instance.mainCanvas.transform).GetComponent<BattleModal>();
 
-        modal.Create(this);
+        battleModal.Create(this);
     }
 }

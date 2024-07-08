@@ -23,6 +23,7 @@ public class BattleModal : MonoBehaviour
         CreateBattleShipInfos(b.enemyFleetStats.capitals, enemyShipsCapitals);
 
         b.OnShipUpdate += UpdateShip;
+        b.OnBattleEnd += Close;
     }
 
     public void UpdateShip(Ship ship)
@@ -31,6 +32,8 @@ public class BattleModal : MonoBehaviour
         {
             shipInfos[ship].Destroyed(); // Can be reduced to Destroy(shipInfos[ship].gameObject), but might be useful to have a Destroyed method in the future
             shipInfos.Remove(ship);
+
+            return;
         }
         shipInfos[ship].UpdateStats();
     }
@@ -43,5 +46,12 @@ public class BattleModal : MonoBehaviour
             bsi.Create(ship);
             shipInfos.Add(ship, bsi);
         }
+    }
+
+    public void Close(Fleet fleet)
+    {
+        battle.OnShipUpdate -= UpdateShip;
+        battle.OnBattleEnd -= Close;
+        Destroy(gameObject);
     }
 }
