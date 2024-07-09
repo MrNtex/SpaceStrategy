@@ -6,6 +6,13 @@ using UnityEngine.UI;
 
 public class PieChart : MonoBehaviour, IPointerMoveHandler, IPointerExitHandler, IPointerClickHandler
 {
+    enum DataSource
+    {
+        NationalUnity,
+        Planet,
+        Colony,
+        Decision
+    }
     enum PieChartType
     {
         HoverToSelect,
@@ -13,6 +20,8 @@ public class PieChart : MonoBehaviour, IPointerMoveHandler, IPointerExitHandler,
     }
     [SerializeField]
     private PieChartType pieChartType;
+
+    [SerializeField] private DataSource dataSource;
 
     [SerializeField]
     [Range(0, 1)]
@@ -64,17 +73,36 @@ public class PieChart : MonoBehaviour, IPointerMoveHandler, IPointerExitHandler,
                 _selectedSlice = value;
                 AnimateTransform(_selectedSlice, new Vector3(1.3f, 1.3f));
 
-                tooltip.ShowTooltip(NationalUnity.instance.GetTooltipData(hoveredSelectedSliceIndex), TooltipTarget.Piechart);
+                tooltip.ShowTooltip(GetTooltipData(), TooltipTarget.Piechart);
             }
         }
     }
 
     Transform _selectedSlice;
 
+    TooltipData GetTooltipData()
+    {
+        switch(dataSource)
+        {
+            case DataSource.NationalUnity:
+                return NationalUnity.instance.GetTooltipData(hoveredSelectedSliceIndex);
+            default:
+                Debug.LogError("No tooltip data for this data source");
+                return new TooltipData();
+        }
+    }
+
+
     void Start()
     {
         rectTransform = background.GetComponent<RectTransform>();
         SetValues();
+
+        if(tooltip == null)
+        {
+            Debug.LogWarning("Tooltip is null, please assign it in the inspector. Assigned default");
+            tooltip = MenusManager.Instance.mainCanvas.GetComponent<Tooltip>();
+        }
     }
     void OnEnable()
     {
