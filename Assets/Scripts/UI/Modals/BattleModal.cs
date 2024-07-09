@@ -50,6 +50,10 @@ public class BattleModal : MonoBehaviour
 
     public void Close(Fleet fleet)
     {
+        Close();
+    }
+    public void Close()
+    {
         battle.OnShipUpdate -= UpdateShip;
         battle.OnBattleEnd -= Close;
         Destroy(gameObject);

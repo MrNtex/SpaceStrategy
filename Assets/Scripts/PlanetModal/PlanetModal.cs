@@ -35,11 +35,15 @@ public class PlanetModal : MonoBehaviour
     private int currentGraphIndex = 0;
     [SerializeField]
     private Image[] graphButtons;
+    [SerializeField]
+    private Image topBar;
     public void Spawn(BodyInfo bodyInfo)
     {
 
         // Set the planet modal's text to the bodyInfo's name
         planetName.text = bodyInfo.name;
+
+        topBar.sprite = bodyInfo.background;
 
         colonyStatus = bodyInfo.colonyStatus;
         if (colonyStatus == null)

@@ -39,6 +39,8 @@ public class BodyInfo : ObjectInfo
 
     public Orbiting orbiting;
 
+    public Sprite background;
+
     public void Start()
     {
         orbiting = GetComponent<Orbiting>();

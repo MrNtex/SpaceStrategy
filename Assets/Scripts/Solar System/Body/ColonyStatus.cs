@@ -30,6 +30,11 @@ public class ColonyStatus : MonoBehaviour
     public CircularBuffer<float> recentPops = new CircularBuffer<float>(12);
     public CircularBuffer<float> recentGDP = new CircularBuffer<float>(12);
     public CircularBuffer<float> recentStability = new CircularBuffer<float>(12);
+
+    [Header("Buildings")]
+    public const int maxBuildings = 12;
+    public int avaliableSlots = 5;
+    public List<Bullding> bulldings = new List<Bullding>();
     void Start()
     {
         recentPops.Add(population);

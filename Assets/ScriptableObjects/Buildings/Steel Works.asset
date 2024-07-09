@@ -12,8 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad8a89d4ea699ea49a5d214e883cd40a, type: 3}
   m_Name: Steel Works
   m_EditorClassIdentifier: 
-  bulldingName: 
+  bulldingName: Steel Works
   icon: {fileID: 0}
   timeToBuild: 0
+  production:
+  - type: 0
+    amount: 6
+  consumption: []
   maxWorkers: 0
-  energy: 0
+  energy: 11
+  prerequisites: 
