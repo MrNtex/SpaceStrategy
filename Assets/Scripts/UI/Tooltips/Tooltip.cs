@@ -42,7 +42,6 @@ public class Tooltip : MonoBehaviour
 
         MenusManager.Instance.OnChangedMenu += HideTooltip;
     }
-    
     public void ShowTooltip(TooltipData tooltipData, TooltipTarget target)
     {
         this.target = target;
@@ -163,6 +162,7 @@ public struct TooltipData
 
     public Dictionary<string, string> countriesBasic, countriesAdvanced;
     
+
     public TooltipData(string header, string sub, string content)
     {
         this.header = header;

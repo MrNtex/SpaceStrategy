@@ -92,6 +92,43 @@ public class NationalUnity : MonoBehaviour
         pieChart.values = new List<float> { supp[0], supp[1], supp[2] };
         pieChart.SetValues();
     }
+
+    public TooltipData GetTooltipData(int slice)
+    {
+        List<CountryOpinion> countryOpinionsForDecision = countryOpinions[slice];
+        TooltipData tooltipData = new TooltipData();
+        
+        switch (slice)
+        {
+            case 0:
+                tooltipData.header = "Support";
+                tooltipData.advancedContent = $"The value is being multiplied by {Mathf.Clamp(Mathf.Log(nationalUnity, 50), 0.3f, 2)} due to national unity.";
+                break;
+            case 1:
+                tooltipData.header = "Abstained";
+                break;
+            case 2:
+                tooltipData.header = "Opposition";
+                break;
+        }
+
+        tooltipData.sub = "SHIFT for advanced information";
+
+        tooltipData.countriesBasic = new Dictionary<string, string>();
+        tooltipData.countriesAdvanced = new Dictionary<string, string>();
+
+        foreach (CountryOpinion opinion in countryOpinionsForDecision)
+        {
+            tooltipData.countriesBasic.Add(opinion.country.tag, opinion.diplomaticWeight.ToString());
+            if (opinion.overallSupport == -1)
+            {
+                tooltipData.countriesAdvanced.Add(opinion.country.tag, $"{opinion.value} = {opinion.decisionSupport}. Country has a diplomatic weight of {opinion.diplomaticWeight}");
+                continue;
+            }
+            tooltipData.countriesAdvanced.Add(opinion.country.tag, $"{opinion.value} = {opinion.decisionSupport} + {opinion.overallSupport}. Country has a diplomatic weight of {opinion.diplomaticWeight}");
+        }
+        return tooltipData;
+    }
 }
 
 public struct CountryOpinion

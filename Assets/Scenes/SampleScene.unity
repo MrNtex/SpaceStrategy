@@ -22724,7 +22724,7 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: c7c3acbfc1c84914a9dde357010a73d8, type: 3}
   composition:
   - type: 0
-    shipName: 
+    shipName: Corvette I
     velocity: {x: 0, y: 0, z: 0}
     prefab: {fileID: 1675667123}
     myOffset: {x: 0, y: 0, z: 0}
@@ -22740,7 +22740,7 @@ MonoBehaviour:
       shield: 0
       reliability: 0.811
   - type: 0
-    shipName: 
+    shipName: Corvette II
     velocity: {x: 0, y: 0, z: 0}
     prefab: {fileID: 1008808726}
     myOffset: {x: 0, y: 0, z: 0}
@@ -22756,7 +22756,7 @@ MonoBehaviour:
       shield: 0
       reliability: 0.811
   - type: 0
-    shipName: 
+    shipName: Corvette III
     velocity: {x: 0, y: 0, z: 0}
     prefab: {fileID: 1043986960}
     myOffset: {x: 0, y: 0, z: 0}
@@ -22772,7 +22772,7 @@ MonoBehaviour:
       shield: 0
       reliability: 0.811
   - type: 0
-    shipName: 
+    shipName: Corvette I IV
     velocity: {x: 0, y: 0, z: 0}
     prefab: {fileID: 1379268069}
     myOffset: {x: 0, y: 0, z: 0}
@@ -22788,7 +22788,7 @@ MonoBehaviour:
       shield: 0
       reliability: 0.811
   - type: 0
-    shipName: 
+    shipName: Corvette V
     velocity: {x: 0, y: 0, z: 0}
     prefab: {fileID: 449676906}
     myOffset: {x: 0, y: 0, z: 0}

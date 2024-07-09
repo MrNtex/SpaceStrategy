@@ -24,6 +24,8 @@ public class ActiveDecisionButton : MonoBehaviour, IPointerMoveHandler, IPointer
 
     private string advancedContent;
 
+    private bool tooltipActive;
+
     private void Start()
     {
         SetUp();
@@ -45,7 +47,7 @@ public class ActiveDecisionButton : MonoBehaviour, IPointerMoveHandler, IPointer
         float progress = (float)DecisionsManger.instance.progress/DecisionsManger.instance.duration;
         progressBar.fillAmount = progress;
 
-        if(tooltip.tooltip.activeSelf)
+        if(tooltipActive && tooltip.tooltip.activeSelf && tooltip.target == TooltipTarget.ActiveDecision)
         {
             SetTooltip();
         }
@@ -88,10 +90,14 @@ public class ActiveDecisionButton : MonoBehaviour, IPointerMoveHandler, IPointer
     public void OnPointerExit(PointerEventData eventData)
     {
         tooltip.HideTooltip();
+
+        tooltipActive = false;
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
+        tooltipActive = true;
+
         if (DecisionsManger.instance.activeDecision != -1)
         {
             SetTooltip();

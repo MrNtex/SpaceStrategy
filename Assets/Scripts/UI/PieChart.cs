@@ -15,6 +15,7 @@ public class PieChart : MonoBehaviour, IPointerMoveHandler, IPointerExitHandler,
     private PieChartType pieChartType;
 
     [SerializeField]
+    [Range(0, 1)]
     private float donutSize = 0;
 
     public int SelectedSliceIndex = -1;
@@ -40,7 +41,7 @@ public class PieChart : MonoBehaviour, IPointerMoveHandler, IPointerExitHandler,
     private Camera UICamera;
 
     [SerializeField]
-    private SupportTooltip supportTooltip;
+    private Tooltip tooltip;
     Transform selectedSlice
     {
         get
@@ -63,7 +64,7 @@ public class PieChart : MonoBehaviour, IPointerMoveHandler, IPointerExitHandler,
                 _selectedSlice = value;
                 AnimateTransform(_selectedSlice, new Vector3(1.3f, 1.3f));
 
-                supportTooltip.ShowTooltip(hoveredSelectedSliceIndex, false);
+                tooltip.ShowTooltip(NationalUnity.instance.GetTooltipData(hoveredSelectedSliceIndex), TooltipTarget.Piechart);
             }
         }
     }
@@ -123,7 +124,7 @@ public class PieChart : MonoBehaviour, IPointerMoveHandler, IPointerExitHandler,
         {
             GameObject hole = Instantiate(slice, background);
             hole.GetComponent<Image>().color = background.GetComponent<Image>().color;
-            hole.GetComponent<RectTransform>().sizeDelta = new Vector2(rectTransform.sizeDelta.x * donutSize, rectTransform.sizeDelta.y * donutSize);
+            hole.transform.localScale = new Vector3(donutSize, donutSize, 1);
             hole.transform.SetAsLastSibling();
             hole.GetComponent<Image>().fillAmount = 1;
         }
@@ -150,7 +151,7 @@ public class PieChart : MonoBehaviour, IPointerMoveHandler, IPointerExitHandler,
         Vector2 localPoint;
         RectTransformUtility.ScreenPointToLocalPointInRectangle(rectTransform, eventData.position, UICamera, out localPoint); // eventData.pressEventCamera doesn't unless you first click on something
         
-        supportTooltip.MoveTooltip(eventData.position);
+        tooltip.MoveTooltip(eventData.position);
 
         float angle = Mathf.Atan2(localPoint.y, localPoint.x) * Mathf.Rad2Deg;
 
@@ -176,7 +177,7 @@ public class PieChart : MonoBehaviour, IPointerMoveHandler, IPointerExitHandler,
         selectedSlice = null;
         hoveredSelectedSliceIndex = -1;
 
-        supportTooltip.HideTooltip();
+        tooltip.HideTooltip();
     }
     void IPointerClickHandler.OnPointerClick(PointerEventData eventData)
     {
