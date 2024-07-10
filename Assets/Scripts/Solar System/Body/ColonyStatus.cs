@@ -34,7 +34,7 @@ public class ColonyStatus : MonoBehaviour
     [Header("Buildings")]
     public const int maxBuildings = 12;
     public int avaliableSlots = 5;
-    public List<Bullding> bulldings = new List<Bullding>();
+    public List<Building> buildings = new List<Building>();
     void Start()
     {
         recentPops.Add(population);

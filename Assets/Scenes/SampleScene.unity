@@ -9651,6 +9651,7 @@ MonoBehaviour:
   status: 0
   colonyStatus: {fileID: 356142579}
   orbiting: {fileID: 0}
+  background: {fileID: 21300000, guid: 3f98a99721b1e0d44951cec3d126be15, type: 3}
 --- !u!1001 &357648203
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11863,6 +11864,7 @@ MonoBehaviour:
   status: 5
   colonyStatus: {fileID: 0}
   orbiting: {fileID: 0}
+  background: {fileID: 0}
 --- !u!1001 &444287255
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12724,6 +12726,7 @@ MonoBehaviour:
   status: 5
   colonyStatus: {fileID: 0}
   orbiting: {fileID: 0}
+  background: {fileID: 0}
 --- !u!1 &462992310
 GameObject:
   m_ObjectHideFlags: 0
@@ -12875,6 +12878,7 @@ MonoBehaviour:
   status: 5
   colonyStatus: {fileID: 0}
   orbiting: {fileID: 0}
+  background: {fileID: 0}
 --- !u!114 &462992317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13863,6 +13867,7 @@ MonoBehaviour:
   status: 5
   colonyStatus: {fileID: 0}
   orbiting: {fileID: 0}
+  background: {fileID: 0}
 --- !u!1001 &533703823
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14572,6 +14577,7 @@ MonoBehaviour:
   status: 5
   colonyStatus: {fileID: 0}
   orbiting: {fileID: 0}
+  background: {fileID: 0}
 --- !u!1 &573469068
 GameObject:
   m_ObjectHideFlags: 0
@@ -14933,6 +14939,7 @@ MonoBehaviour:
   status: 2
   colonyStatus: {fileID: 582741485}
   orbiting: {fileID: 0}
+  background: {fileID: 21300000, guid: 483174671170bb84d90f686faa8b183f, type: 3}
 --- !u!1 &584995903
 GameObject:
   m_ObjectHideFlags: 0
@@ -16015,6 +16022,7 @@ MonoBehaviour:
   status: 5
   colonyStatus: {fileID: 0}
   orbiting: {fileID: 0}
+  background: {fileID: 0}
 --- !u!1 &673938498
 GameObject:
   m_ObjectHideFlags: 0
@@ -17979,6 +17987,7 @@ MonoBehaviour:
   status: 5
   colonyStatus: {fileID: 0}
   orbiting: {fileID: 0}
+  background: {fileID: 0}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -18333,6 +18342,7 @@ MonoBehaviour:
   status: 5
   colonyStatus: {fileID: 0}
   orbiting: {fileID: 0}
+  background: {fileID: 0}
 --- !u!1 &865691316
 GameObject:
   m_ObjectHideFlags: 0
@@ -18627,6 +18637,7 @@ MonoBehaviour:
   status: 5
   colonyStatus: {fileID: 0}
   orbiting: {fileID: 0}
+  background: {fileID: 0}
 --- !u!1001 &870685738
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18925,6 +18936,7 @@ GameObject:
   - component: {fileID: 941910652}
   - component: {fileID: 941910653}
   - component: {fileID: 941910654}
+  - component: {fileID: 941910655}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -19389,6 +19401,21 @@ MonoBehaviour:
     name: Metals
     icon: {fileID: 0}
     amount: 0
+--- !u!114 &941910655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 941910633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d240e1f9507964409ac2967c7820283, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  avaliableBuildings:
+  - {fileID: 11400000, guid: 3f0e1a047a8fc294199e1c820815fee8, type: 2}
+  - {fileID: 0}
 --- !u!1 &951593548
 GameObject:
   m_ObjectHideFlags: 0
@@ -19578,6 +19605,7 @@ MonoBehaviour:
   status: 5
   colonyStatus: {fileID: 0}
   orbiting: {fileID: 0}
+  background: {fileID: 0}
 --- !u!1001 &954015971
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21285,6 +21313,7 @@ MonoBehaviour:
   status: 5
   colonyStatus: {fileID: 0}
   orbiting: {fileID: 0}
+  background: {fileID: 0}
 --- !u!1 &1167027186
 GameObject:
   m_ObjectHideFlags: 0
@@ -21828,6 +21857,7 @@ MonoBehaviour:
   status: 5
   colonyStatus: {fileID: 0}
   orbiting: {fileID: 0}
+  background: {fileID: 0}
 --- !u!1 &1202368145
 GameObject:
   m_ObjectHideFlags: 0
@@ -24254,6 +24284,7 @@ MonoBehaviour:
   status: 5
   colonyStatus: {fileID: 0}
   orbiting: {fileID: 0}
+  background: {fileID: 0}
 --- !u!1001 &1341326966
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24846,6 +24877,7 @@ MonoBehaviour:
   status: 5
   colonyStatus: {fileID: 0}
   orbiting: {fileID: 0}
+  background: {fileID: 0}
 --- !u!1 &1379268069
 GameObject:
   m_ObjectHideFlags: 0
@@ -28939,6 +28971,7 @@ MonoBehaviour:
   status: 5
   colonyStatus: {fileID: 0}
   orbiting: {fileID: 0}
+  background: {fileID: 0}
 --- !u!1 &1803584626
 GameObject:
   m_ObjectHideFlags: 0
@@ -31917,6 +31950,7 @@ MonoBehaviour:
   status: 5
   colonyStatus: {fileID: 0}
   orbiting: {fileID: 0}
+  background: {fileID: 0}
 --- !u!1 &2039847313
 GameObject:
   m_ObjectHideFlags: 0
@@ -32352,6 +32386,7 @@ MonoBehaviour:
   status: 5
   colonyStatus: {fileID: 0}
   orbiting: {fileID: 0}
+  background: {fileID: 0}
 --- !u!1 &2057207076
 GameObject:
   m_ObjectHideFlags: 0

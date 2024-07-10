@@ -23,7 +23,7 @@ public class PlanetModal : MonoBehaviour
     private TMP_Text hability, stability, population;
 
     public BodyInfo bodyInfo;
-    ColonyStatus colonyStatus;
+    public ColonyStatus colonyStatus;
 
     [SerializeField]
     private Graph graph;
