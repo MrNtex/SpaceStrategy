@@ -11,4 +11,14 @@ public class AvaliableBuildingButton : MonoBehaviour
     public TMP_Text buildingName;
 
     public Building building;
+
+    public void SetUp(Building building, ColonyStatus colonyStatus)
+    {
+        this.building = building;
+        icon.sprite = building.icon;
+        background.sprite = building.background;
+        buildingName.text = building.buildingName;
+
+        GetComponent<Button>().onClick.AddListener(() => colonyStatus.AddBuildingToQueue(building));
+    }
 }

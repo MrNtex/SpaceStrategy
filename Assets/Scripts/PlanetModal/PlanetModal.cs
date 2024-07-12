@@ -37,8 +37,12 @@ public class PlanetModal : MonoBehaviour
     private Image[] graphButtons;
     [SerializeField]
     private Image topBar;
+
+    [SerializeField]
+    private PlanetModalConstruction planetModalConstruction;
     public void Spawn(BodyInfo bodyInfo)
     {
+        MenusManager.activeModals.Add(gameObject);
 
         // Set the planet modal's text to the bodyInfo's name
         planetName.text = bodyInfo.name;
@@ -57,6 +61,8 @@ public class PlanetModal : MonoBehaviour
         OnColonyUpdate();
 
         ColoniesManager.instance.OnColonyUpdate += OnColonyUpdate;
+
+        planetModalConstruction.Create(this);
     }
     public void SetCurrentGraph(int currentGraph)
     {
@@ -80,6 +86,7 @@ public class PlanetModal : MonoBehaviour
     void OnDestroy()
     {
         ColoniesManager.instance.OnColonyUpdate -= OnColonyUpdate;
+        MenusManager.activeModals.Remove(gameObject);
     }
     void OnColonyUpdate()
     {;

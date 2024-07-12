@@ -15,6 +15,8 @@ public class BattleModal : MonoBehaviour
     private GameObject battleShipInfoPrefab;
     public void Create(Battle b)
     {
+        MenusManager.activeModals.Add(gameObject);
+
         battle = b;
 
         CreateBattleShipInfos(b.friendlyFleetStats.screens, friendlyShipsScreens);
@@ -54,6 +56,8 @@ public class BattleModal : MonoBehaviour
     }
     public void Close()
     {
+        MenusManager.activeModals.Remove(gameObject);
+
         battle.OnShipUpdate -= UpdateShip;
         battle.OnBattleEnd -= Close;
         Destroy(gameObject);

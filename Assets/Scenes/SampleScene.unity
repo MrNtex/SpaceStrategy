@@ -9627,8 +9627,8 @@ MonoBehaviour:
   gdp: 1400
   gdpChangeRate: 0.02
   avaliableSlots: 5
-  bulldings:
-  - {fileID: 11400000, guid: 3f0e1a047a8fc294199e1c820815fee8, type: 2}
+  buildings:
+  - {fileID: 11400000, guid: d62a9cf1e49282f4a86665e81670445f, type: 2}
 --- !u!114 &356142580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11841,7 +11841,7 @@ MonoBehaviour:
   gdp: 1010.3
   gdpChangeRate: 0.02
   avaliableSlots: 5
-  bulldings: []
+  buildings: []
 --- !u!114 &443832780
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12703,7 +12703,7 @@ MonoBehaviour:
   gdp: 1010.3
   gdpChangeRate: 0.02
   avaliableSlots: 5
-  bulldings: []
+  buildings: []
 --- !u!114 &462690854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12899,7 +12899,7 @@ MonoBehaviour:
   gdp: 1010.3
   gdpChangeRate: 0.02
   avaliableSlots: 5
-  bulldings: []
+  buildings: []
 --- !u!1 &474107153
 GameObject:
   m_ObjectHideFlags: 0
@@ -13844,7 +13844,7 @@ MonoBehaviour:
   gdp: 1010.3
   gdpChangeRate: 0.02
   avaliableSlots: 5
-  bulldings: []
+  buildings: []
 --- !u!114 &515440458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14554,7 +14554,7 @@ MonoBehaviour:
   gdp: 1010.3
   gdpChangeRate: 0.02
   avaliableSlots: 5
-  bulldings: []
+  buildings: []
 --- !u!114 &564395479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14916,7 +14916,7 @@ MonoBehaviour:
   gdp: 1010.3
   gdpChangeRate: 0.02
   avaliableSlots: 5
-  bulldings: []
+  buildings: []
 --- !u!114 &582741486
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15999,7 +15999,7 @@ MonoBehaviour:
   gdp: 1010.3
   gdpChangeRate: 0.02
   avaliableSlots: 5
-  bulldings: []
+  buildings: []
 --- !u!114 &651233530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17964,7 +17964,7 @@ MonoBehaviour:
   gdp: 1010.3
   gdpChangeRate: 0.02
   avaliableSlots: 5
-  bulldings: []
+  buildings: []
 --- !u!114 &828426965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18319,7 +18319,7 @@ MonoBehaviour:
   gdp: 1010.3
   gdpChangeRate: 0.02
   avaliableSlots: 5
-  bulldings: []
+  buildings: []
 --- !u!114 &860914098
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18614,7 +18614,7 @@ MonoBehaviour:
   gdp: 1010.3
   gdpChangeRate: 0.02
   avaliableSlots: 5
-  bulldings: []
+  buildings: []
 --- !u!114 &867471420
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19415,7 +19415,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   avaliableBuildings:
   - {fileID: 11400000, guid: 3f0e1a047a8fc294199e1c820815fee8, type: 2}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: d62a9cf1e49282f4a86665e81670445f, type: 2}
 --- !u!1 &951593548
 GameObject:
   m_ObjectHideFlags: 0
@@ -19582,7 +19582,7 @@ MonoBehaviour:
   gdp: 1010.3
   gdpChangeRate: 0.02
   avaliableSlots: 5
-  bulldings: []
+  buildings: []
 --- !u!114 &951593557
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21290,7 +21290,7 @@ MonoBehaviour:
   gdp: 1010.3
   gdpChangeRate: 0.02
   avaliableSlots: 5
-  bulldings: []
+  buildings: []
 --- !u!114 &1138087777
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21834,7 +21834,7 @@ MonoBehaviour:
   gdp: 1010.3
   gdpChangeRate: 0.02
   avaliableSlots: 5
-  bulldings: []
+  buildings: []
 --- !u!114 &1186634157
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24240,7 +24240,7 @@ MonoBehaviour:
   gdp: 1010.3
   gdpChangeRate: 0.02
   avaliableSlots: 5
-  bulldings: []
+  buildings: []
 --- !u!114 &1333688748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24261,7 +24261,7 @@ MonoBehaviour:
   gdp: 1010.3
   gdpChangeRate: 0.02
   avaliableSlots: 5
-  bulldings: []
+  buildings: []
 --- !u!114 &1333688749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24833,7 +24833,7 @@ MonoBehaviour:
   gdp: 1010.3
   gdpChangeRate: 0.02
   avaliableSlots: 5
-  bulldings: []
+  buildings: []
 --- !u!114 &1376634471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24854,7 +24854,7 @@ MonoBehaviour:
   gdp: 1010.3
   gdpChangeRate: 0.02
   avaliableSlots: 5
-  bulldings: []
+  buildings: []
 --- !u!114 &1376634472
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28948,7 +28948,7 @@ MonoBehaviour:
   gdp: 1010.3
   gdpChangeRate: 0.02
   avaliableSlots: 5
-  bulldings: []
+  buildings: []
 --- !u!114 &1792061405
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31927,7 +31927,7 @@ MonoBehaviour:
   gdp: 1010.3
   gdpChangeRate: 0.02
   avaliableSlots: 5
-  bulldings: []
+  buildings: []
 --- !u!114 &2016960383
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32363,7 +32363,7 @@ MonoBehaviour:
   gdp: 1010.3
   gdpChangeRate: 0.02
   avaliableSlots: 5
-  bulldings: []
+  buildings: []
 --- !u!114 &2047691605
 MonoBehaviour:
   m_ObjectHideFlags: 0

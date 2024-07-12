@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad8a89d4ea699ea49a5d214e883cd40a, type: 3}
   m_Name: Steel Works
   m_EditorClassIdentifier: 
-  bulldingName: Steel Works
-  icon: {fileID: 0}
-  timeToBuild: 0
+  buildingName: 
+  icon: {fileID: 21300000, guid: 676aba5b7bb708847a47b7024de888c1, type: 3}
+  simpleIcon: {fileID: 21300000, guid: 2f7acff8ce1ce8d4f9f33121009bca01, type: 3}
+  background: {fileID: 21300000, guid: bded0908cb505e34db293973fd6c494e, type: 3}
+  timeToBuild: 10
   production:
   - type: 0
     amount: 6
@@ -22,3 +24,4 @@ MonoBehaviour:
   maxWorkers: 0
   energy: 11
   prerequisites: 
+  unique: 0

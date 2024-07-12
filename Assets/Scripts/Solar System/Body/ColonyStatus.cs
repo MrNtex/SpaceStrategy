@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 public enum BodyStatusType
 {
     Colonized,
@@ -35,6 +37,20 @@ public class ColonyStatus : MonoBehaviour
     public const int maxBuildings = 12;
     public int avaliableSlots = 5;
     public List<Building> buildings = new List<Building>();
+
+    public Queue<Construction> constructionQueue = new Queue<Construction>();
+
+    public struct Construction
+    {
+        public Building building;
+        public DateTime startDate;
+
+        public Construction(Building building, DateTime startDate)
+        {
+            this.building = building;
+            this.startDate = startDate;
+        }
+    }
     void Start()
     {
         recentPops.Add(population);
@@ -50,5 +66,31 @@ public class ColonyStatus : MonoBehaviour
         // Scaling by pops, stability, 
         gdp += gdp * gdpChangeRate * Random.Range(-.5f, .5f);
         recentGDP.Add(gdp);
+
+        UpdateConstruciton();
+    }
+
+    public void AddBuildingToQueue(Building building)
+    {
+        constructionQueue.Enqueue(new Construction(building, DateManager.currentDate));
+
+        Debug.Log("Added building to queue" + building.buildingName);
+    }
+
+    void UpdateConstruciton()
+    {
+        if (constructionQueue.Count > 0)
+        {
+            Construction currentConstruction = constructionQueue.Peek();
+
+            float constructionTime = currentConstruction.building.constructionTime / ColoniesManager.instance.constructionSpeed;
+
+            if((DateManager.currentDate - currentConstruction.startDate).TotalDays >= constructionTime)
+            {
+                constructionQueue.Dequeue();
+                buildings.Add(currentConstruction.building);
+                avaliableSlots -= 1;
+            }
+        }
     }
 }

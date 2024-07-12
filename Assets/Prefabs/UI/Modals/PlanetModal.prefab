@@ -1430,7 +1430,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.0004882133, y: 0.0002095241}
+  m_AnchoredPosition: {x: -0.0004882133, y: 0.0008855319}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1602063227719477966
@@ -4669,7 +4669,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 3510228670639267194}
   m_Direction: 2
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.99999666
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -6121,6 +6121,7 @@ MonoBehaviour:
   - {fileID: 109839296041097428}
   - {fileID: 7087544681668785905}
   topBar: {fileID: 5882217724459736990}
+  planetModalConstruction: {fileID: 545479267808327769}
 --- !u!1 &9203876205089579379
 GameObject:
   m_ObjectHideFlags: 0

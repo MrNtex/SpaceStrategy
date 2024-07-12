@@ -19,8 +19,10 @@ public class PlanetModalConstruction : MonoBehaviour
 
     [SerializeField]
     private GameObject avaliableBuildingInfo;
-    private void OnEnable()
+    public void Create(PlanetModal planetModal)
     {
+        this.planetModal = planetModal;
+
         SetIcons();
         SetAvaliableBuildings();
     }
@@ -41,10 +43,7 @@ public class PlanetModalConstruction : MonoBehaviour
         foreach(Building building in BuildingsManager.instance.avaliableBuildings)
         {
             AvaliableBuildingButton buildingButton = Instantiate(avaliableBuildingInfo, sideBar).GetComponent<AvaliableBuildingButton>();
-            buildingButton.icon.sprite = building.icon;
-            buildingButton.background.sprite = building.background;
-            buildingButton.buildingName.text = building.buildingName;
-            buildingButton.building = building;
+            buildingButton.SetUp(building, planetModal.colonyStatus);
         }
     }
 }

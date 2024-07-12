@@ -11,7 +11,7 @@ public class Building : ScriptableObject
     public Sprite background;
 
 
-    public int timeToBuild;
+    public int constructionTime;
 
     [System.Serializable]
     public struct MaterialYield

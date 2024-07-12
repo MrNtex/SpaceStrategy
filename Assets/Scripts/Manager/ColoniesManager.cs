@@ -10,6 +10,8 @@ public class ColoniesManager : MonoBehaviour
 
     public delegate void ColonyUpdate();
     public event ColonyUpdate OnColonyUpdate;
+
+    public float constructionSpeed = 1;
     private void Awake()
     {
         if (instance == null)

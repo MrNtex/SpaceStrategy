@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad8a89d4ea699ea49a5d214e883cd40a, type: 3}
   m_Name: Rare Earths
   m_EditorClassIdentifier: 
-  bulldingName: Steel Works
-  icon: {fileID: 0}
-  timeToBuild: 0
+  buildingName: 
+  icon: {fileID: 21300000, guid: c365682858542ae4692ee1da8c5752e8, type: 3}
+  simpleIcon: {fileID: 21300000, guid: 95fa17ddac86b844cb7e0f4b4b71a8e1, type: 3}
+  background: {fileID: 21300000, guid: 2f4734fd9c5fb4e459c55b2fb7ef27e0, type: 3}
+  timeToBuild: 5
   production:
   - type: 0
     amount: 6
@@ -22,3 +24,4 @@ MonoBehaviour:
   maxWorkers: 0
   energy: 11
   prerequisites: 
+  unique: 0
