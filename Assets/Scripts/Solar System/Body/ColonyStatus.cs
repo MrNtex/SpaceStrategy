@@ -18,6 +18,8 @@ public class ColonyStatus : MonoBehaviour
     public int maxPopulation;
     public float populationGrowthRate;
 
+    public delegate void ColonyUpdate();
+    public event ColonyUpdate OnColonyUpdate;
 
     [Range(0, 100)]
     public float stability;
@@ -40,10 +42,11 @@ public class ColonyStatus : MonoBehaviour
 
     public Queue<Construction> constructionQueue = new Queue<Construction>();
 
-    public struct Construction
+    public class Construction
     {
         public Building building;
         public DateTime startDate;
+        public BuildingButton button;
 
         public Construction(Building building, DateTime startDate)
         {
@@ -74,7 +77,7 @@ public class ColonyStatus : MonoBehaviour
     {
         constructionQueue.Enqueue(new Construction(building, DateManager.currentDate));
 
-        Debug.Log("Added building to queue" + building.buildingName);
+        OnColonyUpdate?.Invoke();
     }
 
     void UpdateConstruciton()
@@ -85,9 +88,16 @@ public class ColonyStatus : MonoBehaviour
 
             float constructionTime = currentConstruction.building.constructionTime / ColoniesManager.instance.constructionSpeed;
 
+            currentConstruction.button.secondLayer.fillAmount = (float)(DateManager.currentDate - currentConstruction.startDate).TotalDays / constructionTime;
+
             if((DateManager.currentDate - currentConstruction.startDate).TotalDays >= constructionTime)
             {
                 constructionQueue.Dequeue();
+                constructionQueue.Peek().startDate = DateManager.currentDate;
+
+                currentConstruction.button.secondLayer.enabled = false;
+                currentConstruction.button.img.material = null;
+
                 buildings.Add(currentConstruction.building);
                 avaliableSlots -= 1;
             }

@@ -16,7 +16,7 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: c365682858542ae4692ee1da8c5752e8, type: 3}
   simpleIcon: {fileID: 21300000, guid: 95fa17ddac86b844cb7e0f4b4b71a8e1, type: 3}
   background: {fileID: 21300000, guid: 2f4734fd9c5fb4e459c55b2fb7ef27e0, type: 3}
-  timeToBuild: 5
+  constructionTime: 173
   production:
   - type: 0
     amount: 6

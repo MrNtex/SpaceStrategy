@@ -61,6 +61,7 @@ public class PlanetModal : MonoBehaviour
         OnColonyUpdate();
 
         ColoniesManager.instance.OnColonyUpdate += OnColonyUpdate;
+        colonyStatus.OnColonyUpdate += OnColonyUpdate;
 
         planetModalConstruction.Create(this);
     }
@@ -97,6 +98,11 @@ public class PlanetModal : MonoBehaviour
         population.text = colonyStatus.population.ToString();
 
         DoGraph();
+
+        if(planetModalConstruction.gameObject.activeSelf)
+        {
+            planetModalConstruction.SetIcons();
+        }
     }
     void DoGraph()
     {

@@ -9,7 +9,7 @@ public class PlanetModalConstruction : MonoBehaviour
     private Sprite emptySlot;
 
     [SerializeField]
-    private Image[] slots;
+    private BuildingButton[] slots;
 
     [SerializeField]
     private PlanetModal planetModal;
@@ -31,11 +31,16 @@ public class PlanetModalConstruction : MonoBehaviour
         int i = 0;
         for(; i < planetModal.colonyStatus.buildings.Count; i++)
         {
-            slots[i].sprite = planetModal.colonyStatus.buildings[i].icon;
+            slots[i].SetUp(planetModal.colonyStatus.buildings[i]);
+        }
+        foreach(ColonyStatus.Construction construction in planetModal.colonyStatus.constructionQueue)
+        {
+            slots[i].SetUp(construction);
+            i++;
         }
         for(; i < slots.Length; i++)
         {
-            slots[i].sprite = emptySlot;
+            slots[i].img.sprite = emptySlot;
         }
     }
     public void SetAvaliableBuildings()
