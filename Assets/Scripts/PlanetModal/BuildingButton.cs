@@ -34,7 +34,12 @@ public class BuildingButton : MonoBehaviour
 
         secondLayer.sprite = construction.building.icon;
         secondLayer.enabled = true;
+        secondLayer.fillAmount = 0;
         this.construction = construction;
         construction.button = this;
+    }
+    public void UpdateFill(float fill)
+    {
+        secondLayer.fillAmount = fill;
     }
 }

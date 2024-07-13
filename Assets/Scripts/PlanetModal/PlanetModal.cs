@@ -60,7 +60,6 @@ public class PlanetModal : MonoBehaviour
 
         OnColonyUpdate();
 
-        ColoniesManager.instance.OnColonyUpdate += OnColonyUpdate;
         colonyStatus.OnColonyUpdate += OnColonyUpdate;
 
         planetModalConstruction.Create(this);
@@ -86,7 +85,7 @@ public class PlanetModal : MonoBehaviour
     }
     void OnDestroy()
     {
-        ColoniesManager.instance.OnColonyUpdate -= OnColonyUpdate;
+        colonyStatus.OnColonyUpdate -= OnColonyUpdate;
         MenusManager.activeModals.Remove(gameObject);
     }
     void OnColonyUpdate()

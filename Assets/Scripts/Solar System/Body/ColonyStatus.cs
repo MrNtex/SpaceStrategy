@@ -41,6 +41,7 @@ public class ColonyStatus : MonoBehaviour
     public List<Building> buildings = new List<Building>();
 
     public Queue<Construction> constructionQueue = new Queue<Construction>();
+    public Construction currentConstruction;
 
     public class Construction
     {
@@ -57,18 +58,29 @@ public class ColonyStatus : MonoBehaviour
     void Start()
     {
         recentPops.Add(population);
+
+        DateManager.instance.OnDateUpdate += UpdateColony;
     }
+    int lastMonth = 0;
     public void UpdateColony()
     {
-        population += (int)(population * (populationGrowthRate + Random.Range(-.5f,.5f)));
-        recentPops.Add(population);
+        if(lastMonth != DateManager.currentDate.Month)
+        {
+            // These things should be calculated monthly
 
-        recentStability.Add(stability);
+            lastMonth = DateManager.currentDate.Month;
 
 
-        // Scaling by pops, stability, 
-        gdp += gdp * gdpChangeRate * Random.Range(-.5f, .5f);
-        recentGDP.Add(gdp);
+            population += (int)(population * (populationGrowthRate + Random.Range(-.5f, .5f)));
+            recentPops.Add(population);
+
+            recentStability.Add(stability);
+
+
+            // Scaling by pops, stability, 
+            gdp += gdp * gdpChangeRate * Random.Range(-.5f, .5f);
+            recentGDP.Add(gdp);
+        }
 
         UpdateConstruciton();
     }
@@ -76,6 +88,10 @@ public class ColonyStatus : MonoBehaviour
     public void AddBuildingToQueue(Building building)
     {
         constructionQueue.Enqueue(new Construction(building, DateManager.currentDate));
+        if (constructionQueue.Count == 1)
+        {
+            currentConstruction = constructionQueue.Peek();
+        }
 
         OnColonyUpdate?.Invoke();
     }
@@ -84,22 +100,27 @@ public class ColonyStatus : MonoBehaviour
     {
         if (constructionQueue.Count > 0)
         {
-            Construction currentConstruction = constructionQueue.Peek();
-
             float constructionTime = currentConstruction.building.constructionTime / ColoniesManager.instance.constructionSpeed;
+            float progress = (float)(DateManager.currentDate - currentConstruction.startDate).TotalDays;
 
-            currentConstruction.button.secondLayer.fillAmount = (float)(DateManager.currentDate - currentConstruction.startDate).TotalDays / constructionTime;
+            currentConstruction.button.UpdateFill(progress / constructionTime);
 
-            if((DateManager.currentDate - currentConstruction.startDate).TotalDays >= constructionTime)
+            if(progress >= constructionTime)
             {
                 constructionQueue.Dequeue();
-                constructionQueue.Peek().startDate = DateManager.currentDate;
 
                 currentConstruction.button.secondLayer.enabled = false;
                 currentConstruction.button.img.material = null;
 
                 buildings.Add(currentConstruction.building);
                 avaliableSlots -= 1;
+
+                if (constructionQueue.Count > 0)
+                {
+                    constructionQueue.Peek().startDate = DateManager.currentDate;
+
+                    currentConstruction = constructionQueue.Peek();
+                }
             }
         }
     }
