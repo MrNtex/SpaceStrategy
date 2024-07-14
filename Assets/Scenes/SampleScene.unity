@@ -19317,6 +19317,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   colonies:
   - {fileID: 356142579}
+  constructionSpeed: 1
 --- !u!114 &941910651
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -828,6 +828,7 @@ MonoBehaviour:
   secondLayer: {fileID: 3610586456845294566}
   building: {fileID: 0}
   blackAndWhite: {fileID: 2100000, guid: 3d5225c3413d61046932ce61b6387716, type: 2}
+  constructionGray: {r: 0.63529414, g: 0.63529414, b: 0.63529414, a: 1}
 --- !u!114 &3859480832675573931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1101,6 +1102,7 @@ MonoBehaviour:
   secondLayer: {fileID: 0}
   building: {fileID: 0}
   blackAndWhite: {fileID: 2100000, guid: 3d5225c3413d61046932ce61b6387716, type: 2}
+  constructionGray: {r: 0.63529414, g: 0.63529414, b: 0.63529414, a: 1}
 --- !u!114 &6525351685565407065
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1161,6 +1163,7 @@ MonoBehaviour:
   secondLayer: {fileID: 0}
   building: {fileID: 0}
   blackAndWhite: {fileID: 0}
+  constructionGray: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &1323896316058305742
 GameObject:
   m_ObjectHideFlags: 0
@@ -1451,6 +1454,7 @@ MonoBehaviour:
   secondLayer: {fileID: 0}
   building: {fileID: 0}
   blackAndWhite: {fileID: 2100000, guid: 3d5225c3413d61046932ce61b6387716, type: 2}
+  constructionGray: {r: 0.63529414, g: 0.63529414, b: 0.63529414, a: 1}
 --- !u!114 &5956595933106149768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1528,7 +1532,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.0004882133, y: 0.000015181982}
+  m_AnchoredPosition: {x: -0.0004882133, y: 0.00039403432}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1602063227719477966
@@ -1958,6 +1962,7 @@ MonoBehaviour:
   secondLayer: {fileID: 0}
   building: {fileID: 0}
   blackAndWhite: {fileID: 2100000, guid: 3d5225c3413d61046932ce61b6387716, type: 2}
+  constructionGray: {r: 0.63529414, g: 0.63529414, b: 0.63529414, a: 1}
 --- !u!114 &907637038866186757
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5144,7 +5149,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 3510228670639267194}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.99999315
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -6009,6 +6014,7 @@ MonoBehaviour:
   secondLayer: {fileID: 0}
   building: {fileID: 0}
   blackAndWhite: {fileID: 2100000, guid: 3d5225c3413d61046932ce61b6387716, type: 2}
+  constructionGray: {r: 0.63529414, g: 0.63529414, b: 0.63529414, a: 1}
 --- !u!114 &8365190100328435710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6297,6 +6303,7 @@ MonoBehaviour:
   secondLayer: {fileID: 0}
   building: {fileID: 0}
   blackAndWhite: {fileID: 2100000, guid: 3d5225c3413d61046932ce61b6387716, type: 2}
+  constructionGray: {r: 0.63529414, g: 0.63529414, b: 0.63529414, a: 1}
 --- !u!114 &4527956941969763456
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -14,6 +14,9 @@ public class BuildingButton : MonoBehaviour
     [SerializeField]
     private Material blackAndWhite;
 
+    [SerializeField]
+    private Color constructionGray;
+
     private void Awake()
     {
         img = GetComponent<Image>();
@@ -24,6 +27,8 @@ public class BuildingButton : MonoBehaviour
     {
         img.material = null;
         img.sprite = building.icon;
+        img.color = Color.white;
+
         this.building = building;
         secondLayer.enabled = false;
     }
@@ -31,6 +36,7 @@ public class BuildingButton : MonoBehaviour
     {
         img.sprite = construction.building.icon;
         img.material = blackAndWhite;
+        img.color = constructionGray;
 
         secondLayer.sprite = construction.building.icon;
         secondLayer.enabled = true;

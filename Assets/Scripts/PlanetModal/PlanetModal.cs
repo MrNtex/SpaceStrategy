@@ -89,7 +89,7 @@ public class PlanetModal : MonoBehaviour
         MenusManager.activeModals.Remove(gameObject);
     }
     void OnColonyUpdate()
-    {;
+    {
         // UpdateVariables
 
         hability.text = colonyStatus.hability.ToString() + "%";

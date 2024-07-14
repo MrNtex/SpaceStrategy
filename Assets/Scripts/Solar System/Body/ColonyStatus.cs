@@ -109,9 +109,6 @@ public class ColonyStatus : MonoBehaviour
             {
                 constructionQueue.Dequeue();
 
-                currentConstruction.button.secondLayer.enabled = false;
-                currentConstruction.button.img.material = null;
-
                 buildings.Add(currentConstruction.building);
                 avaliableSlots -= 1;
 
@@ -121,6 +118,8 @@ public class ColonyStatus : MonoBehaviour
 
                     currentConstruction = constructionQueue.Peek();
                 }
+
+                OnColonyUpdate?.Invoke();
             }
         }
     }
