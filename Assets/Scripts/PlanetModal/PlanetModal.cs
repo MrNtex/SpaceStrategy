@@ -10,7 +10,7 @@ public enum CurrentGraph
     GDP,
     Stability,
 }
-public class PlanetModal : MonoBehaviour
+public class PlanetModal : Modal
 {
 
     [SerializeField]
@@ -80,13 +80,11 @@ public class PlanetModal : MonoBehaviour
     }
     public void DestroySelf()
     {
-        MenusManager.activeModals.Remove(gameObject);
         Destroy(gameObject);
     }
-    void OnDestroy()
+    public override void OnDestroy()
     {
         colonyStatus.OnColonyUpdate -= OnColonyUpdate;
-        MenusManager.activeModals.Remove(gameObject);
     }
     void OnColonyUpdate()
     {

@@ -94,9 +94,8 @@ public class MenusManager : MonoBehaviour
             if (activeModals.Count > 0)
             {
                 // Safely destroy the last GameObject and remove it from the list
-                GameObject lastModal = activeModals[activeModals.Count - 1];
-                Destroy(lastModal);
-                activeModals.RemoveAt(activeModals.Count - 1);
+                Destroy(activeModals[activeModals.Count - 1]);
+                //activeModals.RemoveAt(activeModals.Count - 1);
             }
             Close();
         }

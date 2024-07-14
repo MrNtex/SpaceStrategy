@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BattleModal : MonoBehaviour
+public class BattleModal : Modal
 {
     private Battle battle;
 
@@ -54,12 +54,15 @@ public class BattleModal : MonoBehaviour
     {
         Close();
     }
-    public void Close()
+    public override void OnDestroy()
     {
-        MenusManager.activeModals.Remove(gameObject);
+        Close();
 
         battle.OnShipUpdate -= UpdateShip;
         battle.OnBattleEnd -= Close;
+    }
+    public void Close()
+    {
         Destroy(gameObject);
     }
 }
