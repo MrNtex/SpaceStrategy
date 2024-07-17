@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlanetModalConstruction : MonoBehaviour
+public class PlanetModalConstruction : PlanetModalPage
 {
     [SerializeField]
     private Sprite emptySlot;
@@ -19,12 +19,17 @@ public class PlanetModalConstruction : MonoBehaviour
 
     [SerializeField]
     private GameObject avaliableBuildingInfo;
-    public void Create(PlanetModal planetModal)
+    public override void Create(PlanetModal planetModal)
     {
         this.planetModal = planetModal;
 
         SetIcons();
         SetAvaliableBuildings();
+    }
+
+    public override void OnColonyUpdate()
+    {
+        SetIcons();
     }
     public void SetIcons()
     {
@@ -45,7 +50,13 @@ public class PlanetModalConstruction : MonoBehaviour
     }
     public void SetAvaliableBuildings()
     {
-        foreach(Building building in BuildingsManager.instance.avaliableBuildings)
+        foreach (Transform child in sideBar)
+        {
+            Destroy(child.gameObject);
+        }
+
+
+        foreach (Building building in BuildingsManager.instance.avaliableBuildings)
         {
             AvaliableBuildingButton buildingButton = Instantiate(avaliableBuildingInfo, sideBar).GetComponent<AvaliableBuildingButton>();
             buildingButton.SetUp(building, planetModal.colonyStatus);

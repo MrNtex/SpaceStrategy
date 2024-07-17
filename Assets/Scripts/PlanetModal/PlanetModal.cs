@@ -19,27 +19,19 @@ public class PlanetModal : Modal
     [SerializeField]
     private TMP_Text planetName;
 
-    [SerializeField]
-    private TMP_Text hability, stability, population;
 
     public BodyInfo bodyInfo;
     public ColonyStatus colonyStatus;
 
-    [SerializeField]
-    private Graph graph;
-
-    public CurrentGraph currentGraph;
-
-    [SerializeField]
-    private Color selectedColor, defaultColor;
-    private int currentGraphIndex = 0;
-    [SerializeField]
-    private Image[] graphButtons;
+    
     [SerializeField]
     private Image topBar;
 
+
     [SerializeField]
-    private PlanetModalConstruction planetModalConstruction;
+    private PlanetModalPage[] pages;
+
+    private int currentPageIndex = 0;
     public void Spawn(BodyInfo bodyInfo)
     {
         MenusManager.activeModals.Add(gameObject);
@@ -62,76 +54,30 @@ public class PlanetModal : Modal
 
         colonyStatus.OnColonyUpdate += OnColonyUpdate;
 
-        planetModalConstruction.Create(this);
+        LoadPage(0);
     }
-    public void SetCurrentGraph(int currentGraph)
+    
+    public void LoadPage(int idx)
     {
-        if(this.currentGraphIndex == currentGraph)
-        {
-            return;
-        }
-
-        graphButtons[this.currentGraphIndex].color = defaultColor;
-        graphButtons[currentGraph].color = selectedColor;
-        this.currentGraphIndex = currentGraph;
-
-        this.currentGraph = (CurrentGraph)currentGraph;
-        DoGraph();
+        pages[currentPageIndex].gameObject.SetActive(false);
+        pages[idx].gameObject.SetActive(true);
+        pages[idx].Create(this);
+        currentPageIndex = idx;
     }
+
     public void DestroySelf()
     {
         Destroy(gameObject);
     }
     public override void OnDestroy()
     {
+        base.OnDestroy();
         colonyStatus.OnColonyUpdate -= OnColonyUpdate;
     }
     void OnColonyUpdate()
     {
         // UpdateVariables
 
-        hability.text = colonyStatus.hability.ToString() + "%";
-        stability.text = colonyStatus.stability.ToString() + "%";
-        population.text = colonyStatus.population.ToString();
-
-        DoGraph();
-
-        if(planetModalConstruction.gameObject.activeSelf)
-        {
-            planetModalConstruction.SetIcons();
-        }
     }
-    void DoGraph()
-    {
-        Dictionary<float, float> points = new Dictionary<float, float>();
-        int n = 0;
-        switch (currentGraph)
-        {
-            case CurrentGraph.Population:
-                n = colonyStatus.recentPops.Count;
-                for (int i = 0; i < n; i++)
-                {
-                    points.Add(DateManager.currentDate.Month - 5 + i, colonyStatus.recentPops[i]);
-                }
-                graph.GenerateAGraph(points, n, 6, false, true);
-                break;
-            case CurrentGraph.GDP:
-                n = colonyStatus.recentGDP.Count;
-                for (int i = 0; i < n; i++)
-                {
-                    points.Add(DateManager.currentDate.Month - 5 + i, colonyStatus.recentGDP[i]);
-                }
-                graph.GenerateAGraph(points, n, 6, false, true);
-                break;
-            case CurrentGraph.Stability:
-                n = colonyStatus.recentStability.Count;
-                for (int i = 0; i < n; i++)
-                {
-                    points.Add(DateManager.currentDate.Month - 5 + i, colonyStatus.recentStability[i]);
-                }
-
-                graph.GenerateAGraph(points, n, 6, false, true);
-                break;
-        }
-    }
+    
 }
