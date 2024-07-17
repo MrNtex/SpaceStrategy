@@ -103,7 +103,7 @@ public class ColonyStatus : MonoBehaviour
             float constructionTime = currentConstruction.building.constructionTime / ColoniesManager.instance.constructionSpeed;
             float progress = (float)(DateManager.currentDate - currentConstruction.startDate).TotalDays;
 
-            currentConstruction.button.UpdateFill(progress / constructionTime);
+            if(currentConstruction.button != null && currentConstruction.button.gameObject.activeSelf) currentConstruction.button.UpdateFill(progress / constructionTime);
 
             if(progress >= constructionTime)
             {

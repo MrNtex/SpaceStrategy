@@ -33,6 +33,7 @@ public class PlanetModalConstruction : PlanetModalPage
     }
     public void SetIcons()
     {
+        Debug.Log("Setting icons");
         int i = 0;
         for(; i < planetModal.colonyStatus.buildings.Count; i++)
         {

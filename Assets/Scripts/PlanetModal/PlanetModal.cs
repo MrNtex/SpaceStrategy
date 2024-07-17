@@ -50,11 +50,11 @@ public class PlanetModal : Modal
 
         this.bodyInfo = bodyInfo;
 
+        LoadPage(0);
+
         OnColonyUpdate();
 
         colonyStatus.OnColonyUpdate += OnColonyUpdate;
-
-        LoadPage(0);
     }
     
     public void LoadPage(int idx)
@@ -77,7 +77,8 @@ public class PlanetModal : Modal
     void OnColonyUpdate()
     {
         // UpdateVariables
-
+        Debug.Log("Colony update");
+        pages[currentPageIndex].OnColonyUpdate();
     }
     
 }
