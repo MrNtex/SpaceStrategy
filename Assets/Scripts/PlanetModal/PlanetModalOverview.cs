@@ -5,7 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlanetModalOverview : PlanetModalPage
+public class PlanetModalOverview : PlanetModalPage, IPieCharDataTarget
 {
     private PlanetModal planetModal;
     private ColonyStatus colonyStatus;
@@ -40,7 +40,6 @@ public class PlanetModalOverview : PlanetModalPage
 
         DoGraph();
     }
-
 
     public void SetCurrentGraph(int currentGraph)
     {
@@ -88,5 +87,10 @@ public class PlanetModalOverview : PlanetModalPage
                 graph.GenerateAGraph(points, n, 6, false, true);
                 break;
         }
+    }
+
+    public TooltipData GetTooltipData(int slice)
+    {
+        throw new System.NotImplementedException();
     }
 }

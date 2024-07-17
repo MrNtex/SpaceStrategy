@@ -154,6 +154,10 @@ public class Tooltip : MonoBehaviour
         MoveTooltip(savedPos, false);
     }
 }
+public interface IPieCharDataTarget
+{
+    TooltipData GetTooltipData(int slice);
+}
 public struct TooltipData
 {
     public string header, sub, content;

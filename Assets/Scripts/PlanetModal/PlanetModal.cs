@@ -10,7 +10,7 @@ public enum CurrentGraph
     GDP,
     Stability,
 }
-public class PlanetModal : Modal
+public class PlanetModal : Modal, IPieCharDataTarget
 {
 
     [SerializeField]
@@ -77,8 +77,11 @@ public class PlanetModal : Modal
     void OnColonyUpdate()
     {
         // UpdateVariables
-        Debug.Log("Colony update");
         pages[currentPageIndex].OnColonyUpdate();
     }
-    
+
+    public TooltipData GetTooltipData(int slice)
+    {
+        throw new System.NotImplementedException();
+    }
 }

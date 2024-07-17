@@ -2,17 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Scripting;
 using UnityEngine.UI;
 
 public class PieChart : MonoBehaviour, IPointerMoveHandler, IPointerExitHandler, IPointerClickHandler
 {
-    enum DataSource
-    {
-        NationalUnity,
-        Planet,
-        Colony,
-        Decision
-    }
     enum PieChartType
     {
         HoverToSelect,
@@ -20,8 +14,6 @@ public class PieChart : MonoBehaviour, IPointerMoveHandler, IPointerExitHandler,
     }
     [SerializeField]
     private PieChartType pieChartType;
-
-    [SerializeField] private DataSource dataSource;
 
     [SerializeField]
     [Range(0, 1)]
@@ -73,28 +65,23 @@ public class PieChart : MonoBehaviour, IPointerMoveHandler, IPointerExitHandler,
                 _selectedSlice = value;
                 AnimateTransform(_selectedSlice, new Vector3(1.3f, 1.3f));
 
-                tooltip.ShowTooltip(GetTooltipData(), TooltipTarget.Piechart);
+                tooltip.ShowTooltip(dataSource.GetTooltipData(hoveredSelectedSliceIndex), TooltipTarget.Piechart);
             }
         }
     }
 
     Transform _selectedSlice;
 
-    TooltipData GetTooltipData()
-    {
-        switch(dataSource)
-        {
-            case DataSource.NationalUnity:
-                return NationalUnity.instance.GetTooltipData(hoveredSelectedSliceIndex);
-            default:
-                Debug.LogError("No tooltip data for this data source");
-                return new TooltipData();
-        }
-    }
+    private IPieCharDataTarget dataSource;
+
+    public GameObject dataSourceObj;
 
 
     void Start()
     {
+        dataSource = dataSourceObj.GetComponent<IPieCharDataTarget>(); // Workaround for refrencing the interface in unity
+        if(dataSource == null) Debug.LogError("Data source is null, assign game that implements ITooltipTarget interface");
+
         rectTransform = background.GetComponent<RectTransform>();
         SetValues();
 
