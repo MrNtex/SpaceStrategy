@@ -43,6 +43,12 @@ public class ColonyStatus : MonoBehaviour
     public Queue<Construction> constructionQueue = new Queue<Construction>();
     public Construction currentConstruction;
 
+    public float energyProduction;
+    public float energyConsumption;
+    public CircularBuffer<float> recentEnergyProduction = new CircularBuffer<float>(12);
+    public CircularBuffer<float> recentEnergyConsumption = new CircularBuffer<float>(12);
+    public int energyLevel = 1;
+
     public class Construction
     {
         public Building building;
@@ -81,6 +87,10 @@ public class ColonyStatus : MonoBehaviour
             gdp += gdp * gdpChangeRate * Random.Range(-.5f, .5f);
             recentGDP.Add(gdp);
 
+            CalculateConsuption();
+            recentEnergyProduction.Add(energyProduction);
+            recentEnergyConsumption.Add(energyConsumption);
+
             OnColonyUpdate?.Invoke();
         }
 
@@ -95,6 +105,7 @@ public class ColonyStatus : MonoBehaviour
             currentConstruction = constructionQueue.Peek();
         }
 
+        CalculateConsuption();
         OnColonyUpdate?.Invoke();
     }
 
@@ -114,6 +125,8 @@ public class ColonyStatus : MonoBehaviour
                 buildings.Add(currentConstruction.building);
                 avaliableSlots -= 1;
 
+                CalculateConsuption();
+
                 if (constructionQueue.Count > 0)
                 {
                     constructionQueue.Peek().startDate = DateManager.currentDate;
@@ -124,5 +137,25 @@ public class ColonyStatus : MonoBehaviour
                 OnColonyUpdate?.Invoke();
             }
         }
+    }
+
+    void CalculateConsuption()
+    {
+        energyConsumption = 0;
+        energyProduction = 0;
+        if(constructionQueue.Count > 0)
+        {
+            energyConsumption = ColoniesManager.instance.construcitonEnergyCost;
+        }
+
+        foreach(Building building in buildings)
+        {
+            if(building.energy < 0)
+                energyConsumption -= building.energy;
+            else
+                energyProduction += building.energy;
+        }
+
+        energyProduction += ColoniesManager.instance.energyProductionByLevel[energyLevel];
     }
 }

@@ -243,3 +243,7 @@ public class PieChart : MonoBehaviour, IPointerMoveHandler, IPointerExitHandler,
     }
 
 }
+public interface IPieCharDataTarget
+{
+    TooltipData GetTooltipData(int slice);
+}

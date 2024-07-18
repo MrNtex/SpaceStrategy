@@ -618,7 +618,7 @@ PositionConstraint:
   serializedVersion: 2
   m_Weight: 1
   m_TranslationAtRest: {x: -912.18, y: 450, z: 0}
-  m_TranslationOffset: {x: -703.28, y: -146.78198, z: 0}
+  m_TranslationOffset: {x: -703.2801, y: -127, z: 0}
   m_AffectTranslationX: 1
   m_AffectTranslationY: 1
   m_AffectTranslationZ: 1
@@ -9629,6 +9629,9 @@ MonoBehaviour:
   avaliableSlots: 5
   buildings:
   - {fileID: 11400000, guid: d62a9cf1e49282f4a86665e81670445f, type: 2}
+  energyProduction: 0
+  energyConsumption: 0
+  energyLevel: 1
 --- !u!114 &356142580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11842,6 +11845,9 @@ MonoBehaviour:
   gdpChangeRate: 0.02
   avaliableSlots: 5
   buildings: []
+  energyProduction: 0
+  energyConsumption: 0
+  energyLevel: 1
 --- !u!114 &443832780
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11856,7 +11862,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectName: 
   icon: {fileID: 0}
-  bodyType: 0
+  bodyType: 3
   planetType: 0
   useCustomColor: 0
   customColor: {r: 0, g: 0, b: 0, a: 0}
@@ -12704,6 +12710,9 @@ MonoBehaviour:
   gdpChangeRate: 0.02
   avaliableSlots: 5
   buildings: []
+  energyProduction: 0
+  energyConsumption: 0
+  energyLevel: 1
 --- !u!114 &462690854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12900,6 +12909,9 @@ MonoBehaviour:
   gdpChangeRate: 0.02
   avaliableSlots: 5
   buildings: []
+  energyProduction: 0
+  energyConsumption: 0
+  energyLevel: 1
 --- !u!1 &474107153
 GameObject:
   m_ObjectHideFlags: 0
@@ -13845,6 +13857,9 @@ MonoBehaviour:
   gdpChangeRate: 0.02
   avaliableSlots: 5
   buildings: []
+  energyProduction: 0
+  energyConsumption: 0
+  energyLevel: 1
 --- !u!114 &515440458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13860,7 +13875,7 @@ MonoBehaviour:
   objectName: 
   icon: {fileID: 21300000, guid: dc50c89f5f9aa6f418ba16bd1102006d, type: 3}
   bodyType: 0
-  planetType: 0
+  planetType: 1
   useCustomColor: 1
   customColor: {r: 1, g: 0.90588397, b: 0.7122642, a: 1}
   crust: {fileID: 865691317}
@@ -14555,6 +14570,9 @@ MonoBehaviour:
   gdpChangeRate: 0.02
   avaliableSlots: 5
   buildings: []
+  energyProduction: 0
+  energyConsumption: 0
+  energyLevel: 1
 --- !u!114 &564395479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14917,6 +14935,9 @@ MonoBehaviour:
   gdpChangeRate: 0.02
   avaliableSlots: 5
   buildings: []
+  energyProduction: 0
+  energyConsumption: 0
+  energyLevel: 1
 --- !u!114 &582741486
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16000,6 +16021,9 @@ MonoBehaviour:
   gdpChangeRate: 0.02
   avaliableSlots: 5
   buildings: []
+  energyProduction: 0
+  energyConsumption: 0
+  energyLevel: 1
 --- !u!114 &651233530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17965,6 +17989,9 @@ MonoBehaviour:
   gdpChangeRate: 0.02
   avaliableSlots: 5
   buildings: []
+  energyProduction: 0
+  energyConsumption: 0
+  energyLevel: 1
 --- !u!114 &828426965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17980,7 +18007,7 @@ MonoBehaviour:
   objectName: 
   icon: {fileID: 21300000, guid: 357f818aa282bfb45b62dfb98d332b05, type: 3}
   bodyType: 0
-  planetType: 0
+  planetType: 2
   useCustomColor: 1
   customColor: {r: 0.46079564, g: 0.8595034, b: 0.8962264, a: 1}
   crust: {fileID: 1915736615}
@@ -18320,6 +18347,9 @@ MonoBehaviour:
   gdpChangeRate: 0.02
   avaliableSlots: 5
   buildings: []
+  energyProduction: 0
+  energyConsumption: 0
+  energyLevel: 1
 --- !u!114 &860914098
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18615,6 +18645,9 @@ MonoBehaviour:
   gdpChangeRate: 0.02
   avaliableSlots: 5
   buildings: []
+  energyProduction: 0
+  energyConsumption: 0
+  energyLevel: 1
 --- !u!114 &867471420
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18629,7 +18662,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectName: 
   icon: {fileID: 0}
-  bodyType: 0
+  bodyType: 3
   planetType: 0
   useCustomColor: 0
   customColor: {r: 0, g: 0, b: 0, a: 0}
@@ -19318,6 +19351,7 @@ MonoBehaviour:
   colonies:
   - {fileID: 356142579}
   constructionSpeed: 1
+  construcitonEnergyCost: 1
 --- !u!114 &941910651
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19584,6 +19618,9 @@ MonoBehaviour:
   gdpChangeRate: 0.02
   avaliableSlots: 5
   buildings: []
+  energyProduction: 0
+  energyConsumption: 0
+  energyLevel: 1
 --- !u!114 &951593557
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21292,6 +21329,9 @@ MonoBehaviour:
   gdpChangeRate: 0.02
   avaliableSlots: 5
   buildings: []
+  energyProduction: 0
+  energyConsumption: 0
+  energyLevel: 1
 --- !u!114 &1138087777
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21307,7 +21347,7 @@ MonoBehaviour:
   objectName: 
   icon: {fileID: 21300000, guid: 9facf3569fd04894ea3c366a52294434, type: 3}
   bodyType: 0
-  planetType: 0
+  planetType: 1
   useCustomColor: 1
   customColor: {r: 0.745283, g: 0.69591737, b: 0.5097454, a: 1}
   crust: {fileID: 1868105290}
@@ -21836,6 +21876,9 @@ MonoBehaviour:
   gdpChangeRate: 0.02
   avaliableSlots: 5
   buildings: []
+  energyProduction: 0
+  energyConsumption: 0
+  energyLevel: 1
 --- !u!114 &1186634157
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21850,7 +21893,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectName: 
   icon: {fileID: 0}
-  bodyType: 0
+  bodyType: 3
   planetType: 0
   useCustomColor: 0
   customColor: {r: 0, g: 0, b: 0, a: 0}
@@ -24242,6 +24285,9 @@ MonoBehaviour:
   gdpChangeRate: 0.02
   avaliableSlots: 5
   buildings: []
+  energyProduction: 0
+  energyConsumption: 0
+  energyLevel: 1
 --- !u!114 &1333688748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24263,6 +24309,9 @@ MonoBehaviour:
   gdpChangeRate: 0.02
   avaliableSlots: 5
   buildings: []
+  energyProduction: 0
+  energyConsumption: 0
+  energyLevel: 1
 --- !u!114 &1333688749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24835,6 +24884,9 @@ MonoBehaviour:
   gdpChangeRate: 0.02
   avaliableSlots: 5
   buildings: []
+  energyProduction: 0
+  energyConsumption: 0
+  energyLevel: 1
 --- !u!114 &1376634471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24856,6 +24908,9 @@ MonoBehaviour:
   gdpChangeRate: 0.02
   avaliableSlots: 5
   buildings: []
+  energyProduction: 0
+  energyConsumption: 0
+  energyLevel: 1
 --- !u!114 &1376634472
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28950,6 +29005,9 @@ MonoBehaviour:
   gdpChangeRate: 0.02
   avaliableSlots: 5
   buildings: []
+  energyProduction: 0
+  energyConsumption: 0
+  energyLevel: 1
 --- !u!114 &1792061405
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31929,6 +31987,9 @@ MonoBehaviour:
   gdpChangeRate: 0.02
   avaliableSlots: 5
   buildings: []
+  energyProduction: 0
+  energyConsumption: 0
+  energyLevel: 1
 --- !u!114 &2016960383
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32365,6 +32426,9 @@ MonoBehaviour:
   gdpChangeRate: 0.02
   avaliableSlots: 5
   buildings: []
+  energyProduction: 0
+  energyConsumption: 0
+  energyLevel: 1
 --- !u!114 &2047691605
 MonoBehaviour:
   m_ObjectHideFlags: 0

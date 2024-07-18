@@ -113,6 +113,10 @@ public class Graph : MonoBehaviour
         float yMin = points[0].Values.Min();
 
         float padding = (yMax - yMin) * 0.2f;
+        if (padding < 0.1f)
+        {
+            padding = xMax * 0.2f;
+        }
 
         yMax += padding;
         yMin -= padding;
