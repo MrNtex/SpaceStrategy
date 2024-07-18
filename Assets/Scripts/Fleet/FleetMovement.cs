@@ -12,6 +12,8 @@ public partial class Fleet : ObjectInfo
     [Header("Formation")]
     public bool forceManeuver = false;
 
+    public Fleet battleTarget;
+
     protected virtual void FixedUpdate()
     {
         if(status == FleetStatus.Fighting && battleTarget != null)

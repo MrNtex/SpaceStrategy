@@ -22,6 +22,8 @@ public class WavesManager : MonoBehaviour
     [SerializeField]
     private GameObject enemyPrefab;
 
+    private const float spawnDistance = 4000;
+
     private void Awake()
     {
         if (instance == null)
@@ -76,7 +78,7 @@ public class WavesManager : MonoBehaviour
         if(daysRemaining <= 0)
         {
             Debug.Log("Wave Incoming");
-            EnemyFleet ef = Instantiate(enemyPrefab, nextWave.spawnPoint, Quaternion.identity).GetComponent<EnemyFleet>();
+            EnemyFleet ef = Instantiate(enemyPrefab, nextWave.spawnPoint * spawnDistance, Quaternion.identity).GetComponent<EnemyFleet>();
 
             foreach(Ship ship in nextWave.composition)
             {

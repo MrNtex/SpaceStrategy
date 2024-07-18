@@ -24,6 +24,7 @@ public partial class Fleet : ObjectInfo
     private int capitanIndex = 0;
     [SerializeField]
     public GameObject destination;
+    protected ObjectInfo destinationInfo;
 
     [HideInInspector]
     public float destinationOffset = 1;
@@ -51,7 +52,7 @@ public partial class Fleet : ObjectInfo
     private Transform mainCamera;
 
     public Battle battle;
-    public Fleet battleTarget;
+    public float fightingRange = 50f;
 
     [SerializeField]
     private GameObject expolsionPartilcles;
@@ -94,6 +95,8 @@ public partial class Fleet : ObjectInfo
         else
         {
             destination = dest;
+            if(dest.CompareTag("Ship")) destinationInfo = dest.transform.parent.GetComponent<ObjectInfo>();
+            else destinationInfo = dest.GetComponent<ObjectInfo>();
         }
 
         if (dest.CompareTag("CelestialBody"))

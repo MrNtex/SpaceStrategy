@@ -5,6 +5,24 @@ using UnityEngine;
 
 public partial class FriendlyFleet : Fleet
 {
+    protected override void FixedUpdate()
+    {
+        base.FixedUpdate();
+
+        if (status == FleetStatus.Moving && destinationInfo is EnemyFleet)
+        {
+            EnemyFleet targetFleet = destinationInfo as EnemyFleet;
+            float distance = Vector3.Distance(capitan.transform.position, targetFleet.capitan.transform.position);
+
+            if(distance < fightingRange)
+            {
+                
+                BattlesManager.instance.AddBattle(this, targetFleet);
+            }
+            
+        }
+    }
+
     public override void SetDestination(GameObject dest)
     {
         base.SetDestination(dest);

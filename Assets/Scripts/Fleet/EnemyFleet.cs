@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyFleet : Fleet
 {
     public EnemyFleetAI enemyFleetAI;
-    public float fightingRange = 50f;
+    
 
     protected override void Start()
     {
