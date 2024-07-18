@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlanetModalInfrastructure : PlanetModalPage
 {
@@ -10,16 +12,41 @@ public class PlanetModalInfrastructure : PlanetModalPage
     [SerializeField]
     private Graph graph;
 
+    [SerializeField]
+    private TMP_Text productionText, consumptionText;
+
+    private const string unit = " EWh";
+    [SerializeField]
+    private Color consumptionWarning;
+
+    [SerializeField]
+    private Slider energySlider;
     public override void Create(PlanetModal planetModal)
     {
         this.planetModal = planetModal;
         colonyStatus = planetModal.colonyStatus;
 
-        DoGraph();
+        OnColonyUpdate();
     }
     public override void OnColonyUpdate()
     {
         DoGraph();
+        UpdateEnergyText();
+    }
+
+    private void UpdateEnergyText()
+    {
+        productionText.text = colonyStatus.energyProduction.ToString("N2") + unit;
+
+        if (colonyStatus.energyConsumption > colonyStatus.energyProduction)
+        {
+            consumptionText.color = consumptionWarning;
+        }
+        else
+        {
+            consumptionText.color = Color.white;
+        }
+        consumptionText.text = colonyStatus.energyConsumption.ToString("N2") + unit;
     }
 
     void DoGraph()
@@ -37,5 +64,12 @@ public class PlanetModalInfrastructure : PlanetModalPage
         keyValuePairs.Add(pointsConsumption);
 
         graph.GenerateAGraph(keyValuePairs, n, 6);
+    }
+
+    public void ChangeEnergyLevel()
+    {
+        colonyStatus.energyProductionMultiplier = energySlider.value;
+        colonyStatus.CalculateConsuption();
+        UpdateEnergyText();
     }
 }
