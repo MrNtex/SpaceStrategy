@@ -115,12 +115,24 @@ public partial class Fleet : ObjectInfo
 
         objectFocusHelper.cameraPlacement.rotation = Quaternion.Euler(middlePoint.eulerAngles.x, objectFocusHelper.cameraPlacement.rotation.eulerAngles.y, 0);
     }
+    public virtual void AddToFleet(Ship ship, bool update = true)
+    {
+        ship.prefab = Instantiate(ship.prefab, transform);
+
+        composition.Add(ship);
+        if (update) UpdateFleet();
+    }
     public virtual void UpdateFleet(bool billboard = true)
     {
         if(composition.Count == 0)
         {
             Destroy(gameObject);
             return;
+        }
+
+        if(capitan == null)
+        {
+            capitan = composition[0].prefab;
         }
 
         FleetFormationHelper.instance.SetFormation(FleetFormation.Triangle, composition.ToArray(), capitan);

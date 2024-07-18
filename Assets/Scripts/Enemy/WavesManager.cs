@@ -7,18 +7,21 @@ public class WavesManager : MonoBehaviour
 {
     /// <summary>
     /// MUST BE AFTER DATE MANAGER IN THE EXECUTION ORDER
-    /// 
-    /// 
     /// </summary>
     public static WavesManager instance;
 
     public int currentWave = -1;
 
     public List<Wave> defaultWaves = new List<Wave>();
+    public Queue<Wave> wavesQueue = new Queue<Wave>();
     public Wave nextWave;
     public int daysRemaining;
 
     public DateTime endDate;
+
+    [SerializeField]
+    private GameObject enemyPrefab;
+
     private void Awake()
     {
         if (instance == null)
@@ -30,6 +33,8 @@ public class WavesManager : MonoBehaviour
             Debug.LogError("Multiple WavesManagers in scene");
             Destroy(gameObject);
         }
+
+        wavesQueue = new Queue<Wave>(defaultWaves);
     }
 
     void Start()
@@ -71,6 +76,14 @@ public class WavesManager : MonoBehaviour
         if(daysRemaining <= 0)
         {
             Debug.Log("Wave Incoming");
+            EnemyFleet ef = Instantiate(enemyPrefab, nextWave.spawnPoint, Quaternion.identity).GetComponent<EnemyFleet>();
+
+            foreach(Ship ship in nextWave.composition)
+            {
+                ef.AddToFleet(ship, false);
+            }
+
+            WaveFinished();
         }
     }
     private string DirectionFromVector(Vector3 dir)
@@ -101,9 +114,14 @@ public class WavesManager : MonoBehaviour
         }
         else
         {
+            endDate = DateManager.currentDate;
+            endDate = endDate.AddDays(10000);
+            Debug.Log(endDate);
+            return;
             // TODO: Implement infinite waves
         }
-        endDate = DateManager.currentDate.AddDays(nextWave.delay);
+        endDate = DateManager.currentDate;
+        endDate = endDate.AddDays(nextWave.delay);
     }
 }
 
@@ -112,7 +130,7 @@ public struct Wave
 {
     public int delay;
     
-    public int power;
+    public List<Ship> composition;
 
     public Vector3 spawnPoint;
 
