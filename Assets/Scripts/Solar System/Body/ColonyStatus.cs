@@ -159,5 +159,10 @@ public class ColonyStatus : MonoBehaviour
 
         energyProduction += ColoniesManager.instance.energyProductionByLevel[energyLevel];
         energyProduction *= energyProductionMultiplier; // High production multiplier should fuck smth up
+
+        if(energyProduction < energyConsumption)
+        {
+
+        }
     }
 }

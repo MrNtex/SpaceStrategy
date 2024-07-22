@@ -24,6 +24,11 @@ public class WavesManager : MonoBehaviour
 
     private const float spawnDistance = 4000;
 
+    [SerializeField]
+    private Sprite alertIcon;
+
+    private AlertData waveIncomingAlert;
+
     private void Awake()
     {
         if (instance == null)
@@ -52,7 +57,8 @@ public class WavesManager : MonoBehaviour
         if(daysRemaining == 60 && !nextWave.firstWarningFired)
         {
             TooltipData waveIncomingData = new TooltipData("Wave aproaching", "", $"A wave of enemies is approaching in less than two months. They are aproaching from the {DirectionFromVector(nextWave.spawnPoint)}");
-            AlertsManager.Instance.ShowAlert(AlertType.WaveIncoming, waveIncomingData);
+            waveIncomingAlert = new AlertData(AlertType.WaveIncoming, waveIncomingData, false, null, alertIcon);
+            AlertsManager.Instance.ShowAlert(waveIncomingAlert);
             if (DateManager.instance.lastScale > 2)
             {
                 DateManager.instance.UpdateTimeScale(2, true);
@@ -63,9 +69,12 @@ public class WavesManager : MonoBehaviour
         }
         if(daysRemaining == 7 && !nextWave.secondWarningFired)
         {
+            AlertsManager.Instance.HideAlert(waveIncomingAlert);
+
             TooltipData waveIncomingData = new TooltipData("Wave aproaching", "", $"A wave of enemies is approaching in less than a week. They are aproaching from the {DirectionFromVector(nextWave.spawnPoint)}");
-            AlertsManager.Instance.ShowAlert(AlertType.WaveClose, waveIncomingData);
-            AlertsManager.Instance.HideAlert(AlertType.WaveIncoming);
+            waveIncomingAlert = new AlertData(AlertType.WaveClose, waveIncomingData, true, null, alertIcon);
+            AlertsManager.Instance.ShowAlert(waveIncomingAlert);
+            
             if (DateManager.instance.lastScale > 0)
             {
                 DateManager.instance.UpdateTimeScale(0, true);

@@ -15,6 +15,12 @@ public class ResearchManager : MonoBehaviour
     [SerializeField]
     private ResearchUI researchUI;
 
+    [SerializeField]
+    private Sprite alertIcon;
+
+    private TooltipData tooltipData = new TooltipData("No research selected", "", "New research avaliable!");
+    private AlertData alertData;
+
     private void Awake()
     {
         instance = this;
@@ -25,7 +31,10 @@ public class ResearchManager : MonoBehaviour
         researchUI.Config(categories.ToArray());
 
         DateManager.instance.OnDateUpdate += HandleDateChanged;
-        AlertsManager.Instance.ShowAlert(AlertType.Research);
+
+        alertData = new AlertData(AlertType.Research, tooltipData, false, () => MenusManager.Instance.ChangeMenu(1), alertIcon);
+
+        AlertsManager.Instance.ShowAlert(alertData);
     }
 
     public void StartResearch(ResearchButton button)

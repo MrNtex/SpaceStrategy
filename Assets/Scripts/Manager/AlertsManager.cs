@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,15 +14,17 @@ public class AlertsManager : MonoBehaviour
 {
     public static AlertsManager Instance;
 
-    public Color[] colors;
 
     [SerializeField]
-    private GameObject[] alerts;
+    private GameObject alertIcon;
 
-    private List<Image> activeAlerts = new List<Image>();
+    private Dictionary<AlertData, GameObject> activeAlerts = new Dictionary<AlertData, GameObject>();
 
     [SerializeField]
     private Tooltip tooltip;
+
+    [SerializeField]
+    private Transform alertsBar;
     private void Awake()
     {
         if (Instance == null)
@@ -33,20 +36,19 @@ public class AlertsManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    public void ShowAlert(AlertType alert, TooltipData? td = null)
+    public void ShowAlert(AlertData alert)
     {
-        alerts[(int)alert].SetActive(true);
+        AlertObject alertObject = Instantiate(alertIcon, alertsBar).GetComponent<AlertObject>();
 
-        alerts[(int)alert].GetComponent<AlertObject>().UpdateTooltipData(td);
+        alertObject.SetUp(alert, tooltip);
 
-        activeAlerts.Add(alerts[(int)alert].GetComponent<Image>());
+        activeAlerts.Add(alert, alertObject.gameObject);
     }
-    public void HideAlert(AlertType alert)
+    public void HideAlert(AlertData alert)
     {
-        alerts[(int)alert].SetActive(false);
-        alerts[(int)alert].GetComponent<AlertObject>().UpdateTooltipData(null);
+        Destroy(activeAlerts[alert]);
 
-        activeAlerts.Remove(alerts[(int)alert].GetComponent<Image>());;
+        activeAlerts.Remove(alert);
 
         if (tooltip != null && tooltip.gameObject.activeSelf && tooltip.target == TooltipTarget.Alert)
         {
@@ -54,18 +56,25 @@ public class AlertsManager : MonoBehaviour
             tooltip.HideTooltip();
         }
     }
-    public void OnAlertClick(AlertType alertType)
-    {
-        switch (alertType)
-        {
-            case AlertType.Research:
-                MenusManager.Instance.ChangeMenu(1);
-                break;
-            case AlertType.Decision:
-                MenusManager.Instance.ChangeMenu(2);
-                break;
-        }
-    }
-
+}
+public class AlertData
+{
+    public AlertType alertType;
     
+    public TooltipData tooltipData;
+
+    public bool severe;
+
+    public Action onClick;
+
+    public Sprite icon;
+
+    public AlertData(AlertType alertType, TooltipData tooltipData, bool severe, Action onClick, Sprite icon)
+    {
+        this.alertType = alertType;
+        this.tooltipData = tooltipData;
+        this.severe = severe;
+        this.onClick = onClick;
+        this.icon = icon;
+    }
 }

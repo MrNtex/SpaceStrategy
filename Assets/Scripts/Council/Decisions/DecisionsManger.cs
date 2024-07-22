@@ -24,7 +24,11 @@ public class DecisionsManger : MonoBehaviour
     [SerializeField]
     private ActiveDecisionButton activeDecisionButton;
 
+    private AlertData alertData;
     private TooltipData tooltipData = new TooltipData("No decision slected", "", "Select new decision");
+
+    [SerializeField]
+    private Sprite alertIcon;
 
     private void Awake()
     {
@@ -42,7 +46,9 @@ public class DecisionsManger : MonoBehaviour
     {
         DateManager.instance.OnDateUpdate += HandleDateChanged;
 
-        AlertsManager.Instance.ShowAlert(AlertType.Decision, tooltipData);
+        alertData = new AlertData(AlertType.Decision, tooltipData, false, () => MenusManager.Instance.ChangeMenu(2), alertIcon);
+
+        AlertsManager.Instance.ShowAlert(alertData);
     }
     public void SelectStarting()
     {
@@ -93,7 +99,7 @@ public class DecisionsManger : MonoBehaviour
         SetButtons();
         activeDecisionButton.SetUp();
 
-        AlertsManager.Instance.ShowAlert(AlertType.Decision, tooltipData);
+        AlertsManager.Instance.ShowAlert(alertData);
         
     }
     private void ChangeRelations()
@@ -190,6 +196,6 @@ public class DecisionsManger : MonoBehaviour
 
         avalibleDecisions.Remove(decisionIdx);
 
-        AlertsManager.Instance.HideAlert(AlertType.Decision);
+        AlertsManager.Instance.HideAlert(alertData);
     }
 }

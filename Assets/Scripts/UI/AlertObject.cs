@@ -2,14 +2,34 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class AlertObject : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerMoveHandler, IPointerClickHandler
 {
-    public AlertType alertType;
+    public AlertData alertData;
 
     public TooltipData? tooltipData;
     [SerializeField]
     private Tooltip tooltip;
+
+    [SerializeField]
+    private Image icon, border;
+
+    [SerializeField]
+    private Color severeRim, normalRim;
+
+    public void SetUp(AlertData alertData, Tooltip tooltip)
+    {
+        icon.sprite = alertData.icon;
+        UpdateTooltipData(alertData.tooltipData);
+
+        this.alertData = alertData;
+
+        border.color = alertData.severe ? severeRim : normalRim;
+
+        this.tooltip = tooltip;
+    }
+
     public void OnPointerEnter(PointerEventData eventData)
     {
         if (!tooltipData.HasValue)
@@ -28,7 +48,7 @@ public class AlertObject : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     }
     public void OnClick()
     {
-        AlertsManager.Instance.OnAlertClick(alertType);
+        alertData.onClick.Invoke();
         tooltip.HideTooltip();
     }
     public void UpdateTooltipData(TooltipData? tooltipData)
@@ -43,7 +63,7 @@ public class AlertObject : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         }
         if(eventData.button == PointerEventData.InputButton.Right)
         {
-            AlertsManager.Instance.HideAlert(alertType);
+            AlertsManager.Instance.HideAlert(alertData);
         }
     }
 }
