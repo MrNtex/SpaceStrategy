@@ -38,15 +38,29 @@ public class ColonyStatus : MonoBehaviour
     [Header("Buildings")]
     public const int maxBuildings = 12;
     public int avaliableSlots = 5;
-    public List<Building> buildings = new List<Building>();
+
+    public class PlacedBuilding
+    {
+        public Building building;
+        public bool active;
+
+        public PlacedBuilding(Building building)
+        {
+            this.building = building;
+            this.active = true;
+        }
+    }
+    public List<PlacedBuilding> buildings = new List<PlacedBuilding>();
 
     public Queue<Construction> constructionQueue = new Queue<Construction>();
     public Construction currentConstruction;
 
     public float energyProduction;
     public float energyConsumption;
+    public float energyDemand;
     public CircularBuffer<float> recentEnergyProduction = new CircularBuffer<float>(12);
     public CircularBuffer<float> recentEnergyConsumption = new CircularBuffer<float>(12);
+    public CircularBuffer<float> recentEnergyDemand = new CircularBuffer<float>(12);
     public int energyLevel = 1;
     public float energyProductionMultiplier = 1;
 
@@ -55,6 +69,7 @@ public class ColonyStatus : MonoBehaviour
         public Building building;
         public DateTime startDate;
         public BuildingButton button;
+        public bool notEnoughEnergy;
 
         public Construction(Building building, DateTime startDate)
         {
@@ -91,6 +106,7 @@ public class ColonyStatus : MonoBehaviour
             CalculateConsuption();
             recentEnergyProduction.Add(energyProduction);
             recentEnergyConsumption.Add(energyConsumption);
+            recentEnergyDemand.Add(energyDemand);
 
             OnColonyUpdate?.Invoke();
         }
@@ -114,6 +130,11 @@ public class ColonyStatus : MonoBehaviour
     {
         if (constructionQueue.Count > 0)
         {
+            if (currentConstruction.notEnoughEnergy)
+            {
+                return;
+            }
+
             float constructionTime = currentConstruction.building.constructionTime / ColoniesManager.instance.constructionSpeed;
             float progress = (float)(DateManager.currentDate - currentConstruction.startDate).TotalDays;
 
@@ -123,7 +144,7 @@ public class ColonyStatus : MonoBehaviour
             {
                 constructionQueue.Dequeue();
 
-                buildings.Add(currentConstruction.building);
+                buildings.Add(new PlacedBuilding(currentConstruction.building));
                 avaliableSlots -= 1;
 
                 CalculateConsuption();
@@ -144,25 +165,36 @@ public class ColonyStatus : MonoBehaviour
     {
         energyConsumption = 0;
         energyProduction = 0;
-        if(constructionQueue.Count > 0)
-        {
-            energyConsumption = ColoniesManager.instance.construcitonEnergyCost;
-        }
+        energyDemand = 0;
 
-        foreach(Building building in buildings)
+        foreach (PlacedBuilding building in buildings)
         {
-            if(building.energy < 0)
-                energyConsumption -= building.energy;
-            else
-                energyProduction += building.energy;
+            if (!building.active) continue;
+            energyProduction += building.building.energyProduction;
+            energyDemand += building.building.energyConsumption;
         }
 
         energyProduction += ColoniesManager.instance.energyProductionByLevel[energyLevel];
         energyProduction *= energyProductionMultiplier; // High production multiplier should fuck smth up
 
-        if(energyProduction < energyConsumption)
-        {
+        energyConsumption = energyDemand;
 
+        int idx = buildings.Count;
+        while(energyConsumption > energyProduction) // Try to disable as many buildings to save energy
+        {
+            idx--;
+            if (idx < 0) break;
+
+            buildings[idx].active = false;
+            energyConsumption -= buildings[idx].building.energyConsumption;
+        }
+
+        if (constructionQueue.Count > 0)
+        {
+            energyDemand += ColoniesManager.instance.construcitonEnergyCost;
+
+            if(energyDemand > energyProduction) constructionQueue.Peek().notEnoughEnergy = true;
+            else energyConsumption += ColoniesManager.instance.construcitonEnergyCost;
         }
     }
 }

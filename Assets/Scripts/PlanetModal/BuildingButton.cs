@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using static ColonyStatus;
 
 public class BuildingButton : MonoBehaviour
 {
@@ -23,20 +24,25 @@ public class BuildingButton : MonoBehaviour
         secondLayer = transform.GetChild(0).GetComponent<Image>();
     }
 
-    public void SetUp(Building building)
+    public void SetUp(PlacedBuilding building)
     {
-        img.material = null;
-        img.sprite = building.icon;
+        if(building.active) img.material = null;
+        else img.material = blackAndWhite;
+        img.sprite = building.building.icon;
         img.color = Color.white;
 
-        this.building = building;
+        this.building = building.building;
         secondLayer.enabled = false;
     }
+
     public void SetUp(ColonyStatus.Construction construction)
     {
         img.sprite = construction.building.icon;
         img.material = blackAndWhite;
-        img.color = constructionGray;
+
+        if(construction.notEnoughEnergy) img.color = Color.red;
+        else img.color = constructionGray;
+
 
         secondLayer.sprite = construction.building.icon;
         secondLayer.enabled = true;

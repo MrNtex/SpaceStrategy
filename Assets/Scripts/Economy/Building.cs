@@ -25,7 +25,8 @@ public class Building : ScriptableObject
 
     public int maxWorkers;
 
-    public int energy; // Negative value means consumption, positive means production
+    public int energyConsumption;
+    public int energyProduction;
 
     public List<BuildingPrerequisites> prerequisites; // Research will add building to the list of available buildings, do not change it here
 

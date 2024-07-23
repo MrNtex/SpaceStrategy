@@ -18559,7 +18559,7 @@ MonoBehaviour:
   - {fileID: 1087724609}
   - {fileID: 174742127}
   activeDecisionButton: {fileID: 439174187}
-  alertIcon: {fileID: 0}
+  alertIcon: {fileID: 21300000, guid: da550d4c372671744a1a24e91e8adfc3, type: 3}
 --- !u!114 &941910646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18614,7 +18614,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   categories: []
   researchUI: {fileID: 1825213248}
-  alertIcon: {fileID: 0}
+  alertIcon: {fileID: 21300000, guid: 45511086864727e40a0b5667839791ac, type: 3}
 --- !u!114 &941910650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18727,6 +18727,7 @@ MonoBehaviour:
   daysRemaining: 0
   enemyPrefab: {fileID: 1919067681952947538, guid: 67a7ef2f71aed3d4da4d33af05a6a51e,
     type: 3}
+  alertIcon: {fileID: 21300000, guid: c7c3acbfc1c84914a9dde357010a73d8, type: 3}
 --- !u!114 &941910652
 MonoBehaviour:
   m_ObjectHideFlags: 0
