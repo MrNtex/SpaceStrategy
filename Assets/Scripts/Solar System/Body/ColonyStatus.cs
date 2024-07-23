@@ -43,6 +43,7 @@ public class ColonyStatus : MonoBehaviour
     {
         public Building building;
         public bool active;
+        public bool notEnoughEnergy;
 
         public PlacedBuilding(Building building)
         {
@@ -185,7 +186,7 @@ public class ColonyStatus : MonoBehaviour
             idx--;
             if (idx < 0) break;
 
-            buildings[idx].active = false;
+            buildings[idx].notEnoughEnergy = true;
             energyConsumption -= buildings[idx].building.energyConsumption;
         }
 

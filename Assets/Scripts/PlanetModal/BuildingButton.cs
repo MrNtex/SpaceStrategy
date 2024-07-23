@@ -26,8 +26,8 @@ public class BuildingButton : MonoBehaviour
 
     public void SetUp(PlacedBuilding building)
     {
-        if(building.active) img.material = null;
-        else img.material = blackAndWhite;
+        if(!building.active || building.notEnoughEnergy) img.material = blackAndWhite;
+        else img.material = null;
         img.sprite = building.building.icon;
         img.color = Color.white;
 

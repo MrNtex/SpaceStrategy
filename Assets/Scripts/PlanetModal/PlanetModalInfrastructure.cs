@@ -53,15 +53,20 @@ public class PlanetModalInfrastructure : PlanetModalPage
     {
         Dictionary<float, float> points = new Dictionary<float, float>();
         Dictionary<float, float> pointsConsumption = new Dictionary<float, float>();
+        Dictionary<float, float> pointsDemand = new Dictionary<float, float>();
         int n = colonyStatus.recentEnergyProduction.Count;
         for (int i = 0; i < n; i++)
         {
             points.Add(DateManager.currentDate.Month - 5 + i, colonyStatus.recentEnergyProduction[i]);
             pointsConsumption.Add(DateManager.currentDate.Month - 5 + i, colonyStatus.recentEnergyConsumption[i]);
+            pointsDemand.Add(DateManager.currentDate.Month - 5 + i, colonyStatus.recentEnergyDemand[i]);
         }
-        List<Dictionary<float, float>> keyValuePairs = new List<Dictionary<float, float>>();
-        keyValuePairs.Add(points);
-        keyValuePairs.Add(pointsConsumption);
+        List<Dictionary<float, float>> keyValuePairs = new List<Dictionary<float, float>>
+        {
+            points,
+            pointsConsumption,
+            pointsDemand
+        };
 
         graph.GenerateAGraph(keyValuePairs, n, 6);
     }
