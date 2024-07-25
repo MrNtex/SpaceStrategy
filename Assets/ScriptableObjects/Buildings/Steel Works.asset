@@ -22,6 +22,7 @@ MonoBehaviour:
     amount: 6
   consumption: []
   maxWorkers: 0
-  energy: -2
+  energyConsumption: 2
+  energyProduction: 0
   prerequisites: 
   unique: 0

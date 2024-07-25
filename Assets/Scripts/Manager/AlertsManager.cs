@@ -8,7 +8,8 @@ public enum AlertType
     Research,
     Decision,
     WaveClose,
-    WaveIncoming
+    WaveIncoming,
+    Colony
 }
 public class AlertsManager : MonoBehaviour
 {
@@ -38,6 +39,11 @@ public class AlertsManager : MonoBehaviour
     }
     public void ShowAlert(AlertData alert)
     {
+        if(activeAlerts.ContainsKey(alert))
+        {
+            return;
+        }
+
         AlertObject alertObject = Instantiate(alertIcon, alertsBar).GetComponent<AlertObject>();
 
         alertObject.SetUp(alert, tooltip);
@@ -46,6 +52,11 @@ public class AlertsManager : MonoBehaviour
     }
     public void HideAlert(AlertData alert)
     {
+        if(!activeAlerts.ContainsKey(alert))
+        {
+            return;
+        }
+
         Destroy(activeAlerts[alert]);
 
         activeAlerts.Remove(alert);

@@ -27,11 +27,11 @@ public class PlanetModalManager : MonoBehaviour
         }
     }
 
-    public void Spawn(BodyInfo bodyInfo)
+    public void Spawn(BodyInfo bodyInfo, int page = 0)
     {
         GameObject modal = Instantiate(planetModal, transform);
         PlanetModal pm = modal.GetComponent<PlanetModal>();
-        pm.Spawn(bodyInfo);
+        pm.Spawn(bodyInfo, page);
 
         MenusManager.activeModals.Add(modal);
         

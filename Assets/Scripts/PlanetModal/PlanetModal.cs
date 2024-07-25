@@ -32,7 +32,7 @@ public class PlanetModal : Modal, IPieCharDataTarget
     private PlanetModalPage[] pages;
 
     private int currentPageIndex = 0;
-    public void Spawn(BodyInfo bodyInfo)
+    public void Spawn(BodyInfo bodyInfo, int page = 0)
     {
         MenusManager.activeModals.Add(gameObject);
 
@@ -50,7 +50,7 @@ public class PlanetModal : Modal, IPieCharDataTarget
 
         this.bodyInfo = bodyInfo;
 
-        LoadPage(0);
+        LoadPage(page);
 
         OnColonyUpdate();
 

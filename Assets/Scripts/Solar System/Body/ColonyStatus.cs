@@ -65,6 +65,13 @@ public class ColonyStatus : MonoBehaviour
     public int energyLevel = 1;
     public float energyProductionMultiplier = 1;
 
+    private BodyInfo bodyInfo;
+
+    private AlertData energyAlert;
+    private TooltipData energyTooltip = new TooltipData("No energy!", "", "One or more buldings require more energy on ");
+    [SerializeField]
+    private Sprite energyAlertIcon;
+
     public class Construction
     {
         public Building building;
@@ -83,6 +90,13 @@ public class ColonyStatus : MonoBehaviour
         recentPops.Add(population);
 
         DateManager.instance.OnDateUpdate += UpdateColony;
+
+        bodyInfo = GetComponent<BodyInfo>();
+
+        energyTooltip.sub = bodyInfo.name;
+        energyTooltip.content += bodyInfo.name;
+        energyAlert = new AlertData(AlertType.Colony, energyTooltip, true, () => PlanetModalManager.Instance.Spawn(bodyInfo, 2), energyAlertIcon);
+
     }
     int lastMonth = 0;
     public void UpdateColony()
@@ -197,5 +211,8 @@ public class ColonyStatus : MonoBehaviour
             if(energyDemand > energyProduction) constructionQueue.Peek().notEnoughEnergy = true;
             else energyConsumption += ColoniesManager.instance.construcitonEnergyCost;
         }
+
+        if(energyProduction < energyDemand)
+            AlertsManager.Instance.ShowAlert(energyAlert);
     }
 }
