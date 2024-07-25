@@ -141,8 +141,9 @@ public class ColonyStatus : MonoBehaviour
         OnColonyUpdate?.Invoke();
     }
 
-    void UpdateConstruciton()
+    public void UpdateConstruciton()
     {
+
         if (constructionQueue.Count > 0)
         {
             if (currentConstruction.notEnoughEnergy)

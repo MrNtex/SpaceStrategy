@@ -43,6 +43,10 @@ public class PlanetModalConstruction : PlanetModalPage
             slots[i].SetUp(construction);
             i++;
         }
+
+        planetModal.colonyStatus.UpdateConstruciton();
+        // I have to do this because the fill amount is not updated when page is loaded
+
         for(; i < slots.Length; i++)
         {
             slots[i].img.sprite = emptySlot;
