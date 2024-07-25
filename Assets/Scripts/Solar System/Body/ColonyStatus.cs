@@ -56,13 +56,15 @@ public class ColonyStatus : MonoBehaviour
     public Queue<Construction> constructionQueue = new Queue<Construction>();
     public Construction currentConstruction;
 
+    [Header("Energy")]
+
     public float energyProduction;
     public float energyConsumption;
     public float energyDemand;
     public CircularBuffer<float> recentEnergyProduction = new CircularBuffer<float>(12);
     public CircularBuffer<float> recentEnergyConsumption = new CircularBuffer<float>(12);
     public CircularBuffer<float> recentEnergyDemand = new CircularBuffer<float>(12);
-    public int energyLevel = 1;
+    public int powerPlantLevel = 1;
     public float energyProductionMultiplier = 1;
 
     private BodyInfo bodyInfo;
@@ -190,7 +192,7 @@ public class ColonyStatus : MonoBehaviour
             energyDemand += building.building.energyConsumption;
         }
 
-        energyProduction += ColoniesManager.instance.energyProductionByLevel[energyLevel];
+        energyProduction += ColoniesManager.instance.energyProductionByLevel[powerPlantLevel];
         energyProduction *= energyProductionMultiplier; // High production multiplier should fuck smth up
 
         energyConsumption = energyDemand;
