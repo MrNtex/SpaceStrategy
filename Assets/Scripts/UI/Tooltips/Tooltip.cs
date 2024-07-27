@@ -8,7 +8,8 @@ public enum TooltipTarget
     Empty,
     Alert,
     Piechart,
-    ActiveDecision
+    ActiveDecision,
+    Colony
 }
 public class Tooltip : MonoBehaviour
 {
@@ -42,7 +43,7 @@ public class Tooltip : MonoBehaviour
 
         MenusManager.Instance.OnChangedMenu += HideTooltip;
     }
-    public void ShowTooltip(TooltipData tooltipData, TooltipTarget target)
+    public void Show(TooltipData tooltipData, TooltipTarget target)
     {
         this.target = target;
 

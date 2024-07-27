@@ -32,9 +32,13 @@ public class PlanetModal : Modal, IPieCharDataTarget
     private PlanetModalPage[] pages;
 
     private int currentPageIndex = 0;
+
+    public Tooltip tooltip;
     public void Spawn(BodyInfo bodyInfo, int page = 0)
     {
         MenusManager.activeModals.Add(gameObject);
+
+        tooltip = transform.parent.GetComponent<Tooltip>();
 
         // Set the planet modal's text to the bodyInfo's name
         planetName.text = bodyInfo.name;

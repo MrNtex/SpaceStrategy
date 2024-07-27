@@ -65,7 +65,7 @@ public class PieChart : MonoBehaviour, IPointerMoveHandler, IPointerExitHandler,
                 _selectedSlice = value;
                 AnimateTransform(_selectedSlice, new Vector3(1.3f, 1.3f));
 
-                tooltip.ShowTooltip(dataSource.GetTooltipData(hoveredSelectedSliceIndex), TooltipTarget.Piechart);
+                tooltip.Show(dataSource.GetTooltipData(hoveredSelectedSliceIndex), TooltipTarget.Piechart);
             }
         }
     }

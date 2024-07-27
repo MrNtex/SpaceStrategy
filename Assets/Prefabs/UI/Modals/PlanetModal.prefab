@@ -2635,6 +2635,7 @@ GameObject:
   - component: {fileID: 3193048656483690288}
   - component: {fileID: 5311350516493636651}
   - component: {fileID: 250132209547646660}
+  - component: {fileID: 8918421034980209208}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -2659,7 +2660,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 110, y: -109.99768}
+  m_AnchoredPosition: {x: 109, y: -110}
   m_SizeDelta: {x: 140, y: 140}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3193048656483690288
@@ -2744,6 +2745,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &8918421034980209208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2096677343340055062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0059325cb3d3b8245b7adeb0795ca5b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  planetModal: {fileID: 8609406274232577666}
 --- !u!1 &2134687023925413205
 GameObject:
   m_ObjectHideFlags: 0
@@ -8915,6 +8929,7 @@ MonoBehaviour:
   - {fileID: 363747705724296765}
   - {fileID: 545479267808327769}
   - {fileID: 7627078207587557442}
+  tooltip: {fileID: 0}
 --- !u!1 &9100218783531681740
 GameObject:
   m_ObjectHideFlags: 0

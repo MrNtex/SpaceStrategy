@@ -36,7 +36,7 @@ public class AlertObject : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         {
             return;
         }
-        tooltip.ShowTooltip((TooltipData)tooltipData, TooltipTarget.Alert);
+        tooltip.Show((TooltipData)tooltipData, TooltipTarget.Alert);
     }
     public void OnPointerExit(PointerEventData eventData)
     {
