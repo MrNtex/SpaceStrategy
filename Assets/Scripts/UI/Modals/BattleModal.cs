@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class BattleModal : Modal
@@ -13,6 +14,9 @@ public class BattleModal : Modal
 
     [SerializeField]
     private GameObject battleShipInfoPrefab;
+
+    [SerializeField]
+    private TMP_Text screeningFriendly, screeningEnemy;
     public void Create(Battle b)
     {
         MenusManager.activeModals.Add(gameObject);
@@ -26,6 +30,9 @@ public class BattleModal : Modal
 
         b.OnShipUpdate += UpdateShip;
         b.OnBattleEnd += Close;
+
+        screeningFriendly.text = battle.friendlyFleetStats.chanceOfHittingCapitals.ToString();
+        screeningEnemy.text = battle.enemyFleetStats.chanceOfHittingCapitals.ToString();
     }
 
     public void UpdateShip(Ship ship)
@@ -38,6 +45,9 @@ public class BattleModal : Modal
             return;
         }
         shipInfos[ship].UpdateStats();
+
+        screeningFriendly.text = battle.friendlyFleetStats.chanceOfHittingCapitals.ToString();
+        screeningEnemy.text = battle.enemyFleetStats.chanceOfHittingCapitals.ToString();
     }
 
     void CreateBattleShipInfos(List<Ship> ships, Transform parent)

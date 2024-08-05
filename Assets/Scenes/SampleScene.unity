@@ -1403,13 +1403,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 126567545}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 573469069}
-  m_Father: {fileID: 621977154}
+  m_Father: {fileID: 1059455249}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -9282,12 +9282,12 @@ MonoBehaviour:
   gdp: 1400
   gdpChangeRate: 0.02
   avaliableSlots: 5
-  buildings:
-  - {fileID: 11400000, guid: d62a9cf1e49282f4a86665e81670445f, type: 2}
   energyProduction: 0
   energyConsumption: 0
-  energyLevel: 1
+  energyDemand: 0
+  powerPlantLevel: 1
   energyProductionMultiplier: 1
+  energyAlertIcon: {fileID: 0}
 --- !u!114 &356142580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11389,11 +11389,12 @@ MonoBehaviour:
   gdp: 1010.3
   gdpChangeRate: 0.02
   avaliableSlots: 5
-  buildings: []
   energyProduction: 0
   energyConsumption: 0
-  energyLevel: 1
+  energyDemand: 0
+  powerPlantLevel: 1
   energyProductionMultiplier: 1
+  energyAlertIcon: {fileID: 0}
 --- !u!114 &443832780
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12255,11 +12256,12 @@ MonoBehaviour:
   gdp: 1010.3
   gdpChangeRate: 0.02
   avaliableSlots: 5
-  buildings: []
   energyProduction: 0
   energyConsumption: 0
-  energyLevel: 1
+  energyDemand: 0
+  powerPlantLevel: 1
   energyProductionMultiplier: 1
+  energyAlertIcon: {fileID: 0}
 --- !u!114 &462690854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12455,11 +12457,12 @@ MonoBehaviour:
   gdp: 1010.3
   gdpChangeRate: 0.02
   avaliableSlots: 5
-  buildings: []
   energyProduction: 0
   energyConsumption: 0
-  energyLevel: 1
+  energyDemand: 0
+  powerPlantLevel: 1
   energyProductionMultiplier: 1
+  energyAlertIcon: {fileID: 0}
 --- !u!1 &474107153
 GameObject:
   m_ObjectHideFlags: 0
@@ -13404,11 +13407,12 @@ MonoBehaviour:
   gdp: 1010.3
   gdpChangeRate: 0.02
   avaliableSlots: 5
-  buildings: []
   energyProduction: 0
   energyConsumption: 0
-  energyLevel: 1
+  energyDemand: 0
+  powerPlantLevel: 1
   energyProductionMultiplier: 1
+  energyAlertIcon: {fileID: 0}
 --- !u!114 &515440458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14118,11 +14122,12 @@ MonoBehaviour:
   gdp: 1010.3
   gdpChangeRate: 0.02
   avaliableSlots: 5
-  buildings: []
   energyProduction: 0
   energyConsumption: 0
-  energyLevel: 1
+  energyDemand: 0
+  powerPlantLevel: 1
   energyProductionMultiplier: 1
+  energyAlertIcon: {fileID: 0}
 --- !u!114 &564395479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14484,11 +14489,12 @@ MonoBehaviour:
   gdp: 1010.3
   gdpChangeRate: 0.02
   avaliableSlots: 5
-  buildings: []
   energyProduction: 0
   energyConsumption: 0
-  energyLevel: 1
+  energyDemand: 0
+  powerPlantLevel: 1
   energyProductionMultiplier: 1
+  energyAlertIcon: {fileID: 0}
 --- !u!114 &582741486
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14973,7 +14979,6 @@ RectTransform:
   - {fileID: 52789160}
   - {fileID: 177975967}
   - {fileID: 643988246}
-  - {fileID: 126567546}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -15571,11 +15576,12 @@ MonoBehaviour:
   gdp: 1010.3
   gdpChangeRate: 0.02
   avaliableSlots: 5
-  buildings: []
   energyProduction: 0
   energyConsumption: 0
-  energyLevel: 1
+  energyDemand: 0
+  powerPlantLevel: 1
   energyProductionMultiplier: 1
+  energyAlertIcon: {fileID: 0}
 --- !u!114 &651233530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17262,11 +17268,12 @@ MonoBehaviour:
   gdp: 1010.3
   gdpChangeRate: 0.02
   avaliableSlots: 5
-  buildings: []
   energyProduction: 0
   energyConsumption: 0
-  energyLevel: 1
+  energyDemand: 0
+  powerPlantLevel: 1
   energyProductionMultiplier: 1
+  energyAlertIcon: {fileID: 0}
 --- !u!114 &828426965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17621,11 +17628,12 @@ MonoBehaviour:
   gdp: 1010.3
   gdpChangeRate: 0.02
   avaliableSlots: 5
-  buildings: []
   energyProduction: 0
   energyConsumption: 0
-  energyLevel: 1
+  energyDemand: 0
+  powerPlantLevel: 1
   energyProductionMultiplier: 1
+  energyAlertIcon: {fileID: 0}
 --- !u!114 &860914098
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17920,11 +17928,12 @@ MonoBehaviour:
   gdp: 1010.3
   gdpChangeRate: 0.02
   avaliableSlots: 5
-  buildings: []
   energyProduction: 0
   energyConsumption: 0
-  energyLevel: 1
+  energyDemand: 0
+  powerPlantLevel: 1
   energyProductionMultiplier: 1
+  energyAlertIcon: {fileID: 0}
 --- !u!114 &867471420
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18967,11 +18976,12 @@ MonoBehaviour:
   gdp: 1010.3
   gdpChangeRate: 0.02
   avaliableSlots: 5
-  buildings: []
   energyProduction: 0
   energyConsumption: 0
-  energyLevel: 1
+  energyDemand: 0
+  powerPlantLevel: 1
   energyProductionMultiplier: 1
+  energyAlertIcon: {fileID: 0}
 --- !u!114 &951593557
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20007,6 +20017,108 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1044157990}
   m_CullTransparentMesh: 1
+--- !u!1 &1059455245
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1059455249}
+  - component: {fileID: 1059455248}
+  - component: {fileID: 1059455247}
+  - component: {fileID: 1059455246}
+  m_Layer: 5
+  m_Name: TooltipCanvas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1059455246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1059455245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!114 &1059455247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1059455245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 0
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 800, y: 600}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 0
+--- !u!223 &1059455248
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1059455245}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 0
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
+  m_AdditionalShaderChannelsFlag: 25
+  m_UpdateRectTransformForStandalone: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 10
+  m_TargetDisplay: 0
+--- !u!224 &1059455249
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1059455245}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 126567546}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 0}
 --- !u!1 &1087724609
 GameObject:
   m_ObjectHideFlags: 0
@@ -20467,11 +20579,12 @@ MonoBehaviour:
   gdp: 1010.3
   gdpChangeRate: 0.02
   avaliableSlots: 5
-  buildings: []
   energyProduction: 0
   energyConsumption: 0
-  energyLevel: 1
+  energyDemand: 0
+  powerPlantLevel: 1
   energyProductionMultiplier: 1
+  energyAlertIcon: {fileID: 0}
 --- !u!114 &1138087777
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21015,11 +21128,12 @@ MonoBehaviour:
   gdp: 1010.3
   gdpChangeRate: 0.02
   avaliableSlots: 5
-  buildings: []
   energyProduction: 0
   energyConsumption: 0
-  energyLevel: 1
+  energyDemand: 0
+  powerPlantLevel: 1
   energyProductionMultiplier: 1
+  energyAlertIcon: {fileID: 0}
 --- !u!114 &1186634157
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22879,11 +22993,12 @@ MonoBehaviour:
   gdp: 1010.3
   gdpChangeRate: 0.02
   avaliableSlots: 5
-  buildings: []
   energyProduction: 0
   energyConsumption: 0
-  energyLevel: 1
+  energyDemand: 0
+  powerPlantLevel: 1
   energyProductionMultiplier: 1
+  energyAlertIcon: {fileID: 0}
 --- !u!114 &1333688748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22904,11 +23019,12 @@ MonoBehaviour:
   gdp: 1010.3
   gdpChangeRate: 0.02
   avaliableSlots: 5
-  buildings: []
   energyProduction: 0
   energyConsumption: 0
-  energyLevel: 1
+  energyDemand: 0
+  powerPlantLevel: 1
   energyProductionMultiplier: 1
+  energyAlertIcon: {fileID: 0}
 --- !u!114 &1333688749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23480,11 +23596,12 @@ MonoBehaviour:
   gdp: 1010.3
   gdpChangeRate: 0.02
   avaliableSlots: 5
-  buildings: []
   energyProduction: 0
   energyConsumption: 0
-  energyLevel: 1
+  energyDemand: 0
+  powerPlantLevel: 1
   energyProductionMultiplier: 1
+  energyAlertIcon: {fileID: 0}
 --- !u!114 &1376634471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23505,11 +23622,12 @@ MonoBehaviour:
   gdp: 1010.3
   gdpChangeRate: 0.02
   avaliableSlots: 5
-  buildings: []
   energyProduction: 0
   energyConsumption: 0
-  energyLevel: 1
+  energyDemand: 0
+  powerPlantLevel: 1
   energyProductionMultiplier: 1
+  energyAlertIcon: {fileID: 0}
 --- !u!114 &1376634472
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27378,11 +27496,12 @@ MonoBehaviour:
   gdp: 1010.3
   gdpChangeRate: 0.02
   avaliableSlots: 5
-  buildings: []
   energyProduction: 0
   energyConsumption: 0
-  energyLevel: 1
+  energyDemand: 0
+  powerPlantLevel: 1
   energyProductionMultiplier: 1
+  energyAlertIcon: {fileID: 0}
 --- !u!114 &1792061405
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30048,11 +30167,12 @@ MonoBehaviour:
   gdp: 1010.3
   gdpChangeRate: 0.02
   avaliableSlots: 5
-  buildings: []
   energyProduction: 0
   energyConsumption: 0
-  energyLevel: 1
+  energyDemand: 0
+  powerPlantLevel: 1
   energyProductionMultiplier: 1
+  energyAlertIcon: {fileID: 0}
 --- !u!114 &2016960383
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30488,11 +30608,12 @@ MonoBehaviour:
   gdp: 1010.3
   gdpChangeRate: 0.02
   avaliableSlots: 5
-  buildings: []
   energyProduction: 0
   energyConsumption: 0
-  energyLevel: 1
+  energyDemand: 0
+  powerPlantLevel: 1
   energyProductionMultiplier: 1
+  energyAlertIcon: {fileID: 0}
 --- !u!114 &2047691605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31400,3 +31521,4 @@ SceneRoots:
   - {fileID: 1825213247}
   - {fileID: 592299802}
   - {fileID: 995238712}
+  - {fileID: 1059455249}

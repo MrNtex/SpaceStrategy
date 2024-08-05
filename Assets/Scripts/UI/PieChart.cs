@@ -87,7 +87,7 @@ public class PieChart : MonoBehaviour, IPointerMoveHandler, IPointerExitHandler,
 
         if(tooltip == null)
         {
-            Debug.LogWarning("Tooltip is null, please assign it in the inspector. Assigned default");
+            //Debug.LogWarning("Tooltip is null, please assign it in the inspector. Assigned default");
             tooltip = MenusManager.Instance.mainCanvas.GetComponent<Tooltip>();
         }
     }

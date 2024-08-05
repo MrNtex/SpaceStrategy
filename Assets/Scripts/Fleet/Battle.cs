@@ -82,7 +82,7 @@ public class Battle : MonoBehaviour
         targetShip.stats.health -= damage;
         if (targetShip.stats.health <= 0)
         {
-            target.ShipDestroyed(targetShip);
+            target.ShipDestroyed(targetShip); // Get capitals chance is called in ShipDestroyed
             billboard.UpdateBattle();
         }
         OnShipUpdate?.Invoke(targetShip);
