@@ -5,6 +5,22 @@ using UnityEngine;
 
 public partial class FriendlyFleet : Fleet
 {
+
+
+    protected override void Start()
+    {
+        base.Start();
+        effects = new List<LeftPanelEffect>()
+        {
+            new LeftPanelEffect(
+                "Halt",
+                "Immediately stop all movement [H]",
+                FleetManager.instance.haltFleet, // Action to halt the fleet
+                () => SetFleetStatus(FleetStatus.Idle) // Action to set fleet status to Idle
+            ),
+        };
+    }
+
     protected override void FixedUpdate()
     {
         base.FixedUpdate();

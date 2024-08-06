@@ -9,6 +9,8 @@ public class FleetManager : MonoBehaviour
     public static FleetManager instance;
     // Start is called before the first frame update
 
+    public Sprite haltFleet;
+
     public FriendlyFleet selectedFleet
     {
         get

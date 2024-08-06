@@ -28,6 +28,11 @@ public class BodyInfoUI : MonoBehaviour
 
     [SerializeField]
     private Sprite square, hexagon, pentagon;
+
+    [SerializeField]
+    private GameObject leftPanel;
+    [SerializeField]
+    private GameObject leftPanelEffectPrefab;
     private void Awake()
     {
         if (instance == null)
@@ -59,17 +64,25 @@ public class BodyInfoUI : MonoBehaviour
         if (obj == null) // Used to hide the UI
         {
             panel.SetActive(false);
+            leftPanel.SetActive(false);
             return;
+        }
+
+
+        
+        if (obj.effects.Count > 0)
+        {
+            CreateLeftPanel(obj);
+        }
+        else
+        {
+            leftPanel.SetActive(false);
         }
 
         bodyName.text = obj.objectName;
         if (obj.icon != null)
         {
             bodyIcon.sprite = obj.icon;
-        }
-        else
-        {
-            
         }
 
         description.text = obj.GetDescription();
@@ -93,6 +106,22 @@ public class BodyInfoUI : MonoBehaviour
         }
 
         panel.SetActive(true);
+    }
+
+    public void CreateLeftPanel(ObjectInfo obj)
+    {
+        for (int i = leftPanel.transform.childCount - 1; i >= 0; i--)
+        {
+            Destroy(leftPanel.transform.GetChild(i).gameObject);
+        }
+
+        leftPanel.SetActive(true);
+
+        foreach (LeftPanelEffect effect in obj.effects)
+        {
+            GameObject effectObj = Instantiate(leftPanelEffectPrefab, leftPanel.transform);
+            effectObj.GetComponent<LeftPanelEffectUI>().Create(effect);
+        }
     }
     public Sprite GetShape(ObjectInfo obj)
     {

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -12,6 +13,8 @@ public class ObjectInfo : MonoBehaviour
     protected Focus cameraFocus;
 
     public Sprite icon;
+
+    public List<LeftPanelEffect> effects = new List<LeftPanelEffect>();
 
     
     private void Awake()
@@ -48,5 +51,33 @@ public class ObjectInfo : MonoBehaviour
     public virtual void SpecialButtonClicked()
     {
         return;
+    }
+}
+[System.Serializable]
+public class LeftPanelEffect
+{
+    public string name;
+    public string description;
+
+    public Sprite icon;
+
+    public Action action;
+
+    public LeftPanelEffect[] additional;
+
+    public LeftPanelEffect(string n, string d, Sprite i, Action a = null)
+    {
+        name = n;
+        description = d;
+        icon = i;
+        action = a;
+    }
+    public LeftPanelEffect(string n, string d, Sprite i, LeftPanelEffect[] a, Action ac = null)
+    {
+        name = n;
+        description = d;
+        icon = i;
+        action = ac;
+        additional = a;
     }
 }
