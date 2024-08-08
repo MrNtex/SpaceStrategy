@@ -135,6 +135,8 @@ public class Battle : MonoBehaviour
 
         OnBattleEnd?.Invoke(loser == enemyFleet ? friendlyFleet : enemyFleet); // Had to invert the loser, because the loser is the one that is destroyed
 
+        BattlesManager.instance.RemoveBattle(friendlyFleet, enemyFleet);
+
         Destroy(gameObject);
     }
 

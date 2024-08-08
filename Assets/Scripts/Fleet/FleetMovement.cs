@@ -83,6 +83,8 @@ public partial class Fleet : ObjectInfo
             {
                 gameObject.transform.SetParent(destination.transform);
                 onOrbit = destination;
+
+                destination.GetComponent<BodyInfo>().AddFleet(this);
             }
             if(status == FleetStatus.Moving) // Do not change status while fighing
                 SetFleetStatus(FleetStatus.Idle);

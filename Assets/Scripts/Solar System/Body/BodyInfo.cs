@@ -143,4 +143,45 @@ public class BodyInfo : ObjectInfo
     {
         PlanetModalManager.Instance.Spawn(this);
     }
+
+    public void AddFleet(Fleet fleet)
+    {
+        if(fleet is FriendlyFleet)
+        {
+            protectors.Add(fleet);
+        }
+        else
+        {
+            attackers.Add(fleet);
+        }
+        CheckForBattle();
+    }
+
+    public void RemoveFleet(Fleet fleet)
+    {
+        fleet.onOrbit = null;
+        fleet.transform.SetParent(null);
+
+        if (fleet is FriendlyFleet)
+        {
+            protectors.Remove(fleet);
+        }
+        else
+        {
+            attackers.Remove(fleet);
+        }
+    }
+    public void CheckForBattle()
+    {
+        if(attackers.Count > 0 && protectors.Count > 0)
+        {
+            FriendlyFleet protector = protectors[0] as FriendlyFleet;
+            EnemyFleet attacker = attackers[0] as EnemyFleet;
+
+            BattlesManager.instance.AddBattle(protector, attacker);
+
+            RemoveFleet(protector);
+            RemoveFleet(attacker);
+        }
+    }
 }

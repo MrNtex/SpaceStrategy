@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using UnityEngine;
 
+
 public partial class Fleet : ObjectInfo
 {
     [Header("Basic info")]
@@ -111,6 +112,14 @@ public partial class Fleet : ObjectInfo
         }
 
         gameObject.transform.SetParent(null);
+        if(onOrbit != null)
+        {
+            BodyInfo bi = onOrbit.GetComponent<BodyInfo>();
+            if (bi)
+            {
+                bi.RemoveFleet(this);
+            }
+        }
 
         // This is a temporary solution, i have to somehow reduce the calcuations to only x axis
         // It makes so that camera is looking at the middle point between the destination and the fleet
@@ -203,13 +212,6 @@ public class ShipStats
 
     [Range(0, 1)]
     public float reliability; // The chance of the ship to take critical damage
-}
-public enum FleetFlyPatternType
-{
-    Follow,
-    Orbit,
-    Attack,
-    Flee
 }
 public enum FleetFormation
 {

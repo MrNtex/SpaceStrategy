@@ -40,4 +40,15 @@ public class BattlesManager : MonoBehaviour
 
         activeBattles.Add((ff, ef), battle);
     }
+
+    public void RemoveBattle(FriendlyFleet ff, EnemyFleet ef)
+    {
+        if (!activeBattles.ContainsKey((ff, ef)))
+        {
+            Debug.LogWarning($"Battle between {ff} and {ef} does not exist");
+            return;
+        }
+
+        activeBattles.Remove((ff, ef));
+    }
 }
