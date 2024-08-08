@@ -70,6 +70,11 @@ public partial class Fleet : ObjectInfo
         point = new GameObject($"{objectName}'s Point");
 
         mainCamera = CameraControler.mainCamera.transform;
+
+        foreach(Ship ship in composition)
+        {
+            ship.myFleet = this;
+        }
     }
 
     public override void ButtonClicked()
@@ -134,6 +139,8 @@ public partial class Fleet : ObjectInfo
         ship.prefab = Instantiate(ship.prefab, transform);
 
         composition.Add(ship);
+        ship.myFleet = this;
+
         if (update) UpdateFleet();
     }
     public virtual void UpdateFleet(bool billboard = true)
@@ -167,6 +174,8 @@ public partial class Fleet : ObjectInfo
             capitan = composition[0].prefab;
         }
         UpdateFleet();
+
+        ship.myFleet = null;
     }
 
     public virtual void DrawPath(Vector3 dest) { }
@@ -193,6 +202,7 @@ public class Ship
     public Vector3 myOffset;
 
     public ShipStats stats;
+    public Fleet myFleet;
 }
 [System.Serializable]
 public class ShipStats

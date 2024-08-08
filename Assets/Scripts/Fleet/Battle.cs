@@ -19,8 +19,8 @@ public class Battle : MonoBehaviour
     [SerializeField]
     private BattleBillboard billboard;
 
-    public FriendlyFleet friendlyFleet;
-    public EnemyFleet enemyFleet;
+    public List<Fleet> friendlyFleets = new List<Fleet>();
+    public List<Fleet> enemyFleets = new List<Fleet>();
 
     public readonly float armorScalingFactor = .1f;
 
@@ -35,35 +35,55 @@ public class Battle : MonoBehaviour
 
     private BattleModal battleModal;
     
-    public void Initialize(FriendlyFleet ff, EnemyFleet ef)
+    public void Initialize(List<FriendlyFleet> ff, List<EnemyFleet> ef)
     {
         // Separating enemy ships into screens and capitals
-        friendlyFleet = ff;
-        enemyFleet = ef;
+        friendlyFleets = ff.Cast<Fleet>().ToList();
+        enemyFleets = ef.Cast<Fleet>().ToList();
 
+        Debug.Log("Battle started");
+        Debug.Log($"Enemy fleets: {enemyFleets.Count}");
 
-        friendlyFleetStats = GenerateFleetStats(ff);
-        enemyFleetStats = GenerateFleetStats(ef);
+        friendlyFleetStats = GenerateFleetStats(friendlyFleets);
+        enemyFleetStats = GenerateFleetStats(enemyFleets);
 
-        friendlyFleet.fleetBillboard.gameObject.SetActive(false);
-        enemyFleet.fleetBillboard.gameObject.SetActive(false);
+        foreach(Fleet f in friendlyFleets)
+        {
+            f.fleetBillboard.gameObject.SetActive(false);
+        }
+        foreach (Fleet f in enemyFleets)
+        {
+            f.fleetBillboard.gameObject.SetActive(false);
+        }
 
         billboard.SetupBattle(this);
 
         DateManager.instance.OnDateUpdate += BattleTick;
     }
-    private FleetStats GenerateFleetStats(Fleet fleet)
+    private FleetStats GenerateFleetStats(List<Fleet> fleets)
     {
         FleetStats fleetStats = new FleetStats();
         fleetStats.battle = this;
-        fleetStats.myFleet = fleet;
+        fleetStats.myFleets = fleets;
 
-        fleetStats.screens = fleet.composition.Where(s => FleetStats.CheckIfScreen(s)).ToList();
-        fleetStats.capitals = fleet.composition.Where(s => !FleetStats.CheckIfScreen(s)).ToList();
 
-        fleetStats.GetCapitalsChance();
-        fleetStats.lightDamage = fleet.composition.Sum(s => s.stats.lightDamage);
-        fleetStats.heavyDamage = fleet.composition.Sum(s => s.stats.heavyDamage);
+        foreach(Fleet fleet in fleets)
+        {
+            foreach(Ship ship in fleet.composition)
+            {
+                fleetStats.lightDamage += ship.stats.lightDamage;
+                fleetStats.heavyDamage += ship.stats.heavyDamage;
+
+                if (FleetStats.CheckIfScreen(ship))
+                {
+                    fleetStats.screens.Add(ship);
+                }
+                else
+                {
+                    fleetStats.capitals.Add(ship);
+                }
+            }
+        }
 
         return fleetStats;
     }
@@ -115,27 +135,48 @@ public class Battle : MonoBehaviour
         return dmg;
     }
 
-    public void EndBattle(Fleet loser)
+    public void FleetDestroyed(Fleet fleet)
+    {
+
+        fleet.UpdateFleet();
+
+        if (fleet is EnemyFleet)
+        {
+            enemyFleets.Remove(fleet);
+            if(enemyFleets.Count == 0)
+            {
+                EndBattle();
+            }
+        }
+        else
+        {
+            friendlyFleets.Remove(fleet);
+            if (friendlyFleets.Count == 0)
+            {
+                EndBattle();
+            }
+        }
+    }
+
+    public void EndBattle()
     {
         DateManager.instance.OnDateUpdate -= BattleTick;
 
         Debug.Log("Battle ended");
 
-        if(friendlyFleet != null)
+        foreach(Fleet friendlyFleet in friendlyFleets)
         {
             friendlyFleet.SetFleetStatus(FleetStatus.Idle);
             friendlyFleet.fleetBillboard.gameObject.SetActive(true);
         }
 
-        if(enemyFleet != null)
+        foreach(Fleet enemyFleet in enemyFleets)
         {
             enemyFleet.SetFleetStatus(FleetStatus.Idle);
             enemyFleet.fleetBillboard.gameObject.SetActive(true);
         }
 
-        OnBattleEnd?.Invoke(loser == enemyFleet ? friendlyFleet : enemyFleet); // Had to invert the loser, because the loser is the one that is destroyed
-
-        BattlesManager.instance.RemoveBattle(friendlyFleet, enemyFleet);
+        //OnBattleEnd?.Invoke(loser == enemyFleet ? friendlyFleet : enemyFleet); // Had to invert the loser, because the loser is the one that is destroyed
 
         Destroy(gameObject);
     }

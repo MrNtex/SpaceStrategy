@@ -26,15 +26,15 @@ public class BattleBillboard : Billboard
 
         this.battle = battle;
 
-        text.text = battle.friendlyFleet.objectName;
-        enemyFleetText.text = battle.enemyFleet.objectName;
+        text.text = battle.friendlyFleets[0].objectName;
+        enemyFleetText.text = battle.enemyFleets[0].objectName;
 
         UpdateBattle();
     }
     public void UpdateBattle()
     {
-        friendlyFleetIcons.UpdateFleet(battle.friendlyFleet);
-        enemyFleetIcons.UpdateFleet(battle.enemyFleet);
+        friendlyFleetIcons.UpdateFleet(battle.friendlyFleets);
+        enemyFleetIcons.UpdateFleet(battle.enemyFleets);
     }
 
     public void Click()
@@ -46,7 +46,7 @@ public class BattleBillboard : Billboard
     {
         base.FixedUpdate();
 
-        target.position = (battle.friendlyFleet.capitan.transform.position + battle.enemyFleet.capitan.transform.position)/2;
+        target.position = (battle.friendlyFleets[0].capitan.transform.position + battle.enemyFleets[0].capitan.transform.position)/2;
     }
     void OnDestroy()
     {

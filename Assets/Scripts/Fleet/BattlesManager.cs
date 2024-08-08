@@ -16,29 +16,33 @@ public class BattlesManager : MonoBehaviour
     {
         instance = this;
     }
-
     public void AddBattle(FriendlyFleet ff, EnemyFleet ef)
     {
-        if (activeBattles.ContainsKey((ff, ef)))
+        AddBattle(new List<FriendlyFleet> { ff }, new List<EnemyFleet> { ef });
+    }
+    public void AddBattle(List<FriendlyFleet> ff, List<EnemyFleet> ef)
+    {
+
+
+        foreach (FriendlyFleet f in ff)
         {
-            Debug.LogWarning($"Battle between {ff} and {ef} already exists");
-            return;
+            f.SetFleetStatus(FleetStatus.Fighting);
+            f.battleTarget = ef[0];
+            f.FindFightDestination();
+        }
+        foreach(EnemyFleet e in ef)
+        {
+            e.SetFleetStatus(FleetStatus.Fighting);
+            e.battleTarget = ff[0];
+            e.FindFightDestination();
         }
 
-        ff.SetFleetStatus(FleetStatus.Fighting);
-        ef.SetFleetStatus(FleetStatus.Fighting);
-
-        ff.battleTarget = ef;
-        ef.battleTarget = ff;
-
-        ff.FindFightDestination();
-        ef.FindFightDestination();
-
-        GameObject battleGO = Instantiate(battlePrefab, ff.transform);
+        GameObject battleGO = Instantiate(battlePrefab, ff[0].transform);
         Battle battle = battleGO.GetComponent<Battle>();
         battle.Initialize(ff, ef);
 
-        activeBattles.Add((ff, ef), battle);
+        activeBattles.Add((ff[0], ef[0]), battle); // To do fix it
+        Debug.LogWarning("Remember to fix the key in AddBattle method in BattlesManager.cs");
     }
 
     public void RemoveBattle(FriendlyFleet ff, EnemyFleet ef)

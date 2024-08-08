@@ -36,6 +36,34 @@ public class FleetIcons : MonoBehaviour
             }
         }
     }
+    public void UpdateFleet(List<Fleet> fleets)
+    {
+        Dictionary<ShipType, int> shipCount = new Dictionary<ShipType, int>();
+        foreach (Fleet fleet in fleets)
+        {
+            // Iterate over each ship in the fleet's composition
+            foreach (Ship ship in fleet.composition)
+            {
+                if (shipCount.ContainsKey(ship.type))
+                    shipCount[ship.type] += 1;
+                else
+                    shipCount.Add(ship.type, 1);
+            }
+        }
+        foreach (FleetIcon icon in fleetIcons)
+        {
+            int count = 0;
+            if (shipCount.TryGetValue(icon.type, out count) && count > 0)
+            {
+                icon.icon.SetActive(true);
+                icon.text.text = shipCount[icon.type].ToString();
+            }
+            else
+            {
+                icon.icon.SetActive(false);
+            }
+        }
+    }
     [Serializable]
     public struct FleetIcon
     {
