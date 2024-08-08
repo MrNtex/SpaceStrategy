@@ -12,7 +12,7 @@ public partial class FriendlyFleet : Fleet
         base.Start();
         effects = new List<LeftPanelEffect>()
         {
-            new LeftPanelEffect(
+            new LeftPanelButton(
                 "Halt",
                 "Immediately stop all movement [H]",
                 FleetManager.instance.haltFleet, // Action to halt the fleet

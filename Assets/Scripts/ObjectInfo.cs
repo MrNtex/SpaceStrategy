@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 
@@ -60,24 +61,22 @@ public class LeftPanelEffect
     public string description;
 
     public Sprite icon;
+}
 
+public class LeftPanelButton : LeftPanelEffect
+{
     public Action action;
 
-    public LeftPanelEffect[] additional;
-
-    public LeftPanelEffect(string n, string d, Sprite i, Action a = null)
+    public LeftPanelButton(string n, string d, Sprite i, Action a = null)
     {
         name = n;
         description = d;
         icon = i;
         action = a;
     }
-    public LeftPanelEffect(string n, string d, Sprite i, LeftPanelEffect[] a, Action ac = null)
-    {
-        name = n;
-        description = d;
-        icon = i;
-        action = ac;
-        additional = a;
-    }
+}
+
+public class  LeftPanelGroup : LeftPanelEffect
+{
+    public LeftPanelEffect[] buttons;
 }

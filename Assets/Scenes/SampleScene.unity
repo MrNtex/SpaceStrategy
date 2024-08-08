@@ -8025,6 +8025,123 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 299334086}
   m_CullTransparentMesh: 1
+--- !u!1 &304312564
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 304312565}
+  - component: {fileID: 304312569}
+  - component: {fileID: 304312568}
+  - component: {fileID: 304312567}
+  - component: {fileID: 304312566}
+  m_Layer: 5
+  m_Name: LeftPanel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &304312565
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 304312564}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 621977154}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 50.09839, y: -0.2000122}
+  m_SizeDelta: {x: 100.1969, y: 0}
+  m_Pivot: {x: 0.5, y: 0}
+--- !u!114 &304312566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 304312564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 0
+  m_VerticalFit: 2
+--- !u!114 &304312567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 304312564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 5
+    m_Right: 5
+    m_Top: 5
+    m_Bottom: 5
+  m_ChildAlignment: 1
+  m_Spacing: 5
+  m_ChildForceExpandWidth: 0
+  m_ChildForceExpandHeight: 0
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
+--- !u!114 &304312568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 304312564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.2264151, g: 0.2264151, b: 0.2264151, a: 0.392}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 127279d577f25ac4ea17dae3782e5074, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &304312569
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 304312564}
+  m_CullTransparentMesh: 1
 --- !u!1 &315990917
 GameObject:
   m_ObjectHideFlags: 0
@@ -9302,6 +9419,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectName: 
   icon: {fileID: 21300000, guid: 6431e80df9a7b554c8b0e35bb2454c14, type: 3}
+  effects: []
   bodyType: 0
   planetType: 0
   useCustomColor: 0
@@ -11409,6 +11527,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectName: 
   icon: {fileID: 0}
+  effects: []
   bodyType: 3
   planetType: 0
   useCustomColor: 0
@@ -12276,6 +12395,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectName: 
   icon: {fileID: 0}
+  effects: []
   bodyType: 3
   planetType: 0
   useCustomColor: 0
@@ -12428,6 +12548,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectName: 
   icon: {fileID: 21300000, guid: 93b55552b309b5e4a890005b3196651f, type: 3}
+  effects: []
   bodyType: 2
   planetType: 0
   useCustomColor: 0
@@ -13427,6 +13548,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectName: 
   icon: {fileID: 21300000, guid: dc50c89f5f9aa6f418ba16bd1102006d, type: 3}
+  effects: []
   bodyType: 0
   planetType: 1
   useCustomColor: 1
@@ -14142,6 +14264,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectName: 
   icon: {fileID: 21300000, guid: 66fbc0996803e6c4ab7455291c523914, type: 3}
+  effects: []
   bodyType: 0
   planetType: 0
   useCustomColor: 1
@@ -14509,6 +14632,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectName: 
   icon: {fileID: 21300000, guid: bc6c7bfd41241d24486950f30e139020, type: 3}
+  effects: []
   bodyType: 0
   planetType: 0
   useCustomColor: 1
@@ -14979,6 +15103,7 @@ RectTransform:
   - {fileID: 52789160}
   - {fileID: 177975967}
   - {fileID: 643988246}
+  - {fileID: 304312565}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -15089,6 +15214,9 @@ MonoBehaviour:
   square: {fileID: 21300000, guid: b776b0889c07efd488158d2812fdea81, type: 3}
   hexagon: {fileID: 21300000, guid: d95c5f671bdb5ae43afe172d90abdecf, type: 3}
   pentagon: {fileID: 21300000, guid: b23452788a5726445b97f99235b57519, type: 3}
+  leftPanel: {fileID: 304312564}
+  leftPanelEffectPrefab: {fileID: 9059501884669689883, guid: 09b8eed14a8ab3e4fb3ba77f5f250d3e,
+    type: 3}
 --- !u!1 &638645639
 GameObject:
   m_ObjectHideFlags: 0
@@ -15596,6 +15724,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectName: 
   icon: {fileID: 0}
+  effects: []
   bodyType: 3
   planetType: 0
   useCustomColor: 0
@@ -17288,6 +17417,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectName: 
   icon: {fileID: 21300000, guid: 357f818aa282bfb45b62dfb98d332b05, type: 3}
+  effects: []
   bodyType: 0
   planetType: 2
   useCustomColor: 1
@@ -17648,6 +17778,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectName: 
   icon: {fileID: 21300000, guid: a4ec4c5288bb6384890a56ecd211528f, type: 3}
+  effects: []
   bodyType: 4
   planetType: 0
   useCustomColor: 0
@@ -17948,6 +18079,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectName: 
   icon: {fileID: 0}
+  effects: []
   bodyType: 3
   planetType: 0
   useCustomColor: 0
@@ -18330,6 +18462,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fleets:
   - {fileID: 1264452442}
+  haltFleet: {fileID: 21300000, guid: bd1af307213627b47a31de26b9aa4ec5, type: 3}
   _selectedFleet: {fileID: 0}
   focused: {r: 1, g: 0.9878868, b: 0.9009434, a: 0.6392157}
   normal: {r: 1, g: 0.9858491, b: 0.9858491, a: 0.09411765}
@@ -18996,6 +19129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectName: 
   icon: {fileID: 0}
+  effects: []
   bodyType: 3
   planetType: 0
   useCustomColor: 0
@@ -20599,6 +20733,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectName: 
   icon: {fileID: 21300000, guid: 9facf3569fd04894ea3c366a52294434, type: 3}
+  effects: []
   bodyType: 0
   planetType: 1
   useCustomColor: 1
@@ -21148,6 +21283,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectName: 
   icon: {fileID: 0}
+  effects: []
   bodyType: 3
   planetType: 0
   useCustomColor: 0
@@ -21555,6 +21691,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectName: Main Stellar Fleet
   icon: {fileID: 21300000, guid: c7c3acbfc1c84914a9dde357010a73d8, type: 3}
+  effects: []
   composition:
   - type: 0
     shipName: Corvette I
@@ -23039,6 +23176,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectName: 
   icon: {fileID: 0}
+  effects: []
   bodyType: 0
   planetType: 0
   useCustomColor: 0
@@ -23642,6 +23780,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectName: 
   icon: {fileID: 21300000, guid: 1413420a319cca344bf6b12a5cbeef52, type: 3}
+  effects: []
   bodyType: 0
   planetType: 2
   useCustomColor: 1
@@ -27516,6 +27655,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectName: 
   icon: {fileID: 0}
+  effects: []
   bodyType: 3
   planetType: 0
   useCustomColor: 0
@@ -30187,6 +30327,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectName: 
   icon: {fileID: 21300000, guid: 615abb42da9017c4ea9f861ba70d27fa, type: 3}
+  effects: []
   bodyType: 0
   planetType: 0
   useCustomColor: 1
@@ -30628,6 +30769,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectName: 
   icon: {fileID: 21300000, guid: 962dd0d6cd0fb4c4a805306afbfb6198, type: 3}
+  effects: []
   bodyType: 4
   planetType: 0
   useCustomColor: 1

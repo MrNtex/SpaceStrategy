@@ -9,7 +9,8 @@ public enum TooltipTarget
     Alert,
     Piechart,
     ActiveDecision,
-    Colony
+    Colony,
+    LeftPanelEffect
 }
 public class Tooltip : MonoBehaviour
 {
@@ -22,7 +23,7 @@ public class Tooltip : MonoBehaviour
     protected RectTransform dragger, canvasRect;
 
     [SerializeField]
-    protected Vector2 offset = new Vector2(-5, -5);
+    protected Vector2 offset = new Vector2(30, 30);
 
     protected TooltipData tooltipData;
 
