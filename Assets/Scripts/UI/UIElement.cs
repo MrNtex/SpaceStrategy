@@ -45,6 +45,11 @@ public class UIElement : MonoBehaviour
     {
         tooltip.SetActive(false);
     }
+    protected IEnumerator AdjustAndMoveTooltip()
+    {
+        // Wait for the next frame to get the correct size of the tooltip, because layout groups are updated after Update() method
+        yield return new WaitForEndOfFrame();
+        MoveTooltip(savedPos, false);
+    }
 
-    
 }

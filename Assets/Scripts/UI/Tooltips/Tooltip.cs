@@ -115,12 +115,7 @@ public class Tooltip : UIElement
             ShowBasic();
         }
     }
-    IEnumerator AdjustAndMoveTooltip()
-    {
-        // Wait for the next frame to get the correct size of the tooltip, because layout groups are updated after Update() method
-        yield return new WaitForEndOfFrame();
-        MoveTooltip(savedPos, false);
-    }
+    
 }
 
 public struct TooltipData
