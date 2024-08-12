@@ -12,22 +12,13 @@ public enum TooltipTarget
     Colony,
     LeftPanelEffect
 }
-public class Tooltip : MonoBehaviour
+public class Tooltip : UIElement
 {
     [SerializeField]
     protected TMP_Text header, sub, content;
 
-    public GameObject tooltip;
-    private RectTransform tooltipRect;
-    [SerializeField]
-    protected RectTransform dragger, canvasRect;
-
-    [SerializeField]
-    protected Vector2 offset = new Vector2(30, 30);
 
     protected TooltipData tooltipData;
-
-    private Vector2 savedPos;
 
     public TooltipTarget target;
 
@@ -36,14 +27,7 @@ public class Tooltip : MonoBehaviour
     protected GameObject countryPanel;
 
     protected List<GameObject> countries = new List<GameObject>();
-    void Start()
-    {
-        tooltipRect = tooltip.GetComponent<RectTransform>();
 
-        HideTooltip();
-
-        MenusManager.Instance.OnChangedMenu += HideTooltip;
-    }
     public void Show(TooltipData tooltipData, TooltipTarget target)
     {
         this.target = target;
@@ -61,32 +45,37 @@ public class Tooltip : MonoBehaviour
             ShowBasic();
         }
     }
-    public void MoveTooltip(Vector2 pos, bool savePos = true)
+    public override void HideTooltip()
     {
-        if (savePos)
-        {
-            savedPos = pos;
-        }
-        // It ensures that the tooltip is always inside the canvas
-        Vector2 desiredPosition = pos + offset;
-
-        Vector2 tooltipSize = tooltipRect.sizeDelta;
-        Vector2 canvasSize = canvasRect.sizeDelta;
-
-        float clampedX = Mathf.Clamp(desiredPosition.x, 0, canvasSize.x - tooltipSize.x);
-        float clampedY = Mathf.Clamp(desiredPosition.y, tooltipSize.y, canvasSize.y);
-
-        dragger.anchoredPosition = new Vector2(clampedX, clampedY);
-    }
-    public virtual void HideTooltip()
-    {
-        tooltip.SetActive(false);
+        base.HideTooltip();
         target = TooltipTarget.Empty;
     }
+    protected virtual void ShowBasic()
+    {
+        foreach (GameObject country in countries)
+        {
+            Destroy(country);
+        }
+        header.text = tooltipData.header;
+        sub.text = tooltipData.sub;
+        content.text = tooltipData.content;
 
+        foreach (KeyValuePair<string, string> country in tooltipData.countriesBasic)
+        {
+            GameObject cp = Instantiate(countryPanel, tooltip.transform);
+            CountrySupportOnTooltip countrySupportOnTooltip = cp.GetComponent<CountrySupportOnTooltip>();
+
+            countrySupportOnTooltip.icon.sprite = Countries.instance.countriesDict[country.Key].icon;
+            countrySupportOnTooltip.text.text = country.Value;
+
+            countries.Add(cp);
+        }
+
+        StartCoroutine(nameof(AdjustAndMoveTooltip));
+    }
     protected virtual void ShowAdvanced()
     {
-        if(!tooltipData.hasAdvanced)
+        if (!tooltipData.hasAdvanced)
         {
             ShowBasic();
             return;
@@ -113,29 +102,6 @@ public class Tooltip : MonoBehaviour
         }
 
         StartCoroutine(nameof(AdjustAndMoveTooltip)); // Advanced tooltip is usually bigger than basic one
-    }
-    protected virtual void ShowBasic()
-    {
-        foreach (GameObject country in countries)
-        {
-            Destroy(country);
-        }
-        header.text = tooltipData.header;
-        sub.text = tooltipData.sub;
-        content.text = tooltipData.content;
-
-        foreach (KeyValuePair<string, string> country in tooltipData.countriesBasic)
-        {
-            GameObject cp = Instantiate(countryPanel, tooltip.transform);
-            CountrySupportOnTooltip countrySupportOnTooltip = cp.GetComponent<CountrySupportOnTooltip>();
-
-            countrySupportOnTooltip.icon.sprite = Countries.instance.countriesDict[country.Key].icon;
-            countrySupportOnTooltip.text.text = country.Value;
-
-            countries.Add(cp);
-        }
-
-        StartCoroutine(nameof(AdjustAndMoveTooltip));
     }
     void Update()
     {
