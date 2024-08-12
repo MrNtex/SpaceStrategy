@@ -93,7 +93,7 @@ public partial class Fleet : ObjectInfo
         cameraFocus.FocusOn(objectFocusHelper, FleetManager.instance.selectedFleet == this);
     }
 
-    public virtual void SetDestination(GameObject dest)
+    public virtual void SetDestination(GameObject dest, FleetStatus nextStatus = FleetStatus.Moving)
     {
         if (dest.CompareTag("Point"))
         {
@@ -142,6 +142,16 @@ public partial class Fleet : ObjectInfo
         ship.myFleet = this;
 
         if (update) UpdateFleet();
+    }
+
+    public virtual void Merge(Fleet otherFleet)
+    {
+        foreach(Ship ship in otherFleet.composition)
+        {
+            AddToFleet(ship, false);
+        }
+        
+        UpdateFleet();
     }
     public virtual void UpdateFleet(bool billboard = true)
     {
@@ -236,7 +246,8 @@ public enum FleetStatus
     Moving,
     OnOrbit,
     Fighting,
-    Fleeing
+    Fleeing,
+    Merging,
 }
 public enum ShipType
 {

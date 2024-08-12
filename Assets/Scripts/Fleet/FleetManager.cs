@@ -68,17 +68,28 @@ public class FleetManager : MonoBehaviour
             
             if (fleet is FriendlyFleet)
             {
-                // TODO: Implement fleet merging
+                FriendlyFleet friendlyFleet = fleet as FriendlyFleet;
+                UpdateTarget(fleet.capitan, FleetStatus.Merging);
+
                 return;
             }
             UpdateTarget(fleet.capitan);
         }
     }
-    void UpdateTarget(GameObject dest)
+    void UpdateTarget(GameObject dest, FleetStatus nextStatus = FleetStatus.Moving)
     {
-        selectedFleet.SetDestination(dest);
+        selectedFleet.SetDestination(dest, nextStatus);
 
         BodyInfoUI.instance.SetBody(selectedFleet);
+    }
+
+    public void MergeFleets(FriendlyFleet fleet, FriendlyFleet selectedFleet)
+    {
+        fleets.Remove(fleet);
+
+        selectedFleet.Merge(fleet);
+
+        Destroy(fleet.gameObject);
     }
 
     public void Update()

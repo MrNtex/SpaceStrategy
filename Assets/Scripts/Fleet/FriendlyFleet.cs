@@ -39,10 +39,10 @@ public partial class FriendlyFleet : Fleet
         }
     }
 
-    public override void SetDestination(GameObject dest)
+    public override void SetDestination(GameObject dest, FleetStatus nextStatus = FleetStatus.Moving)
     {
         base.SetDestination(dest);
-        SetFleetStatus(FleetStatus.Moving);
+        SetFleetStatus(nextStatus);
     }
 
     public override void UpdateFleet(bool billboard = true)
@@ -73,7 +73,7 @@ public partial class FriendlyFleet : Fleet
     }
     public override void DrawPath(Vector3 dest)
     {
-        if (status == FleetStatus.Moving)
+        if (status == FleetStatus.Moving || status == FleetStatus.Merging)
         {
             path.positionCount = 2;
             path.SetPosition(0, capitan.transform.position + capitan.transform.forward * lrOffset);
@@ -101,8 +101,12 @@ public partial class FriendlyFleet : Fleet
             case FleetStatus.Moving:
                 text.text = StatusMoving();
                 break;
+            case FleetStatus.Merging:
+                text.text = $"Merging with <link=\"Fleet\"><color=#ffd666>{destination.GetComponentInParent<FriendlyFleet>().name}</color></link>";
+                ClickableLinkHandler.adress = destination.transform.parent.gameObject;
+                break;
             default:
-                text.text = "No status";
+                text.text = "No status!";
                 break;
         }
     }

@@ -21,7 +21,7 @@ public partial class Fleet : ObjectInfo
             FightMovement();
             return;
         }
-        if (status == FleetStatus.Moving && destination != null)
+        if ((status == FleetStatus.Moving || status == FleetStatus.Merging) && destination != null)
         {
             if (destination.CompareTag("Point"))
             {
@@ -79,6 +79,29 @@ public partial class Fleet : ObjectInfo
 
         if (Vector3.Distance(capitan.transform.position, dest) < destinationOffset)
         {
+            if(status == FleetStatus.Merging)
+            {
+                status = FleetStatus.Idle; // Change status here in case something goes wrong
+
+                if (destination.CompareTag("Ship") && destination.transform.parent.transform.CompareTag("Fleet"))
+                {
+                    FriendlyFleet otherFleet = destination.transform.parent.GetComponent<FriendlyFleet>();
+                    if(otherFleet != null)
+                    {
+                        FleetManager.instance.MergeFleets(this as FriendlyFleet, otherFleet);
+                    }
+                    else
+                    {
+                        Debug.LogError($"Fleet {name} tried to marge with something tagged fleet, but the target didn't have FriendlyFleet attached");
+                    }
+                }
+                else
+                {
+                    Debug.LogError($"Fleet {name} tried to marge with something else than fleet");
+                }
+                return;
+            }
+            
             if (destination.CompareTag("CelestialBody"))
             {
                 gameObject.transform.SetParent(destination.transform);

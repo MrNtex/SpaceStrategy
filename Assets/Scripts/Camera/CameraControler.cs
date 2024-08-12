@@ -15,6 +15,9 @@ public class CameraControler : MonoBehaviour
 
     public static GameObject mainCamera;
 
+    [SerializeField]
+    private GameObject _mainCamera;
+
     private void Awake()
     {
         mainCamera = gameObject;

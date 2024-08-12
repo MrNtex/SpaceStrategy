@@ -9420,6 +9420,8 @@ MonoBehaviour:
   objectName: 
   icon: {fileID: 21300000, guid: 6431e80df9a7b554c8b0e35bb2454c14, type: 3}
   effects: []
+  protectors: []
+  attackers: []
   bodyType: 0
   planetType: 0
   useCustomColor: 0
@@ -11528,6 +11530,8 @@ MonoBehaviour:
   objectName: 
   icon: {fileID: 0}
   effects: []
+  protectors: []
+  attackers: []
   bodyType: 3
   planetType: 0
   useCustomColor: 0
@@ -12396,6 +12400,8 @@ MonoBehaviour:
   objectName: 
   icon: {fileID: 0}
   effects: []
+  protectors: []
+  attackers: []
   bodyType: 3
   planetType: 0
   useCustomColor: 0
@@ -12549,6 +12555,8 @@ MonoBehaviour:
   objectName: 
   icon: {fileID: 21300000, guid: 93b55552b309b5e4a890005b3196651f, type: 3}
   effects: []
+  protectors: []
+  attackers: []
   bodyType: 2
   planetType: 0
   useCustomColor: 0
@@ -13549,6 +13557,8 @@ MonoBehaviour:
   objectName: 
   icon: {fileID: 21300000, guid: dc50c89f5f9aa6f418ba16bd1102006d, type: 3}
   effects: []
+  protectors: []
+  attackers: []
   bodyType: 0
   planetType: 1
   useCustomColor: 1
@@ -14265,6 +14275,8 @@ MonoBehaviour:
   objectName: 
   icon: {fileID: 21300000, guid: 66fbc0996803e6c4ab7455291c523914, type: 3}
   effects: []
+  protectors: []
+  attackers: []
   bodyType: 0
   planetType: 0
   useCustomColor: 1
@@ -14293,7 +14305,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &573469069
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14314,7 +14326,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 109.78, y: 70.98}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &573469070
 MonoBehaviour:
@@ -14633,6 +14645,8 @@ MonoBehaviour:
   objectName: 
   icon: {fileID: 21300000, guid: bc6c7bfd41241d24486950f30e139020, type: 3}
   effects: []
+  protectors: []
+  attackers: []
   bodyType: 0
   planetType: 0
   useCustomColor: 1
@@ -15725,6 +15739,8 @@ MonoBehaviour:
   objectName: 
   icon: {fileID: 0}
   effects: []
+  protectors: []
+  attackers: []
   bodyType: 3
   planetType: 0
   useCustomColor: 0
@@ -16262,10 +16278,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 573469069}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 28.675, y: -36.725}
+  m_SizeDelta: {x: 37.35, y: 12.29}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &755051804
 MonoBehaviour:
@@ -16936,10 +16952,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 573469069}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 46.725, y: -55.925}
+  m_SizeDelta: {x: 73.45, y: 20.11}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &785341033
 CanvasRenderer:
@@ -17418,6 +17434,8 @@ MonoBehaviour:
   objectName: 
   icon: {fileID: 21300000, guid: 357f818aa282bfb45b62dfb98d332b05, type: 3}
   effects: []
+  protectors: []
+  attackers: []
   bodyType: 0
   planetType: 2
   useCustomColor: 1
@@ -17779,6 +17797,8 @@ MonoBehaviour:
   objectName: 
   icon: {fileID: 21300000, guid: a4ec4c5288bb6384890a56ecd211528f, type: 3}
   effects: []
+  protectors: []
+  attackers: []
   bodyType: 4
   planetType: 0
   useCustomColor: 0
@@ -18080,6 +18100,8 @@ MonoBehaviour:
   objectName: 
   icon: {fileID: 0}
   effects: []
+  protectors: []
+  attackers: []
   bodyType: 3
   planetType: 0
   useCustomColor: 0
@@ -18788,7 +18810,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentWave: -1
   defaultWaves:
-  - delay: 65
+  - delay: 5
     composition:
     - type: 0
       shipName: 
@@ -18807,6 +18829,7 @@ MonoBehaviour:
         armor: 0
         shield: 0
         reliability: 0.853
+      myFleet: {fileID: 0}
     - type: 0
       shipName: 
       velocity: {x: 0, y: 0, z: 0}
@@ -18824,6 +18847,7 @@ MonoBehaviour:
         armor: 0
         shield: 0
         reliability: 0.853
+      myFleet: {fileID: 0}
     - type: 0
       shipName: 
       velocity: {x: 0, y: 0, z: 0}
@@ -18841,6 +18865,7 @@ MonoBehaviour:
         armor: 0
         shield: 0
         reliability: 0.853
+      myFleet: {fileID: 0}
     - type: 0
       shipName: 
       velocity: {x: 0, y: 0, z: 0}
@@ -18858,6 +18883,7 @@ MonoBehaviour:
         armor: 0
         shield: 0
         reliability: 0.853
+      myFleet: {fileID: 0}
     spawnPoint: {x: 0, y: 0, z: -1}
     firstWarningFired: 0
     secondWarningFired: 0
@@ -19131,6 +19157,8 @@ MonoBehaviour:
   objectName: 
   icon: {fileID: 0}
   effects: []
+  protectors: []
+  attackers: []
   bodyType: 3
   planetType: 0
   useCustomColor: 0
@@ -20735,6 +20763,8 @@ MonoBehaviour:
   objectName: 
   icon: {fileID: 21300000, guid: 9facf3569fd04894ea3c366a52294434, type: 3}
   effects: []
+  protectors: []
+  attackers: []
   bodyType: 0
   planetType: 1
   useCustomColor: 1
@@ -21285,6 +21315,8 @@ MonoBehaviour:
   objectName: 
   icon: {fileID: 0}
   effects: []
+  protectors: []
+  attackers: []
   bodyType: 3
   planetType: 0
   useCustomColor: 0
@@ -21693,6 +21725,8 @@ MonoBehaviour:
   objectName: Main Stellar Fleet
   icon: {fileID: 21300000, guid: c7c3acbfc1c84914a9dde357010a73d8, type: 3}
   effects: []
+  protectors: []
+  attackers: []
   composition:
   - type: 0
     shipName: Corvette I
@@ -21710,6 +21744,7 @@ MonoBehaviour:
       armor: 10
       shield: 0
       reliability: 0.811
+    myFleet: {fileID: 0}
   - type: 0
     shipName: Corvette II
     velocity: {x: 0, y: 0, z: 0}
@@ -21726,6 +21761,7 @@ MonoBehaviour:
       armor: 10
       shield: 0
       reliability: 0.811
+    myFleet: {fileID: 0}
   - type: 0
     shipName: Corvette III
     velocity: {x: 0, y: 0, z: 0}
@@ -21742,6 +21778,7 @@ MonoBehaviour:
       armor: 10
       shield: 0
       reliability: 0.811
+    myFleet: {fileID: 0}
   - type: 0
     shipName: Corvette I IV
     velocity: {x: 0, y: 0, z: 0}
@@ -21758,6 +21795,7 @@ MonoBehaviour:
       armor: 10
       shield: 0
       reliability: 0.811
+    myFleet: {fileID: 0}
   - type: 0
     shipName: Corvette V
     velocity: {x: 0, y: 0, z: 0}
@@ -21774,6 +21812,7 @@ MonoBehaviour:
       armor: 10
       shield: 0
       reliability: 0.811
+    myFleet: {fileID: 0}
   capitanIndex: 0
   destination: {fileID: 0}
   destinationOffset: 1
@@ -23178,6 +23217,8 @@ MonoBehaviour:
   objectName: 
   icon: {fileID: 0}
   effects: []
+  protectors: []
+  attackers: []
   bodyType: 0
   planetType: 0
   useCustomColor: 0
@@ -23782,6 +23823,8 @@ MonoBehaviour:
   objectName: 
   icon: {fileID: 21300000, guid: 1413420a319cca344bf6b12a5cbeef52, type: 3}
   effects: []
+  protectors: []
+  attackers: []
   bodyType: 0
   planetType: 2
   useCustomColor: 1
@@ -27657,6 +27700,8 @@ MonoBehaviour:
   objectName: 
   icon: {fileID: 0}
   effects: []
+  protectors: []
+  attackers: []
   bodyType: 3
   planetType: 0
   useCustomColor: 0
@@ -30329,6 +30374,8 @@ MonoBehaviour:
   objectName: 
   icon: {fileID: 21300000, guid: 615abb42da9017c4ea9f861ba70d27fa, type: 3}
   effects: []
+  protectors: []
+  attackers: []
   bodyType: 0
   planetType: 0
   useCustomColor: 1
@@ -30771,6 +30818,8 @@ MonoBehaviour:
   objectName: 
   icon: {fileID: 21300000, guid: 962dd0d6cd0fb4c4a805306afbfb6198, type: 3}
   effects: []
+  protectors: []
+  attackers: []
   bodyType: 4
   planetType: 0
   useCustomColor: 1
@@ -30812,10 +30861,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 573469069}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 54.89, y: -15.29}
+  m_SizeDelta: {x: 89.78, y: 24.58}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2057207078
 MonoBehaviour:
