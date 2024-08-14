@@ -59,7 +59,7 @@ public partial class Fleet : ObjectInfo
     [SerializeField]
     private GameObject expolsionPartilcles;
 
-
+    public FleetFormation formation = FleetFormation.Triangle;
 
     protected virtual void Start()
     {
@@ -167,7 +167,7 @@ public partial class Fleet : ObjectInfo
             capitan = composition[0].prefab;
         }
 
-        FleetFormationHelper.instance.SetFormation(FleetFormation.Triangle, composition.ToArray(), capitan);
+        FleetFormationHelper.instance.SetFormation(formation, composition.ToArray(), capitan);
         if(billboard) fleetBillboard.UpdateFleet();
     }
 
@@ -236,10 +236,8 @@ public class ShipStats
 }
 public enum FleetFormation
 {
-    Line,
-    Circle,
+    Echelon,
     Triangle,
-    Square
 }
 public enum FleetStatus
 {

@@ -18641,6 +18641,9 @@ MonoBehaviour:
   _selectedFleet: {fileID: 0}
   focused: {r: 1, g: 0.9878868, b: 0.9009434, a: 0.6392157}
   normal: {r: 1, g: 0.9858491, b: 0.9858491, a: 0.09411765}
+  normalPath: {r: 1, g: 0.9591794, b: 0.4764151, a: 1}
+  mergePath: {r: 0.7228214, g: 1, b: 0.1745283, a: 1}
+  attackPath: {r: 0.735849, g: 0, b: 0, a: 1}
 --- !u!114 &941910638
 MonoBehaviour:
   m_ObjectHideFlags: 0
