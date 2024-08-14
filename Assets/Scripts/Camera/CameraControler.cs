@@ -18,6 +18,8 @@ public class CameraControler : MonoBehaviour
     [SerializeField]
     private GameObject _mainCamera;
 
+    public delegate void CameraMove();
+    public static CameraMove onCameraMove;
     private void Awake()
     {
         mainCamera = gameObject;
@@ -48,9 +50,12 @@ public class CameraControler : MonoBehaviour
             transform.Rotate(Vector3.right * rotationSpeed * -Input.GetAxis("Mouse Y"));
 
             transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, 0);
+
+            onCameraMove?.Invoke();
         }
 
     }
+
     void MoveCamera(Vector3 dir, float shiftMultiplier = 1, bool breakFromParent = true)
     {
         transform.position += dir * panSpeed * Time.deltaTime * shiftMultiplier;
@@ -59,5 +64,7 @@ public class CameraControler : MonoBehaviour
             transform.SetParent(null);
             Focus.focusedObject = null;
         }
+
+        onCameraMove?.Invoke();
     }
 }

@@ -72,6 +72,7 @@ public class FleetManager : MonoBehaviour
             
             if (fleet is FriendlyFleet)
             {
+                if(fleet == selectedFleet) return;
                 FriendlyFleet friendlyFleet = fleet as FriendlyFleet;
 
                 MenusManager.Instance.mainComboBox.Show(new ComboBoxItem[] { new ComboBoxItem("Merge", () => UpdateTarget(fleet.capitan, FleetStatus.Merging)), new ComboBoxItem("Follow", () => UpdateTarget(fleet.capitan, FleetStatus.Moving)) });

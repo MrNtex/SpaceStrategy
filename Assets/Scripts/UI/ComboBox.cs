@@ -11,8 +11,12 @@ public class ComboBox : UIElement
     [SerializeField]
     private GameObject separator;
 
-    public void Show(ComboBoxItem[] items)
+    public void Show(ComboBoxItem[] items, bool breakOnCameraMovement = true)
     {
+        if(breakOnCameraMovement)
+        {
+            CameraControler.onCameraMove += Hide;
+        }
         DestroyAllChildren.DestroyAllChildrenOf(tooltip.transform);
 
         tooltip.SetActive(true);
@@ -23,12 +27,19 @@ public class ComboBox : UIElement
 
         for (int i = 0; i < items.Length; i++)
         {
-            Instantiate(buttonPrefab, tooltip.transform).GetComponent<ComboBoxItemPrefab>().Set(items[i].text, items[i].icon, items[i].action);
+            Instantiate(buttonPrefab, tooltip.transform).GetComponent<ComboBoxItemPrefab>().Set(items[i].text, items[i].icon, items[i].action, this, true);
             if (i < items.Length - 1)
             {
                 Instantiate(separator, tooltip.transform);
             }
         }
+    }
+
+    public void Hide()
+    {
+        CameraControler.onCameraMove -= Hide;
+
+        tooltip.SetActive(false);
     }
 }
 public struct ComboBoxItem

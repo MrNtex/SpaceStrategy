@@ -10,10 +10,11 @@ public class ComboBoxItemPrefab : MonoBehaviour
     public TMPro.TMP_Text text;
     public Image image;
 
-    public void Set(string text, Sprite image, Action action)
+    public void Set(string text, Sprite image, Action action, ComboBox parent, bool hideOnClick)
     {
         this.text.text = text;
         button.onClick.AddListener(() => action());
+        if(hideOnClick) button.onClick.AddListener(() => parent.Hide());
 
         if(image != null)
             this.image.sprite = image;
