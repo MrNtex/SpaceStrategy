@@ -38,6 +38,10 @@ public class FleetManager : MonoBehaviour
 
     public Color focused, normal;
 
+    [Header("Path Colors")]
+    public Color normalPath; // This way, because the header would break
+    public Color mergePath, attackPath;
+
     private void Awake()
     {
         if(instance == null)
@@ -69,7 +73,9 @@ public class FleetManager : MonoBehaviour
             if (fleet is FriendlyFleet)
             {
                 FriendlyFleet friendlyFleet = fleet as FriendlyFleet;
-                UpdateTarget(fleet.capitan, FleetStatus.Merging);
+
+                MenusManager.Instance.mainComboBox.Show(new ComboBoxItem[] { new ComboBoxItem("Merge", () => UpdateTarget(fleet.capitan, FleetStatus.Merging)), new ComboBoxItem("Follow", () => UpdateTarget(fleet.capitan, FleetStatus.Moving)) });
+
 
                 return;
             }
@@ -92,6 +98,29 @@ public class FleetManager : MonoBehaviour
         Destroy(fleet.gameObject);
     }
 
+    public Color GetPathColor(Fleet fleet)
+    {
+        switch (fleet.status)
+        {
+            case FleetStatus.Moving:
+            {
+                if (fleet.destination.CompareTag("Ship"))
+                {
+                    Fleet dest = fleet.destination.GetComponentInParent<Fleet>();
+                    //ENEMY FLEET
+                    if (dest is EnemyFleet)
+                    {
+                        return attackPath;
+                    }
+                }
+                return normalPath;
+            }
+            case FleetStatus.Merging:
+                return mergePath;
+            default:
+                return normalPath;
+        }
+    }
     public void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9047968516058138274}
   - component: {fileID: 8257254816697514002}
   - component: {fileID: 805802616985931816}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,7 +105,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3596396006283542669}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -144,7 +144,7 @@ GameObject:
   - component: {fileID: 113300994631939016}
   - component: {fileID: 1249311719114212739}
   - component: {fileID: 4195957836657282967}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Outline
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -220,7 +220,7 @@ GameObject:
   - component: {fileID: 904483523101874850}
   - component: {fileID: 5306756763476050457}
   - component: {fileID: 6660854894693236948}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -383,7 +383,7 @@ GameObject:
   - component: {fileID: 8509836498142983017}
   - component: {fileID: 1725323519680434008}
   - component: {fileID: 2851754809596617795}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: PlanetSpecialButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -542,7 +542,7 @@ GameObject:
   - component: {fileID: 7269673194546304757}
   - component: {fileID: 2111445938057563584}
   - component: {fileID: 8860679937585181989}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -717,7 +717,7 @@ GameObject:
   - component: {fileID: 3014962113850940503}
   - component: {fileID: 1051012312772930944}
   - component: {fileID: 7358965263208286764}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: FleetCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -823,7 +823,7 @@ GameObject:
   - component: {fileID: 2660135240093545206}
   - component: {fileID: 4194236649536825758}
   - component: {fileID: 5691348009658587309}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -906,7 +906,7 @@ GameObject:
   - component: {fileID: 935256932001101913}
   - component: {fileID: 7443828949252390810}
   - component: {fileID: 6471452515277749206}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Image (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -981,7 +981,7 @@ GameObject:
   - component: {fileID: 9065322314561454916}
   - component: {fileID: 7103510722073015279}
   - component: {fileID: 1252999113634741445}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}

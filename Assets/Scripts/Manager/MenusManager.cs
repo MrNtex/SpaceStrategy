@@ -7,6 +7,7 @@ public class MenusManager : MonoBehaviour
     public static MenusManager Instance;
     public GameObject mainCanvas;
     public Tooltip mainTooltip;
+    public ComboBox mainComboBox;
 
     public static List<GameObject> activeModals
     {

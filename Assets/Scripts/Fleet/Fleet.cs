@@ -48,6 +48,7 @@ public partial class Fleet : ObjectInfo
 
 
     public LineRenderer path;
+
     protected const float lrOffset = 2.5f;
 
     private Transform mainCamera;

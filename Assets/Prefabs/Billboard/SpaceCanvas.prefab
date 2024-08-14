@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9047968516058138274}
   - component: {fileID: 8257254816697514002}
   - component: {fileID: 805802616985931816}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 904483523101874850}
   - component: {fileID: 5306756763476050457}
   - component: {fileID: 6660854894693236948}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -266,7 +266,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8020977961547785294}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Object
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -305,7 +305,7 @@ GameObject:
   - component: {fileID: 157314681297799018}
   - component: {fileID: 9128407170428536242}
   - component: {fileID: 8356598057019297386}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Image (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -385,7 +385,7 @@ GameObject:
   - component: {fileID: 2111445938057563584}
   - component: {fileID: 7742551507465445321}
   - component: {fileID: 8913744060482657730}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -573,7 +573,7 @@ GameObject:
   - component: {fileID: 1750755258066375234}
   - component: {fileID: 1051012312772930944}
   - component: {fileID: -7230641836769466321}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: SpaceCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -645,7 +645,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &1051012312772930944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -703,7 +703,7 @@ GameObject:
   - component: {fileID: 7195364845654526496}
   - component: {fileID: 6942576439384160999}
   - component: {fileID: 4939566495430302837}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -781,7 +781,7 @@ GameObject:
   - component: {fileID: 2220246542366901516}
   - component: {fileID: 4677188744069399533}
   - component: {fileID: 8231768492987988663}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: PlanetSpecialButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -936,7 +936,7 @@ GameObject:
   - component: {fileID: 7057826809505270245}
   - component: {fileID: 792759903498234092}
   - component: {fileID: 7651555565992292606}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Outline
   m_TagString: Untagged
   m_Icon: {fileID: 0}

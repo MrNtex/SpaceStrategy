@@ -43,6 +43,11 @@ public partial class FriendlyFleet : Fleet
     {
         base.SetDestination(dest);
         SetFleetStatus(nextStatus);
+
+        Color color = FleetManager.instance.GetPathColor(this);
+        path.startColor = color;
+
+        path.endColor = Color.gray;
     }
 
     public override void UpdateFleet(bool billboard = true)

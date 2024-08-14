@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Burst.CompilerServices;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class CameraRightClick : MonoBehaviour
 {
@@ -27,6 +28,12 @@ public class CameraRightClick : MonoBehaviour
         /// </sumary>
         if (Input.GetMouseButtonDown(1)) 
         {
+            // Check if the mouse is over a UI element
+            if (EventSystem.current.IsPointerOverGameObject())
+            {
+                return; // If the pointer is over a UI element, do nothing
+            }
+
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
             

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1190164234026302165}
   - component: {fileID: 1400978017095233365}
   - component: {fileID: 4981391820933347988}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 1974166673958906235}
   - component: {fileID: 6276510558519736637}
   - component: {fileID: 428842819438562659}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: BattleCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -236,7 +236,7 @@ GameObject:
   - component: {fileID: 6966007936664416617}
   - component: {fileID: 4721449702988083765}
   - component: {fileID: 5912466920724486663}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Image (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -312,7 +312,7 @@ GameObject:
   - component: {fileID: 5677011276804456852}
   - component: {fileID: 1337522227361037571}
   - component: {fileID: 1231180535399212603}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -472,7 +472,7 @@ GameObject:
   - component: {fileID: 4910547573766814283}
   - component: {fileID: 256326411027438281}
   - component: {fileID: 3004070784480635305}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -548,7 +548,7 @@ GameObject:
   - component: {fileID: 7760079961390851819}
   - component: {fileID: 6921955232331091194}
   - component: {fileID: 8623535776352302969}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Battle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -685,7 +685,7 @@ GameObject:
   - component: {fileID: 8105255455236969084}
   - component: {fileID: 2229377596351472136}
   - component: {fileID: 1828389967923228184}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -845,7 +845,7 @@ GameObject:
   - component: {fileID: 7706580002743414037}
   - component: {fileID: 431103256509896074}
   - component: {fileID: 4712920427418270676}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Outline
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -921,7 +921,7 @@ GameObject:
   - component: {fileID: 3814934371821379549}
   - component: {fileID: 6359704909817528049}
   - component: {fileID: 6980719486857260023}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1044,7 +1044,7 @@ GameObject:
   - component: {fileID: 6873851327750349165}
   - component: {fileID: 8046858286493086937}
   - component: {fileID: 4995607121349625019}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: EnemyFleet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1219,7 +1219,7 @@ GameObject:
   - component: {fileID: 2659692965442560648}
   - component: {fileID: 3808706170120012745}
   - component: {fileID: 9139498483519365954}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1315,7 +1315,7 @@ GameObject:
   - component: {fileID: 4832942691961016581}
   - component: {fileID: 1650211610276662181}
   - component: {fileID: 41765723362204607}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1438,7 +1438,7 @@ GameObject:
   - component: {fileID: 4843908451293850347}
   - component: {fileID: 5111163945095325920}
   - component: {fileID: 2569982403499030861}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: FriendlyFleet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1720,6 +1720,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Light Cruisier
       objectReference: {fileID: 0}
+    - target: {fileID: 2001777335962035656, guid: cd289f3671d16c84b8e0da498cf663a8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2555917948820398266, guid: cd289f3671d16c84b8e0da498cf663a8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1861,6 +1871,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Destroyer
+      objectReference: {fileID: 0}
+    - target: {fileID: 2001777335962035656, guid: cd289f3671d16c84b8e0da498cf663a8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2555917948820398266, guid: cd289f3671d16c84b8e0da498cf663a8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2012,8 +2032,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2001777335962035656, guid: cd289f3671d16c84b8e0da498cf663a8,
         type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2001777335962035656, guid: cd289f3671d16c84b8e0da498cf663a8,
+        type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2555917948820398266, guid: cd289f3671d16c84b8e0da498cf663a8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2159,8 +2189,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2001777335962035656, guid: cd289f3671d16c84b8e0da498cf663a8,
         type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2001777335962035656, guid: cd289f3671d16c84b8e0da498cf663a8,
+        type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2555917948820398266, guid: cd289f3671d16c84b8e0da498cf663a8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2327,8 +2367,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2001777335962035656, guid: cd289f3671d16c84b8e0da498cf663a8,
         type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2001777335962035656, guid: cd289f3671d16c84b8e0da498cf663a8,
+        type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2555917948820398266, guid: cd289f3671d16c84b8e0da498cf663a8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2472,6 +2522,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Battleship
       objectReference: {fileID: 0}
+    - target: {fileID: 2001777335962035656, guid: cd289f3671d16c84b8e0da498cf663a8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2555917948820398266, guid: cd289f3671d16c84b8e0da498cf663a8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2613,6 +2673,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Dreadnaught
+      objectReference: {fileID: 0}
+    - target: {fileID: 2001777335962035656, guid: cd289f3671d16c84b8e0da498cf663a8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2555917948820398266, guid: cd289f3671d16c84b8e0da498cf663a8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2756,6 +2826,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dreadnaught
       objectReference: {fileID: 0}
+    - target: {fileID: 2001777335962035656, guid: cd289f3671d16c84b8e0da498cf663a8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2555917948820398266, guid: cd289f3671d16c84b8e0da498cf663a8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2898,6 +2978,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Battleship
       objectReference: {fileID: 0}
+    - target: {fileID: 2001777335962035656, guid: cd289f3671d16c84b8e0da498cf663a8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2555917948820398266, guid: cd289f3671d16c84b8e0da498cf663a8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3036,8 +3126,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2001777335962035656, guid: cd289f3671d16c84b8e0da498cf663a8,
         type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2001777335962035656, guid: cd289f3671d16c84b8e0da498cf663a8,
+        type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2555917948820398266, guid: cd289f3671d16c84b8e0da498cf663a8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3186,6 +3286,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Heavy Cruisier
+      objectReference: {fileID: 0}
+    - target: {fileID: 2001777335962035656, guid: cd289f3671d16c84b8e0da498cf663a8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2555917948820398266, guid: cd289f3671d16c84b8e0da498cf663a8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3349,6 +3459,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Fighter
+      objectReference: {fileID: 0}
+    - target: {fileID: 2001777335962035656, guid: cd289f3671d16c84b8e0da498cf663a8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2555917948820398266, guid: cd289f3671d16c84b8e0da498cf663a8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

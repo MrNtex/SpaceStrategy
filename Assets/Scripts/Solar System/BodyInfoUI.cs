@@ -110,10 +110,7 @@ public class BodyInfoUI : MonoBehaviour
 
     public void CreateLeftPanel(ObjectInfo obj)
     {
-        for (int i = leftPanel.transform.childCount - 1; i >= 0; i--)
-        {
-            Destroy(leftPanel.transform.GetChild(i).gameObject);
-        }
+        DestroyAllChildren.DestroyAllChildrenOf(leftPanel.transform);
 
         leftPanel.SetActive(true);
 

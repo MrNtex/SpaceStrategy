@@ -11,14 +11,16 @@ public class ComboBox : UIElement
     [SerializeField]
     private GameObject separator;
 
-    public void Start()
-    {
-        //Test
-        Show(new ComboBoxItem[] { new ComboBoxItem("Test", () => Debug.Log("Test")), new ComboBoxItem("Test2", () => Debug.Log("Test2")) });
-    }
-
     public void Show(ComboBoxItem[] items)
     {
+        DestroyAllChildren.DestroyAllChildrenOf(tooltip.transform);
+
+        tooltip.SetActive(true);
+
+        Vector2 pos = Input.mousePosition / canvasRect.GetComponent<Canvas>().scaleFactor;
+        
+        tooltip.transform.position = pos;
+
         for (int i = 0; i < items.Length; i++)
         {
             Instantiate(buttonPrefab, tooltip.transform).GetComponent<ComboBoxItemPrefab>().Set(items[i].text, items[i].icon, items[i].action);
