@@ -7,7 +7,7 @@ using static UnityEngine.GraphicsBuffer;
 public class UIElement : MonoBehaviour
 {
     public GameObject tooltip;
-    private RectTransform tooltipRect;
+    protected RectTransform tooltipRect;
     [SerializeField]
     protected RectTransform dragger, canvasRect;
 

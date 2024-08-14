@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using static UnityEngine.Rendering.DebugUI;
 
 public class ComboBox : UIElement
 {
@@ -40,6 +42,16 @@ public class ComboBox : UIElement
         CameraControler.onCameraMove -= Hide;
 
         tooltip.SetActive(false);
+    }
+
+    void Update()
+    {
+        if (tooltip.activeSelf && Input.GetMouseButton(0) && !RectTransformUtility.RectangleContainsScreenPoint(
+          tooltipRect,
+          Input.mousePosition))
+        {
+            Hide();
+        }
     }
 }
 public struct ComboBoxItem
