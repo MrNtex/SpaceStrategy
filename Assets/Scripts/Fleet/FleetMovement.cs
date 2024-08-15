@@ -67,6 +67,10 @@ public partial class Fleet : ObjectInfo
 
         if (Vector3.Distance(t.position, dest) < .1f)
         {
+            if (Quaternion.Angle(t.rotation, capitan.transform.rotation) > 1f)
+            {
+                t.rotation = Quaternion.Slerp(t.rotation, capitan.transform.rotation, Time.deltaTime * 2);
+            }
             return;
         }
         CalculateMovment(dest, composition[idx]);

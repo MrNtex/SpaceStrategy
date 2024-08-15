@@ -18638,6 +18638,9 @@ MonoBehaviour:
   - {fileID: 1264452442}
   - {fileID: 995253999}
   haltFleet: {fileID: 21300000, guid: c510327d05d575b42b981ff5061e7b09, type: 3}
+  changeFormation: {fileID: 0}
+  triangle: {fileID: 0}
+  echelon: {fileID: 0}
   _selectedFleet: {fileID: 0}
   focused: {r: 1, g: 0.9878868, b: 0.9009434, a: 0.6392157}
   normal: {r: 1, g: 0.9858491, b: 0.9858491, a: 0.09411765}
