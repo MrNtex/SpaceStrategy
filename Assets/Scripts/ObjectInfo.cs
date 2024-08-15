@@ -79,5 +79,13 @@ public class LeftPanelButton : LeftPanelEffect
 
 public class  LeftPanelGroup : LeftPanelEffect
 {
-    public LeftPanelEffect[] buttons;
+    public LeftPanelButton[] buttons;
+
+    public LeftPanelGroup(string n, string d, Sprite i, LeftPanelButton[] b)
+    {
+        name = n;
+        description = d;
+        icon = i;
+        buttons = b;
+    }
 }

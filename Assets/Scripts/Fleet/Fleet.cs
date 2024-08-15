@@ -170,7 +170,11 @@ public partial class Fleet : ObjectInfo
         FleetFormationHelper.instance.SetFormation(formation, composition.ToArray(), capitan);
         if(billboard) fleetBillboard.UpdateFleet();
     }
-
+    public void ChangeFormation(FleetFormation formation)
+    {
+        this.formation = formation;
+        FleetFormationHelper.instance.SetFormation(formation, composition.ToArray(), capitan);
+    }
     public void RemoveFromFleet(Ship ship, bool inBattle)
     {
         bool isCapitan = ship.prefab == capitan;

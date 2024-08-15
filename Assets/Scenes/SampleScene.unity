@@ -20173,6 +20173,7 @@ MonoBehaviour:
   fightingRange: 50
   expolsionPartilcles: {fileID: 7730130326036923481, guid: 1f46b403de4ac5243a53b876288ad85b,
     type: 3}
+  formation: 1
   forceManeuver: 0
   battleTarget: {fileID: 0}
 --- !u!4 &995254000
@@ -22300,6 +22301,7 @@ MonoBehaviour:
   fightingRange: 50
   expolsionPartilcles: {fileID: 7730130326036923481, guid: 1f46b403de4ac5243a53b876288ad85b,
     type: 3}
+  formation: 0
   forceManeuver: 0
   battleTarget: {fileID: 0}
 --- !u!4 &1264452443

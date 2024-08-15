@@ -11,6 +11,10 @@ public class LeftPanelEffectUI : MonoBehaviour, IPointerEnterHandler, IPointerEx
 
     public TooltipData tooltipData;
     private Tooltip tooltip;
+
+    private LeftPanelButton[] group;
+    [SerializeField]
+    private GameObject groupPrefab, leftPanelEfectPrefab;
     public void Create(LeftPanelEffect effect)
     {
         icon.sprite = effect.icon;
@@ -19,6 +23,16 @@ public class LeftPanelEffectUI : MonoBehaviour, IPointerEnterHandler, IPointerEx
             LeftPanelButton buttonEffect = effect as LeftPanelButton;
 
             button.onClick.AddListener(() => buttonEffect.action());
+        }
+        else if(effect is LeftPanelGroup)
+        {
+            LeftPanelGroup groupEffect = effect as LeftPanelGroup;
+
+            group = groupEffect.buttons;
+        }
+        else
+        {
+            Debug.LogError("Unknown effect type");
         }
 
         tooltip = MenusManager.Instance.mainTooltip;
@@ -29,16 +43,36 @@ public class LeftPanelEffectUI : MonoBehaviour, IPointerEnterHandler, IPointerEx
             "",
             effect.description
         );
+
+        groupPrefab.SetActive(false);
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
+        if(group != null && group.Length > 0)
+        {
+            DestroyAllChildren.DestroyAllChildrenOf(groupPrefab.transform);
+
+            groupPrefab.SetActive(true);
+
+            foreach (LeftPanelButton button in group)
+            {
+                GameObject buttonObj = Instantiate(leftPanelEfectPrefab, groupPrefab.transform);
+                buttonObj.GetComponent<LeftPanelEffectUI>().Create(button);
+            }
+        }
+
         tooltip.Show(tooltipData, TooltipTarget.LeftPanelEffect);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
         tooltip.HideTooltip();
+
+        if (groupPrefab.activeSelf)
+        {
+            groupPrefab.SetActive(false);
+        }
     }
 
     public void OnPointerMove(PointerEventData eventData)

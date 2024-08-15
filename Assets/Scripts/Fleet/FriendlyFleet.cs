@@ -18,6 +18,25 @@ public partial class FriendlyFleet : Fleet
                 FleetManager.instance.haltFleet, // Action to halt the fleet
                 () => SetFleetStatus(FleetStatus.Idle) // Action to set fleet status to Idle
             ),
+            new LeftPanelGroup(
+                "Change formation",
+                "Change the formation of the fleet",
+                FleetManager.instance.changeFormation,
+                new LeftPanelButton[] {
+                    new LeftPanelButton(
+                        "Triangle",
+                        "Change the formation to triangle",
+                        FleetManager.instance.triangle,
+                        () => ChangeFormation(FleetFormation.Triangle)
+                    ),
+                    new LeftPanelButton(
+                        "Echelon",
+                        "Change the formation to echelon",
+                        FleetManager.instance.echelon,
+                        () => ChangeFormation(FleetFormation.Echelon)
+                    )
+                }
+            ),
         };
     }
 

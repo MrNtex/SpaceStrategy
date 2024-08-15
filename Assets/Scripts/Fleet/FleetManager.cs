@@ -8,8 +8,10 @@ public class FleetManager : MonoBehaviour
 
     public static FleetManager instance;
     // Start is called before the first frame update
-
+    [Header("Left panel icons")]
     public Sprite haltFleet;
+    public Sprite changeFormation;
+    public Sprite triangle, echelon;
 
     public FriendlyFleet selectedFleet
     {
