@@ -148,7 +148,7 @@ public class BodyInfo : ObjectInfo
     {
         if(fleet is FriendlyFleet)
         {
-            protectors.Add(fleet);
+            fleetsOnOrbit.Add(fleet);
         }
         else
         {
@@ -164,7 +164,7 @@ public class BodyInfo : ObjectInfo
 
         if (fleet is FriendlyFleet)
         {
-            protectors.Remove(fleet);
+            fleetsOnOrbit.Remove(fleet);
         }
         else
         {
@@ -173,9 +173,9 @@ public class BodyInfo : ObjectInfo
     }
     public void CheckForBattle()
     {
-        if(attackers.Count > 0 && protectors.Count > 0)
+        if(attackers.Count > 0 && fleetsOnOrbit.Count > 0)
         {
-            FriendlyFleet protector = protectors[0] as FriendlyFleet;
+            FriendlyFleet protector = fleetsOnOrbit[0] as FriendlyFleet;
             EnemyFleet attacker = attackers[0] as EnemyFleet;
 
             BattlesManager.instance.AddBattle(protector, attacker);
