@@ -11,7 +11,8 @@ public class ShipyardModal : PlanetModalPage
     [SerializeField]
     private GameObject fleetsContainer;
 
-    private GameObject fleetContainerPrefab, shipContainerPrefab;
+    [SerializeField]
+    private GameObject fleetContainerPrefab;
     public override void Create(PlanetModal planetModal)
     {
         colonyStatus = planetModal.colonyStatus;  
@@ -36,11 +37,7 @@ public class ShipyardModal : PlanetModalPage
         foreach (var fleet in bodyInfo.fleetsOnOrbit)
         {
             GameObject fleetContainer = Instantiate(fleetContainerPrefab, fleetsContainer.transform);
-
-            foreach (var ship in fleet.composition)
-            {
-                GameObject shipObj = Instantiate(shipContainerPrefab, fleetContainer.transform);
-            }
+            fleetContainer.GetComponent<ShipyardModalFleetContainer>().SetFleet(fleet);
         }
     }
 }

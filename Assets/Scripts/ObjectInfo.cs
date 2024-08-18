@@ -17,7 +17,8 @@ public class ObjectInfo : MonoBehaviour
 
     public List<LeftPanelEffect> effects = new List<LeftPanelEffect>();
 
-    public List<Fleet> fleetsOnOrbit = new List<Fleet>(), attackers = new List<Fleet>();
+    public List<FriendlyFleet> fleetsOnOrbit = new List<FriendlyFleet>();
+    public List<EnemyFleet> attackers = new List<EnemyFleet>();
     
     private void Awake()
     {

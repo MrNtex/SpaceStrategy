@@ -148,11 +148,11 @@ public class BodyInfo : ObjectInfo
     {
         if(fleet is FriendlyFleet)
         {
-            fleetsOnOrbit.Add(fleet);
+            fleetsOnOrbit.Add(fleet as FriendlyFleet);
         }
         else
         {
-            attackers.Add(fleet);
+            attackers.Add(fleet as EnemyFleet);
         }
         CheckForBattle();
     }
@@ -164,11 +164,11 @@ public class BodyInfo : ObjectInfo
 
         if (fleet is FriendlyFleet)
         {
-            fleetsOnOrbit.Remove(fleet);
+            fleetsOnOrbit.Remove(fleet as FriendlyFleet);
         }
         else
         {
-            attackers.Remove(fleet);
+            attackers.Remove(fleet as EnemyFleet);
         }
     }
     public void CheckForBattle()
