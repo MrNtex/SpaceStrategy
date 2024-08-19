@@ -34,8 +34,6 @@ public class ShipyardModal : PlanetModalPage
 
     void UpdateFleets()
     {
-        layoutGroup.enabled = false;
-
         DestroyAllChildren.DestroyAllChildrenOf(fleetsContainer.transform);
 
 
@@ -45,16 +43,7 @@ public class ShipyardModal : PlanetModalPage
             fleetContainer.GetComponent<ShipyardModalFleetContainer>().SetFleet(fleet);
         }
 
-        StartCoroutine(UpdateLayout());
-    }
-
-    IEnumerator UpdateLayout()
-    {
-        yield return new WaitForFixedUpdate();
         LayoutRebuilder.MarkLayoutForRebuild(dockedFleetsRect);
-
-        Debug.Log("Layout rebuild");
-
-        layoutGroup.enabled = true;
+        LayoutRebuilder.ForceRebuildLayoutImmediate(dockedFleetsRect);
     }
 }

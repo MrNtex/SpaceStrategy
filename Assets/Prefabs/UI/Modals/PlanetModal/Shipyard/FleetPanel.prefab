@@ -272,6 +272,7 @@ MonoBehaviour:
     type: 3}
   shipContainerScreens: {fileID: 7275919497135963709}
   shipContainerCapitals: {fileID: 8181352545938119064}
+  rect: {fileID: 2809852590012675966}
   layoutGroup: {fileID: 5512088391313007007}
 --- !u!1 &3245456396871150516
 GameObject:
@@ -308,8 +309,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 343.70935, y: 0}
+  m_SizeDelta: {x: 224.4729, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &5386979150440116105
 CanvasRenderer:
@@ -396,7 +397,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 459.9458, y: 0}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &7438778231479457331
 MonoBehaviour:
@@ -549,8 +550,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 116.23645, y: 0}
+  m_SizeDelta: {x: 224.4729, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &1748693133491752844
 CanvasRenderer:

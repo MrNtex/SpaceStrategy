@@ -16,13 +16,12 @@ public class ShipyardModalFleetContainer : MonoBehaviour
     private Transform shipContainerScreens, shipContainerCapitals;
 
     [SerializeField]
-    private VerticalLayoutGroup layoutGroup;
+    private RectTransform rect;
+    
     public void SetFleet(FriendlyFleet fleet)
     {
         this.fleet = fleet;
         header.text = fleet.name;
-
-        layoutGroup.enabled = false;
 
         foreach (var ship in fleet.composition)
         {
@@ -38,6 +37,6 @@ public class ShipyardModalFleetContainer : MonoBehaviour
             shipObj.GetComponent<ShipyardModalShipContainer>().SetShip(ship, isCapitan);
         }
 
-        layoutGroup.enabled = true;
+        LayoutRebuilder.ForceRebuildLayoutImmediate(rect);
     }
 }
