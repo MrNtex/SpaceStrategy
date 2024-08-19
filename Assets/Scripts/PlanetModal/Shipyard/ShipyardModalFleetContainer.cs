@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShipyardModalFleetContainer : MonoBehaviour
 {
@@ -14,11 +15,14 @@ public class ShipyardModalFleetContainer : MonoBehaviour
     [SerializeField]
     private Transform shipContainerScreens, shipContainerCapitals;
 
+    [SerializeField]
+    private VerticalLayoutGroup layoutGroup;
     public void SetFleet(FriendlyFleet fleet)
     {
         this.fleet = fleet;
         header.text = fleet.name;
 
+        layoutGroup.enabled = false;
 
         foreach (var ship in fleet.composition)
         {
@@ -33,5 +37,7 @@ public class ShipyardModalFleetContainer : MonoBehaviour
 
             shipObj.GetComponent<ShipyardModalShipContainer>().SetShip(ship, isCapitan);
         }
+
+        layoutGroup.enabled = true;
     }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShipyardModal : PlanetModalPage
 {
@@ -13,16 +14,17 @@ public class ShipyardModal : PlanetModalPage
 
     [SerializeField]
     private GameObject fleetContainerPrefab;
+
+    [SerializeField]
+    private RectTransform dockedFleetsRect;
+    [SerializeField]
+    private VerticalLayoutGroup layoutGroup;
     public override void Create(PlanetModal planetModal)
     {
         colonyStatus = planetModal.colonyStatus;  
         bodyInfo = planetModal.bodyInfo;
 
         UpdateFleets();
-        foreach (var ship in bodyInfo.fleetsOnOrbit)
-        {
-            Debug.Log(ship.name);
-        }
     }
 
     public override void OnColonyUpdate()
@@ -32,12 +34,27 @@ public class ShipyardModal : PlanetModalPage
 
     void UpdateFleets()
     {
+        layoutGroup.enabled = false;
+
         DestroyAllChildren.DestroyAllChildrenOf(fleetsContainer.transform);
+
 
         foreach (var fleet in bodyInfo.fleetsOnOrbit)
         {
             GameObject fleetContainer = Instantiate(fleetContainerPrefab, fleetsContainer.transform);
             fleetContainer.GetComponent<ShipyardModalFleetContainer>().SetFleet(fleet);
         }
+
+        StartCoroutine(UpdateLayout());
+    }
+
+    IEnumerator UpdateLayout()
+    {
+        yield return new WaitForFixedUpdate();
+        LayoutRebuilder.MarkLayoutForRebuild(dockedFleetsRect);
+
+        Debug.Log("Layout rebuild");
+
+        layoutGroup.enabled = true;
     }
 }

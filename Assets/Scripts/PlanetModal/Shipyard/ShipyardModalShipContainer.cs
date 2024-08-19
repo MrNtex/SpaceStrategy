@@ -13,6 +13,9 @@ public class ShipyardModalShipContainer : MonoBehaviour
     [SerializeField]
     private TMPro.TMP_Text nameText;
 
+    [SerializeField]
+    private Image health;
+
     public void SetShip(Ship ship, bool isCapitan)
     {
         this.ship = ship;
@@ -21,5 +24,7 @@ public class ShipyardModalShipContainer : MonoBehaviour
         nameText.text = ship.shipName;
 
         crown.gameObject.SetActive(isCapitan);
+
+        health.fillAmount = ship.stats.health / ship.stats.maxHealth;
     }
 }
