@@ -5,7 +5,7 @@ using UnityEngine;
 
 public partial class FriendlyFleet : Fleet
 {
-
+    public float orbitBillboardRange = 100f;
 
     protected override void Start()
     {
@@ -83,7 +83,11 @@ public partial class FriendlyFleet : Fleet
     {
         base.SetFleetStatus(status);
 
-        if(status != FleetStatus.Idle) onOrbit = null;
+        if (status != FleetStatus.OnOrbit){
+            onOrbit = null;
+            fleetBillboard.minDistance = -1; // Infinity
+        }
+        else fleetBillboard.minDistance = orbitBillboardRange; 
 
         DrawPath(capitan.transform.position); // Clear path
 

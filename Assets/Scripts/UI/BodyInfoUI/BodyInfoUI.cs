@@ -33,6 +33,15 @@ public class BodyInfoUI : MonoBehaviour
     private GameObject leftPanel;
     [SerializeField]
     private GameObject leftPanelEffectPrefab;
+
+    [Header("Fleet Docking")]
+    [SerializeField]
+    private GameObject fleetDocking;
+    [SerializeField]
+    private Transform fleetDockingContent;
+    [SerializeField]
+    private GameObject fleetDockedPrefab, fleetDockedSeparatorPrefab;
+
     private void Awake()
     {
         if (instance == null)
@@ -106,6 +115,15 @@ public class BodyInfoUI : MonoBehaviour
         }
 
         panel.SetActive(true);
+
+        if(obj is BodyInfo bodyInfo)
+        {
+            UpdateDockedFleets();
+        }
+        else
+        {
+            fleetDocking.SetActive(false);
+        }
     }
 
     public void CreateLeftPanel(ObjectInfo obj)
@@ -146,5 +164,28 @@ public class BodyInfoUI : MonoBehaviour
             return hexagon;
         }
         return null;
+    }
+    public void UpdateDockedFleets()
+    {
+        if(currentBody.fleetsOnOrbit.Count == 0)
+        {
+            fleetDocking.SetActive(false);
+            return;
+        }
+
+        DestroyAllChildren.DestroyAllChildrenOf(fleetDockingContent);
+        fleetDocking.SetActive(true);
+
+        for(int i = 0; i < currentBody.fleetsOnOrbit.Count; i++)
+        {
+
+            GameObject fleetObj = Instantiate(fleetDockedPrefab, fleetDockingContent);
+            fleetObj.GetComponent<FleetDockedUI>().SetFleet(currentBody.fleetsOnOrbit[i]);
+
+            if(i < currentBody.fleetsOnOrbit.Count - 1)
+            {
+                Instantiate(fleetDockedSeparatorPrefab, fleetDockingContent);
+            }
+        }
     }
 }

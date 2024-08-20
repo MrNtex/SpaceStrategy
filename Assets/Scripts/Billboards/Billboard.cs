@@ -6,8 +6,7 @@ using UnityEngine.Animations;
 using UnityEngine.UI;
 public class Billboard : MonoBehaviour
 {
-    [SerializeField]
-    protected float minDistance = -1; // Overriden by the PlanetFocusHelper
+    public float minDistance = -1; // Overriden by the PlanetFocusHelper in celestial billboards
 
     [SerializeField]
     protected Transform target; // Your planet's transform

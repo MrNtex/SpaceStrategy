@@ -32,7 +32,7 @@ public class CelestailBilboard : Billboard
             base.text.text = bodyInfo.objectName;
         }
         ObjectFocusHelper planetFocusHelper = target.GetComponent<ObjectFocusHelper>();
-        minDistance = planetFocusHelper.minDistance;
+        minDistance = planetFocusHelper.minFocusDistance;
 
         specialButton.GetComponent<Button>().onClick.AddListener(() => bodyInfo.SpecialButtonClicked());
 

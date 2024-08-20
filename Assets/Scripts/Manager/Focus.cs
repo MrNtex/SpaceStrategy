@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Camera))]
 public class Focus : MonoBehaviour
 {
+    public static Focus instance;
     public static ObjectFocusHelper focusedObject;
 
     public float focusTime;
@@ -26,7 +27,10 @@ public class Focus : MonoBehaviour
     public OnLeftClick onLeftClick;
 
     private GameObject dummyFocus;
-
+    private void Awake()
+    {
+        instance = this;
+    }
     private void Start()
     {
         oldPos = new GameObject("OldPos");

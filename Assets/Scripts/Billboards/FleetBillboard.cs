@@ -26,7 +26,7 @@ public class FleetBillboard : Billboard
     public void SetUpFleet()
     {
 
-        minDistance = -1;
+        // minDistance = -1;
 
         base.Start();
 

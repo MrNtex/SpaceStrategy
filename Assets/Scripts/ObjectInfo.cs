@@ -10,7 +10,7 @@ public class ObjectInfo : MonoBehaviour
 {
     public string objectName;
 
-    protected ObjectFocusHelper objectFocusHelper;
+    public ObjectFocusHelper objectFocusHelper;
     protected Focus cameraFocus;
 
     public Sprite icon;

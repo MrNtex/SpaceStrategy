@@ -20,7 +20,7 @@ public class ObjectFocusHelper : MonoBehaviour
 
     private const float angleDistanceRatio = 0.004f;
 
-    public float minDistance = 3000;
+    public float minFocusDistance = 3000;
 
     private float hitboxMultiplier = 0.025f;
 
@@ -110,7 +110,7 @@ public class ObjectFocusHelper : MonoBehaviour
     }
     public ObjectFocusHelper Focus(bool force = false)
     {
-        if(!force && Vector3.Distance(cameraMain.transform.position, transform.position) > minDistance && transform.parent != null)
+        if(!force && Vector3.Distance(cameraMain.transform.position, transform.position) > minFocusDistance && transform.parent != null)
         {
             return transform.parent.GetComponent<ObjectFocusHelper>();
         }
