@@ -155,6 +155,10 @@ public class BodyInfo : ObjectInfo
             attackers.Add(fleet as EnemyFleet);
         }
         CheckForBattle();
+
+
+        CelestailBilboard celestialBillboard = billboard as CelestailBilboard;
+        celestialBillboard.UpdateCounters();
     }
 
     public void RemoveFleet(Fleet fleet)
@@ -170,6 +174,9 @@ public class BodyInfo : ObjectInfo
         {
             attackers.Remove(fleet as EnemyFleet);
         }
+
+        CelestailBilboard celestialBillboard = billboard as CelestailBilboard;
+        celestialBillboard.UpdateCounters();
     }
     public void CheckForBattle()
     {

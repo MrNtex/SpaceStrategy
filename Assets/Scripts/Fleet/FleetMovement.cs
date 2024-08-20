@@ -115,6 +115,7 @@ public partial class Fleet : ObjectInfo
                 bodyInfo.AddFleet(this);
 
                 SetFleetStatus(FleetStatus.OnOrbit);
+                
 
                 if(Focus.focusedObject == objectFocusHelper)
                 {
@@ -124,6 +125,8 @@ public partial class Fleet : ObjectInfo
                 {
                     BodyInfoUI.instance.UpdateDockedFleets();
                 }
+
+                
                 return;
             }
             if(status == FleetStatus.Moving) // Do not change status while fighing

@@ -52,6 +52,13 @@ public class Billboard : MonoBehaviour
             }
         }
 
+        ObjectInfo objectInfo = target.GetComponent<ObjectInfo>();
+
+        if (objectInfo != null)
+        {
+            objectInfo.billboard = this;
+        }
+
         if (mainCamera == null) mainCamera = CameraControler.mainCamera;
 
 

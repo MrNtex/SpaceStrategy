@@ -2684,6 +2684,83 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6ab3bd338f660e45879ac1f4ea1edc4, type: 3}
+--- !u!1 &186245468
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 186245469}
+  - component: {fileID: 186245471}
+  - component: {fileID: 186245470}
+  m_Layer: 5
+  m_Name: DockedFleets
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &186245469
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 186245468}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2126879990}
+  - {fileID: 1551246084}
+  m_Father: {fileID: 458021715}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -35.651245, y: -298.5}
+  m_SizeDelta: {x: 71.30249, y: 41.37}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &186245470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 186245468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.0754717, g: 0.0754717, b: 0.0754717, a: 0.8784314}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 127279d577f25ac4ea17dae3782e5074, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &186245471
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 186245468}
+  m_CullTransparentMesh: 1
 --- !u!1 &231991277
 GameObject:
   m_ObjectHideFlags: 0
@@ -9457,7 +9534,7 @@ MonoBehaviour:
   offset: {x: 0, y: 7.8548307, z: 11.624336}
   target: {fileID: 0}
   cameraPlacement: {fileID: 0}
-  minDistance: 6000
+  minFocusDistance: 3000
   useCollider: 1
 --- !u!114 &356142579
 MonoBehaviour:
@@ -9498,6 +9575,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: 
+  objectFocusHelper: {fileID: 0}
   icon: {fileID: 21300000, guid: 6431e80df9a7b554c8b0e35bb2454c14, type: 3}
   effects: []
   fleetsOnOrbit: []
@@ -11567,7 +11645,7 @@ MonoBehaviour:
   offset: {x: 0, y: 0, z: 0}
   target: {fileID: 0}
   cameraPlacement: {fileID: 0}
-  minDistance: 400
+  minFocusDistance: 3000
   useCollider: 1
 --- !u!114 &443832779
 MonoBehaviour:
@@ -11608,6 +11686,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: 
+  objectFocusHelper: {fileID: 0}
   icon: {fileID: 0}
   effects: []
   fleetsOnOrbit: []
@@ -12227,6 +12306,7 @@ RectTransform:
   - {fileID: 1609869092}
   - {fileID: 584995904}
   - {fileID: 376105645}
+  - {fileID: 186245469}
   m_Father: {fileID: 621977154}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
@@ -12437,7 +12517,7 @@ MonoBehaviour:
   offset: {x: 0, y: 0, z: 0}
   target: {fileID: 0}
   cameraPlacement: {fileID: 0}
-  minDistance: 400
+  minFocusDistance: 3000
   useCollider: 1
 --- !u!114 &462690853
 MonoBehaviour:
@@ -12478,6 +12558,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: 
+  objectFocusHelper: {fileID: 0}
   icon: {fileID: 0}
   effects: []
   fleetsOnOrbit: []
@@ -12618,7 +12699,7 @@ MonoBehaviour:
   offset: {x: 0, y: 0, z: 0}
   target: {fileID: 0}
   cameraPlacement: {fileID: 0}
-  minDistance: 3000
+  minFocusDistance: 3000
   useCollider: 1
 --- !u!114 &462992316
 MonoBehaviour:
@@ -12633,6 +12714,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: 
+  objectFocusHelper: {fileID: 0}
   icon: {fileID: 21300000, guid: 93b55552b309b5e4a890005b3196651f, type: 3}
   effects: []
   fleetsOnOrbit: []
@@ -13674,7 +13756,7 @@ MonoBehaviour:
   offset: {x: 0, y: 7.854831, z: 11.624336}
   target: {fileID: 462992311}
   cameraPlacement: {fileID: 0}
-  minDistance: 3000
+  minFocusDistance: 3000
   useCollider: 1
 --- !u!114 &515440457
 MonoBehaviour:
@@ -13715,6 +13797,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: 
+  objectFocusHelper: {fileID: 0}
   icon: {fileID: 21300000, guid: dc50c89f5f9aa6f418ba16bd1102006d, type: 3}
   effects: []
   fleetsOnOrbit: []
@@ -14392,7 +14475,7 @@ MonoBehaviour:
   offset: {x: 0, y: 7.8548307, z: 11.624336}
   target: {fileID: 0}
   cameraPlacement: {fileID: 0}
-  minDistance: 3000
+  minFocusDistance: 3000
   useCollider: 1
 --- !u!114 &564395478
 MonoBehaviour:
@@ -14433,6 +14516,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: 
+  objectFocusHelper: {fileID: 0}
   icon: {fileID: 21300000, guid: 66fbc0996803e6c4ab7455291c523914, type: 3}
   effects: []
   fleetsOnOrbit: []
@@ -14762,7 +14846,7 @@ MonoBehaviour:
   offset: {x: 0, y: 7.8548307, z: 11.624336}
   target: {fileID: 0}
   cameraPlacement: {fileID: 0}
-  minDistance: 3000
+  minFocusDistance: 3000
   useCollider: 1
 --- !u!114 &582741485
 MonoBehaviour:
@@ -14803,6 +14887,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: 
+  objectFocusHelper: {fileID: 0}
   icon: {fileID: 21300000, guid: bc6c7bfd41241d24486950f30e139020, type: 3}
   effects: []
   fleetsOnOrbit: []
@@ -15504,6 +15589,12 @@ MonoBehaviour:
   leftPanel: {fileID: 304312564}
   leftPanelEffectPrefab: {fileID: 9059501884669689883, guid: 09b8eed14a8ab3e4fb3ba77f5f250d3e,
     type: 3}
+  fleetDocking: {fileID: 186245468}
+  fleetDockingContent: {fileID: 1551246084}
+  fleetDockedPrefab: {fileID: 1080324439656222960, guid: 7dcd65ab3b24ac847824abe25602bf78,
+    type: 3}
+  fleetDockedSeparatorPrefab: {fileID: 7586637298268696092, guid: 67898bcdf994b3048bce2132fecb2d24,
+    type: 3}
 --- !u!114 &621977159
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16021,7 +16112,7 @@ MonoBehaviour:
   offset: {x: 0, y: 0, z: 0}
   target: {fileID: 0}
   cameraPlacement: {fileID: 0}
-  minDistance: 400
+  minFocusDistance: 3000
   useCollider: 1
 --- !u!114 &651233529
 MonoBehaviour:
@@ -16062,6 +16153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: 
+  objectFocusHelper: {fileID: 0}
   icon: {fileID: 0}
   effects: []
   fleetsOnOrbit: []
@@ -17865,7 +17957,7 @@ MonoBehaviour:
   offset: {x: 0, y: 7.8548307, z: 11.624336}
   target: {fileID: 0}
   cameraPlacement: {fileID: 0}
-  minDistance: 2500
+  minFocusDistance: 3000
   useCollider: 1
 --- !u!114 &828426964
 MonoBehaviour:
@@ -17906,6 +17998,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: 
+  objectFocusHelper: {fileID: 0}
   icon: {fileID: 21300000, guid: 357f818aa282bfb45b62dfb98d332b05, type: 3}
   effects: []
   fleetsOnOrbit: []
@@ -18021,7 +18114,7 @@ MonoBehaviour:
   offset: {x: 0, y: 7.8548307, z: 11.624336}
   target: {fileID: 0}
   cameraPlacement: {fileID: 0}
-  minDistance: 3000
+  minFocusDistance: 3000
   useCollider: 1
 --- !u!120 &860914091
 LineRenderer:
@@ -18269,6 +18362,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: 
+  objectFocusHelper: {fileID: 0}
   icon: {fileID: 21300000, guid: a4ec4c5288bb6384890a56ecd211528f, type: 3}
   effects: []
   fleetsOnOrbit: []
@@ -18531,7 +18625,7 @@ MonoBehaviour:
   offset: {x: 0, y: 0, z: 0}
   target: {fileID: 0}
   cameraPlacement: {fileID: 0}
-  minDistance: 400
+  minFocusDistance: 3000
   useCollider: 1
 --- !u!114 &867471419
 MonoBehaviour:
@@ -18572,6 +18666,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: 
+  objectFocusHelper: {fileID: 0}
   icon: {fileID: 0}
   effects: []
   fleetsOnOrbit: []
@@ -19596,7 +19691,7 @@ MonoBehaviour:
   offset: {x: 0, y: 0, z: 0}
   target: {fileID: 0}
   cameraPlacement: {fileID: 0}
-  minDistance: 400
+  minFocusDistance: 3000
   useCollider: 1
 --- !u!114 &951593556
 MonoBehaviour:
@@ -19637,6 +19732,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: 
+  objectFocusHelper: {fileID: 0}
   icon: {fileID: 0}
   effects: []
   fleetsOnOrbit: []
@@ -21208,7 +21304,7 @@ MonoBehaviour:
   offset: {x: 0, y: 7.8548307, z: 11.624336}
   target: {fileID: 0}
   cameraPlacement: {fileID: 0}
-  minDistance: 3000
+  minFocusDistance: 3000
   useCollider: 1
 --- !u!114 &1138087776
 MonoBehaviour:
@@ -21249,6 +21345,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: 
+  objectFocusHelper: {fileID: 0}
   icon: {fileID: 21300000, guid: 9facf3569fd04894ea3c366a52294434, type: 3}
   effects: []
   fleetsOnOrbit: []
@@ -21778,7 +21875,7 @@ MonoBehaviour:
   offset: {x: 0, y: 0, z: 0}
   target: {fileID: 0}
   cameraPlacement: {fileID: 0}
-  minDistance: 400
+  minFocusDistance: 3000
   useCollider: 1
 --- !u!114 &1186634156
 MonoBehaviour:
@@ -21819,6 +21916,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: 
+  objectFocusHelper: {fileID: 0}
   icon: {fileID: 0}
   effects: []
   fleetsOnOrbit: []
@@ -22229,6 +22327,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: Main Stellar Fleet
+  objectFocusHelper: {fileID: 0}
   icon: {fileID: 21300000, guid: c7c3acbfc1c84914a9dde357010a73d8, type: 3}
   effects: []
   fleetsOnOrbit: []
@@ -22337,6 +22436,7 @@ MonoBehaviour:
   formation: 0
   forceManeuver: 0
   battleTarget: {fileID: 0}
+  orbitBillboardRange: 100
 --- !u!4 &1264452443
 Transform:
   m_ObjectHideFlags: 0
@@ -22375,7 +22475,7 @@ MonoBehaviour:
   offset: {x: 0, y: 9, z: -11}
   target: {fileID: 1675667124}
   cameraPlacement: {fileID: 0}
-  minDistance: 3000
+  minFocusDistance: 3000
   useCollider: 0
 --- !u!120 &1264452445
 LineRenderer:
@@ -23655,7 +23755,7 @@ MonoBehaviour:
   offset: {x: 0, y: 0, z: 0}
   target: {fileID: 0}
   cameraPlacement: {fileID: 0}
-  minDistance: 400
+  minFocusDistance: 3000
   useCollider: 1
 --- !u!114 &1333688747
 MonoBehaviour:
@@ -23722,6 +23822,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: 
+  objectFocusHelper: {fileID: 0}
   icon: {fileID: 0}
   effects: []
   fleetsOnOrbit: []
@@ -24372,7 +24473,7 @@ MonoBehaviour:
   offset: {x: 0, y: 7.8548307, z: 11.624336}
   target: {fileID: 0}
   cameraPlacement: {fileID: 0}
-  minDistance: 2500
+  minFocusDistance: 3000
   useCollider: 1
 --- !u!114 &1376634470
 MonoBehaviour:
@@ -24439,6 +24540,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: 
+  objectFocusHelper: {fileID: 0}
   icon: {fileID: 21300000, guid: 1413420a319cca344bf6b12a5cbeef52, type: 3}
   effects: []
   fleetsOnOrbit: []
@@ -26389,6 +26491,68 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1548338663}
   m_CullTransparentMesh: 1
+--- !u!1 &1551246083
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1551246084}
+  - component: {fileID: 1551246085}
+  m_Layer: 5
+  m_Name: Content
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1551246084
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1551246083}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 186245469}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1551246085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1551246083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 2
+  m_Spacing: 0
+  m_ChildForceExpandWidth: 0
+  m_ChildForceExpandHeight: 0
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
 --- !u!1 &1552605392
 GameObject:
   m_ObjectHideFlags: 0
@@ -28752,7 +28916,7 @@ MonoBehaviour:
   offset: {x: 0, y: 0, z: 0}
   target: {fileID: 0}
   cameraPlacement: {fileID: 0}
-  minDistance: 400
+  minFocusDistance: 3000
   useCollider: 1
 --- !u!114 &1792061404
 MonoBehaviour:
@@ -28793,6 +28957,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: 
+  objectFocusHelper: {fileID: 0}
   icon: {fileID: 0}
   effects: []
   fleetsOnOrbit: []
@@ -31537,7 +31702,7 @@ MonoBehaviour:
   offset: {x: 0, y: 7.8548307, z: 11.624336}
   target: {fileID: 0}
   cameraPlacement: {fileID: 0}
-  minDistance: 3000
+  minFocusDistance: 3000
   useCollider: 1
 --- !u!114 &2016960382
 MonoBehaviour:
@@ -31578,6 +31743,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: 
+  objectFocusHelper: {fileID: 0}
   icon: {fileID: 21300000, guid: 615abb42da9017c4ea9f861ba70d27fa, type: 3}
   effects: []
   fleetsOnOrbit: []
@@ -31824,7 +31990,7 @@ MonoBehaviour:
   offset: {x: 0, y: 7.8548307, z: 11.624336}
   target: {fileID: 0}
   cameraPlacement: {fileID: 0}
-  minDistance: 1500
+  minFocusDistance: 3000
   useCollider: 1
 --- !u!120 &2047691598
 LineRenderer:
@@ -32022,6 +32188,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: 
+  objectFocusHelper: {fileID: 0}
   icon: {fileID: 21300000, guid: 962dd0d6cd0fb4c4a805306afbfb6198, type: 3}
   effects: []
   fleetsOnOrbit: []
@@ -32459,6 +32626,140 @@ Transform:
   - {fileID: 102364692}
   m_Father: {fileID: 356142575}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2126879989
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2126879990}
+  - component: {fileID: 2126879992}
+  - component: {fileID: 2126879991}
+  m_Layer: 5
+  m_Name: Text (TMP)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2126879990
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2126879989}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 186245469}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -236.5232, y: 0.000033379}
+  m_SizeDelta: {x: 434.5915, y: 66.196}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2126879991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2126879989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: DOCKED FLEETS
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 20.45
+  m_fontSizeBase: 20.45
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 4
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 22.9
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &2126879992
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2126879989}
+  m_CullTransparentMesh: 1
 --- !u!1 &2128470182
 GameObject:
   m_ObjectHideFlags: 0
@@ -32852,7 +33153,7 @@ MonoBehaviour:
   offset: {x: 0, y: 9, z: -11}
   target: {fileID: 1149570432}
   cameraPlacement: {fileID: 0}
-  minDistance: 3000
+  minFocusDistance: 3000
   useCollider: 0
 --- !u!114 &2145035790
 MonoBehaviour:
@@ -32867,6 +33168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: Main Stellar Fleet
+  objectFocusHelper: {fileID: 0}
   icon: {fileID: 21300000, guid: c7c3acbfc1c84914a9dde357010a73d8, type: 3}
   effects: []
   fleetsOnOrbit: []
@@ -32975,6 +33277,7 @@ MonoBehaviour:
   formation: 0
   forceManeuver: 0
   battleTarget: {fileID: 0}
+  orbitBillboardRange: 100
 --- !u!4 &2145035791
 Transform:
   m_ObjectHideFlags: 0

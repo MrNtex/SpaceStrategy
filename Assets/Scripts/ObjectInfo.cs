@@ -19,6 +19,8 @@ public class ObjectInfo : MonoBehaviour
 
     public List<FriendlyFleet> fleetsOnOrbit = new List<FriendlyFleet>();
     public List<EnemyFleet> attackers = new List<EnemyFleet>();
+
+    public Billboard billboard;
     
     private void Awake()
     {

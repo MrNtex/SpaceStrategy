@@ -18,6 +18,12 @@ public class CelestailBilboard : Billboard
     private HorizontalLayoutGroup layoutGroup;
 
     private BodyInfo bodyInfo;
+
+    [Header("Docked fleets")]
+    [SerializeField]
+    private GameObject dockedFleetsObject;
+    [SerializeField]
+    private TMP_Text dockedFleetsText;
     protected override void Start()
     {
         base.Start();
@@ -47,8 +53,9 @@ public class CelestailBilboard : Billboard
     void UpdateBillboard()
     {
         bodyInfo = target.GetComponent<BodyInfo>();
+        UpdateCounters();
 
-        if(bodyInfo != null && bodyInfo.status != BodyStatusType.Inhabitable)
+        if (bodyInfo != null && bodyInfo.status != BodyStatusType.Inhabitable)
         {
             specialButton.SetActive(true);
             planetSpecialButton.SetUp(bodyInfo.status, bodyInfo.icon);
@@ -58,5 +65,18 @@ public class CelestailBilboard : Billboard
 
         layoutGroup.padding.left = 0;
         specialButton.SetActive(false);
+    }
+
+    public void UpdateCounters()
+    {
+        List<FriendlyFleet> dockedFleets = bodyInfo.fleetsOnOrbit;
+        if (dockedFleets.Count == 0)
+        {
+            dockedFleetsObject.SetActive(false);
+            return;
+        }
+
+        dockedFleetsObject.SetActive(true);
+        dockedFleetsText.text = dockedFleets.Count.ToString();
     }
 }
